@@ -1,0 +1,13 @@
+{'track': 
+	'artists': [{ 'id': '0YrtvWJMgSdVrk3SfNjTbx', 'name': 'Death Cab for Cutie', 'uri': 'spotify:artist:0YrtvWJMgSdVrk3SfNjTbx'}],
+	'duration_ms': 247413,
+	'explicit': False,
+	'external_ids': {'isrc': 'USAT21802837'},
+	'id': '7JSR685hpFDqvTSNHeSKjL',
+	'name': '60 & Punk',
+	'popularity': 38,
+	'preview_url': 'https://p.scdn.co/mp3-preview/121638c4957a86c8ae65e98db928998229fe2d96?cid=269d2379c882438c890b91093e5dc974',
+	'track': True,
+	'type': 'track',
+	'uri': 'spotify:track:7JSR685hpFDqvTSNHeSKjL'
+}
