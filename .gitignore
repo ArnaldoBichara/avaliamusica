@@ -1,9 +1,9 @@
-avaliamusica/datasets/lastfm-1K-users-profile.tsv
-avaliamusica/datasets/lastfm-1K-users-tracks.tsv
-avaliamusica/datasets/spotify600k_artists.csv
-avaliamusica/datasets/spotify600k_similar_artists.json
-avaliamusica/datasets/spotify600k_tracks.csv
-avaliamusica/old/
-avaliamusica/'arquivos intermediarios'/
-avaliamusica/datasets/
+datasets/lastfm-1K-users-profile.tsv
+datasets/lastfm-1K-users-tracks.tsv
+datasets/spotify600k_artists.csv
+datasets/spotify600k_similar_artists.json
+datasets/spotify600k_tracks.csv
+old/
+'arquivos intermediarios'/
+datasets/
 
