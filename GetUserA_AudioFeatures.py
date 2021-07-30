@@ -88,7 +88,7 @@ dfUserAMusFeatures.drop(columns=['type','uri','track_href','analysis_url'],inpla
 
 # lendo dfMusicasUserACurteENaoCurte, que será usado para incluir artista e musica 
 #
-dfMusicasUserACurteENaoCurte =  pd.read_pickle ("./arquivos intermediarios/UserA_MusCurteENaoCurte.pickle")  
+dfMusicasUserACurteENaoCurte =  pd.read_pickle ("./FeatureStore/MusicasUserA.pickle")  
 
 # incluir artista e musica em dfUserAMusFeatures
 #%%
@@ -118,7 +118,7 @@ dfUserAMusFeatures = dfUserAMusFeatures[
         ]]
 #%%
 # salvar dataframe em .pickle
-dfUserAMusFeatures.to_pickle ("./arquivos intermediarios/UserAMus&Features.pickle")
+dfUserAMusFeatures.to_pickle ("./FeatureStore/UserA_AudioFeatures.pickle")
 
 #%%
 # algumas verificações

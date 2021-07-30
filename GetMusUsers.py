@@ -3,7 +3,7 @@
 # Este componente lê o dataset de playlists do Spotify 
 # e faz uma limpeza, removendo uma coluna, renomeando outras e removendo musicas em branco 
 # Se necessárias outras transformações/limpeza, fazer aqui.
-# O resultado é o arquivo Usrs_MusCurte.pickle 
+# O resultado é o arquivo pickle com a lista de users, cada um com suas músicas prediletas
 #################
 
 # Importando packages
@@ -32,5 +32,5 @@ dfMusicasUser.drop_duplicates(inplace = True)
 dfMusicasUser.reset_index(drop=True)
 
 # salvando dataset
-dfMusicasUser.to_pickle ("./arquivos intermediarios/Users_MusCurtem.pickle")
+dfMusicasUser.to_pickle ("./FeatureStore/MusUsers.pickle")
 

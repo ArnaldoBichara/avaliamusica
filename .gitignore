@@ -4,6 +4,7 @@ datasets/spotify600k_artists.csv
 datasets/spotify600k_similar_artists.json
 datasets/spotify600k_tracks.csv
 old/
-'arquivos intermediarios'/
+FeatureStore/
 datasets/
+__pycache__/
 

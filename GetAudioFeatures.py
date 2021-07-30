@@ -2,7 +2,7 @@
 # Este componente é responsável por ler o dataset spotify 600k traks
 # e montar um dataset com as músicas, apenas o artista principal (o primeiro)
 # Se necessárias outras transformações/limpeza, fazer aqui.
-# O resultado é o arquivo Spotify600kMusicas.pickle com o dataset 
+# O resultado é o arquivo pickle com o dataset 
 # além de uma lista das interpretações (artista+música) em excel
 #################
 
@@ -71,7 +71,7 @@ dfSpotMusicas = dfSpotMusicas[
         ]]
 # salvando dataset
 
-dfSpotMusicas.to_pickle('./arquivos intermediarios/600kMus&Features.pickle')
+dfSpotMusicas.to_pickle('./FeatureStore/AudioFeatures.pickle')
 
 print (dfSpotMusicas.head())
 

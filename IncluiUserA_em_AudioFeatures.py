@@ -3,8 +3,8 @@ import pandas as pd
 import numpy as np
 import pickle
 # 
-dfUserAMusFeatures =  pd.read_pickle ("./arquivos intermediarios/UserAMus&Features.pickle")  
-df600kMus_Features =  pd.read_pickle ("./arquivos intermediarios/600kMus&Features.pickle")  
+dfUserAMusFeatures =  pd.read_pickle ("./FeatureStore/UserA_AudioFeatures.pickle")  
+df600kMus_Features =  pd.read_pickle ("./FeatureStore/AudioFeatures.pickle")  
 
 #%%
 print(len(df600kMus_Features))
@@ -14,6 +14,6 @@ dfAudioFeatures = pd.concat([df600kMus_Features, dfUserAMusFeatures], ignore_ind
 # %%
 print(len(dfAudioFeatures))
 
-dfAudioFeatures.to_pickle('./arquivos intermediarios/600KAudioFeatures.pickle')
+dfAudioFeatures.to_pickle('./FeatureStore/AudioFeatures.pickle')
 
 # %%

@@ -97,9 +97,9 @@ dfMusicasUserANaoCurte = dfMusicasUserANaoCurte[
         ]]        
 
 # salvando datasets
-dfMusicasUserACurte.to_pickle ("./arquivos intermediarios/UserA_MusCurte.pickle")
-dfMusicasUserANaoCurte.to_pickle ("./arquivos intermediarios/UserA_MusNaoCurte.pickle")                            
-dfMusicasUserACurteENaoCurte.to_pickle ("./arquivos intermediarios/UserA_MusCurteENaoCurte.pickle")                            
+dfMusicasUserACurte.to_pickle ("./FeatureStore/MusCurteUserA.pickle")
+dfMusicasUserANaoCurte.to_pickle ("./FeatureStore/MusNaoCurteUserA.pickle")                            
+dfMusicasUserACurteENaoCurte.to_pickle ("./FeatureStore/MusicasUserA.pickle")                            
 
 # algumas verificações
 print ("\nUser A curte:\n")
