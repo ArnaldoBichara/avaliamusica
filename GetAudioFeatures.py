@@ -20,13 +20,6 @@ dfSpotMusicas = pd.read_csv('./datasets/spotify600k_tracks.csv',
                             usecols = ['id','artists','name','duration_ms','danceability','energy','key','loudness','mode','speechiness','acousticness','instrumentalness','liveness','valence','tempo', 'time_signature'],
                             #quoting = csv.QUOTE_NONE
                             )
-dfSpotMusicas.rename(columns = {'id':'id_musica',
-                                'name':'musica',
-                                'duration_ms':'duração_ms',
-                                'energy': 'energia',
-                                'key':'chave',
-                                'mode':'modo'},
-                     inplace=True)                            
 
 # Filtro: transforma lista de artists no artista principal (o primeiro da lista)
  
@@ -47,6 +40,10 @@ dfSpotMusicas = dfSpotMusicas.drop(['artists'], axis=1)
 # setando 'id' como index
 #dfSpotMusicas.set_index('id_musica',verify_integrity=True, inplace=True);
 
+dfSpotMusicas.rename(columns = {'id':'id_musica',
+                                'name':'musica',
+                                },
+                     inplace=True)   
 #%%
 list(dfSpotMusicas.columns.values)
 #%%
@@ -55,12 +52,12 @@ dfSpotMusicas = dfSpotMusicas[
       [ 'id_musica',
         'artista',
         'musica',
-        'duração_ms',
+        'duration_ms',
         'danceability',
-        'energia',
-        'chave',
+        'energy',
+        'key',
         'loudness',
-        'modo',
+        'mode',
         'speechiness',
         'acousticness',
         'instrumentalness',

@@ -73,11 +73,7 @@ dfUserAMusFeatures = pd.DataFrame(ListUserAMusFeatures)
 # renomeando algumas colunas
 
 dfUserAMusFeatures.rename ( columns = {'id':'id_musica',
-                                'name':'musica',
-                                'duration_ms':'duração_ms',
-                                'energy': 'energia',
-                                'key':'chave',
-                                'mode':'modo'},
+                                'name':'musica'},
                             inplace=True ) 
 
 # id_musica passa a ser o index
@@ -102,12 +98,12 @@ dfUserAMusFeatures = dfUserAMusFeatures[
       [ 'id_musica',
         'artista',
         'musica',
-        'duração_ms',
+        'duration_ms',
         'danceability',
-        'energia',
-        'chave',
+        'energy',
+        'key',
         'loudness',
-        'modo',
+        'mode',
         'speechiness',
         'acousticness',
         'instrumentalness',
