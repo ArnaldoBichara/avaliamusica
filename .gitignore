@@ -3,7 +3,7 @@ datasets/lastfm-1K-users-tracks.tsv
 datasets/spotify600k_artists.csv
 datasets/spotify600k_similar_artists.json
 datasets/spotify600k_tracks.csv
-old/
+old/pickle
 FeatureStore/
 datasets/
 __pycache__/
