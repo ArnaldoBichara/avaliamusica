@@ -71,5 +71,5 @@ dfSpotMusicas = dfSpotMusicas[
 dfSpotMusicas.to_pickle('./FeatureStore/AudioFeatures.pickle')
 
 print (dfSpotMusicas.head())
-
-# %%
+#%%
+print (dfSpotMusicas.shape)

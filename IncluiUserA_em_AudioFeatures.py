@@ -17,3 +17,6 @@ print(len(dfAudioFeatures))
 dfAudioFeatures.to_pickle('./FeatureStore/AudioFeatures.pickle')
 
 # %%
+print(dfAudioFeatures.shape)
+
+# %%
