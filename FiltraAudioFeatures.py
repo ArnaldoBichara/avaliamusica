@@ -33,6 +33,11 @@ dfUserAAudioFeatures.drop (columns=['duration_ms'], inplace=True)
 #%% removendo coluna loudness já que
 # é muito correlacionada com energy e acousticness
 dfAudioFeatures.drop(columns=['loudness'], inplace=True)
+dfUserAAudioFeatures.drop(columns=['loudness'], inplace=True)
 
 print (dfAudioFeatures.shape)
 print (dfAudioFeatures.describe())
+
+#%% salvando filtrado
+dfAudioFeatures.to_pickle('./FeatureStore/AudioFeatures.pickle')
+dfUserAAudioFeatures.to_pickle('./FeatureStore/UserA_AudioFeatures.pickle')
