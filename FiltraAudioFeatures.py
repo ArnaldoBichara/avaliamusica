@@ -20,15 +20,21 @@ dfUserAAudioFeatures =  pd.read_pickle ("./FeatureStore/UserA_AudioFeatures.pick
 # não são músicas, são fala
 dfAudioFeatures = dfAudioFeatures[dfAudioFeatures['speechiness'] < 0.6]
 
-#%% normalizando atributo duration_ms entre 0 e 1
+#%% normalizando atributos key, tempo, time_signature e duration_ms entre 0 e 1
 def normaliza_minmax(df):
     return (df - df.min()) / ( df.max() - df.min())
 
-dfAudioFeatures[['duration_norm']] = normaliza_minmax(dfAudioFeatures[['duration_ms']])
-dfAudioFeatures.drop (columns=['duration_ms'], inplace=True)
+dfAudioFeatures[['duration_ms']] = normaliza_minmax(dfAudioFeatures[['duration_ms']])
+dfUserAAudioFeatures[['duration_ms']] = normaliza_minmax(dfUserAAudioFeatures[['duration_ms']])
 
-dfUserAAudioFeatures[['duration_norm']] = normaliza_minmax(dfUserAAudioFeatures[['duration_ms']])
-dfUserAAudioFeatures.drop (columns=['duration_ms'], inplace=True)
+dfAudioFeatures[['key']] = normaliza_minmax(dfAudioFeatures[['key']])
+dfUserAAudioFeatures[['key']] = normaliza_minmax(dfUserAAudioFeatures[['key']])
+
+dfAudioFeatures[['tempo']] = normaliza_minmax(dfAudioFeatures[['tempo']])
+dfUserAAudioFeatures[['tempo']] = normaliza_minmax(dfUserAAudioFeatures[['tempo']])
+
+dfAudioFeatures[['time_signature']] = normaliza_minmax(dfAudioFeatures[['time_signature']])
+dfUserAAudioFeatures[['time_signature']] = normaliza_minmax(dfUserAAudioFeatures[['time_signature']])
 
 #%% removendo coluna loudness já que
 # é muito correlacionada com energy e acousticness
@@ -41,3 +47,5 @@ print (dfAudioFeatures.describe())
 #%% salvando filtrado
 dfAudioFeatures.to_pickle('./FeatureStore/AudioFeatures.pickle')
 dfUserAAudioFeatures.to_pickle('./FeatureStore/UserA_AudioFeatures.pickle')
+
+# %%
