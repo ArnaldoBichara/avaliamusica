@@ -54,13 +54,6 @@ Image(filename='pairplot2.png')
 dfAudioFeatures.drop(columns=['loudness'], inplace=True)
 #%%
 dfAudioFeatures.describe()
-#%%
-dfAudioFeatures.hist(bins=15, alpha=0.5, figsize=(18,16))
-
-#%% histograma do perfil do user A
-dfUserAAudioFeatures.hist(bins=15, alpha=0.5, figsize=(18,16))
-#%%
-dfUserAbarradoAudioFeatures.hist(bins=15, alpha=0.5, figsize=(18,16))
 
 
 
