@@ -54,10 +54,13 @@ def getListMusFeatures(user,playlist_id):
         listMusFeatures.extend(sp.audio_features(getIdsMusicas(playlistItems)))
     
     return listMusFeatures
-
+#%%
 ListMusFeaturesUserA = getListMusFeatures(userA, IdPlaylistCurto)
 ListMusFeaturesUserAbarra = getListMusFeatures(userA, IdPlaylistNaoCurto)
-
+#%%
+print(len(ListMusFeaturesUserA))
+print(len(ListMusFeaturesUserAbarra))
+#%%
 # filtrando item vazio 
 ListMusFeaturesUserA = [i for i in ListMusFeaturesUserA if i is not None]
 ListMusFeaturesUserAbarra = [i for i in ListMusFeaturesUserAbarra if i is not None]
@@ -77,13 +80,14 @@ dfUserAMusFeatures.rename ( columns = {'id':'id_musica',
 dfUserAbarraMusFeatures.rename ( columns = {'id':'id_musica',
                                 'name':'musica'},
                                 inplace=True ) 
-# id_musica passa a ser o index
-#dfUserAMusFeatures.set_index('id_musica',verify_integrity=True, inplace=True)
 
 # removendo algumas colunas que não nos interessam
 dfUserAMusFeatures.drop(columns=['type','uri','track_href','analysis_url'],inplace=True)
 dfUserAbarraMusFeatures.drop(columns=['type','uri','track_href','analysis_url'],inplace=True)
-
+#%%
+print (dfUserAMusFeatures.shape)
+print (dfUserAbarraMusFeatures.shape)
+#%%
 # lendo dfMusicasUserACurteENaoCurte, que será usado para incluir artista e musica 
 #
 dfMusicasUserACurte =  pd.read_pickle ("./FeatureStore/MusUserACurte.pickle")  
@@ -95,7 +99,7 @@ print(dfMusicasUserACurte.columns)
 print(dfUserAMusFeatures.columns)
 #%%
 dfUserAMusFeatures = dfUserAMusFeatures.merge(dfMusicasUserACurte, how='left', on='id_musica')
-dfUserAbarraMusFeatures = dfUserAMusFeatures.merge(dfMusicasUserANaoCurte, how='left', on='id_musica')
+dfUserAbarraMusFeatures = dfUserAbarraMusFeatures.merge(dfMusicasUserANaoCurte, how='left', on='id_musica')
 
 #%%
 list(dfUserAMusFeatures.columns.values)
@@ -119,7 +123,7 @@ dfUserAMusFeatures = dfUserAMusFeatures[
         'tempo',
         'time_signature',
         ]]
-dfUserAbarraMusFeatures = dfUserAMusFeatures[
+dfUserAbarraMusFeatures = dfUserAbarraMusFeatures[
       [ 'id_musica',
         'artista',
         'musica',
@@ -145,7 +149,6 @@ dfUserAbarraMusFeatures.to_pickle ("./FeatureStore/AudioFeaturesUserANaoCurte.pi
 
 #%%
 # algumas verificações
-print ("\nUser A Mus&Features:\n")
 print(dfUserAMusFeatures.tail())
-
+print(dfUserAbarraMusFeatures.tail())
 # %%
