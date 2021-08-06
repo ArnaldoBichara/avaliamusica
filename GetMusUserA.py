@@ -62,14 +62,14 @@ dfMusicasUserACurte = pd.DataFrame(listMusicasUserACurte,
 dfMusicasUserANaoCurte = pd.DataFrame(listMusicasUserANaoCurte,
                             columns=['id_musica', 'artista','musica'])
 
-dfMusicasUserACurteENaoCurte =  dfMusicasUserACurte.append (dfMusicasUserANaoCurte, verify_integrity=True, ignore_index=True)
+#dfMusicasUserACurteENaoCurte =  dfMusicasUserACurte.append (dfMusicasUserANaoCurte, verify_integrity=True, ignore_index=True)
 # não deveria haver duplicados, mas vamos remover se houver por erro de digitação
-dfMusicasUserACurteENaoCurte.drop_duplicates()
+#dfMusicasUserACurteENaoCurte.drop_duplicates()
 #dfMusicasUserACurteENaoCurte.set_index('id_musica',verify_integrity=True, inplace=True)
 
 # removendo colunas desnecessárias
-dfMusicasUserACurte = dfMusicasUserACurte.drop(columns=['id_musica'])
-dfMusicasUserANaoCurte = dfMusicasUserANaoCurte.drop(columns='id_musica')
+#dfMusicasUserACurte = dfMusicasUserACurte.drop(columns=['id_musica'])
+#dfMusicasUserANaoCurte = dfMusicasUserANaoCurte.drop(columns='id_musica')
 
 # removendo itens repetidos (diferentes interpretações de um artista\música)
 print (len(dfMusicasUserACurte.index))
@@ -89,17 +89,18 @@ dfMusicasUserACurte = dfMusicasUserACurte[
       [ 'userid',
         'artista',
         'musica',
+        'id_musica'
         ]]
 dfMusicasUserANaoCurte = dfMusicasUserANaoCurte[
       [ 'userid',
         'artista',
         'musica',
+        'id_musica'
         ]]        
-
 # salvando datasets
-dfMusicasUserACurte.to_pickle ("./FeatureStore/MusCurteUserA.pickle")
-dfMusicasUserANaoCurte.to_pickle ("./FeatureStore/MusNaoCurteUserA.pickle")                            
-dfMusicasUserACurteENaoCurte.to_pickle ("./FeatureStore/MusicasUserA.pickle")                            
+dfMusicasUserACurte.to_pickle ("./FeatureStore/MusUserACurte.pickle")
+dfMusicasUserANaoCurte.to_pickle ("./FeatureStore/MusUserANaoCurte.pickle")                            
+#dfMusicasUserACurteENaoCurte.to_pickle ("./FeatureStore/MusicasUserA.pickle")                            
 
 # algumas verificações
 print ("\nUser A curte:\n")

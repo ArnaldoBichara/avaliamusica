@@ -1,7 +1,7 @@
 ###################
 # Este componente lê e trata as playlists Curto e Não Curto do Usuário A,
 # obtendo diretamente do Spotify,
-# e gera a lista de features das musicas das duas playlists
+# e gera lista de features das musicas das duas playlists
 ###################
 #%%
 # Importando packages
@@ -45,30 +45,27 @@ def getIdsMusicas (playlistItems):
         listIdMusicas.append(idMusica)
     return listIdMusicas
 
-def getListMusFeatures(user,playlist_id_curto, playlist_id_NaoCurto):
-    # incluindo músicas da playlist curto
-    playlistItems = sp.user_playlist_tracks (user, playlist_id_curto)
+def getListMusFeatures(user,playlist_id):
+    # incluindo músicas da playlist
+    playlistItems = sp.user_playlist_tracks (user, playlist_id)
     listMusFeatures = sp.audio_features (getIdsMusicas(playlistItems))
-    while playlistItems['next']:
-        playlistItems = sp.next(playlistItems)
-        listMusFeatures.extend(sp.audio_features(getIdsMusicas(playlistItems)))
-    
-    # incluindo músicas da playlist não curto
-    playlistItems = sp.user_playlist_tracks(user,playlist_id_NaoCurto)
-    listMusFeatures.extend(sp.audio_features(getIdsMusicas(playlistItems)))
     while playlistItems['next']:
         playlistItems = sp.next(playlistItems)
         listMusFeatures.extend(sp.audio_features(getIdsMusicas(playlistItems)))
     
     return listMusFeatures
 
-ListUserAMusFeatures = getListMusFeatures(userA, IdPlaylistCurto, IdPlaylistNaoCurto)
+ListMusFeaturesUserA = getListMusFeatures(userA, IdPlaylistCurto)
+ListMusFeaturesUserAbarra = getListMusFeatures(userA, IdPlaylistNaoCurto)
 
 # filtrando item vazio 
-ListUserAMusFeatures = [i for i in ListUserAMusFeatures if i is not None]
+ListMusFeaturesUserA = [i for i in ListMusFeaturesUserA if i is not None]
+ListMusFeaturesUserAbarra = [i for i in ListMusFeaturesUserAbarra if i is not None]
 
 # passando para dataFrame
-dfUserAMusFeatures = pd.DataFrame(ListUserAMusFeatures)
+dfUserAMusFeatures = pd.DataFrame(ListMusFeaturesUserA)
+dfUserAbarraMusFeatures = pd.DataFrame(ListMusFeaturesUserAbarra)
+
 
 # renomeando algumas colunas
 
@@ -76,20 +73,30 @@ dfUserAMusFeatures.rename ( columns = {'id':'id_musica',
                                 'name':'musica'},
                             inplace=True ) 
 
+
+dfUserAbarraMusFeatures.rename ( columns = {'id':'id_musica',
+                                'name':'musica'},
+                                inplace=True ) 
 # id_musica passa a ser o index
 #dfUserAMusFeatures.set_index('id_musica',verify_integrity=True, inplace=True)
 
 # removendo algumas colunas que não nos interessam
 dfUserAMusFeatures.drop(columns=['type','uri','track_href','analysis_url'],inplace=True)
+dfUserAbarraMusFeatures.drop(columns=['type','uri','track_href','analysis_url'],inplace=True)
 
 # lendo dfMusicasUserACurteENaoCurte, que será usado para incluir artista e musica 
 #
-dfMusicasUserACurteENaoCurte =  pd.read_pickle ("./FeatureStore/MusicasUserA.pickle")  
+dfMusicasUserACurte =  pd.read_pickle ("./FeatureStore/MusUserACurte.pickle")  
+dfMusicasUserANaoCurte =  pd.read_pickle ("./FeatureStore/MusUserANaoCurte.pickle")  
 
 # incluir artista e musica em dfUserAMusFeatures
 #%%
-#dfUserAMusFeatures = dfUserAMusFeatures.join(dfMusicasUserACurteENaoCurte, how='left', on='id_musica')
-dfUserAMusFeatures = dfUserAMusFeatures.merge(dfMusicasUserACurteENaoCurte, how='left', on='id_musica')
+print(dfMusicasUserACurte.columns)
+print(dfUserAMusFeatures.columns)
+#%%
+dfUserAMusFeatures = dfUserAMusFeatures.merge(dfMusicasUserACurte, how='left', on='id_musica')
+dfUserAbarraMusFeatures = dfUserAMusFeatures.merge(dfMusicasUserANaoCurte, how='left', on='id_musica')
+
 #%%
 list(dfUserAMusFeatures.columns.values)
 #%%
@@ -112,14 +119,33 @@ dfUserAMusFeatures = dfUserAMusFeatures[
         'tempo',
         'time_signature',
         ]]
+dfUserAbarraMusFeatures = dfUserAMusFeatures[
+      [ 'id_musica',
+        'artista',
+        'musica',
+        'duration_ms',
+        'danceability',
+        'energy',
+        'key',
+        'loudness',
+        'mode',
+        'speechiness',
+        'acousticness',
+        'instrumentalness',
+        'liveness',
+        'valence',
+        'tempo',
+        'time_signature',
+        ]]
+
 #%%
 # salvar dataframe em .pickle
-dfUserAMusFeatures.to_pickle ("./FeatureStore/UserA_AudioFeatures.pickle")
+dfUserAMusFeatures.to_pickle ("./FeatureStore/AudioFeaturesUserACurte.pickle")
+dfUserAbarraMusFeatures.to_pickle ("./FeatureStore/AudioFeaturesUserANaoCurte.pickle")
 
 #%%
 # algumas verificações
 print ("\nUser A Mus&Features:\n")
 print(dfUserAMusFeatures.tail())
-print(dfMusicasUserACurteENaoCurte.tail())
 
 # %%

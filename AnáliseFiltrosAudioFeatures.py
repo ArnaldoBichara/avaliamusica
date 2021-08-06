@@ -6,7 +6,7 @@ import pickle
 import seaborn as sns
 import matplotlib.pyplot as plt
 from IPython.display import Image
-# %%
+
 dfAudioFeatures =  pd.read_pickle ("./FeatureStore/AudioFeatures.pickle")  
 dfUserAAudioFeatures =  pd.read_pickle ("./FeatureStore/UserA_AudioFeatures.pickle")  
 
@@ -40,10 +40,10 @@ dfAudioFeatures[['key']] = normaliza_minmax(dfAudioFeatures[['key']])
 dfAudioFeatures[['tempo']] = normaliza_minmax(dfAudioFeatures[['tempo']])
 dfAudioFeatures[['time_signature']] = normaliza_minmax(dfAudioFeatures[['time_signature']])
 
-dfUserAAudioFeatures[['key']] = normaliza_minmax(dfAudioFeatures[['key']])
-dfUserAAudioFeatures[['tempo']] = normaliza_minmax(dfAudioFeatures[['tempo']])
-dfUserAAudioFeatures[['time_signature']] = normaliza_minmax(dfAudioFeatures[['time_signature']])
-dfUserAAudioFeatures[['duration_ms']] = normaliza_minmax(dfAudioFeatures[['duration_ms']])
+#dfUserAAudioFeatures[['key']] = normaliza_minmax(dfAudioFeatures[['key']])
+#dfUserAAudioFeatures[['tempo']] = normaliza_minmax(dfAudioFeatures[['tempo']])
+#dfUserAAudioFeatures[['time_signature']] = normaliza_minmax(dfAudioFeatures[['time_signature']])
+#dfUserAAudioFeatures[['duration_ms']] = normaliza_minmax(dfAudioFeatures[['duration_ms']])
 
 #%%
 dfAudioFeatures[['duration_norm']] = normaliza_minmax(dfAudioFeatures[['duration_ms']])
@@ -85,7 +85,9 @@ dfAudioFeatures.drop(columns=['loudness'], inplace=True)
 #%%
 dfAudioFeatures.describe()
 #%% histograma do perfil do user A
-dfUserAAudioFeatures.plot.hist(bins=100, alpha=0.5)
+dfUserAAudioFeatures.hist(bins=15, alpha=0.5, figsize=(20,18))
+dfAudioFeatures.hist(bins=15, alpha=0.5, figsize=(20,18))
+
 
 # %%
 dfUserAAudioFeatures.describe()
