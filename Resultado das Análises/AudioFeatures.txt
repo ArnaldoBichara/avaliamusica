@@ -2,17 +2,17 @@
 Danceability:
 User A curte    : Media= 0.425  Desvio Padrao= 0.166
 User A nao curte: Media= 0.542  Desvio Padrao= 0.183
-Users           : Media= 0.558  Desvio Padrao= 0.168
+Users           : Media= 0.559  Desvio Padrao= 0.167
 
 Energy:
 User A curte    : Media= 0.332  Desvio Padrao= 0.216
 User A nao curte: Media= 0.520  Desvio Padrao= 0.269
-Users           : Media= 0.546  Desvio Padrao= 0.253
+Users           : Media= 0.548  Desvio Padrao= 0.251
 
 Mode:
 User A curte    : Media= 0.800  Desvio Padrao= 0.400
 User A nao curte: Media= 0.596  Desvio Padrao= 0.492
-Users           : Media= 0.660  Desvio Padrao= 0.474
+Users           : Media= 0.659  Desvio Padrao= 0.474
 
 Speechiness:
 User A curte    : Media= 0.041  Desvio Padrao= 0.024
@@ -22,19 +22,19 @@ Users           : Media= 0.071  Desvio Padrao= 0.077
 Acousticness:
 User A curte    : Media= 0.697  Desvio Padrao= 0.309
 User A nao curte: Media= 0.467  Desvio Padrao= 0.350
-Users           : Media= 0.445  Desvio Padrao= 0.352
+Users           : Media= 0.442  Desvio Padrao= 0.350
 
 Instrumentalness:
 User A curte    : Media= 0.331  Desvio Padrao= 0.414
 User A nao curte: Media= 0.129  Desvio Padrao= 0.289
-Users           : Media= 0.120  Desvio Padrao= 0.274
+Users           : Media= 0.116  Desvio Padrao= 0.269
 
 Valence:
 User A curte    : Media= 0.314  Desvio Padrao= 0.224
 User A nao curte: Media= 0.479  Desvio Padrao= 0.276
-Users           : Media= 0.550  Desvio Padrao= 0.261
+Users           : Media= 0.552  Desvio Padrao= 0.260
 
 Liveness:
 User A curte    : Media= 0.157  Desvio Padrao= 0.133
 User A nao curte: Media= 0.231  Desvio Padrao= 0.214
-Users           : Media= 0.206  Desvio Padrao= 0.179
+Users           : Media= 0.206  Desvio Padrao= 0.178
