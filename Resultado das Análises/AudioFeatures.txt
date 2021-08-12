@@ -17,11 +17,11 @@ Users           : Media= 0.071  Desvio Padrao= 0.077
 Acousticness:
 User A curte    : Media= 0.697  Desvio Padrao= 0.309
 User A nao curte: Media= 0.467  Desvio Padrao= 0.350
-Users           : Media= 0.444  Desvio Padrao= 0.351
+Users           : Media= 0.445  Desvio Padrao= 0.352
 Instrumentalness:
 User A curte    : Media= 0.331  Desvio Padrao= 0.414
 User A nao curte: Media= 0.129  Desvio Padrao= 0.289
-Users           : Media= 0.120  Desvio Padrao= 0.273
+Users           : Media= 0.120  Desvio Padrao= 0.274
 Valence:
 User A curte    : Media= 0.314  Desvio Padrao= 0.224
 User A nao curte: Media= 0.479  Desvio Padrao= 0.276
