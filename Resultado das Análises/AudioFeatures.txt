@@ -2,54 +2,54 @@
 Danceability:
 User A curte    : Media= 0.425  Desvio Padrao= 0.166
 User A nao curte: Media= 0.542  Desvio Padrao= 0.183
-Users           : Media= 0.559  Desvio Padrao= 0.167
+Users           : Media= 0.452  Desvio Padrao= 0.177
 
 Energy:
 User A curte    : Media= 0.332  Desvio Padrao= 0.216
 User A nao curte: Media= 0.520  Desvio Padrao= 0.269
-Users           : Media= 0.548  Desvio Padrao= 0.251
+Users           : Media= 0.375  Desvio Padrao= 0.242
 
 Mode:
 User A curte    : Media= 0.800  Desvio Padrao= 0.400
 User A nao curte: Media= 0.596  Desvio Padrao= 0.492
-Users           : Media= 0.659  Desvio Padrao= 0.474
+Users           : Media= 0.753  Desvio Padrao= 0.431
 
 Speechiness:
 User A curte    : Media= 0.041  Desvio Padrao= 0.024
 User A nao curte: Media= 0.057  Desvio Padrao= 0.046
-Users           : Media= 0.071  Desvio Padrao= 0.077
+Users           : Media= 0.044  Desvio Padrao= 0.031
 
 Acousticness:
 User A curte    : Media= 0.697  Desvio Padrao= 0.309
 User A nao curte: Media= 0.467  Desvio Padrao= 0.350
-Users           : Media= 0.442  Desvio Padrao= 0.350
+Users           : Media= 0.645  Desvio Padrao= 0.333
 
 Instrumentalness:
 User A curte    : Media= 0.331  Desvio Padrao= 0.414
 User A nao curte: Media= 0.129  Desvio Padrao= 0.289
-Users           : Media= 0.116  Desvio Padrao= 0.269
+Users           : Media= 0.283  Desvio Padrao= 0.398
 
 Valence:
 User A curte    : Media= 0.314  Desvio Padrao= 0.224
 User A nao curte: Media= 0.479  Desvio Padrao= 0.276
-Users           : Media= 0.552  Desvio Padrao= 0.260
+Users           : Media= 0.352  Desvio Padrao= 0.247
 
 Liveness:
 User A curte    : Media= 0.157  Desvio Padrao= 0.133
 User A nao curte: Media= 0.231  Desvio Padrao= 0.214
-Users           : Media= 0.206  Desvio Padrao= 0.178
+Users           : Media= 0.174  Desvio Padrao= 0.159
 
 key:
 User A curte    : Media= 5.118  Desvio Padrao= 3.511
 User A nao curte: Media= 5.349  Desvio Padrao= 3.522
-Users           : Media= 0.475  Desvio Padrao= 0.320
+Users           : Media= 5.182  Desvio Padrao= 3.510
 
 tempo:
 User A curte    : Media= 111.147  Desvio Padrao= 30.118
 User A nao curte: Media= 114.536  Desvio Padrao= 27.124
-Users           : Media= 0.484  Desvio Padrao= 0.120
+Users           : Media= 111.945  Desvio Padrao= 29.517
 
 time_signature:
 User A curte    : Media= 3.744  Desvio Padrao= 0.591
 User A nao curte: Media= 3.885  Desvio Padrao= 0.385
-Users           : Media= 0.778  Desvio Padrao= 0.086
+Users           : Media= 3.776  Desvio Padrao= 0.554

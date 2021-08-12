@@ -26,22 +26,6 @@ dfAudioFeatures = dfAudioFeatures[dfAudioFeatures['speechiness'] < 0.6]
 # menores que 60 segundos.
 dfAudioFeatures = dfAudioFeatures[dfAudioFeatures['duration_ms'] > 60000]
 
-#%% normalizando atributos key, tempo, time_signature e duration_ms entre 0 e 1
-def normaliza_minmax(df):
-    return (df - df.min()) / ( df.max() - df.min())
-
-dfAudioFeatures[['duration_ms']] = normaliza_minmax(dfAudioFeatures[['duration_ms']])
-dfAudioFeatures[['key']] = normaliza_minmax(dfAudioFeatures[['key']])
-dfAudioFeatures[['tempo']] = normaliza_minmax(dfAudioFeatures[['tempo']])
-dfAudioFeatures[['time_signature']] = normaliza_minmax(dfAudioFeatures[['time_signature']])
-
-# dfUserAAudioFeatures - não normalizar, para poder analisar. 
-# e esse df não será usado para modelagem
-#dfUserAAudioFeatures[['duration_ms']] = normaliza_minmax(dfUserAAudioFeatures[['duration_ms']])
-#dfUserAAudioFeatures[['key']] = normaliza_minmax(dfUserAAudioFeatures[['key']])
-#dfUserAAudioFeatures[['tempo']] = normaliza_minmax(dfUserAAudioFeatures[['tempo']])
-#dfUserAAudioFeatures[['time_signature']] = normaliza_minmax(dfUserAAudioFeatures[['time_signature']])
-
 #%% removendo coluna loudness já que
 # é muito correlacionada com energy e acousticness
 dfAudioFeatures.drop(columns=['loudness'], inplace=True)
