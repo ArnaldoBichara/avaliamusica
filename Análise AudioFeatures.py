@@ -61,6 +61,21 @@ print ("User A curte    : Media=","{:.3f}".format(dfUserAAudioFeatures['liveness
 print ("User A nao curte: Media=","{:.3f}".format(dfUserAbarradoAudioFeatures['liveness'].mean())," Desvio Padrao=","{:.3f}".format(dfUserAbarradoAudioFeatures['liveness'].std()), file= AnalisesTxt )
 print ("Users           : Media=","{:.3f}".format(dfAudioFeatures['liveness'].mean())," Desvio Padrao=","{:.3f}".format(dfAudioFeatures['liveness'].std()), file= AnalisesTxt )
 
+print ('\nkey:', file=AnalisesTxt)
+print ("User A curte    : Media=","{:.3f}".format(dfUserAAudioFeatures['key'].mean())," Desvio Padrao=","{:.3f}".format(dfUserAAudioFeatures['key'].std()), file= AnalisesTxt )
+print ("User A nao curte: Media=","{:.3f}".format(dfUserAbarradoAudioFeatures['key'].mean())," Desvio Padrao=","{:.3f}".format(dfUserAbarradoAudioFeatures['key'].std()), file= AnalisesTxt )
+print ("Users           : Media=","{:.3f}".format(dfAudioFeatures['key'].mean())," Desvio Padrao=","{:.3f}".format(dfAudioFeatures['key'].std()), file= AnalisesTxt )
+
+print ('\ntempo:', file=AnalisesTxt)
+print ("User A curte    : Media=","{:.3f}".format(dfUserAAudioFeatures['tempo'].mean())," Desvio Padrao=","{:.3f}".format(dfUserAAudioFeatures['tempo'].std()), file= AnalisesTxt )
+print ("User A nao curte: Media=","{:.3f}".format(dfUserAbarradoAudioFeatures['tempo'].mean())," Desvio Padrao=","{:.3f}".format(dfUserAbarradoAudioFeatures['tempo'].std()), file= AnalisesTxt )
+print ("Users           : Media=","{:.3f}".format(dfAudioFeatures['tempo'].mean())," Desvio Padrao=","{:.3f}".format(dfAudioFeatures['tempo'].std()), file= AnalisesTxt )
+
+print ('\ntime_signature:', file=AnalisesTxt)
+print ("User A curte    : Media=","{:.3f}".format(dfUserAAudioFeatures['time_signature'].mean())," Desvio Padrao=","{:.3f}".format(dfUserAAudioFeatures['time_signature'].std()), file= AnalisesTxt )
+print ("User A nao curte: Media=","{:.3f}".format(dfUserAbarradoAudioFeatures['time_signature'].mean())," Desvio Padrao=","{:.3f}".format(dfUserAbarradoAudioFeatures['time_signature'].std()), file= AnalisesTxt )
+print ("Users           : Media=","{:.3f}".format(dfAudioFeatures['time_signature'].mean())," Desvio Padrao=","{:.3f}".format(dfAudioFeatures['time_signature'].std()), file= AnalisesTxt )
+
 AnalisesTxt.close()
 # %% descobrindo o valence para algumas músicas
 #print (dfUserAAudioFeatures.columns)

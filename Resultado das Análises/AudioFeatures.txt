@@ -38,3 +38,18 @@ Liveness:
 User A curte    : Media= 0.157  Desvio Padrao= 0.133
 User A nao curte: Media= 0.231  Desvio Padrao= 0.214
 Users           : Media= 0.206  Desvio Padrao= 0.178
+
+key:
+User A curte    : Media= 5.118  Desvio Padrao= 3.511
+User A nao curte: Media= 5.349  Desvio Padrao= 3.522
+Users           : Media= 0.475  Desvio Padrao= 0.320
+
+tempo:
+User A curte    : Media= 111.147  Desvio Padrao= 30.118
+User A nao curte: Media= 114.536  Desvio Padrao= 27.124
+Users           : Media= 0.484  Desvio Padrao= 0.120
+
+time_signature:
+User A curte    : Media= 3.744  Desvio Padrao= 0.591
+User A nao curte: Media= 3.885  Desvio Padrao= 0.385
+Users           : Media= 0.778  Desvio Padrao= 0.086
