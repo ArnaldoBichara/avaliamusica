@@ -67,3 +67,24 @@ dfAudioFeatures.describe()
 dfUserAbarradoAudioFeatures.describe
 
 # %%
+dfAudioFeatures = dfAudioFeatures[dfAudioFeatures['speechiness'] < 0.6]
+dfAudioFeatures = dfAudioFeatures[dfAudioFeatures['duration_ms'] > 60000]
+
+#%%
+def normaliza_minmax(df):
+    return (df - df.min()) / ( df.max() - df.min())
+
+print (dfAudioFeatures[['duration_ms']].max())
+print (dfAudioFeatures[['duration_ms']].min())
+#%%
+dfAudioFeatures[['duration_ms']] = normaliza_minmax(dfAudioFeatures[['duration_ms']])
+dfAudioFeatures[['key']] = normaliza_minmax(dfAudioFeatures[['key']])
+dfAudioFeatures[['tempo']] = normaliza_minmax(dfAudioFeatures[['tempo']])
+dfAudioFeatures[['time_signature']] = normaliza_minmax(dfAudioFeatures[['time_signature']])
+#%%
+print (dfAudioFeatures[dfAudioFeatures['duration_ms']==1])
+# %%
+# %%
+dfAudioFeatures.hist(bins=100, figsize=(18,16))
+
+# %%

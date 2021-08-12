@@ -21,6 +21,11 @@ dfUserAbarraAudioFeatures =  pd.read_pickle ("./FeatureStore/AudioFeaturesUserAN
 # não são músicas, são fala
 dfAudioFeatures = dfAudioFeatures[dfAudioFeatures['speechiness'] < 0.6]
 
+# filtrando em AudioFeatures apenas linhas com 
+# duration_ms > 60000. Não vamos considerar músicas 
+# menores que 60 segundos.
+dfAudioFeatures = dfAudioFeatures[dfAudioFeatures['duration_ms'] > 60000]
+
 #%% normalizando atributos key, tempo, time_signature e duration_ms entre 0 e 1
 def normaliza_minmax(df):
     return (df - df.min()) / ( df.max() - df.min())
