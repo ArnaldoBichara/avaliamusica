@@ -1,55 +1,384 @@
 
+Duration_ms
+User A curte    : Media= 225168.985  Desvio Padrao= 72971.383
+count       746.000000
+mean     225168.985255
+std       72971.382716
+min       38196.000000
+25%      182833.250000
+50%      220893.000000
+75%      258400.000000
+max      915893.000000
+Name: duration_ms, dtype: float64
+User A nao curte: Media= 231631.881  Desvio Padrao= 75656.597
+count       218.000000
+mean     231631.880734
+std       75656.596634
+min       80429.000000
+25%      181243.500000
+50%      226860.000000
+75%      264574.750000
+max      599827.000000
+Name: duration_ms, dtype: float64
+Users           : Media= 234687.480  Desvio Padrao= 118464.571
+count    5.588660e+05
+mean     2.346875e+05
+std      1.184646e+05
+min      6.000100e+04
+25%      1.801485e+05
+50%      2.180000e+05
+75%      2.657870e+05
+max      5.403500e+06
+Name: duration_ms, dtype: float64
+
 Danceability:
 User A curte    : Media= 0.425  Desvio Padrao= 0.166
+count    746.000000
+mean       0.425296
+std        0.166475
+min        0.074700
+25%        0.296250
+50%        0.427000
+75%        0.549750
+max        0.892000
+Name: danceability, dtype: float64
 User A nao curte: Media= 0.542  Desvio Padrao= 0.183
-Users           : Media= 0.452  Desvio Padrao= 0.177
+count    218.000000
+mean       0.542493
+std        0.183127
+min        0.065500
+25%        0.406500
+50%        0.561500
+75%        0.676000
+max        0.954000
+Name: danceability, dtype: float64
+Users           : Media= 0.560  Desvio Padrao= 0.167
+count    558866.000000
+mean          0.559610
+std           0.167306
+min           0.000000
+25%           0.448000
+50%           0.570000
+75%           0.681000
+max           0.991000
+Name: danceability, dtype: float64
 
 Energy:
 User A curte    : Media= 0.332  Desvio Padrao= 0.216
+count    746.000000
+mean       0.332186
+std        0.215679
+min        0.003540
+25%        0.162000
+50%        0.291000
+75%        0.472500
+max        0.964000
+Name: energy, dtype: float64
 User A nao curte: Media= 0.520  Desvio Padrao= 0.269
-Users           : Media= 0.375  Desvio Padrao= 0.242
-
-Mode:
-User A curte    : Media= 0.800  Desvio Padrao= 0.400
-User A nao curte: Media= 0.596  Desvio Padrao= 0.492
-Users           : Media= 0.753  Desvio Padrao= 0.431
-
-Speechiness:
-User A curte    : Media= 0.041  Desvio Padrao= 0.024
-User A nao curte: Media= 0.057  Desvio Padrao= 0.046
-Users           : Media= 0.044  Desvio Padrao= 0.031
-
-Acousticness:
-User A curte    : Media= 0.697  Desvio Padrao= 0.309
-User A nao curte: Media= 0.467  Desvio Padrao= 0.350
-Users           : Media= 0.645  Desvio Padrao= 0.333
-
-Instrumentalness:
-User A curte    : Media= 0.331  Desvio Padrao= 0.414
-User A nao curte: Media= 0.129  Desvio Padrao= 0.289
-Users           : Media= 0.283  Desvio Padrao= 0.398
-
-Valence:
-User A curte    : Media= 0.314  Desvio Padrao= 0.224
-User A nao curte: Media= 0.479  Desvio Padrao= 0.276
-Users           : Media= 0.352  Desvio Padrao= 0.247
-
-Liveness:
-User A curte    : Media= 0.157  Desvio Padrao= 0.133
-User A nao curte: Media= 0.231  Desvio Padrao= 0.214
-Users           : Media= 0.174  Desvio Padrao= 0.159
+count    218.000000
+mean       0.520378
+std        0.269090
+min        0.007560
+25%        0.284750
+50%        0.518500
+75%        0.764750
+max        0.997000
+Name: energy, dtype: float64
+Users           : Media= 0.548  Desvio Padrao= 0.251
+count    558866.000000
+mean          0.548204
+std           0.251385
+min           0.000000
+25%           0.354000
+50%           0.558000
+75%           0.754000
+max           1.000000
+Name: energy, dtype: float64
 
 key:
 User A curte    : Media= 5.118  Desvio Padrao= 3.511
+count    746.000000
+mean       5.117962
+std        3.510601
+min        0.000000
+25%        2.000000
+50%        5.000000
+75%        9.000000
+max       11.000000
+Name: key, dtype: float64
 User A nao curte: Media= 5.349  Desvio Padrao= 3.522
-Users           : Media= 5.182  Desvio Padrao= 3.510
+count    218.000000
+mean       5.348624
+std        3.521824
+min        0.000000
+25%        2.000000
+50%        5.000000
+75%        9.000000
+max       11.000000
+Name: key, dtype: float64
+Users           : Media= 5.230  Desvio Padrao= 3.515
+count    558866.000000
+mean          5.229844
+std           3.514933
+min           0.000000
+25%           2.000000
+50%           5.000000
+75%           8.000000
+max          11.000000
+Name: key, dtype: float64
+
+Mode:
+User A curte    : Media= 0.800  Desvio Padrao= 0.400
+count    746.000000
+mean       0.800268
+std        0.400067
+min        0.000000
+25%        1.000000
+50%        1.000000
+75%        1.000000
+max        1.000000
+Name: mode, dtype: float64
+User A nao curte: Media= 0.596  Desvio Padrao= 0.492
+count    218.000000
+mean       0.596330
+std        0.491762
+min        0.000000
+25%        0.000000
+50%        1.000000
+75%        1.000000
+max        1.000000
+Name: mode, dtype: float64
+Users           : Media= 0.659  Desvio Padrao= 0.474
+count    558866.000000
+mean          0.658646
+std           0.474164
+min           0.000000
+25%           0.000000
+50%           1.000000
+75%           1.000000
+max           1.000000
+Name: mode, dtype: float64
+
+Speechiness:
+User A curte    : Media= 0.041  Desvio Padrao= 0.024
+count    746.000000
+mean       0.040764
+std        0.024170
+min        0.022400
+25%        0.031025
+50%        0.035200
+75%        0.042550
+max        0.341000
+Name: speechiness, dtype: float64
+User A nao curte: Media= 0.057  Desvio Padrao= 0.046
+count    218.000000
+mean       0.056991
+std        0.046291
+min        0.025100
+25%        0.034400
+50%        0.041050
+75%        0.055250
+max        0.341000
+Name: speechiness, dtype: float64
+Users           : Media= 0.071  Desvio Padrao= 0.077
+count    558866.000000
+mean          0.071251
+std           0.076787
+min           0.000000
+25%           0.033600
+50%           0.043000
+75%           0.068400
+max           0.599000
+Name: speechiness, dtype: float64
+
+Acousticness:
+User A curte    : Media= 0.697  Desvio Padrao= 0.309
+count    746.000000
+mean       0.696608
+std        0.308930
+min        0.000039
+25%        0.531250
+50%        0.826000
+75%        0.947000
+max        0.996000
+Name: acousticness, dtype: float64
+User A nao curte: Media= 0.467  Desvio Padrao= 0.350
+count    218.000000
+mean       0.467058
+std        0.350006
+min        0.000016
+25%        0.106000
+50%        0.438500
+75%        0.807250
+max        0.995000
+Name: acousticness, dtype: float64
+Users           : Media= 0.442  Desvio Padrao= 0.350
+count    558866.000000
+mean          0.441587
+std           0.350326
+min           0.000000
+25%           0.089200
+50%           0.401000
+75%           0.780000
+max           0.996000
+Name: acousticness, dtype: float64
+
+Instrumentalness:
+User A curte    : Media= 0.331  Desvio Padrao= 0.414
+count    746.000000
+mean       0.330756
+std        0.414445
+min        0.000000
+25%        0.000014
+50%        0.008690
+75%        0.869750
+max        0.995000
+Name: instrumentalness, dtype: float64
+User A nao curte: Media= 0.129  Desvio Padrao= 0.289
+count    218.000000
+mean       0.128767
+std        0.289269
+min        0.000000
+25%        0.000000
+50%        0.000108
+75%        0.013175
+max        0.939000
+Name: instrumentalness, dtype: float64
+Users           : Media= 0.116  Desvio Padrao= 0.268
+count    558866.000000
+mean          0.115765
+std           0.268485
+min           0.000000
+25%           0.000000
+50%           0.000035
+75%           0.011800
+max           1.000000
+Name: instrumentalness, dtype: float64
+
+Liveness:
+User A curte    : Media= 0.157  Desvio Padrao= 0.133
+count    746.000000
+mean       0.156539
+std        0.133469
+min        0.029500
+25%        0.097625
+50%        0.111000
+75%        0.150000
+max        0.934000
+Name: liveness, dtype: float64
+User A nao curte: Media= 0.231  Desvio Padrao= 0.214
+count    218.000000
+mean       0.231189
+std        0.213957
+min        0.035300
+25%        0.102000
+50%        0.137500
+75%        0.304500
+max        0.983000
+Name: liveness, dtype: float64
+Users           : Media= 0.206  Desvio Padrao= 0.178
+count    558866.000000
+mean          0.206155
+std           0.178411
+min           0.000000
+25%           0.096900
+50%           0.134000
+75%           0.264000
+max           1.000000
+Name: liveness, dtype: float64
+
+Valence:
+User A curte    : Media= 0.314  Desvio Padrao= 0.224
+count    746.000000
+mean       0.314061
+std        0.223902
+min        0.026300
+25%        0.129250
+50%        0.261500
+75%        0.456000
+max        0.969000
+Name: valence, dtype: float64
+User A nao curte: Media= 0.479  Desvio Padrao= 0.276
+count    218.000000
+mean       0.479393
+std        0.275524
+min        0.025800
+25%        0.231250
+50%        0.471000
+75%        0.726000
+max        0.980000
+Name: valence, dtype: float64
+Users           : Media= 0.552  Desvio Padrao= 0.260
+count    558866.000000
+mean          0.551843
+std           0.260298
+min           0.000000
+25%           0.341000
+50%           0.563000
+75%           0.774000
+max           1.000000
+Name: valence, dtype: float64
 
 tempo:
 User A curte    : Media= 111.147  Desvio Padrao= 30.118
+count    746.000000
+mean     111.146764
+std       30.117897
+min       57.028000
+25%       86.109750
+50%      108.125500
+75%      130.936500
+max      212.349000
+Name: tempo, dtype: float64
 User A nao curte: Media= 114.536  Desvio Padrao= 27.124
-Users           : Media= 111.945  Desvio Padrao= 29.517
+count    218.000000
+mean     114.536248
+std       27.124070
+min       59.609000
+25%       92.667500
+50%      115.249500
+75%      132.751250
+max      180.099000
+Name: tempo, dtype: float64
+Users           : Media= 119.179  Desvio Padrao= 29.518
+count    558866.000000
+mean        119.179300
+std          29.517971
+min           0.000000
+25%          96.263000
+50%         118.083000
+75%         137.019000
+max         246.381000
+Name: tempo, dtype: float64
 
 time_signature:
 User A curte    : Media= 3.744  Desvio Padrao= 0.591
+count    746.000000
+mean       3.743968
+std        0.590868
+min        1.000000
+25%        4.000000
+50%        4.000000
+75%        4.000000
+max        5.000000
+Name: time_signature, dtype: float64
 User A nao curte: Media= 3.885  Desvio Padrao= 0.385
-Users           : Media= 3.776  Desvio Padrao= 0.554
+count    218.000000
+mean       3.885321
+std        0.384810
+min        3.000000
+25%        4.000000
+50%        4.000000
+75%        4.000000
+max        5.000000
+Name: time_signature, dtype: float64
+Users           : Media= 3.888  Desvio Padrao= 0.427
+count    558866.000000
+mean          3.887971
+std           0.427468
+min           0.000000
+25%           4.000000
+50%           4.000000
+75%           4.000000
+max           5.000000
+Name: time_signature, dtype: float64
