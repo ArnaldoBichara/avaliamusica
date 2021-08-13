@@ -7,6 +7,15 @@ import pickle
 import seaborn as sns
 import matplotlib.pyplot as plt
 from IPython.display import Image
+import logging
+from time import gmtime, strftime
+
+logging.basicConfig(filename='./Resultado das Análises/preprocessamento2.log', 
+                    level=logging.INFO,
+                    format='%(asctime)s %(message)s',
+                    datefmt='%d/%m/%Y %H:%M:%S'
+                    )
+logging.info('Análise AudioFeatures >>')
 
 dfAudioFeatures =  pd.read_pickle ("./FeatureStore/AudioFeatures.pickle")  
 dfUserAAudioFeatures =  pd.read_pickle ("./FeatureStore/AudioFeaturesUserACurte.pickle")  
@@ -123,3 +132,5 @@ AnalisesTxt.close()
 print (dfUserAAudioFeatures.loc[dfUserAAudioFeatures['musica'].str.contains("Lilia")])
 # %%
 dfUserAAudioFeatures.loc[dfUserAAudioFeatures['valence']<0.1][['musica','valence']]
+
+logging.info('Análise AudioFeatures <<')

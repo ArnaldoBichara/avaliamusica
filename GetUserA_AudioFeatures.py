@@ -11,6 +11,15 @@ import pickle
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 import json
+import logging
+from time import gmtime, strftime
+
+logging.basicConfig(filename='./Resultado das Análises/preprocessamento2.log', 
+                    level=logging.INFO,
+                    format='%(asctime)s %(message)s',
+                    datefmt='%d/%m/%Y %H:%M:%S'
+                    )
+logging.info('GetUserA_AudioFeatures >>')
 
 # conectando no spotify
 scope = "user-library-read"
@@ -57,9 +66,7 @@ def getListMusFeatures(user,playlist_id):
 #%%
 ListMusFeaturesUserA = getListMusFeatures(userA, IdPlaylistCurto)
 ListMusFeaturesUserAbarra = getListMusFeatures(userA, IdPlaylistNaoCurto)
-#%%
-print(len(ListMusFeaturesUserA))
-print(len(ListMusFeaturesUserAbarra))
+
 #%%
 # filtrando item vazio 
 ListMusFeaturesUserA = [i for i in ListMusFeaturesUserA if i is not None]
@@ -68,7 +75,6 @@ ListMusFeaturesUserAbarra = [i for i in ListMusFeaturesUserAbarra if i is not No
 # passando para dataFrame
 dfUserAMusFeatures = pd.DataFrame(ListMusFeaturesUserA)
 dfUserAbarraMusFeatures = pd.DataFrame(ListMusFeaturesUserAbarra)
-
 
 # renomeando algumas colunas
 
@@ -95,8 +101,6 @@ dfMusicasUserANaoCurte =  pd.read_pickle ("./FeatureStore/MusUserANaoCurte.pickl
 
 # incluir artista e musica em dfUserAMusFeatures
 #%%
-print(dfMusicasUserACurte.columns)
-print(dfUserAMusFeatures.columns)
 #%%
 dfUserAMusFeatures = dfUserAMusFeatures.merge(dfMusicasUserACurte, how='left', on='id_musica')
 dfUserAbarraMusFeatures = dfUserAbarraMusFeatures.merge(dfMusicasUserANaoCurte, how='left', on='id_musica')
@@ -142,13 +146,12 @@ dfUserAbarraMusFeatures = dfUserAbarraMusFeatures[
         'time_signature',
         ]]
 
+logging.info ('GetUserA_AudioFeatures: AudioFeaturesUserACurte shape = %s', dfUserAMusFeatures.shape)
+logging.info ('GetUserA_AudioFeatures: AudioFeaturesUserANaoCurte shape = %s', dfUserAbarraMusFeatures.shape)
 #%%
 # salvar dataframe em .pickle
 dfUserAMusFeatures.to_pickle ("./FeatureStore/AudioFeaturesUserACurte.pickle")
 dfUserAbarraMusFeatures.to_pickle ("./FeatureStore/AudioFeaturesUserANaoCurte.pickle")
 
-#%%
-# algumas verificações
-print(dfUserAMusFeatures.tail())
-print(dfUserAbarraMusFeatures.tail())
 # %%
+logging.info('GetUserA_AudioFeatures <<')

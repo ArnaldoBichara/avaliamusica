@@ -10,6 +10,17 @@ import pickle
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 import json
+import logging
+from time import gmtime, strftime
+
+# iniciando logging
+logging.basicConfig(filename='./Resultado das Análises/preprocessamento2.log', 
+                    level=logging.INFO,
+                    format='%(asctime)s %(message)s',
+                    datefmt='%d/%m/%Y %H:%M:%S'
+                    )
+
+logging.info('GetMusUsrA >>')
 
 # conectando no spotify
 scope = "user-library-read"
@@ -62,23 +73,14 @@ dfMusicasUserACurte = pd.DataFrame(listMusicasUserACurte,
 dfMusicasUserANaoCurte = pd.DataFrame(listMusicasUserANaoCurte,
                             columns=['id_musica', 'artista','musica'])
 
-#dfMusicasUserACurteENaoCurte =  dfMusicasUserACurte.append (dfMusicasUserANaoCurte, verify_integrity=True, ignore_index=True)
-# não deveria haver duplicados, mas vamos remover se houver por erro de digitação
-#dfMusicasUserACurteENaoCurte.drop_duplicates()
-#dfMusicasUserACurteENaoCurte.set_index('id_musica',verify_integrity=True, inplace=True)
-
-# removendo colunas desnecessárias
-#dfMusicasUserACurte = dfMusicasUserACurte.drop(columns=['id_musica'])
-#dfMusicasUserANaoCurte = dfMusicasUserANaoCurte.drop(columns='id_musica')
-
 # removendo itens repetidos (diferentes interpretações de um artista\música)
-print (len(dfMusicasUserACurte.index))
+logging.info ("MusUserACurte Inicial: %s", len(dfMusicasUserACurte.index))
 dfMusicasUserACurte.drop_duplicates()
-print (len(dfMusicasUserACurte.index))
+logging.info ("MusCurteUserA removidos duplicados: %s", len(dfMusicasUserACurte.index))
 
-print (len(dfMusicasUserANaoCurte.index))
+logging.info ("MusUserANaoCurte Inicial: %s", len(dfMusicasUserANaoCurte.index))
 dfMusicasUserANaoCurte.drop_duplicates()    
-print (len(dfMusicasUserANaoCurte.index))
+logging.info ("MusUserANaoCurte removidos duplicados: %s", len(dfMusicasUserANaoCurte.index))
 
 # incluindo userid 0001 para userA e 0000 para userAbarrado (usuário oposto a user A)
 dfMusicasUserACurte['userid'] = '0001'
@@ -97,17 +99,9 @@ dfMusicasUserANaoCurte = dfMusicasUserANaoCurte[
         'musica',
         'id_musica'
         ]]        
+
 # salvando datasets
 dfMusicasUserACurte.to_pickle ("./FeatureStore/MusUserACurte.pickle")
 dfMusicasUserANaoCurte.to_pickle ("./FeatureStore/MusUserANaoCurte.pickle")                            
-#dfMusicasUserACurteENaoCurte.to_pickle ("./FeatureStore/MusicasUserA.pickle")                            
 
-# algumas verificações
-print ("\nUser A curte:\n")
-print (len(dfMusicasUserACurte.index))
-print (dfMusicasUserACurte.tail())
-
-print ("\nUser A não curte:\n")
-print (len(dfMusicasUserANaoCurte.index))
-print (dfMusicasUserANaoCurte.tail())
-
+logging.info('GetMusUsrA <<')

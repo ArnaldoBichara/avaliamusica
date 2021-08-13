@@ -13,6 +13,15 @@ import numpy as np
 from scipy.sparse import csr_matrix
 import pickle
 import csv
+import logging
+from time import gmtime, strftime
+
+logging.basicConfig(filename='./Resultado das Análises/preprocessamento2.log', 
+                    level=logging.INFO,
+                    format='%(asctime)s %(message)s',
+                    datefmt='%d/%m/%Y %H:%M:%S'
+                    )
+logging.info('GetAudioFeatures >>')
 
 # lendo users dataset através de read_csv
 dfSpotMusicas = pd.read_csv('./datasets/spotify600k_tracks.csv', 
@@ -20,6 +29,8 @@ dfSpotMusicas = pd.read_csv('./datasets/spotify600k_tracks.csv',
                             usecols = ['id','artists','name','duration_ms','danceability','energy','key','loudness','mode','speechiness','acousticness','instrumentalness','liveness','valence','tempo', 'time_signature'],
                             #quoting = csv.QUOTE_NONE
                             )
+
+logging.info ('GetAudioFeatures: spotify600k_tracks shape = %s', dfSpotMusicas.shape)
 
 # Filtro: transforma lista de artists no artista principal (o primeiro da lista)
  
@@ -67,9 +78,10 @@ dfSpotMusicas = dfSpotMusicas[
         'time_signature',
         ]]
 # salvando dataset
+logging.info ('GetAudioFeatures: AudioFeatures shape = %s', dfSpotMusicas.shape)
 
 dfSpotMusicas.to_pickle('./FeatureStore/AudioFeatures.pickle')
 
-print (dfSpotMusicas.head())
-#%%
-print (dfSpotMusicas.shape)
+
+
+logging.info('GetAudioFeatures <<')
