@@ -11,7 +11,15 @@ import pandas as pd
 import numpy as np
 from scipy.sparse import csr_matrix
 import pickle
+import logging
+from time import gmtime, strftime
 
+# iniciando logging de métricas
+logging.basicConfig(filename='./Resultado das Análises/avaliamusica.log', 
+                    level=logging.DEBUG,
+                    format='%(asctime)s %(message)s',
+                    datefmt='%d/%m/%Y %H:%M:%S'
+                    )
 # lendo dataset
 dfMusicasUser = pd.read_csv('./datasets/spotify_playlists_dataset.csv', 
                             sep=',', escapechar='\\',
@@ -27,9 +35,13 @@ del dfMusicasUser ['playlistname']
 if dfMusicasUser['musica'].isnull().sum():
     dfMusicasUser = dfMusicasUser.dropna(axis = 0, subset = ['musica'])
 
+logging.info('MusUsers shape inicial: %s', dfMusicasUser.shape)
+
 # Limpeza: removendo linhas duplicadas 
 dfMusicasUser.drop_duplicates(inplace = True)
 dfMusicasUser.reset_index(drop=True)
+
+logging.info('MusUsers, removidas linhas duplicadas %s', dfMusicasUser.shape)
 
 # salvando dataset
 dfMusicasUser.to_pickle ("./FeatureStore/MusUsers.pickle")

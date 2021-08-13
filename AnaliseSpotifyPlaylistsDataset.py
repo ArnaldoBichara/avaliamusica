@@ -3,6 +3,17 @@ import pandas as pd
 import numpy as np
 from scipy.sparse import csr_matrix
 import pickle
+import logging
+from time import gmtime, strftime
+#%%
+# iniciando logging de métricas
+logging.basicConfig(filename='./Resultado das Análises/avaliamusica.log', 
+                    level=logging.DEBUG,
+                    format='%(asctime)s %(message)s',
+                    datefmt='%d/%m/%Y %H:%M:%S'
+                    )
+#%%
+logging.info ("teste")                  
 
 #%% lendo dataset
 dfMusicasUser = pd.read_csv('./datasets/spotify_playlists_dataset.csv', 
@@ -10,6 +21,8 @@ dfMusicasUser = pd.read_csv('./datasets/spotify_playlists_dataset.csv',
                             nrows=1.1e9,
                             error_bad_lines=False)
 
+#%%
+logging.info ("teste %s", dfMusicasUser.describe())
 # %%
 print(dfMusicasUser.tail())
 print(dfMusicasUser.count())
