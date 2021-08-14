@@ -1,37 +1,39 @@
-13/08/2021 15:09:04 GetMusUsrA >>
-13/08/2021 15:09:08 MusUserACurte Inicial: 746
-13/08/2021 15:09:08 MusCurteUserA removidos duplicados: 746
-13/08/2021 15:09:08 MusUserANaoCurte Inicial: 219
-13/08/2021 15:09:08 MusUserANaoCurte removidos duplicados: 219
-13/08/2021 15:09:08 GetMusUsrA <<
-13/08/2021 15:09:10 GetAudioFeatures >>
-13/08/2021 15:09:13 GetAudioFeatures: spotify600k_tracks shape = (586672, 16)
-13/08/2021 15:09:14 GetAudioFeatures: AudioFeatures shape = (586672, 16)
-13/08/2021 15:09:15 GetAudioFeatures <<
-13/08/2021 15:09:17 GetUserA_AudioFeatures >>
-13/08/2021 15:09:23 GetUserA_AudioFeatures: AudioFeaturesUserACurte shape = (746, 16)
-13/08/2021 15:09:23 GetUserA_AudioFeatures: AudioFeaturesUserANaoCurte shape = (218, 16)
-13/08/2021 15:09:23 GetUserA_AudioFeatures <<
-13/08/2021 15:09:28 IncluUserA_em_Users >>
-13/08/2021 15:09:49 IncluUserA_em_Users shape = (11404366, 3)
-13/08/2021 15:09:49 IncluUserA_em_Users <<
-13/08/2021 15:09:51 IncluUserA_em_AudioFeatures >>
-13/08/2021 15:09:53 AudioFeatures shape = (587636, 16)
-13/08/2021 15:09:53 IncluUserA_em_AudioFeatures <<
-13/08/2021 15:09:57 FiltraAudioFeatures >>
-13/08/2021 15:09:57 AudioFeatures antes de filtro = (587636, 16)
-13/08/2021 15:09:57 NumExpr defaulting to 4 threads.
-13/08/2021 15:09:57 AudioFeatures com speechiness < 0,6 = (564134, 16)
-13/08/2021 15:09:57 AudioFeatures com duration_ms > 40 seg = (562810, 16)
-13/08/2021 15:09:57 UserAAudioFeatures com duration_ms > 40 seg = (745, 16)
-13/08/2021 15:09:57 UserAbarraAudioFeatures com duration_ms > 40 seg = (218, 16)
-13/08/2021 15:09:57 AudioFeatures sem loudness = (562810, 15)
-13/08/2021 15:09:57 AudioFeaturesUserACurte sem loudness = (745, 15)
-13/08/2021 15:09:57 AudioFeaturesUserANaoCurte sem loudness = (218, 15)
-13/08/2021 15:09:58 FiltraAudioFeatures <<
-13/08/2021 15:10:03 Análise AudioFeatures >>
-13/08/2021 15:10:15 NumExpr defaulting to 4 threads.
-13/08/2021 15:10:15 Análise AudioFeatures <<
-13/08/2021 15:10:17 NormalizaAudioFeatures >>
-13/08/2021 15:10:18 NumExpr defaulting to 4 threads.
-13/08/2021 15:10:19 NormalizaAudioFeatures <<
+14/08/2021 11:01:51 GetMusUsrA >>
+14/08/2021 11:01:55 MusUserACurte Inicial: 746
+14/08/2021 11:01:55 MusCurteUserA removidos duplicados: 746
+14/08/2021 11:01:55 MusUserANaoCurte Inicial: 303
+14/08/2021 11:01:55 MusUserANaoCurte removidos duplicados: 303
+14/08/2021 11:01:55 GetMusUsrA <<
+14/08/2021 11:02:00 GetAudioFeatures >>
+14/08/2021 11:02:03 GetAudioFeatures: spotify600k_tracks shape = (586672, 16)
+14/08/2021 11:02:05 GetAudioFeatures: AudioFeatures shape = (586672, 16)
+14/08/2021 11:02:09 GetAudioFeatures <<
+14/08/2021 11:02:12 GetUserA_AudioFeatures >>
+14/08/2021 11:02:18 GetUserA_AudioFeatures: AudioFeaturesUserACurte shape = (746, 16)
+14/08/2021 11:02:18 GetUserA_AudioFeatures: AudioFeaturesUserANaoCurte shape = (302, 16)
+14/08/2021 11:02:18 GetUserA_AudioFeatures <<
+14/08/2021 11:02:20 IncluUserA_em_Users >>
+14/08/2021 11:02:23 MusUsers antes = (11404450, 3)
+14/08/2021 11:02:40 MusUser após concatenar com UserA = (11404450, 3)
+14/08/2021 11:02:40 IncluUserA_em_Users <<
+14/08/2021 11:02:42 IncluUserA_em_AudioFeatures >>
+14/08/2021 11:02:43 AudioFeatures antes shape = (586672, 16)
+14/08/2021 11:02:44 AudioFeatures após incluir userA = (587287, 16)
+14/08/2021 11:02:44 IncluUserA_em_AudioFeatures <<
+14/08/2021 11:02:49 FiltraAudioFeatures >>
+14/08/2021 11:02:49 AudioFeatures antes de filtro = (587287, 16)
+14/08/2021 11:02:49 NumExpr defaulting to 4 threads.
+14/08/2021 11:02:49 AudioFeatures com speechiness < 0,6 = (563785, 16)
+14/08/2021 11:02:49 AudioFeatures com duration_ms > 40 seg = (562461, 16)
+14/08/2021 11:02:49 UserAAudioFeatures com duration_ms > 40 seg = (745, 16)
+14/08/2021 11:02:49 UserAbarraAudioFeatures com duration_ms > 40 seg = (302, 16)
+14/08/2021 11:02:49 AudioFeatures sem loudness = (562461, 15)
+14/08/2021 11:02:49 AudioFeaturesUserACurte sem loudness = (745, 15)
+14/08/2021 11:02:49 AudioFeaturesUserANaoCurte sem loudness = (302, 15)
+14/08/2021 11:03:03 FiltraAudioFeatures <<
+14/08/2021 11:03:08 Análise AudioFeatures >>
+14/08/2021 11:03:19 NumExpr defaulting to 4 threads.
+14/08/2021 11:03:19 Análise AudioFeatures <<
+14/08/2021 11:03:21 NormalizaAudioFeatures >>
+14/08/2021 11:03:22 NumExpr defaulting to 4 threads.
+14/08/2021 11:03:23 NormalizaAudioFeatures <<
