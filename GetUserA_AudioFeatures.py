@@ -85,17 +85,19 @@ dfUserAbarraMusFeatures['classe'] = 0;
 print (dfUserAMusFeatures.head())
 #%%
 print (dfUserAbarraMusFeatures.head())
-#%%
-dfUserAMusFeatures = pd.concat([dfUserAMusFeatures, dfUserAbarraMusFeatures], ignore_index=True, verify_integrity=True)        
 
 # removendo algumas colunas que não nos interessam
 dfUserAMusFeatures.drop(columns=['id','type','uri','track_href','analysis_url'],inplace=True)
+dfUserAbarraMusFeatures.drop(columns=['id','type','uri','track_href','analysis_url'],inplace=True)
+
 #%%
 logging.info ("UserAMusFeatures shape %s", dfUserAMusFeatures.shape)
+logging.info ("UserAbarraMusFeatures shape %s", dfUserAbarraMusFeatures.shape)
 
 #%%
 # salvar dataframe em .pickle
-dfUserAMusFeatures.to_pickle ("./FeatureStore/AudioFeaturesUserA.pickle")
+dfUserAMusFeatures.to_pickle ("./FeatureStore/AudioFeaturesUserACurte.pickle")
+dfUserAbarraMusFeatures.to_pickle ("./FeatureStore/AudioFeaturesUserANaoCurte.pickle")
 
 # %%
 logging.info('GetUserA_AudioFeatures <<')
