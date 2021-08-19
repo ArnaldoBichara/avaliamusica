@@ -37,3 +37,282 @@
 14/08/2021 11:03:21 NormalizaAudioFeatures >>
 14/08/2021 11:03:22 NumExpr defaulting to 4 threads.
 14/08/2021 11:03:23 NormalizaAudioFeatures <<
+19/08/2021 08:18:09 GetAudioFeatures >>
+19/08/2021 08:18:11 GetAudioFeatures: spotify600k_tracks shape = (586672, 15)
+19/08/2021 08:18:12 GetAudioFeatures: AudioFeatures shape = (586672, 15)
+19/08/2021 08:18:12 GetAudioFeatures <<
+19/08/2021 08:38:29 GetAudioFeatures >>
+19/08/2021 08:38:31 GetAudioFeatures: spotify600k_tracks shape = (586672, 15)
+19/08/2021 08:38:32 GetAudioFeatures: AudioFeatures shape = (586672, 15)
+19/08/2021 08:38:32 GetAudioFeatures <<
+19/08/2021 08:42:52 GetAudioFeatures >>
+19/08/2021 08:42:54 GetAudioFeatures: spotify600k_tracks shape = (586672, 15)
+19/08/2021 08:45:21 GetAudioFeatures >>
+19/08/2021 08:45:23 GetAudioFeatures: spotify600k_tracks shape = (586672, 15)
+19/08/2021 10:26:01 GetAudioFeatures >>
+19/08/2021 10:26:02 GetAudioFeatures: spotify600k_tracks shape = (586672, 13)
+19/08/2021 10:27:06 GetAudioFeatures >>
+19/08/2021 10:27:08 GetAudioFeatures: spotify600k_tracks shape = (586672, 13)
+19/08/2021 10:27:08 GetAudioFeatures: AudioFeatures shape = (586672, 13)
+19/08/2021 10:27:08 GetAudioFeatures <<
+19/08/2021 10:40:08 GetMusUsrA >>
+19/08/2021 10:44:46 GetMusUsrA >>
+19/08/2021 10:47:20 GetMusUsrA >>
+19/08/2021 10:49:09 GetMusUsrA >>
+19/08/2021 10:50:28 GetMusUsrA >>
+19/08/2021 10:55:15 GetMusUsrA >>
+19/08/2021 10:55:19 MusUserACurte Inicial: (746, 2)
+19/08/2021 10:55:19 MusCurteUserA removidos duplicados: (746, 2)
+19/08/2021 10:55:19 MusUserANaoCurte Inicial: (554, 2)
+19/08/2021 10:55:19 MusUserANaoCurte removidos duplicados: (554, 2)
+19/08/2021 10:55:55 NumExpr defaulting to 6 threads.
+19/08/2021 10:55:56 GetMusUsrA <<
+19/08/2021 10:57:19 GetMusUsrA >>
+19/08/2021 10:57:23 MusUserACurte Inicial: (746, 2)
+19/08/2021 10:57:23 MusCurteUserA removidos duplicados: (746, 2)
+19/08/2021 10:57:23 MusUserANaoCurte Inicial: (554, 2)
+19/08/2021 10:57:23 MusUserANaoCurte removidos duplicados: (554, 2)
+19/08/2021 10:57:23 NumExpr defaulting to 6 threads.
+19/08/2021 10:57:23 MusUserACurte.head                                        interpretacao
+0                     Death Cab for Cutie:>60 & Punk
+1  Lindsey Stirling:>7 Years (Acoustic) - Recorde...
+2                         Ruben Galloway:>Acceptance
+3                        14 Bis:>Adoráveis Criaturas
+4                  Enya:>Afer Ventus - 2009 Remaster
+19/08/2021 10:57:23 GetMusUsrA <<
+19/08/2021 11:00:06 GetMusUsrA >>
+19/08/2021 11:00:11 NumExpr defaulting to 6 threads.
+19/08/2021 11:00:11 MusUserACurte Inicial: (746, 1)
+19/08/2021 11:00:11 MusCurteUserA removidos duplicados: (746, 1)
+19/08/2021 11:00:11 MusUserANaoCurte Inicial: (554, 2)
+19/08/2021 11:00:11 MusUserANaoCurte removidos duplicados: (554, 2)
+19/08/2021 11:00:11 MusUserACurte.head                                        interpretacao
+0                     Death Cab for Cutie:>60 & Punk
+1  Lindsey Stirling:>7 Years (Acoustic) - Recorde...
+2                         Ruben Galloway:>Acceptance
+3                        14 Bis:>Adoráveis Criaturas
+4                  Enya:>Afer Ventus - 2009 Remaster
+19/08/2021 11:00:11 GetMusUsrA <<
+19/08/2021 11:00:56 GetMusUsrA >>
+19/08/2021 11:01:00 NumExpr defaulting to 6 threads.
+19/08/2021 11:01:00 MusUserACurte Inicial: (746, 1)
+19/08/2021 11:01:00 MusCurteUserA removidos duplicados: (746, 1)
+19/08/2021 11:01:00 MusUserANaoCurte Inicial: (554, 1)
+19/08/2021 11:01:00 MusUserANaoCurte removidos duplicados: (554, 1)
+19/08/2021 11:01:00 MusUserACurte.head                                        interpretacao
+0                     Death Cab for Cutie:>60 & Punk
+1  Lindsey Stirling:>7 Years (Acoustic) - Recorde...
+2                         Ruben Galloway:>Acceptance
+3                        14 Bis:>Adoráveis Criaturas
+4                  Enya:>Afer Ventus - 2009 Remaster
+19/08/2021 11:01:00 GetMusUsrA <<
+19/08/2021 11:38:39 GetUserA_AudioFeatures >>
+19/08/2021 11:43:54 MusUserAFeatures: (1299, 18)
+19/08/2021 11:53:00 GetUserA_AudioFeatures >>
+19/08/2021 11:53:08 UserAMusFeatures head    danceability  energy  key  loudness  mode  speechiness  ...  liveness  valence    tempo  duration_ms  time_signature  classe
+0         0.503  0.3890    3    -9.096     1       0.0304  ...    0.1110    0.327  105.823       247413               4       1
+1         0.366  0.4930   10    -7.414     1       0.0503  ...    0.1060    0.306  116.031       147427               4       1
+2         0.471  0.0346    5   -22.184     1       0.0949  ...    0.0998    0.234   96.965       278326               4       1
+3         0.338  0.5720    2    -8.187     0       0.0395  ...    0.1240    0.218  148.547       287840               4       1
+4         0.351  0.3040   10   -15.719     1       0.0284  ...    0.1200    0.106   95.320       246533               4       1
+
+[5 rows x 14 columns]
+19/08/2021 11:53:08 GetUserA_AudioFeatures <<
+19/08/2021 11:54:03 GetUserA_AudioFeatures >>
+19/08/2021 11:54:18 UserAMusFeatures head    danceability  energy  key  loudness  mode  speechiness  ...  liveness  valence    tempo  duration_ms  time_signature  classe
+0         0.503  0.3890    3    -9.096     1       0.0304  ...    0.1110    0.327  105.823       247413               4       1
+1         0.366  0.4930   10    -7.414     1       0.0503  ...    0.1060    0.306  116.031       147427               4       1
+2         0.471  0.0346    5   -22.184     1       0.0949  ...    0.0998    0.234   96.965       278326               4       1
+3         0.338  0.5720    2    -8.187     0       0.0395  ...    0.1240    0.218  148.547       287840               4       1
+4         0.351  0.3040   10   -15.719     1       0.0284  ...    0.1200    0.106   95.320       246533               4       1
+
+[5 rows x 14 columns]
+19/08/2021 11:54:18 UserAMusFeatures tail      danceability  energy  key  loudness  mode  speechiness  ...  liveness  valence    tempo  duration_ms  time_signature  classe
+741         0.430  0.1600    3   -19.110     1       0.0369  ...     0.122    0.223  132.551       218347               4       1
+742         0.698  0.3010    3   -13.063     1       0.0300  ...     0.200    0.474  115.643       124387               4       1
+743         0.424  0.0669    7   -18.346     1       0.0338  ...     0.115    0.117  140.761       278173               4       1
+744         0.194  0.2640    9   -14.667     1       0.0392  ...     0.103    0.305   80.574       233133               4       1
+745         0.369  0.2590    4   -12.980     0       0.0419  ...     0.111    0.315   77.101       187533               4       1
+
+[5 rows x 14 columns]
+19/08/2021 11:54:18 GetUserA_AudioFeatures <<
+19/08/2021 11:55:44 GetUserA_AudioFeatures >>
+19/08/2021 11:59:47 UserAMusFeatures head    danceability  energy  key  loudness  mode  speechiness  acousticness  \
+0         0.503  0.3890    3    -9.096     1       0.0304         0.770   
+1         0.366  0.4930   10    -7.414     1       0.0503         0.736   
+2         0.471  0.0346    5   -22.184     1       0.0949         0.989   
+3         0.338  0.5720    2    -8.187     0       0.0395         0.531   
+4         0.351  0.3040   10   -15.719     1       0.0284         0.862   
+
+   instrumentalness  liveness  valence    tempo            type  \
+0          0.027100    0.1110    0.327  105.823  audio_features   
+1          0.000457    0.1060    0.306  116.031  audio_features   
+2          0.944000    0.0998    0.234   96.965  audio_features   
+3          0.000213    0.1240    0.218  148.547  audio_features   
+4          0.135000    0.1200    0.106   95.320  audio_features   
+
+                       id                                   uri  \
+0  7JSR685hpFDqvTSNHeSKjL  spotify:track:7JSR685hpFDqvTSNHeSKjL   
+1  1VK5JYdgrJZENDl1taa2cS  spotify:track:1VK5JYdgrJZENDl1taa2cS   
+2  7L5dzeyAk7BmiBUrIBUQR8  spotify:track:7L5dzeyAk7BmiBUrIBUQR8   
+3  4RlXrkIQWhzxSaqA6YmVhH  spotify:track:4RlXrkIQWhzxSaqA6YmVhH   
+4  2WNH6N24uph03Ilnoy7HgI  spotify:track:2WNH6N24uph03Ilnoy7HgI   
+
+                                          track_href  \
+0  https://api.spotify.com/v1/tracks/7JSR685hpFDq...   
+1  https://api.spotify.com/v1/tracks/1VK5JYdgrJZE...   
+2  https://api.spotify.com/v1/tracks/7L5dzeyAk7Bm...   
+3  https://api.spotify.com/v1/tracks/4RlXrkIQWhzx...   
+4  https://api.spotify.com/v1/tracks/2WNH6N24uph0...   
+
+                                        analysis_url  duration_ms  \
+0  https://api.spotify.com/v1/audio-analysis/7JSR...       247413   
+1  https://api.spotify.com/v1/audio-analysis/1VK5...       147427   
+2  https://api.spotify.com/v1/audio-analysis/7L5d...       278326   
+3  https://api.spotify.com/v1/audio-analysis/4RlX...       287840   
+4  https://api.spotify.com/v1/audio-analysis/2WNH...       246533   
+
+   time_signature  classe  
+0               4       1  
+1               4       1  
+2               4       1  
+3               4       1  
+4               4       1  
+19/08/2021 11:59:47 UserAMusFeatures tail      danceability  energy  key  loudness  mode  speechiness  acousticness  \
+741         0.430  0.1600    3   -19.110     1       0.0369         0.992   
+742         0.698  0.3010    3   -13.063     1       0.0300         0.820   
+743         0.424  0.0669    7   -18.346     1       0.0338         0.987   
+744         0.194  0.2640    9   -14.667     1       0.0392         0.965   
+745         0.369  0.2590    4   -12.980     0       0.0419         0.972   
+
+     instrumentalness  liveness  valence    tempo            type  \
+741          0.923000     0.122    0.223  132.551  audio_features   
+742          0.000002     0.200    0.474  115.643  audio_features   
+743          0.007370     0.115    0.117  140.761  audio_features   
+744          0.921000     0.103    0.305   80.574  audio_features   
+745          0.944000     0.111    0.315   77.101  audio_features   
+
+                         id                                   uri  \
+741  5dSCEivYZl6OGN84Y0uawW  spotify:track:5dSCEivYZl6OGN84Y0uawW   
+742  5aaUXcrsXI477I93yBE8lu  spotify:track:5aaUXcrsXI477I93yBE8lu   
+743  64VBsp8A980IAGN87KX7yS  spotify:track:64VBsp8A980IAGN87KX7yS   
+744  2gBJhw5EWxlFWZPjtlwRq5  spotify:track:2gBJhw5EWxlFWZPjtlwRq5   
+745  7C0tn8TCiUFEaDilmz0ZKJ  spotify:track:7C0tn8TCiUFEaDilmz0ZKJ   
+
+                                            track_href  \
+741  https://api.spotify.com/v1/tracks/5dSCEivYZl6O...   
+742  https://api.spotify.com/v1/tracks/5aaUXcrsXI47...   
+743  https://api.spotify.com/v1/tracks/64VBsp8A980I...   
+744  https://api.spotify.com/v1/tracks/2gBJhw5EWxlF...   
+745  https://api.spotify.com/v1/tracks/7C0tn8TCiUFE...   
+
+                                          analysis_url  duration_ms  \
+741  https://api.spotify.com/v1/audio-analysis/5dSC...       218347   
+742  https://api.spotify.com/v1/audio-analysis/5aaU...       124387   
+743  https://api.spotify.com/v1/audio-analysis/64VB...       278173   
+744  https://api.spotify.com/v1/audio-analysis/2gBJ...       233133   
+745  https://api.spotify.com/v1/audio-analysis/7C0t...       187533   
+
+     time_signature  classe  
+741               4       1  
+742               4       1  
+743               4       1  
+744               4       1  
+745               4       1  
+19/08/2021 12:01:11 UserAMusFeatures head    danceability  energy  key  loudness  mode  speechiness  acousticness  \
+0         0.503   0.389    3    -9.096     1       0.0304          0.77   
+
+   instrumentalness  liveness  valence    tempo            type  \
+0            0.0271     0.111    0.327  105.823  audio_features   
+
+                       id                                   uri  \
+0  7JSR685hpFDqvTSNHeSKjL  spotify:track:7JSR685hpFDqvTSNHeSKjL   
+
+                                          track_href  \
+0  https://api.spotify.com/v1/tracks/7JSR685hpFDq...   
+
+                                        analysis_url  duration_ms  \
+0  https://api.spotify.com/v1/audio-analysis/7JSR...       247413   
+
+   time_signature  classe  
+0               4       1  
+19/08/2021 12:01:11 UserAMusFeatures tail      danceability  energy  key  loudness  mode  speechiness  acousticness  \
+745         0.369   0.259    4    -12.98     0       0.0419         0.972   
+
+     instrumentalness  liveness  valence   tempo            type  \
+745             0.944     0.111    0.315  77.101  audio_features   
+
+                         id                                   uri  \
+745  7C0tn8TCiUFEaDilmz0ZKJ  spotify:track:7C0tn8TCiUFEaDilmz0ZKJ   
+
+                                            track_href  \
+745  https://api.spotify.com/v1/tracks/7C0tn8TCiUFE...   
+
+                                          analysis_url  duration_ms  \
+745  https://api.spotify.com/v1/audio-analysis/7C0t...       187533   
+
+     time_signature  classe  
+745               4       1  
+19/08/2021 12:01:52 UserAMusFeatures head    danceability  energy  key  loudness  mode  speechiness  acousticness  \
+0         0.503   0.389    3    -9.096     1       0.0304          0.77   
+
+   instrumentalness  liveness  valence    tempo            type  \
+0            0.0271     0.111    0.327  105.823  audio_features   
+
+                       id                                   uri  \
+0  7JSR685hpFDqvTSNHeSKjL  spotify:track:7JSR685hpFDqvTSNHeSKjL   
+
+                                          track_href  \
+0  https://api.spotify.com/v1/tracks/7JSR685hpFDq...   
+
+                                        analysis_url  duration_ms  \
+0  https://api.spotify.com/v1/audio-analysis/7JSR...       247413   
+
+   time_signature  classe  
+0               4       1  
+19/08/2021 12:01:52 UserAMusFeatures tail      danceability  energy  key  loudness  mode  speechiness  acousticness  \
+745         0.369   0.259    4    -12.98     0       0.0419         0.972   
+
+     instrumentalness  liveness  valence   tempo            type  \
+745             0.944     0.111    0.315  77.101  audio_features   
+
+                         id                                   uri  \
+745  7C0tn8TCiUFEaDilmz0ZKJ  spotify:track:7C0tn8TCiUFEaDilmz0ZKJ   
+
+                                            track_href  \
+745  https://api.spotify.com/v1/tracks/7C0tn8TCiUFE...   
+
+                                          analysis_url  duration_ms  \
+745  https://api.spotify.com/v1/audio-analysis/7C0t...       187533   
+
+     time_signature  classe  
+745               4       1  
+19/08/2021 12:04:05 UserAMusFeatures head    danceability  energy  key  loudness  mode  speechiness  acousticness  \
+0         0.503   0.389    3    -9.096     1       0.0304          0.77   
+
+   instrumentalness  liveness  valence    tempo  duration_ms  time_signature  \
+0            0.0271     0.111    0.327  105.823       247413               4   
+
+   classe  
+0       1  
+19/08/2021 12:04:05 UserAMusFeatures tail       danceability  energy  key  loudness  mode  speechiness  acousticness  \
+1298          0.58   0.385    4   -13.685     1       0.0616         0.972   
+
+      instrumentalness  liveness  valence    tempo  duration_ms  \
+1298           0.00369     0.262    0.515  140.256       245133   
+
+      time_signature  classe  
+1298               4       0  
+19/08/2021 12:05:00 UserAMusFeatures shape (1299, 14)
+19/08/2021 12:05:12 GetUserA_AudioFeatures >>
+19/08/2021 12:05:20 UserAMusFeatures shape (1299, 14)
+19/08/2021 12:05:20 GetUserA_AudioFeatures <<
+19/08/2021 12:15:37 GetUserA_AudioFeatures >>
+19/08/2021 12:15:45 UserAMusFeatures shape (746, 18)
+19/08/2021 12:15:45 UserAMusbarraFeatures shape (553, 18)
+19/08/2021 12:15:45 UserAMusFeatures shape (1299, 14)
+19/08/2021 12:15:45 GetUserA_AudioFeatures <<
+19/08/2021 13:25:38 FiltraAudioFeatures >>
+19/08/2021 13:25:38 AudioFeaturesUserA (1299, 14)
+19/08/2021 13:25:38 AudioFeaturesUserA sem loudness = (1299, 13)
+19/08/2021 13:25:38 FiltraAudioFeatures <<

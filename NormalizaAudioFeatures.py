@@ -18,19 +18,19 @@ logging.basicConfig(filename='./Resultado das Análises/preprocessamento2.log',
 logging.info('NormalizaAudioFeatures >>')
 
 
-dfAudioFeatures =  pd.read_pickle ("./FeatureStore/AudioFeatures.pickle")  
+dfAudioFeatures =  pd.read_pickle ("./FeatureStore/AudioFeaturesUserA.pickle")  
 
 
 #%% normalizando atributos key, tempo, time_signature e duration_ms entre 0 e 1
-def normaliza_minmax(df):
-    return (df - df.min()) / ( df.max() - df.min())
+def normaliza_minmax(df, valormax):
+    return (df - df.min()) / ( valormax - df.min())
 
-dfAudioFeatures[['duration_ms']] = normaliza_minmax(dfAudioFeatures[['duration_ms']])
-dfAudioFeatures[['key']] = normaliza_minmax(dfAudioFeatures[['key']])
-dfAudioFeatures[['tempo']] = normaliza_minmax(dfAudioFeatures[['tempo']])
-dfAudioFeatures[['time_signature']] = normaliza_minmax(dfAudioFeatures[['time_signature']])
+dfAudioFeatures[['duration_ms']] = normaliza_minmax(dfAudioFeatures[['duration_ms']], 1000000)
+dfAudioFeatures[['key']] = normaliza_minmax(dfAudioFeatures[['key']], 11)
+dfAudioFeatures[['tempo']] = normaliza_minmax(dfAudioFeatures[['tempo']],200)
+dfAudioFeatures[['time_signature']] = normaliza_minmax(dfAudioFeatures[['time_signature']], 5)
 
 #%% salvando filtrado
-dfAudioFeatures.to_pickle('./FeatureStore/AudioFeatures.pickle')
+dfAudioFeatures.to_pickle('./FeatureStore/AudioFeaturesUserA.pickle')
 
 logging.info('NormalizaAudioFeatures <<')

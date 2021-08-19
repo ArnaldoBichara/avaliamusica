@@ -2,7 +2,7 @@
 # Este componente lê e trata as playlists Curto e Não Curto do Usuário A,
 # obtendo diretamente do Spotify.
 ###################
-
+#%%
 # Importando packages
 import pandas as pd
 import numpy as np
@@ -46,12 +46,12 @@ while playlists:
         playlists = None
 
 #
-# a partir d0 result de uma playlist, lista Ids das Musicas
+# a partir do result de uma playlist, lista Ids das Musicas
 #
 def getPartialMusicas (result):
     listMusicas=[]
     for i, item in enumerate (result['items']):
-        arrayMusica = [item['track']['id'],item['track']['artists'][0]['name'],item['track']['name']]
+        arrayMusica = [item['track']['artists'][0]['name'],item['track']['name']]
         listMusicas.append(arrayMusica)
     return listMusicas
 
@@ -69,39 +69,32 @@ listMusicasUserACurte = getMusicas(userA, IdPlaylistCurto)
 listMusicasUserANaoCurte = getMusicas(userA, IdPlaylistNaoCurto)
 
 dfMusicasUserACurte = pd.DataFrame(listMusicasUserACurte,
-                             columns=['id_musica', 'artista','musica'])
+                            columns=['artista','musica'])
 dfMusicasUserANaoCurte = pd.DataFrame(listMusicasUserANaoCurte,
-                            columns=['id_musica', 'artista','musica'])
+                            columns=['artista','musica'])
+
+#%% Criando coluna interpretacao e removendo colunas artista e musica
+dfMusicasUserACurte['interpretacao']=dfMusicasUserACurte['artista']+":>"+dfMusicasUserACurte['musica']
+del dfMusicasUserACurte['artista']
+del dfMusicasUserACurte['musica']
+dfMusicasUserANaoCurte['interpretacao']=dfMusicasUserANaoCurte['artista']+":>"+dfMusicasUserANaoCurte['musica']
+del dfMusicasUserANaoCurte['artista']
+del dfMusicasUserANaoCurte['musica']
 
 # removendo itens repetidos (diferentes interpretações de um artista\música)
-logging.info ("MusUserACurte Inicial: %s", len(dfMusicasUserACurte.index))
+logging.info ("MusUserACurte Inicial: %s", dfMusicasUserACurte.shape)
 dfMusicasUserACurte.drop_duplicates()
-logging.info ("MusCurteUserA removidos duplicados: %s", len(dfMusicasUserACurte.index))
+logging.info ("MusCurteUserA removidos duplicados: %s", dfMusicasUserACurte.shape)
 
-logging.info ("MusUserANaoCurte Inicial: %s", len(dfMusicasUserANaoCurte.index))
+logging.info ("MusUserANaoCurte Inicial: %s", dfMusicasUserANaoCurte.shape)
 dfMusicasUserANaoCurte.drop_duplicates()    
-logging.info ("MusUserANaoCurte removidos duplicados: %s", len(dfMusicasUserANaoCurte.index))
-
-# incluindo userid 0001 para userA e 0000 para userAbarrado (usuário oposto a user A)
-dfMusicasUserACurte['userid'] = '0001'
-dfMusicasUserANaoCurte['userid'] = '0000' 
-
-# reordenando colunas
-dfMusicasUserACurte = dfMusicasUserACurte[
-      [ 'userid',
-        'artista',
-        'musica',
-        'id_musica'
-        ]]
-dfMusicasUserANaoCurte = dfMusicasUserANaoCurte[
-      [ 'userid',
-        'artista',
-        'musica',
-        'id_musica'
-        ]]        
+logging.info ("MusUserANaoCurte removidos duplicados: %s", dfMusicasUserANaoCurte.shape)
 
 # salvando datasets
 dfMusicasUserACurte.to_pickle ("./FeatureStore/MusUserACurte.pickle")
 dfMusicasUserANaoCurte.to_pickle ("./FeatureStore/MusUserANaoCurte.pickle")                            
 
+logging.info ("MusUserACurte.head %s", dfMusicasUserACurte.head())
 logging.info('GetMusUsrA <<')
+
+# %%
