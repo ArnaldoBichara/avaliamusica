@@ -20,7 +20,7 @@ logging.basicConfig(filename='./Resultado das Análises/preprocessamento2.log',
                     format='%(asctime)s %(message)s',
                     datefmt='%d/%m/%Y %H:%M:%S'
                     )
-logging.info('GetAudioFeatures >>')
+logging.info('>> GetAudioFeatures')
 
 # lendo users dataset através de read_csv
 dfSpotMusicas = pd.read_csv('./datasets/spotify600k_tracks.csv', 
@@ -81,4 +81,4 @@ logging.info ('GetAudioFeatures: AudioFeatures shape = %s', dfSpotMusicas.shape)
 
 dfSpotMusicas.to_pickle('./FeatureStore/AudioFeatures.pickle')
 
-logging.info('GetAudioFeatures <<')
+logging.info('<< GetAudioFeatures')

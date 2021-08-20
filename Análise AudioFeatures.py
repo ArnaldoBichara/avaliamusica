@@ -15,7 +15,7 @@ logging.basicConfig(filename='./Resultado das Análises/preprocessamento2.log',
                     format='%(asctime)s %(message)s',
                     datefmt='%d/%m/%Y %H:%M:%S'
                     )
-logging.info('Análise AudioFeatures >>')
+logging.info('>>Análise AudioFeatures')
 
 dfAudioFeatures =  pd.read_pickle ("./FeatureStore/AudioFeatures.pickle")  
 dfUserAAudioFeatures =  pd.read_pickle ("./FeatureStore/AudioFeaturesUserACurte.pickle")  
@@ -133,4 +133,4 @@ AnalisesTxt.close()
 # %%
 #dfUserAAudioFeatures.loc[dfUserAAudioFeatures['valence']<0.1][['musica','valence']]
 
-logging.info('Análise AudioFeatures <<')
+logging.info('<< Análise AudioFeatures')

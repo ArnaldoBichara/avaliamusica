@@ -19,7 +19,7 @@ logging.basicConfig(filename='./Resultado das Análises/preprocessamento2.log',
                     format='%(asctime)s %(message)s',
                     datefmt='%d/%m/%Y %H:%M:%S'
                     )
-logging.info('FiltraAudioFeatures >>')
+logging.info('>> FiltraAudioFeatures')
 
 dfAudioFeatures      =  pd.read_pickle ("./FeatureStore/AudioFeatures.pickle")  
 dfUserAAudioFeatures =  pd.read_pickle ("./FeatureStore/AudioFeaturesUserACurte.pickle")  
@@ -80,4 +80,4 @@ dfAudioFeatures.to_pickle('./FeatureStore/AudioFeatures.pickle')
 dfUserAAudioFeatures.to_pickle('./FeatureStore/AudioFeaturesUserACurte.pickle')
 dfUserAbarraAudioFeatures.to_pickle('./FeatureStore/AudioFeaturesUserANaoCurte.pickle')
 
-logging.info('FiltraAudioFeatures <<')
+logging.info('<< FiltraAudioFeatures')

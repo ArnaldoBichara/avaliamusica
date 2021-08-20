@@ -19,7 +19,7 @@ logging.basicConfig(filename='./Resultado das Análises/preprocessamento2.log',
                     format='%(asctime)s %(message)s',
                     datefmt='%d/%m/%Y %H:%M:%S'
                     )
-logging.info('GetUserA_AudioFeatures >>')
+logging.info('>> GetUserA_AudioFeatures')
 
 # conectando no spotify
 scope = "user-library-read"
@@ -100,4 +100,4 @@ dfUserAMusFeatures.to_pickle ("./FeatureStore/AudioFeaturesUserACurte.pickle")
 dfUserAbarraMusFeatures.to_pickle ("./FeatureStore/AudioFeaturesUserANaoCurte.pickle")
 
 # %%
-logging.info('GetUserA_AudioFeatures <<')
+logging.info('<< GetUserA_AudioFeatures')

@@ -20,7 +20,7 @@ logging.basicConfig(filename='./Resultado das Análises/preprocessamento2.log',
                     datefmt='%d/%m/%Y %H:%M:%S'
                     )
 
-logging.info('GetMusUsrA >>')
+logging.info('>> GetMusUsrA')
 
 # conectando no spotify
 scope = "user-library-read"
@@ -95,6 +95,6 @@ dfMusicasUserACurte.to_pickle ("./FeatureStore/MusUserACurte.pickle")
 dfMusicasUserANaoCurte.to_pickle ("./FeatureStore/MusUserANaoCurte.pickle")                            
 
 logging.info ("MusUserACurte.head %s", dfMusicasUserACurte.head())
-logging.info('GetMusUsrA <<')
+logging.info('<< GetMusUsrA')
 
 # %%

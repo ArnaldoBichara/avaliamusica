@@ -14,6 +14,8 @@ import pickle
 import logging
 from time import gmtime, strftime
 
+logging.info('>> GetMusUsers')
+
 # iniciando logging de métricas
 logging.basicConfig(filename='./Resultado das Análises/preprocessamento.log', 
                     level=logging.INFO,
@@ -52,6 +54,6 @@ logging.info('MusUsers, removidas mus em branco, criada interpretacao e removida
 
 # salvando dataset
 dfMusicasUser.to_pickle ("./FeatureStore/MusUsers.pickle")
-
+logging.info('<< GetMusUsers')
 
 # %%
