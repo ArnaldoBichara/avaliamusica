@@ -90,6 +90,11 @@ print (dfUserAbarraMusFeatures.head())
 dfUserAMusFeatures.drop(columns=['id','type','uri','track_href','analysis_url'],inplace=True)
 dfUserAbarraMusFeatures.drop(columns=['id','type','uri','track_href','analysis_url'],inplace=True)
 
+# removendo itens repetidos (diferentes interpretações de um artista\música)
+dfUserAMusFeatures.drop_duplicates(inplace=True, ignore_index=True)
+dfUserAbarraMusFeatures.drop_duplicates(inplace=True, ignore_index=True)    
+
+
 #%%
 logging.info ("UserAMusFeatures shape %s", dfUserAMusFeatures.shape)
 logging.info ("UserAbarraMusFeatures shape %s", dfUserAbarraMusFeatures.shape)

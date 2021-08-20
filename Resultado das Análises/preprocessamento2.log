@@ -1,61 +1,35 @@
-20/08/2021 11:58:24 >> GetMusUsrA
-20/08/2021 11:58:29 NumExpr defaulting to 4 threads.
-20/08/2021 11:58:29 MusUserACurte Inicial: (746, 1)
-20/08/2021 11:58:29 MusCurteUserA removidos duplicados: (746, 1)
-20/08/2021 11:58:29 MusUserANaoCurte Inicial: (554, 1)
-20/08/2021 11:58:29 MusUserANaoCurte removidos duplicados: (554, 1)
-20/08/2021 11:58:29 MusUserACurte.head                                        interpretacao
+20/08/2021 16:38:59 >> GetMusUsrA
+20/08/2021 16:39:04 NumExpr defaulting to 4 threads.
+20/08/2021 16:39:04 MusUserACurte Inicial: (746, 1)
+20/08/2021 16:39:04 MusCurteUserA removidos duplicados: (719, 1)
+20/08/2021 16:39:04 MusUserANaoCurte Inicial: (554, 1)
+20/08/2021 16:39:04 MusUserANaoCurte removidos duplicados: (550, 1)
+20/08/2021 16:39:04 MusUserACurte.head                                        interpretacao
 0                     Death Cab for Cutie:>60 & Punk
 1  Lindsey Stirling:>7 Years (Acoustic) - Recorde...
 2                         Ruben Galloway:>Acceptance
 3                        14 Bis:>Adoráveis Criaturas
 4                  Enya:>Afer Ventus - 2009 Remaster
-20/08/2021 11:58:29 << GetMusUsrA
-20/08/2021 11:58:30 >> GetAudioFeatures
-20/08/2021 11:58:33 GetAudioFeatures: spotify600k_tracks shape = (586672, 13)
-20/08/2021 11:58:33 GetAudioFeatures: AudioFeatures shape = (586672, 13)
-20/08/2021 11:58:33 << GetAudioFeatures
-20/08/2021 11:58:35 >> GetUserA_AudioFeatures
-20/08/2021 11:58:44 UserAMusFeatures shape (746, 18)
-20/08/2021 11:58:44 UserAMusbarraFeatures shape (553, 18)
-20/08/2021 11:58:44 UserAMusFeatures shape (746, 14)
-20/08/2021 11:58:44 UserAbarraMusFeatures shape (553, 14)
-20/08/2021 11:58:44 << GetUserA_AudioFeatures
-20/08/2021 11:58:48 >> FiltraAudioFeatures
-20/08/2021 11:58:48 NumExpr defaulting to 4 threads.
-20/08/2021 11:58:48 AudioFeatures com duration_ms > 30 seg = (586431, 13)
-20/08/2021 11:58:48 UserAAudioFeatures com duration_ms > 30 seg = (746, 14)
-20/08/2021 11:58:48 UserAbarraAudioFeatures com duration_ms > 30 seg = (553, 14)
-20/08/2021 11:58:48 AudioFeatures (586431, 13)
-20/08/2021 11:58:48 AudioFeaturesUserA (746, 14)
-20/08/2021 11:58:48 AudioFeaturesUserAbarra (553, 14)
-20/08/2021 11:58:48 AudioFeatures antes de filtro = (586431, 13)
-20/08/2021 11:58:48 AudioFeatures com speechiness < 0,6 = (562961, 13)
-20/08/2021 11:58:48 AudioFeatures sem loudness = (562961, 12)
-20/08/2021 11:58:48 AudioFeaturesUserA sem loudness = (746, 13)
-20/08/2021 11:58:48 AudioFeaturesUserAbarra sem loudness = (553, 13)
-20/08/2021 11:58:48 << FiltraAudioFeatures
-20/08/2021 11:58:52 >> Filtra Users
-20/08/2021 11:58:58 NumExpr defaulting to 4 threads.
-20/08/2021 11:59:11 dfMusUsers describe                                   userid       interpretacao
-count                           11375851            11374040
-unique                             15918             2790780
-top     4398de6902abde3351347b048fcdc287  M83:>Midnight City
-freq                              248007                1890
-20/08/2021 11:59:14 contagem de users                nrows
-count   15918.000000
-mean      714.653286
-std      2480.052238
-min         1.000000
-25%        88.000000
-50%       334.000000
-75%       794.000000
-max    248007.000000
-20/08/2021 11:59:26 dfMusUsers describe apos filtro                                   userid       interpretacao
-count                            8023558             8021957
-unique                             12343             1948681
-top     bee933a25df732259e0a9d55d161f1b5  M83:>Midnight City
-freq                                3188                1714
-20/08/2021 11:59:33 << Filtra Users
-20/08/2021 11:59:54 >>Análise AudioFeatures
-20/08/2021 12:00:06 << Análise AudioFeatures
+20/08/2021 16:39:04 << GetMusUsrA
+20/08/2021 16:39:06 >> GetUserA_AudioFeatures
+20/08/2021 16:39:14 UserAMusFeatures shape (746, 18)
+20/08/2021 16:39:14 UserAMusbarraFeatures shape (553, 18)
+20/08/2021 16:39:14 UserAMusFeatures shape (744, 14)
+20/08/2021 16:39:14 UserAbarraMusFeatures shape (550, 14)
+20/08/2021 16:39:14 << GetUserA_AudioFeatures
+20/08/2021 16:39:18 >> FiltraAudioFeatures
+20/08/2021 16:39:18 NumExpr defaulting to 4 threads.
+20/08/2021 16:39:18 AudioFeatures com duration_ms > 30 seg = (0, 12)
+20/08/2021 16:39:18 UserAAudioFeatures com duration_ms > 30 seg = (744, 14)
+20/08/2021 16:39:18 UserAbarraAudioFeatures com duration_ms > 30 seg = (550, 14)
+20/08/2021 16:39:18 AudioFeatures (0, 12)
+20/08/2021 16:39:18 AudioFeaturesUserA (744, 14)
+20/08/2021 16:39:18 AudioFeaturesUserAbarra (550, 14)
+20/08/2021 16:39:18 AudioFeatures antes de filtro = (0, 12)
+20/08/2021 16:39:18 AudioFeatures com speechiness < 0,6 = (0, 12)
+20/08/2021 16:39:18 AudioFeatures sem loudness = (0, 12)
+20/08/2021 16:39:18 AudioFeaturesUserA sem loudness = (744, 13)
+20/08/2021 16:39:18 AudioFeaturesUserAbarra sem loudness = (550, 13)
+20/08/2021 16:39:18 << FiltraAudioFeatures
+20/08/2021 16:39:21 >>Análise AudioFeatures
+20/08/2021 16:39:33 << Análise AudioFeatures

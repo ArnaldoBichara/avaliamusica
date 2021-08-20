@@ -35,7 +35,7 @@ print(dfMusicasUser.head())
 if dfMusicasUser['musica'].isnull().sum():
     dfMusicasUser = dfMusicasUser.dropna(axis = 0, subset = ['musica'])
 # %% Limpeza: removendo linhas duplicadas 
-dfMusicasUser.drop_duplicates(inplace = True)
+dfMusicasUser.drop_duplicates(inplace = True, ignore_index=True)
 dfMusicasUser.reset_index(drop=True)
 #%%
 # %% salvando dataset neste ponto.

@@ -48,9 +48,9 @@ logging.info('AudioFeatures com speechiness < 0,6 = %s', dfAudioFeatures.shape)
 
 #%% removendo coluna loudness já que
 # é muito correlacionada com energy e acousticness
-dfAudioFeatures.drop(columns=['loudness'], inplace=True)
-dfUserAAudioFeatures.drop(columns=['loudness'], inplace=True)
-dfUserAbarraAudioFeatures.drop(columns=['loudness'], inplace=True)
+dfAudioFeatures.drop(columns=['loudness'], inplace=True, errors='ignore')
+dfUserAAudioFeatures.drop(columns=['loudness'], inplace=True, errors='ignore')
+dfUserAbarraAudioFeatures.drop(columns=['loudness'], inplace=True, errors='ignore')
 
 logging.info('AudioFeatures sem loudness = %s',      dfAudioFeatures.shape)
 logging.info('AudioFeaturesUserA sem loudness = %s', dfUserAAudioFeatures.shape)

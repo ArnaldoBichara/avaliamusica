@@ -80,14 +80,17 @@ del dfMusicasUserACurte['musica']
 dfMusicasUserANaoCurte['interpretacao']=dfMusicasUserANaoCurte['artista']+":>"+dfMusicasUserANaoCurte['musica']
 del dfMusicasUserANaoCurte['artista']
 del dfMusicasUserANaoCurte['musica']
+#%%
+#print (dfMusicasUserACurte[dfMusicasUserACurte['interpretacao'].str.contains("Beto Guedes:>Quando Te Vi", na= False, case=False)].to_string())
 
+#%%
 # removendo itens repetidos (diferentes interpretações de um artista\música)
 logging.info ("MusUserACurte Inicial: %s", dfMusicasUserACurte.shape)
-dfMusicasUserACurte.drop_duplicates()
+dfMusicasUserACurte.drop_duplicates(inplace=True, ignore_index=True)
 logging.info ("MusCurteUserA removidos duplicados: %s", dfMusicasUserACurte.shape)
 
 logging.info ("MusUserANaoCurte Inicial: %s", dfMusicasUserANaoCurte.shape)
-dfMusicasUserANaoCurte.drop_duplicates()    
+dfMusicasUserANaoCurte.drop_duplicates(inplace=True, ignore_index=True)    
 logging.info ("MusUserANaoCurte removidos duplicados: %s", dfMusicasUserANaoCurte.shape)
 
 # salvando datasets

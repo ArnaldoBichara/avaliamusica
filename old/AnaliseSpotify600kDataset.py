@@ -23,7 +23,7 @@ type(dfSpotMusicas['artists'])
 df = dfSpotMusicas[['artists','musica']].copy()
 print (df.count())
 
-df = df.drop_duplicates(subset=['musica'])
+df = df.drop_duplicates(subset=['musica'], inplace=True, ignore_index=True)
 print (df.count())
 df = df.sort_values(by=['musica'])
 

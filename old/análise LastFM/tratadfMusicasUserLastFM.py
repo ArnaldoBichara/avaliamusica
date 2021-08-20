@@ -73,7 +73,7 @@ dfMusicas = dfMusicasUser[['artista','musica']].copy()
 print(dfMusicas.head())
 print (dfMusicas.count())
 
-dfMusicas = dfMusicas.drop_duplicates(subset=['musica'])
+dfMusicas = dfMusicas.drop_duplicates(subset=['musica'], inplace=True, ignore_index=True)
 print (dfMusicas.count())
 
 # %%
