@@ -14,7 +14,7 @@ import logging
 from time import gmtime, strftime
 
 # iniciando logging
-logging.basicConfig(filename='./Resultado das Análises/preprocessamento2.log', 
+logging.basicConfig(filename='./Analises/preprocessamento2.log', 
                     level=logging.INFO,
                     format='%(asctime)s %(message)s',
                     datefmt='%d/%m/%Y %H:%M:%S'
@@ -74,10 +74,10 @@ dfMusicasUserANaoCurte = pd.DataFrame(listMusicasUserANaoCurte,
                             columns=['artista','musica'])
 
 #%% Criando coluna interpretacao e removendo colunas artista e musica
-dfMusicasUserACurte['interpretacao']=dfMusicasUserACurte['artista']+":>"+dfMusicasUserACurte['musica']
+dfMusicasUserACurte['interpretacao']=dfMusicasUserACurte['artista'].str.upper()+":>"+dfMusicasUserACurte['musica'].str.upper()
 del dfMusicasUserACurte['artista']
 del dfMusicasUserACurte['musica']
-dfMusicasUserANaoCurte['interpretacao']=dfMusicasUserANaoCurte['artista']+":>"+dfMusicasUserANaoCurte['musica']
+dfMusicasUserANaoCurte['interpretacao']=dfMusicasUserANaoCurte['artista'].str.upper()+":>"+dfMusicasUserANaoCurte['musica'].str.upper()
 del dfMusicasUserANaoCurte['artista']
 del dfMusicasUserANaoCurte['musica']
 #%%

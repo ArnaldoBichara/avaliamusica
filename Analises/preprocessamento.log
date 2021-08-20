@@ -1,0 +1,31 @@
+20/08/2021 17:52:52 >> GetMusUsers
+20/08/2021 17:53:20 MusUsers shape inicial: (12891550, 4)
+20/08/2021 17:53:24 NumExpr defaulting to 4 threads.
+20/08/2021 17:54:16 MusUsers, removidas mus em branco, criada interpretacao e removidas linhas duplicadas (11341422, 2)
+20/08/2021 17:54:23 << GetMusUsers
+20/08/2021 17:54:28 >> GetAudioFeatures
+20/08/2021 17:54:31 GetAudioFeatures: spotify600k_tracks shape = (586672, 13)
+20/08/2021 17:54:31 GetAudioFeatures: AudioFeatures shape = (586672, 13)
+20/08/2021 17:54:37 << GetAudioFeatures
+20/08/2021 17:54:45 >> Filtra Users
+20/08/2021 17:54:52 NumExpr defaulting to 4 threads.
+20/08/2021 17:55:06 dfMusUsers describe                                   userid       interpretacao
+count                           11341422            11339611
+unique                             15918             2696487
+top     4398de6902abde3351347b048fcdc287  M83:>MIDNIGHT CITY
+freq                              247092                1890
+20/08/2021 17:55:08 contagem de users                nrows
+count   15918.000000
+mean      712.490388
+std      2468.525370
+min         1.000000
+25%        88.000000
+50%       334.000000
+75%       792.000000
+max    247092.000000
+20/08/2021 17:55:22 dfMusUsers describe apos filtro                                   userid       interpretacao
+count                            8005556             8003955
+unique                             12342             1888587
+top     c41d3cc0c49c0b96f30f34281a8e133e  M83:>MIDNIGHT CITY
+freq                                3174                1714
+20/08/2021 17:55:29 << Filtra Users

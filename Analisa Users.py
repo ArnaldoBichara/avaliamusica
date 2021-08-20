@@ -9,7 +9,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import logging
 
-logging.basicConfig(filename='./Resultado das Análises/preprocessamento2.log', 
+logging.basicConfig(filename='./Analises/preprocessamento2.log', 
                     level=logging.INFO,
                     format='%(asctime)s %(message)s',
                     datefmt='%d/%m/%Y %H:%M:%S'
@@ -50,6 +50,6 @@ dfMusUsers[dfMusUsers['userid'].isin(listaUsersAManter)]
 # %%
 #%%
 dfCountPerUser.hist(bins=1000, figsize=(18,16))
-plt.savefig("./Resultado das Análises/Histograma Users.pdf")
+plt.savefig("./Analises/Histograma Users.pdf")
 
 # %%

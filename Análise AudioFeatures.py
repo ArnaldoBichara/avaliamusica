@@ -10,7 +10,7 @@ from IPython.display import Image
 import logging
 from time import gmtime, strftime
 
-logging.basicConfig(filename='./Resultado das Análises/preprocessamento2.log', 
+logging.basicConfig(filename='./Analises/preprocessamento2.log', 
                     level=logging.INFO,
                     format='%(asctime)s %(message)s',
                     datefmt='%d/%m/%Y %H:%M:%S'
@@ -22,13 +22,13 @@ dfUserAAudioFeatures =  pd.read_pickle ("./FeatureStore/AudioFeaturesUserACurte.
 dfUserAbarradoAudioFeatures =  pd.read_pickle ("./FeatureStore/AudioFeaturesUserANaoCurte.pickle")  
 #%%
 dfAudioFeatures.hist(bins=100, figsize=(18,16))
-plt.savefig("./Resultado das Análises/Histograma AudioFeatures.pdf")
+plt.savefig("./Analises/Histograma AudioFeatures.pdf")
 dfUserAAudioFeatures.hist(bins=100, figsize=(18,16))
-plt.savefig("./Resultado das Análises/Histograma AudioFeatures UserA.pdf")
+plt.savefig("./Analises/Histograma AudioFeatures UserA.pdf")
 dfUserAbarradoAudioFeatures.hist(bins=100, figsize=(18,16))
-plt.savefig("./Resultado das Análises/Histograma AudioFeatures UserA barra.pdf")
+plt.savefig("./Analises/Histograma AudioFeatures UserA barra.pdf")
 # %% Para cada característica musical
-AnalisesTxt = open ('./Resultado das Análises/AudioFeatures.txt', 'w')
+AnalisesTxt = open ('./Analises/AudioFeatures.txt', 'w')
 
 print ('\nDuration_ms', file=AnalisesTxt)
 print ("User A curte    : Media=","{:.3f}".format(dfUserAAudioFeatures['duration_ms'].mean())," Desvio Padrao=","{:.3f}".format(dfUserAAudioFeatures['duration_ms'].std()), file= AnalisesTxt )

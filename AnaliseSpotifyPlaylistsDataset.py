@@ -7,7 +7,7 @@ import logging
 from time import gmtime, strftime
 #%%
 # iniciando logging de métricas
-logging.basicConfig(filename='./Resultado das Análises/avaliamusica.log', 
+logging.basicConfig(filename='./Analises/avaliamusica.log', 
                     level=logging.DEBUG,
                     format='%(asctime)s %(message)s',
                     datefmt='%d/%m/%Y %H:%M:%S'

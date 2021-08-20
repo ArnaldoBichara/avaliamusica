@@ -14,14 +14,14 @@ import pickle
 import logging
 from time import gmtime, strftime
 
-logging.info('>> GetMusUsers')
 
 # iniciando logging de métricas
-logging.basicConfig(filename='./Resultado das Análises/preprocessamento.log', 
+logging.basicConfig(filename='./Analises/preprocessamento.log', 
                     level=logging.INFO,
                     format='%(asctime)s %(message)s',
                     datefmt='%d/%m/%Y %H:%M:%S'
                     )
+logging.info('>> GetMusUsers')
 # lendo dataset
 dfMusicasUser = pd.read_csv('./datasets/spotify_playlists_dataset.csv', 
                             sep=',', escapechar='\\',
@@ -40,7 +40,7 @@ if dfMusicasUser['musica'].isnull().sum():
     dfMusicasUser = dfMusicasUser.dropna(axis = 0, subset = ['musica'])
 
 #%% Criando coluna interpretacao e removendo colunas artista e musica
-dfMusicasUser['interpretacao']=dfMusicasUser['artista']+":>"+dfMusicasUser['musica']
+dfMusicasUser['interpretacao']=dfMusicasUser['artista'].str.upper()+":>"+dfMusicasUser['musica'].str.upper()
 #%%
 del dfMusicasUser['artista']
 del dfMusicasUser['musica']

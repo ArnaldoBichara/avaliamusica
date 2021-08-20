@@ -33,7 +33,11 @@ print (dfMusUserA[dfMusUserA['interpretacao'].str.contains("Beto Guedes", na= Fa
 print (dfMusUsers[dfMusUsers['interpretacao'].str.contains("Beto Guedes:>Amor De Índio", na= False, case=False)].to_string(index=False))
 #%% não tem... vixe. Vamos ver se temos algo do Beto
 print (dfMusUsers[dfMusUsers['interpretacao'].str.contains("Beto Guedes", na= False, case=False)]['interpretacao'].to_string(index=False))
-#%% sim, achei duas músicas...
+#%% bem, achei duas músicas...
+#%% vamos ver do Milton, que é mais popular
+print (dfMusUserA[dfMusUserA['interpretacao'].str.contains("Milton Nascimento", na= False, case=False)].to_string(index=False))
+#%%
+print (dfMusUsers[dfMusUsers['interpretacao'].str.contains("Milton Nascimento", na= False, case=False)]['interpretacao'].to_string(index=False))
 #%%
 logging.info('<< Analisa UserA com Users')
 

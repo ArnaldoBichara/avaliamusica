@@ -15,7 +15,7 @@ import csv
 import logging
 #from sklearn import preprocessing
 
-logging.basicConfig(filename='./Resultado das Análises/preprocessamento.log', 
+logging.basicConfig(filename='./Analises/preprocessamento.log', 
                     level=logging.INFO,
                     format='%(asctime)s %(message)s',
                     datefmt='%d/%m/%Y %H:%M:%S'

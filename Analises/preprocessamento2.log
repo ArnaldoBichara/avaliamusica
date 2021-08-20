@@ -1,0 +1,35 @@
+20/08/2021 18:00:24 >> GetMusUsrA
+20/08/2021 18:00:28 NumExpr defaulting to 4 threads.
+20/08/2021 18:00:28 MusUserACurte Inicial: (746, 1)
+20/08/2021 18:00:28 MusCurteUserA removidos duplicados: (716, 1)
+20/08/2021 18:00:28 MusUserANaoCurte Inicial: (554, 1)
+20/08/2021 18:00:28 MusUserANaoCurte removidos duplicados: (550, 1)
+20/08/2021 18:00:28 MusUserACurte.head                                        interpretacao
+0                     DEATH CAB FOR CUTIE:>60 & PUNK
+1  LINDSEY STIRLING:>7 YEARS (ACOUSTIC) - RECORDE...
+2                         RUBEN GALLOWAY:>ACCEPTANCE
+3                        14 BIS:>ADORÁVEIS CRIATURAS
+4                  ENYA:>AFER VENTUS - 2009 REMASTER
+20/08/2021 18:00:28 << GetMusUsrA
+20/08/2021 18:00:30 >> GetUserA_AudioFeatures
+20/08/2021 18:00:39 UserAMusFeatures shape (746, 18)
+20/08/2021 18:00:39 UserAMusbarraFeatures shape (553, 18)
+20/08/2021 18:00:39 UserAMusFeatures shape (744, 14)
+20/08/2021 18:00:39 UserAbarraMusFeatures shape (550, 14)
+20/08/2021 18:00:39 << GetUserA_AudioFeatures
+20/08/2021 18:00:42 >> FiltraAudioFeatures
+20/08/2021 18:00:42 NumExpr defaulting to 4 threads.
+20/08/2021 18:00:42 AudioFeatures com duration_ms > 30 seg = (586431, 13)
+20/08/2021 18:00:42 UserAAudioFeatures com duration_ms > 30 seg = (744, 14)
+20/08/2021 18:00:42 UserAbarraAudioFeatures com duration_ms > 30 seg = (550, 14)
+20/08/2021 18:00:42 AudioFeatures (586431, 13)
+20/08/2021 18:00:42 AudioFeaturesUserA (744, 14)
+20/08/2021 18:00:42 AudioFeaturesUserAbarra (550, 14)
+20/08/2021 18:00:42 AudioFeatures antes de filtro = (586431, 13)
+20/08/2021 18:00:42 AudioFeatures com speechiness < 0,6 = (562961, 13)
+20/08/2021 18:00:42 AudioFeatures sem loudness = (562961, 12)
+20/08/2021 18:00:42 AudioFeaturesUserA sem loudness = (744, 13)
+20/08/2021 18:00:42 AudioFeaturesUserAbarra sem loudness = (550, 13)
+20/08/2021 18:00:43 << FiltraAudioFeatures
+20/08/2021 18:00:46 >>Análise AudioFeatures
+20/08/2021 18:00:57 << Análise AudioFeatures
