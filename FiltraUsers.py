@@ -33,6 +33,9 @@ dfCountPerUser = dfCountPerUser[dfCountPerUser['nrows']<3194]
 listaUsersAManter = list(dfCountPerUser['userid'])
 #%% filtrando users definidos na lista de users
 dfMusUsers= dfMusUsers[dfMusUsers['userid'].isin(listaUsersAManter)]
+
+logging.info ('dfMusUsers describe apos filtro %s', dfMusUsers.describe())
+
 #%%
 dfCountPerUser.hist(bins=1000, figsize=(18,16))
 plt.savefig("./Resultado das Análises/Histograma Users.pdf")
