@@ -33,3 +33,8 @@
 20/08/2021 18:00:43 << FiltraAudioFeatures
 20/08/2021 18:00:46 >>Análise AudioFeatures
 20/08/2021 18:00:57 << Análise AudioFeatures
+20/08/2021 18:05:31 >> Analisa UserA com Users
+23/08/2021 13:11:29 >> PreProcColaboracao
+23/08/2021 13:11:36 listaMus original (1888588,)
+23/08/2021 13:11:36 listaMus depois de concatenar musicas do User A (1889854,)
+23/08/2021 13:11:37 listaMus depois de remover duplicados (1889395,)

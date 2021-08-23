@@ -9,6 +9,8 @@ import pickle
 import seaborn as sns
 import matplotlib.pyplot as plt
 import logging
+import spotipy
+from spotipy.oauth2 import SpotifyOAuth
 
 logging.basicConfig(filename='./Analises/preprocessamento2.log', 
                     level=logging.INFO,
@@ -20,6 +22,8 @@ logging.info('>> PreProcColaboracao')
 dfMusUsers =  pd.read_pickle ("./FeatureStore/MusUsers.pickle")  
 dfMusUserACurte =  pd.read_pickle ("./FeatureStore/MusUserACurte.pickle")  
 dfMusUserANaoCurte =  pd.read_pickle ("./FeatureStore/MusUserANaoCurte.pickle")  
+
+
 
 #
 dfMusUsers.shape
@@ -48,13 +52,32 @@ print (listaMus[listaMus.str.contains("The Beatles:>let", na= False, case=False)
 
 # salvando dataset
 listaMus.to_pickle ("./FeatureStore/DominioDasMusicas.pickle")
-#
+
+# pergunta: quais músicas do dicionário estão no spotify?
+
+# conectando no spotify
+scope = "user-library-read"
+
+sp = spotipy.Spotify(auth_manager=SpotifyOAuth(scope=scope))
+
+#%%
 # rotina para verificar se uma interpretação está no spotify
 def verMusSpotify (interpretacao):
     encontrada = False;
-    interp_splited = encontrada.split(':>')
+    interp_splited = interpretacao.split(':>')
     artista = interp_splited[0]
     musica = interp_splited[1]
+    item = sp.search('"'+musica+'"' +' artist:'+'"'+artista+'"', limit=1, market='BR')
+    return len(item.get('tracks').get('items'))==1
+
+
+#    item = sp.search('track:'+'"'+musica+'"' +' artist:'+'"'+artista+'"', limit=1, market='BR',type='track')
+    print (len(item.get('tracks').get('items')))
     return encontrada
+
+teste = verMusSpotify("Milton Nascimento:>Nuvem Cigana")
+print (teste)
+
+#%%
 
 logging.info('<< PreProcColaboracao')
