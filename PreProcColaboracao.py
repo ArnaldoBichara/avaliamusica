@@ -11,6 +11,8 @@ import matplotlib.pyplot as plt
 import logging
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
+from time import sleep
+
 
 logging.basicConfig(filename='./Analises/preprocessamento2.log', 
                     level=logging.INFO,
@@ -23,61 +25,82 @@ dfMusUsers =  pd.read_pickle ("./FeatureStore/MusUsers.pickle")
 dfMusUserACurte =  pd.read_pickle ("./FeatureStore/MusUserACurte.pickle")  
 dfMusUserANaoCurte =  pd.read_pickle ("./FeatureStore/MusUserANaoCurte.pickle")  
 
-
-
-#
+#%%
 dfMusUsers.shape
 
+#%%
+serDominioMus = dfMusUsers['interpretacao'].drop_duplicates()
+logging.info('dfDominioMus original %s',serDominioMus.shape)
 
-#
-listaMus              = dfMusUsers['interpretacao'].drop_duplicates()
-logging.info('listaMus original %s',listaMus.shape)
-
-listaMusUserACurte    = dfMusUserACurte['interpretacao'].drop_duplicates()
-listaMusUserANaoCurte = dfMusUserANaoCurte['interpretacao'].drop_duplicates()
+serDominioUserACurte    = dfMusUserACurte['interpretacao']
+serDominioUserANaoCurte = dfMusUserANaoCurte['interpretacao']
 
 # concatenando musicas com as do UserA
-listaMus = pd.concat([listaMus, listaMusUserACurte, listaMusUserANaoCurte], ignore_index=True, verify_integrity=True)        
-logging.info ('listaMus depois de concatenar musicas do User A %s', listaMus.shape)
+serDominioMus = pd.concat([serDominioMus, serDominioUserACurte, serDominioUserANaoCurte], ignore_index=True, verify_integrity=True)        
+serDominioMus.drop_duplicates(inplace=True)
+logging.info ('serDominioMus depois de concatenar musicas do User A e remover duplicados %s', serDominioMus.shape)
 
-#  Removendo duplicados
-listaMus.drop_duplicates(inplace=True)
-logging.info ('listaMus depois de remover duplicados %s', listaMus.shape)
-#
-listaMus.head()
-#
-listaMus.shape
-# análise
-print (listaMus[listaMus.str.contains("The Beatles:>let", na= False, case=False)].to_string(index=False))
-
-# salvando dataset
-listaMus.to_pickle ("./FeatureStore/DominioDasMusicas.pickle")
-
-# pergunta: quais músicas do dicionário estão no spotify?
-
-# conectando no spotify
-scope = "user-library-read"
-
-sp = spotipy.Spotify(auth_manager=SpotifyOAuth(scope=scope))
-
+#%% incluindo coluna de existencia no spotify
+dfDominioMus = serDominioMus.to_frame()
+dfDominioMus['existeNoSpotify']=False
+#%%
+dfDominioMus.head
 #%%
 # rotina para verificar se uma interpretação está no spotify
-def verMusSpotify (interpretacao):
-    encontrada = False;
+scope = "user-library-read"
+sp = spotipy.Spotify(auth_manager=SpotifyOAuth(scope=scope))
+
+
+def VerificaSeMusEstáNoSpotify (interpretacao):
     interp_splited = interpretacao.split(':>')
     artista = interp_splited[0]
     musica = interp_splited[1]
-    item = sp.search('"'+musica+'"' +' artist:'+'"'+artista+'"', limit=1, market='BR')
-    return len(item.get('tracks').get('items'))==1
+    aFazer = True
+    while aFazer:
+        try:
+            item = sp.search('"'+musica+'"' +' artist:'+'"'+artista+'"', limit=1, market='BR')
+            encontrou = (len(item.get('tracks').get('items'))==1)
+            aFazer = False
+            return encontrou;
+        except:
+            sleep (3) # espera segundos para voltar 
+        
+
+i=0
+logging.info("início da verificação de quais músicas tem no spotify")
+for index, row in dfDominioMus.iterrows():
+    res= VerificaSeMusEstáNoSpotify (row['interpretacao'])
+    dfDominioMus.loc[index, 'existeNoSpotify'] = res
+    i=i+1
+#    if ((i % 500)==0):
+    logging.info("%s", i)
+logging.info("fim da verificação de quais músicas tem no spotify")        
 
 
-#    item = sp.search('track:'+'"'+musica+'"' +' artist:'+'"'+artista+'"', limit=1, market='BR',type='track')
-    print (len(item.get('tracks').get('items')))
-    return encontrada
+# salvando dataset
+dfDominioMus.to_pickle ("./FeatureStore/DominioDasMusicas.pickle")
 
-teste = verMusSpotify("Milton Nascimento:>Nuvem Cigana")
-print (teste)
+# pergunta: quais músicas do dicionário estão no spotify?
 
+''' 
+  const doRequest = async (args, retries) => {
+    try {
+      const response = await spotifyApi.getMySavedTracks(args);
+      return response;
+    } catch (e) {
+      if (retries > 0) {
+        console.error(e);
+        await asyncTimeout(
+          e.headers['retry-after'] ?
+            parseInt(e.headers['retry-after']) * 1000 :
+            RETRY_INTERVAL
+        );
+        return doRequest(args, retries - 1);
+      }
+      throw e;
+    }
+  };
+# '''
 #%%
 
 logging.info('<< PreProcColaboracao')
