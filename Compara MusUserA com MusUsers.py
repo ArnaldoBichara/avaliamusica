@@ -1,4 +1,4 @@
-# vamos analisar o UserA com os Users
+# vamos fazer algumas comparações das músicas de UserA com os Users
 # pergunta: as músicas do userA tem alguma correspondência nos Users?
 
 #%% Importando packages
@@ -9,7 +9,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import logging
 
-logging.basicConfig(filename='./Resultado das Análises/preprocessamento2.log', 
+logging.basicConfig(filename='./Analises/preprocessamento2.log', 
                     level=logging.INFO,
                     format='%(asctime)s %(message)s',
                     datefmt='%d/%m/%Y %H:%M:%S'
@@ -35,7 +35,10 @@ print (dfMusUsers[dfMusUsers['interpretacao'].str.contains("Beto Guedes:>Amor De
 print (dfMusUsers[dfMusUsers['interpretacao'].str.contains("Beto Guedes", na= False, case=False)]['interpretacao'].to_string(index=False))
 #%% bem, achei duas músicas...
 #%% vamos ver do Milton, que é mais popular
-print (dfMusUserA[dfMusUserA['interpretacao'].str.contains("Milton Nascimento", na= False, case=False)].to_string(index=False))
+print (dfMusUserA[dfMusUserA['interpretacao'].str.contains("Milton Nascimento", na= False, case=False)].to_string())
+#%% Temos Milton em várias linhas
+
+
 #%%
 print (dfMusUsers[dfMusUsers['interpretacao'].str.contains("Milton Nascimento", na= False, case=False)]['interpretacao'].to_string(index=False))
 #%%
