@@ -18,25 +18,27 @@ logging.info('>> Filtra Users')
 
 dfMusUsers =  pd.read_pickle ("./FeatureStore/MusUsers.pickle")  
 
-#%%
+
 logging.info ('dfMusUsers describe %s', dfMusUsers.describe())
-#%% dataframe para contar linhas de usuário
+# dataframe para contar linhas de usuário
 #dfCountPerUser = dfMusUsers['userid'].value_counts().to_frame()
 dfCountPerUser = dfMusUsers.copy()
 dfCountPerUser['nrows']=1
 dfCountPerUser = dfCountPerUser.groupby('userid')['nrows'].sum().reset_index()
-#%% análise da distribuição de músicas por user 
+# análise da distribuição de músicas por user 
 logging.info ('contagem de users %s', dfCountPerUser.describe())
-#%% filtrando users dentro da faixa determinada
-dfCountPerUser = dfCountPerUser[dfCountPerUser['nrows']>55]
-dfCountPerUser = dfCountPerUser[dfCountPerUser['nrows']<3194]
+# filtrando users dentro da faixa determinada
+#dfCountPerUser = dfCountPerUser[dfCountPerUser['nrows']>55]
+#dfCountPerUser = dfCountPerUser[dfCountPerUser['nrows']<3194]
+dfCountPerUser = dfCountPerUser[dfCountPerUser['nrows']>=700]
+dfCountPerUser = dfCountPerUser[dfCountPerUser['nrows']<=900]
 listaUsersAManter = list(dfCountPerUser['userid'])
-#%% filtrando users definidos na lista de users
+# filtrando users definidos na lista de users
 dfMusUsers= dfMusUsers[dfMusUsers['userid'].isin(listaUsersAManter)]
 
 logging.info ('dfMusUsers describe apos filtro %s', dfMusUsers.describe())
 
-#%%
+#
 dfCountPerUser.hist(bins=1000, figsize=(18,16))
 plt.savefig("./Analises/Histograma Users.pdf")
 
@@ -44,5 +46,7 @@ plt.savefig("./Analises/Histograma Users.pdf")
 dfMusUsers.to_pickle ("./FeatureStore/MusUsers.pickle")
 
 logging.info('<< Filtra Users')
+
+#
 
 # %%
