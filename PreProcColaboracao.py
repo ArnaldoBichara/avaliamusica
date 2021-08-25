@@ -24,11 +24,12 @@ logging.basicConfig(filename='./Analises/preprocessamento2.log',
 logging.info('>> PreProcColaboracao')
 
 dfMusUsers =  pd.read_pickle ("./FeatureStore/MusUsers.pickle")  
-dfMusUserACurte =  pd.read_pickle ("./FeatureStore/MusUserACurte.pickle")  
-dfMusUserANaoCurte =  pd.read_pickle ("./FeatureStore/MusUserANaoCurte.pickle")  
 if os.path.isfile("./FeatureStore/DominioDasMusicas.pickle"):
   dfDominioMus = pd.read_pickle ("./FeatureStore/DominioDasMusicas.pickle")
 else:  
+  dfMusUserACurte =  pd.read_pickle ("./FeatureStore/MusUserACurte.pickle")  
+  dfMusUserANaoCurte =  pd.read_pickle ("./FeatureStore/MusUserANaoCurte.pickle")  
+
   DominioMus = dfMusUsers['interpretacao'].drop_duplicates()
   DominioUserACurte    = dfMusUserACurte['interpretacao']
   DominioUserANaoCurte = dfMusUserANaoCurte['interpretacao']
@@ -58,7 +59,8 @@ def VerificaMusNoSpotify (interpretacao):
       aFazer = True
       while aFazer:
           try:
-            item = sp.search('"'+musica+'"' +' artist:'+'"'+artista+'"', limit=1, market='BR')
+            query= 'name:''"'+musica+'"' +' artist:'+'"'+artista+'"'+"&type=track"
+            item = sp.search(query, limit=1, market='BR')
             if (len(item.get('tracks').get('items'))==1):
               aFazer = False
               return item.get('tracks').get('items')[0].get('id')

@@ -2422,3 +2422,39 @@
 24/08/2021 19:21:05 início da verificação de quais músicas tem no spotify
 25/08/2021 07:56:47 >> PreProcColaboracao
 25/08/2021 07:56:49 início da verificação de quais músicas tem no spotify
+25/08/2021 08:02:57 >> PreProcColaboracao
+25/08/2021 08:03:02 início da verificação de quais músicas tem no spotify
+25/08/2021 08:06:58 >> PreProcColaboracao
+25/08/2021 08:07:03 DominioMus depois de concatenar musicas do User A e remover duplicados (1889395,)
+25/08/2021 08:07:04 início da verificação de quais músicas tem no spotify
+25/08/2021 08:08:14 >> PreProcColaboracao
+25/08/2021 08:08:20 DominioMus depois de concatenar musicas do User A e remover duplicados (1889395,)
+25/08/2021 08:16:10 >> GetMusUsrA
+25/08/2021 08:16:15 NumExpr defaulting to 4 threads.
+25/08/2021 08:16:15 MusUserACurte Inicial: (746, 1)
+25/08/2021 08:16:15 MusCurteUserA removidos duplicados: (716, 1)
+25/08/2021 08:16:15 MusUserANaoCurte Inicial: (555, 1)
+25/08/2021 08:16:15 MusUserANaoCurte removidos duplicados: (551, 1)
+25/08/2021 08:16:15 MusUserACurte.head                                        interpretacao
+0                     DEATH CAB FOR CUTIE:>60 & PUNK
+1  LINDSEY STIRLING:>7 YEARS (ACOUSTIC) - RECORDE...
+2                         RUBEN GALLOWAY:>ACCEPTANCE
+3                        14 BIS:>ADORÁVEIS CRIATURAS
+4                  ENYA:>AFER VENTUS - 2009 REMASTER
+25/08/2021 08:16:15 << GetMusUsrA
+25/08/2021 08:18:42 >> PreProcColaboracao
+25/08/2021 08:18:48 DominioMus depois de concatenar musicas do User A e remover duplicados (1889395,)
+25/08/2021 08:18:55 início da verificação de quais músicas tem no spotify
+25/08/2021 08:22:16 >> PreProcColaboracao
+25/08/2021 08:22:22 DominioMus depois de concatenar musicas do User A e remover duplicados (1889395,)
+25/08/2021 08:22:22 início da verificação de quais músicas tem no spotify
+25/08/2021 08:55:25 >> GetMusUsrA
+25/08/2021 09:07:32 >> PreProcColaboracao
+25/08/2021 09:07:39 DominioMus depois de concatenar musicas do User A e remover duplicados (1889395,)
+25/08/2021 09:07:39 início da verificação de quais músicas tem no spotify
+25/08/2021 09:09:22 >> PreProcColaboracao
+25/08/2021 09:09:28 DominioMus depois de concatenar musicas do User A e remover duplicados (1889395,)
+25/08/2021 09:09:28 início da verificação de quais músicas tem no spotify
+25/08/2021 09:11:08 >> PreProcColaboracao
+25/08/2021 09:11:14 DominioMus depois de concatenar musicas do User A e remover duplicados (1889395,)
+25/08/2021 09:11:14 início da verificação de quais músicas tem no spotify
