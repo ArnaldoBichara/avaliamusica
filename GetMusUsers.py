@@ -47,7 +47,7 @@ del dfMusicasUser['musica']
 dfMusicasUser.head()
 #%%
 # Limpeza: removendo linhas duplicadas 
-dfMusicasUser.drop_duplicates(inplace = True)
+dfMusicasUser.drop_duplicates(inplace = True, ignore_index=True)
 dfMusicasUser.reset_index(drop=True)
 #%%
 logging.info('MusUsers, removidas mus em branco, criada interpretacao e removidas linhas duplicadas %s', dfMusicasUser.shape)

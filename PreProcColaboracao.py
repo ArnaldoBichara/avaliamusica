@@ -42,13 +42,13 @@ else:
   # incluindo coluna de Id do spotify
   dfDominioMus['idInterpretacao']=''
 
-#%%
+#
 print (dfDominioMus.loc[732])
-#%%
+#
 # rotina para verificar se uma interpretação está no spotify
 scope = "user-library-read"
 sp = spotipy.Spotify(auth_manager=SpotifyOAuth(scope=scope))
-
+#
 def VerificaMusNoSpotify (interpretacao):
     if (isinstance(interpretacao, str) == False):
       return ''
@@ -59,7 +59,7 @@ def VerificaMusNoSpotify (interpretacao):
       aFazer = True
       while aFazer:
           try:
-            query= 'name:''"'+musica+'"' +' artist:'+'"'+artista+'"'+"&type=track"
+            query= '"'+musica+'"' +' artist:'+'"'+artista+'"'
             item = sp.search(query, limit=1, market='BR')
             if (len(item.get('tracks').get('items'))==1):
               aFazer = False
@@ -67,9 +67,16 @@ def VerificaMusNoSpotify (interpretacao):
             else:
               return 'NaoExiste'
           except:
-              sleep (3) # espera segundos para voltar 
+              logging.info("esperando x seg")
+              sleep (10) # espera segundos para voltar 
         
+#%%
+#playlists = sp.user_playlists('jmwyg3knv7jv8tu84b19jxu3p')
 
+#%%
+#item = sp.search('Love',limit=1)
+#print (item)
+#%%
 i=0
 logging.info("início da verificação de quais músicas tem no spotify")
 houveMudanca=False
@@ -85,7 +92,7 @@ for index, row in dfDominioMus.iterrows():
       # salvando dataset neste ponto
         dfDominioMus.to_pickle ("./FeatureStore/DominioDasMusicas.pickle")
         houveMudanca=False
-      #logging.info("%s", i)
+        logging.info("%s", i)
 
 logging.info("fim da verificação de quais músicas tem no spotify")        
 dfDominioMus.to_pickle ("./FeatureStore/DominioDasMusicas.pickle")
@@ -116,3 +123,6 @@ dfDominioMus.to_pickle ("./FeatureStore/DominioDasMusicas.pickle")
 #%%
 
 logging.info('<< PreProcColaboracao')
+#%%
+dfDominioMus.head(100)
+# %%

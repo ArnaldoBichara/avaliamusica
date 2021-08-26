@@ -29,3 +29,51 @@ unique                             12342             1888587
 top     c41d3cc0c49c0b96f30f34281a8e133e  M83:>MIDNIGHT CITY
 freq                                3174                1714
 20/08/2021 17:55:29 << Filtra Users
+26/08/2021 10:55:02 >> GetMusUsers
+26/08/2021 10:55:37 MusUsers shape inicial: (12891550, 4)
+26/08/2021 10:55:41 NumExpr defaulting to 4 threads.
+26/08/2021 10:56:32 MusUsers, removidas mus em branco, criada interpretacao e removidas linhas duplicadas (11341422, 2)
+26/08/2021 10:56:38 << GetMusUsers
+26/08/2021 13:47:39 >> GetFeatures&Dominio
+26/08/2021 13:47:42 GetFeatures&Dominio: spotify600k_tracks shape = (586672, 14)
+26/08/2021 13:48:19 >> GetFeatures&Dominio
+26/08/2021 13:48:23 GetFeatures&Dominio: spotify600k_tracks shape = (586672, 16)
+26/08/2021 13:48:43 NumExpr defaulting to 4 threads.
+26/08/2021 13:56:51 >> GetFeatures&Dominio
+26/08/2021 13:56:54 GetFeatures&Dominio: spotify600k_tracks shape = (586672, 16)
+26/08/2021 13:56:56 NumExpr defaulting to 4 threads.
+26/08/2021 13:56:57 GetFeatures&Dominio: dominio head =                 id_musica interpretacao
+0  35iwgR4jXetI318WEWsa1Q    ULI:>CARVE
+26/08/2021 13:56:57 GetFeatures&Dominio: dominio shape = (586672, 2)
+26/08/2021 13:56:57 GetFeatures&Dominio: AudioFeatures head =    duration_ms  danceability  energy  key  loudness  mode  speechiness  acousticness  instrumentalness  liveness  valence    tempo  time_signature
+0       126903         0.645   0.445    0   -13.338     1        0.451         0.674             0.744     0.151    0.127  104.851               3
+26/08/2021 13:56:57 GetFeatures&Dominio: AudioFeatures shape = (586672, 13)
+26/08/2021 13:56:57 << GetFeatures&Dominio
+26/08/2021 14:01:23 >> GetMusUsers
+26/08/2021 14:01:57 MusUsers shape inicial: (12891550, 4)
+26/08/2021 14:02:01 NumExpr defaulting to 4 threads.
+26/08/2021 14:02:54 MusUsers, removidas mus em branco, criada interpretacao e removidas linhas duplicadas (11341422, 2)
+26/08/2021 14:03:02 << GetMusUsers
+26/08/2021 14:03:18 >> GetFeaturesEDominio
+26/08/2021 14:03:21 GetFeaturesEDominio: spotify600k_tracks shape = (586672, 16)
+26/08/2021 14:03:23 NumExpr defaulting to 4 threads.
+26/08/2021 14:03:24 GetFeaturesEDominio: dominio head =                 id_musica interpretacao
+0  35iwgR4jXetI318WEWsa1Q    ULI:>CARVE
+26/08/2021 14:03:24 GetFeaturesEDominio: dominio shape = (586672, 2)
+26/08/2021 14:03:24 GetFeaturesEDominio: AudioFeatures head =    duration_ms  danceability  energy  key  loudness  mode  speechiness  acousticness  instrumentalness  liveness  valence    tempo  time_signature
+0       126903         0.645   0.445    0   -13.338     1        0.451         0.674             0.744     0.151    0.127  104.851               3
+26/08/2021 14:03:24 GetFeaturesEDominio: AudioFeatures shape = (586672, 13)
+26/08/2021 14:03:25 << GetFeaturesEDominio
+26/08/2021 14:05:56 >> GetFeaturesEDominio
+26/08/2021 14:05:59 GetFeaturesEDominio: spotify600k_tracks shape = (586672, 16)
+26/08/2021 14:06:00 NumExpr defaulting to 4 threads.
+26/08/2021 14:06:15 >> GetFeaturesEDominio
+26/08/2021 14:06:18 GetFeaturesEDominio: spotify600k_tracks shape = (586672, 16)
+26/08/2021 14:06:20 NumExpr defaulting to 4 threads.
+26/08/2021 14:06:21 GetFeaturesEDominio: dominio head =                 id_musica interpretacao
+0  35iwgR4jXetI318WEWsa1Q    ULI:>CARVE
+26/08/2021 14:06:21 GetFeaturesEDominio: dominio shape = (586672, 2)
+26/08/2021 14:06:21 GetFeaturesEDominio: AudioFeatures head =    duration_ms  danceability  energy  key  loudness  mode  speechiness  acousticness  instrumentalness  liveness  valence    tempo  time_signature
+0       126903         0.645   0.445    0   -13.338     1        0.451         0.674             0.744     0.151    0.127  104.851               3
+26/08/2021 14:06:21 GetFeaturesEDominio: AudioFeatures shape = (586672, 13)
+26/08/2021 14:06:22 << GetFeaturesEDominio
