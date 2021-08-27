@@ -14,7 +14,7 @@ import logging
 from time import gmtime, strftime
 
 # iniciando logging
-logging.basicConfig(filename='./Analises/preprocessamento2.log', 
+logging.basicConfig(filename='./Analises/preprocessamento.log', 
                     level=logging.INFO,
                     format='%(asctime)s %(message)s',
                     datefmt='%d/%m/%Y %H:%M:%S'
@@ -51,7 +51,7 @@ while playlists:
 def getPartialMusicas (result):
     listMusicas=[]
     for i, item in enumerate (result['items']):
-        arrayMusica = [item['track']['artists'][0]['name'],item['track']['name']]
+        arrayMusica = [item['track']['id'],item['track']['artists'][0]['name'],item['track']['name']]
         listMusicas.append(arrayMusica)
     return listMusicas
 
@@ -69,11 +69,11 @@ listMusicasUserACurte = getMusicas(userA, IdPlaylistCurto)
 listMusicasUserANaoCurte = getMusicas(userA, IdPlaylistNaoCurto)
 
 dfMusicasUserACurte = pd.DataFrame(listMusicasUserACurte,
-                            columns=['artista','musica'])
+                            columns=['id_musica','artista','musica'])
 dfMusicasUserANaoCurte = pd.DataFrame(listMusicasUserANaoCurte,
-                            columns=['artista','musica'])
+                            columns=['id_musica','artista','musica'])
 
-#%% Criando coluna interpretacao e removendo colunas artista e musica
+# Criando coluna interpretacao e removendo colunas artista e musica
 dfMusicasUserACurte['interpretacao']=dfMusicasUserACurte['artista'].str.upper()+":>"+dfMusicasUserACurte['musica'].str.upper()
 del dfMusicasUserACurte['artista']
 del dfMusicasUserACurte['musica']
@@ -93,6 +93,9 @@ logging.info ("MusUserANaoCurte Inicial: %s", dfMusicasUserANaoCurte.shape)
 dfMusicasUserANaoCurte.drop_duplicates(inplace=True, ignore_index=True)    
 logging.info ("MusUserANaoCurte removidos duplicados: %s", dfMusicasUserANaoCurte.shape)
 
+#%%
+dfMusicasUserACurte.tail()
+#%%
 # salvando datasets
 dfMusicasUserACurte.to_pickle ("./FeatureStore/MusUserACurte.pickle")
 dfMusicasUserANaoCurte.to_pickle ("./FeatureStore/MusUserANaoCurte.pickle")                            

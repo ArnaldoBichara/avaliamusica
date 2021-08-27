@@ -40,7 +40,6 @@ def obtem_primeiro_artista (data): # Clean the data because it are messy strings
         # adiciona à lista
     return new_data
 
-
 dfSpotMusicas['artista'] = obtem_primeiro_artista(dfSpotMusicas[['artists']])
 dfSpotMusicas = dfSpotMusicas.drop(['artists'], axis=1)
 
@@ -52,25 +51,29 @@ del dfSpotMusicas['name']
 
 dfSpotMusicas.rename(columns={'id':'id_musica'}, inplace=True)
 
-#
-# Obtendo DominioDasMusicas
+
+# Criando DominioDasMusicas
 dominioMusicas = dfSpotMusicas[['interpretacao','id_musica']].copy()
 
+# removendo algumas colunas não úteis par AudioFeatures
 del dfSpotMusicas['id_musica']
 del dfSpotMusicas['interpretacao']
 
-dominioMusicas.drop_duplicates(inplace=True, ignore_index=True)
+#%% incluindo músicas do UserA no dominio das Músicas
+dfUserACurte    =  pd.read_pickle ("./FeatureStore/MusUserACurte.pickle")  
+dfUserANaoCurte =  pd.read_pickle ("./FeatureStore/MusUserANaoCurte.pickle")  
 
-#%% incluir músicas do UserA
+dominioMusicas = pd.concat([dominioMusicas, dfUserACurte, dfUserANaoCurte], ignore_index=True, verify_integrity=True)        
+
+dominioMusicas.drop_duplicates(inplace=True, ignore_index=True)
 
 #%% removendo linhas que tenham algo com NaN
 dominioMusicas=dominioMusicas.dropna()
-dominioMusicas.reset_index(drop=True)
 
-
-#%%
 # removendo linhas onde interpretacao não é uma string válida (por algum motivo isso está acontecendo)
 dominioMusicas[dominioMusicas['interpretacao'].apply(lambda x: isinstance(x,str))]
+
+dominioMusicas.reset_index(drop=True)
 
 # ordenando dominioMusicas para tornar acesso mais rápido
 dominioMusicas.sort_values(by=['interpretacao'], kind='quicksort', inplace=True)
