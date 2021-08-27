@@ -5,7 +5,6 @@ datasets/spotify600k_similar_artists.json
 datasets/spotify600k_tracks.csv
 old/pickle
 FeatureStore/MusUsers.pickle
-FeatureStore/*DominioDasMusicas.pickle
 datasets/
 __pycache__/
 

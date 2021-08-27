@@ -77,3 +77,248 @@ freq                                3174                1714
 0       126903         0.645   0.445    0   -13.338     1        0.451         0.674             0.744     0.151    0.127  104.851               3
 26/08/2021 14:06:21 GetFeaturesEDominio: AudioFeatures shape = (586672, 13)
 26/08/2021 14:06:22 << GetFeaturesEDominio
+26/08/2021 14:13:10 >> GetMusUsers
+26/08/2021 14:13:37 MusUsers shape inicial: (12891550, 4)
+26/08/2021 14:13:41 NumExpr defaulting to 4 threads.
+26/08/2021 14:14:27 MusUsers, removidas mus em branco, criada interpretacao e removidas linhas duplicadas (11341422, 2)
+26/08/2021 14:14:34 << GetMusUsers
+26/08/2021 14:16:06 >> GetFeaturesEDominio
+26/08/2021 14:16:09 GetFeaturesEDominio: spotify600k_tracks shape = (586672, 16)
+26/08/2021 14:16:10 NumExpr defaulting to 4 threads.
+26/08/2021 14:16:12 GetFeaturesEDominio: dominio head =                 id_musica interpretacao
+0  35iwgR4jXetI318WEWsa1Q    ULI:>CARVE
+26/08/2021 14:16:12 GetFeaturesEDominio: dominio shape = (586672, 2)
+26/08/2021 14:16:12 GetFeaturesEDominio: AudioFeatures head =    duration_ms  danceability  energy  key  loudness  mode  speechiness  acousticness  instrumentalness  liveness  valence    tempo  time_signature
+0       126903         0.645   0.445    0   -13.338     1        0.451         0.674             0.744     0.151    0.127  104.851               3
+26/08/2021 14:16:12 GetFeaturesEDominio: AudioFeatures shape = (586672, 13)
+26/08/2021 14:16:12 << GetFeaturesEDominio
+26/08/2021 14:27:44 >> FiltraMusUsersNoDominio
+26/08/2021 14:29:28 << FiltraMusUsersNoDominio
+26/08/2021 14:30:26 >> FiltraMusUsersNoDominio
+26/08/2021 14:30:43 << FiltraMusUsersNoDominio
+26/08/2021 14:31:19 >> FiltraMusUsersNoDominio
+26/08/2021 14:33:05 >> FiltraMusUsersNoDominio
+26/08/2021 14:33:25 << FiltraMusUsersNoDominio
+26/08/2021 14:35:39 >> FiltraMusUsersNoDominio
+26/08/2021 14:36:27 >> FiltraMusUsersNoDominio
+26/08/2021 14:37:55 >> FiltraMusUsersNoDominio
+26/08/2021 14:38:34 >> FiltraMusUsersNoDominio
+26/08/2021 14:38:54 << FiltraMusUsersNoDominio
+26/08/2021 14:53:15 >> FiltraMusUsersNoDominio
+26/08/2021 14:54:47 >> FiltraMusUsersNoDominio
+26/08/2021 14:58:47 >> FiltraMusUsersNoDominio
+26/08/2021 15:01:50 >> FiltraMusUsersNoDominio
+26/08/2021 15:03:16 >> FiltraMusUsersNoDominio
+26/08/2021 15:04:07 >> FiltraMusUsersNoDominio
+26/08/2021 15:06:53 >> FiltraMusUsersNoDominio
+26/08/2021 15:06:56 MusUsers, antes do filtro (11341422, 2)
+26/08/2021 15:21:28 >> FiltraMusUsersNoDominio
+26/08/2021 15:21:31 MusUsers, antes do filtro (11341422, 2)
+26/08/2021 15:23:16 >> FiltraMusUsersNoDominio
+26/08/2021 15:23:19 MusUsers, antes do filtro (11341422, 2)
+26/08/2021 15:23:50 >> FiltraMusUsersNoDominio
+26/08/2021 15:23:53 MusUsers, antes do filtro (11341422, 2)
+26/08/2021 15:29:20 >> FiltraMusUsersNoDominio
+26/08/2021 15:29:23 MusUsers, antes do filtro (11341422, 2)
+26/08/2021 15:30:15 >> FiltraMusUsersNoDominio
+26/08/2021 15:30:18 MusUsers, antes do filtro (11341422, 2)
+26/08/2021 15:33:10 >> FiltraMusUsersNoDominio
+26/08/2021 15:33:13 MusUsers, antes do filtro (11341422, 2)
+26/08/2021 15:33:50 >> FiltraMusUsersNoDominio
+26/08/2021 15:33:53 MusUsers, antes do filtro (11341422, 2)
+26/08/2021 15:42:28 >> GetFeaturesEDominio
+26/08/2021 15:42:31 GetFeaturesEDominio: spotify600k_tracks shape = (586672, 16)
+26/08/2021 15:42:32 NumExpr defaulting to 4 threads.
+26/08/2021 15:42:36 GetFeaturesEDominio: dominio head =                                   interpretacao               id_musica
+193571  "100 FIRST SONGS PARTICIPANTS":>אבא שלי  7G9BQEncd1eRxjV6ABz33X
+26/08/2021 15:42:36 GetFeaturesEDominio: dominio shape = (586672, 2)
+26/08/2021 15:42:36 GetFeaturesEDominio: AudioFeatures head =    duration_ms  danceability  energy  key  loudness  mode  speechiness  acousticness  instrumentalness  liveness  valence    tempo  time_signature
+0       126903         0.645   0.445    0   -13.338     1        0.451         0.674             0.744     0.151    0.127  104.851               3
+26/08/2021 15:42:36 GetFeaturesEDominio: AudioFeatures shape = (586672, 13)
+26/08/2021 15:42:36 << GetFeaturesEDominio
+26/08/2021 16:02:44 >> FiltraMusUsersNoDominio
+26/08/2021 16:02:47 MusUsers, antes do filtro (11341422, 2)
+26/08/2021 16:07:57 >> FiltraMusUsersNoDominio
+26/08/2021 16:07:59 MusUsers, antes do filtro (11341422, 2)
+26/08/2021 16:08:53 >> FiltraMusUsersNoDominio
+26/08/2021 16:08:56 MusUsers, antes do filtro (11341422, 2)
+26/08/2021 16:15:28 >> FiltraMusUsersNoDominio
+26/08/2021 16:15:31 MusUsers, antes do filtro (11341422, 2)
+26/08/2021 16:20:22 >> FiltraMusUsersNoDominio
+26/08/2021 16:20:25 MusUsers, antes do filtro (11341422, 2)
+26/08/2021 16:22:27 >> FiltraMusUsersNoDominio
+26/08/2021 16:22:30 MusUsers, antes do filtro (11341422, 2)
+26/08/2021 16:32:27 >> GetFeaturesEDominio
+26/08/2021 16:32:30 GetFeaturesEDominio: spotify600k_tracks shape = (586672, 16)
+26/08/2021 16:32:31 NumExpr defaulting to 4 threads.
+26/08/2021 16:33:27 >> GetFeaturesEDominio
+26/08/2021 16:33:29 GetFeaturesEDominio: spotify600k_tracks shape = (586672, 16)
+26/08/2021 16:33:31 NumExpr defaulting to 4 threads.
+26/08/2021 16:39:48 >> GetFeaturesEDominio
+26/08/2021 16:39:51 GetFeaturesEDominio: spotify600k_tracks shape = (586672, 16)
+26/08/2021 16:39:52 NumExpr defaulting to 4 threads.
+26/08/2021 16:40:07 >> GetFeaturesEDominio
+26/08/2021 16:40:10 GetFeaturesEDominio: spotify600k_tracks shape = (586672, 16)
+26/08/2021 16:40:11 NumExpr defaulting to 4 threads.
+26/08/2021 16:44:35 >> GetFeaturesEDominio
+26/08/2021 16:44:38 GetFeaturesEDominio: spotify600k_tracks shape = (586672, 16)
+26/08/2021 16:44:39 NumExpr defaulting to 4 threads.
+26/08/2021 16:44:43 GetFeaturesEDominio: dominio head =                                   interpretacao               id_musica
+193571  "100 FIRST SONGS PARTICIPANTS":>אבא שלי  7G9BQEncd1eRxjV6ABz33X
+26/08/2021 16:44:43 GetFeaturesEDominio: dominio shape = (586672, 2)
+26/08/2021 16:44:43 GetFeaturesEDominio: AudioFeatures head =    duration_ms  danceability  energy  key  loudness  mode  speechiness  acousticness  instrumentalness  liveness  valence    tempo  time_signature
+0       126903         0.645   0.445    0   -13.338     1        0.451         0.674             0.744     0.151    0.127  104.851               3
+26/08/2021 16:44:43 GetFeaturesEDominio: AudioFeatures shape = (586672, 13)
+26/08/2021 16:44:44 << GetFeaturesEDominio
+26/08/2021 16:47:32 >> FiltraMusUsersNoDominio
+26/08/2021 16:47:35 MusUsers, antes do filtro (11341422, 2)
+26/08/2021 16:48:08 >> FiltraMusUsersNoDominio
+26/08/2021 16:48:11 MusUsers, antes do filtro (11341422, 2)
+26/08/2021 17:07:44 >> GetFeaturesEDominio
+26/08/2021 17:07:48 GetFeaturesEDominio: spotify600k_tracks shape = (586672, 16)
+26/08/2021 17:07:49 NumExpr defaulting to 4 threads.
+26/08/2021 17:16:53 >> GetFeaturesEDominio
+26/08/2021 17:16:56 GetFeaturesEDominio: spotify600k_tracks shape = (586672, 16)
+26/08/2021 17:16:58 NumExpr defaulting to 4 threads.
+26/08/2021 17:17:02 GetFeaturesEDominio: dominio head =                                   interpretacao               id_musica
+193571  "100 FIRST SONGS PARTICIPANTS":>אבא שלי  7G9BQEncd1eRxjV6ABz33X
+26/08/2021 17:17:02 GetFeaturesEDominio: dominio shape = (586672, 2)
+26/08/2021 17:17:02 GetFeaturesEDominio: AudioFeatures head =    duration_ms  danceability  energy  key  loudness  mode  speechiness  acousticness  instrumentalness  liveness  valence    tempo  time_signature
+0       126903         0.645   0.445    0   -13.338     1        0.451         0.674             0.744     0.151    0.127  104.851               3
+26/08/2021 17:17:02 GetFeaturesEDominio: AudioFeatures shape = (586672, 13)
+26/08/2021 17:17:10 << GetFeaturesEDominio
+26/08/2021 17:18:40 >> GetFeaturesEDominio
+26/08/2021 17:18:43 GetFeaturesEDominio: spotify600k_tracks shape = (586672, 16)
+26/08/2021 17:18:45 NumExpr defaulting to 4 threads.
+26/08/2021 17:18:49 GetFeaturesEDominio: dominio head =                                   interpretacao               id_musica
+193571  "100 FIRST SONGS PARTICIPANTS":>אבא שלי  7G9BQEncd1eRxjV6ABz33X
+26/08/2021 17:18:49 GetFeaturesEDominio: dominio shape = (586601, 2)
+26/08/2021 17:18:49 GetFeaturesEDominio: AudioFeatures head =    duration_ms  danceability  energy  key  loudness  mode  speechiness  acousticness  instrumentalness  liveness  valence    tempo  time_signature
+0       126903         0.645   0.445    0   -13.338     1        0.451         0.674             0.744     0.151    0.127  104.851               3
+26/08/2021 17:18:49 GetFeaturesEDominio: AudioFeatures shape = (586672, 13)
+26/08/2021 17:18:50 << GetFeaturesEDominio
+26/08/2021 17:19:10 >> FiltraMusUsersNoDominio
+26/08/2021 17:19:16 MusUsers, antes do filtro (11341422, 2)
+26/08/2021 19:25:48 >> FiltraMusUsersNoDominio
+26/08/2021 19:25:51 MusUsers, antes do filtro (11341422, 2)
+26/08/2021 20:02:45 >> FiltraMusUsersNoDominio
+26/08/2021 20:02:48 MusUsers, antes do filtro (11341422, 2)
+26/08/2021 20:02:50 NumExpr defaulting to 4 threads.
+26/08/2021 20:04:33 >> FiltraMusUsersNoDominio
+26/08/2021 20:04:36 MusUsers, antes do filtro (11341422, 2)
+26/08/2021 20:10:39 >> FiltraMusUsersNoDominio
+26/08/2021 20:10:42 MusUsers, antes do filtro (11341422, 2)
+26/08/2021 20:12:35 >> FiltraMusUsersNoDominio
+26/08/2021 20:12:38 MusUsers, antes do filtro (11341422, 3)
+26/08/2021 20:14:27 >> FiltraMusUsersNoDominio
+26/08/2021 20:14:30 MusUsers, antes do filtro (11341422, 3)
+26/08/2021 20:24:31 >> FiltraMusUsersNoDominio
+26/08/2021 20:24:34 MusUsers, antes do filtro (11341422, 3)
+26/08/2021 20:30:15 >> FiltraMusUsersNoDominio
+26/08/2021 20:30:17 MusUsers, antes do filtro (11341358, 3)
+26/08/2021 20:33:42 >> FiltraMusUsersNoDominio
+26/08/2021 20:33:45 MusUsers, antes do filtro (11341358, 3)
+26/08/2021 20:34:51 >> FiltraMusUsersNoDominio
+26/08/2021 20:34:53 MusUsers, antes do filtro (11341358, 3)
+26/08/2021 20:35:27 >> FiltraMusUsersNoDominio
+26/08/2021 20:35:30 MusUsers, antes do filtro (11341358, 3)
+26/08/2021 20:37:35 >> FiltraMusUsersNoDominio
+26/08/2021 20:37:38 MusUsers, antes do filtro (11341315, 4)
+26/08/2021 20:38:59 >> FiltraMusUsersNoDominio
+26/08/2021 20:39:02 MusUsers, antes do filtro (11341315, 4)
+26/08/2021 20:43:29 >> FiltraMusUsersNoDominio
+26/08/2021 20:43:32 MusUsers, antes do filtro (11341315, 4)
+26/08/2021 20:44:23 >> FiltraMusUsersNoDominio
+26/08/2021 20:44:25 MusUsers, antes do filtro (11340716, 4)
+26/08/2021 20:45:12 >> FiltraMusUsersNoDominio
+26/08/2021 20:45:15 MusUsers, antes do filtro (11340716, 4)
+26/08/2021 20:48:03 >> FiltraMusUsersNoDominio
+26/08/2021 20:48:43 >> FiltraMusUsersNoDominio
+26/08/2021 20:49:29 >> FiltraMusUsersNoDominio
+26/08/2021 20:49:45 >> FiltraMusUsersNoDominio
+26/08/2021 20:50:31 >> GetMusUsers
+26/08/2021 20:51:00 MusUsers shape inicial: (12891550, 4)
+26/08/2021 20:51:04 NumExpr defaulting to 4 threads.
+26/08/2021 20:51:50 MusUsers, removidas mus em branco, criada interpretacao e removidas linhas duplicadas (11341422, 2)
+26/08/2021 20:51:56 << GetMusUsers
+26/08/2021 20:52:08 >> FiltraMusUsersNoDominio
+26/08/2021 20:52:10 MusUsers, antes do filtro (11341422, 2)
+26/08/2021 20:56:30 >> FiltraMusUsersNoDominio
+26/08/2021 20:56:33 MusUsers, antes do filtro (11341422, 2)
+26/08/2021 20:58:06 >> FiltraMusUsersNoDominio
+26/08/2021 20:58:09 MusUsers, antes do filtro (11340767, 4)
+27/08/2021 07:29:27 >> FiltraMusUsersNoDominio
+27/08/2021 07:29:42 MusUsers, antes do filtro (11340767, 4)
+27/08/2021 07:33:20 >> FiltraMusUsersNoDominio
+27/08/2021 07:33:23 MusUsers, antes do filtro (11340767, 4)
+27/08/2021 07:35:52 >> FiltraMusUsersNoDominio
+27/08/2021 07:35:55 MusUsers, antes do filtro (11340767, 4)
+27/08/2021 07:41:39 >> GetMusUsers
+27/08/2021 07:42:11 MusUsers shape inicial: (12891550, 4)
+27/08/2021 07:42:15 NumExpr defaulting to 4 threads.
+27/08/2021 07:43:05 MusUsers, removidas mus em branco, criada interpretacao e removidas linhas duplicadas (11341422, 2)
+27/08/2021 07:43:11 << GetMusUsers
+27/08/2021 07:47:16 >> FiltraMusUsersNoDominio
+27/08/2021 07:47:19 MusUsers, antes do filtro (11341422, 2)
+27/08/2021 07:56:12 >> FiltraMusUsersNoDominio
+27/08/2021 07:56:15 MusUsers, antes do filtro (11341422, 2)
+27/08/2021 07:59:59 >> FiltraMusUsersNoDominio
+27/08/2021 08:00:02 MusUsers, antes do filtro (11341422, 2)
+27/08/2021 08:02:58 >> FiltraMusUsersNoDominio
+27/08/2021 08:03:00 MusUsers, antes do filtro (11341422, 2)
+27/08/2021 08:08:01 >> FiltraMusUsersNoDominio
+27/08/2021 08:08:04 MusUsers, antes do filtro (11341422, 2)
+27/08/2021 08:10:11 >> FiltraMusUsersNoDominio
+27/08/2021 08:10:14 MusUsers, antes do filtro (11341358, 4)
+27/08/2021 08:12:34 >> GetMusUsers
+27/08/2021 08:13:02 MusUsers shape inicial: (12891550, 4)
+27/08/2021 08:13:06 NumExpr defaulting to 4 threads.
+27/08/2021 08:13:52 MusUsers, removidas mus em branco, criada interpretacao e removidas linhas duplicadas (11341422, 2)
+27/08/2021 08:13:58 << GetMusUsers
+27/08/2021 08:18:26 >> FiltraMusUsersNoDominio
+27/08/2021 08:18:29 MusUsers, antes do filtro (11341422, 2)
+27/08/2021 08:19:38 >> FiltraMusUsersNoDominio
+27/08/2021 08:19:41 MusUsers, antes do filtro (11341422, 2)
+27/08/2021 08:27:25 >> FiltraMusUsersNoDominio
+27/08/2021 08:27:28 MusUsers, antes do filtro (11341422, 2)
+27/08/2021 08:28:18 >> FiltraMusUsersNoDominio
+27/08/2021 08:28:21 MusUsers, antes do filtro (11341422, 4)
+27/08/2021 08:32:09 >> FiltraMusUsersNoDominio
+27/08/2021 08:32:13 MusUsers, antes do filtro (11341422, 4)
+27/08/2021 08:32:43 >> GetMusUsers
+27/08/2021 08:33:11 MusUsers shape inicial: (12891550, 4)
+27/08/2021 08:33:15 NumExpr defaulting to 4 threads.
+27/08/2021 08:34:03 MusUsers, removidas mus em branco, criada interpretacao e removidas linhas duplicadas (11341422, 2)
+27/08/2021 08:34:16 << GetMusUsers
+27/08/2021 08:34:27 >> FiltraMusUsersNoDominio
+27/08/2021 08:34:30 MusUsers, antes do filtro (11341422, 2)
+27/08/2021 08:36:02 >> FiltraMusUsersNoDominio
+27/08/2021 08:36:05 MusUsers, antes do filtro (11341422, 2)
+27/08/2021 08:37:18 >> FiltraMusUsersNoDominio
+27/08/2021 08:37:22 MusUsers, antes do filtro (11341285, 4)
+27/08/2021 08:40:20 >> FiltraMusUsersNoDominio
+27/08/2021 08:40:23 MusUsers, antes do filtro (11341285, 4)
+27/08/2021 10:10:26 >> FiltraMusUsersNoDominio
+27/08/2021 10:10:30 MusUsers, antes do filtro (11124223, 4)
+27/08/2021 10:16:22 >> FiltraMusUsersNoDominio
+27/08/2021 10:16:26 MusUsers, antes do filtro (11124223, 4)
+27/08/2021 10:25:46 >> FiltraMusUsersNoDominio
+27/08/2021 10:25:50 MusUsers, antes do filtro (10940117, 4)
+27/08/2021 10:30:42 Indice fora dos limites 586601
+27/08/2021 10:30:42 Indice fora dos limites 586601
+27/08/2021 10:34:36 Indice fora dos limites 586601
+27/08/2021 10:36:47 Indice fora dos limites 586601
+27/08/2021 10:36:47 Indice fora dos limites 586601
+27/08/2021 10:36:47 Indice fora dos limites 586601
+27/08/2021 10:36:47 Indice fora dos limites 586601
+27/08/2021 10:36:47 Indice fora dos limites 586601
+27/08/2021 10:36:47 Indice fora dos limites 586601
+27/08/2021 10:36:47 Indice fora dos limites 586601
+27/08/2021 10:36:47 Indice fora dos limites 586601
+27/08/2021 10:39:49 Indice fora dos limites 586601
+27/08/2021 10:43:42 Indice fora dos limites 586601
+27/08/2021 10:43:42 Indice fora dos limites 586601
+27/08/2021 10:43:42 Indice fora dos limites 586601
+27/08/2021 10:43:42 Indice fora dos limites 586601
+27/08/2021 10:43:52 Indice fora dos limites 586601
+27/08/2021 10:46:31 Indice fora dos limites 586601
