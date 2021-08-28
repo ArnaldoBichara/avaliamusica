@@ -138,3 +138,21 @@ min       56.000000
 75%      345.000000
 max     1355.000000
 27/08/2021 14:00:21 << RemoveUsuariosOutliers
+27/08/2021 14:09:13 >> RemoveUsuariosOutliers
+27/08/2021 14:09:26 MusUsers shape apos filtro (2718509, 3)
+27/08/2021 14:09:27 NumExpr defaulting to 4 threads.
+27/08/2021 14:09:30 MusUsers describe apos filtro                                   userid       interpretacao id_musica
+count                            2718509             2718476   2718509
+unique                             10024              218748    128336
+top     1a047732315689b950025037b9d90431  M83:>MIDNIGHT CITY         0
+freq                                1355                1699    107579
+27/08/2021 14:09:30 dfCountPerUser describe apos filtro               nrows
+count  10024.000000
+mean     271.200020
+std      231.288028
+min       56.000000
+25%      111.000000
+50%      193.000000
+75%      345.000000
+max     1355.000000
+27/08/2021 14:09:33 << RemoveUsuariosOutliers

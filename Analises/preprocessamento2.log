@@ -2590,3 +2590,21 @@
 27/08/2021 11:39:06 >> GetMusUsrA
 27/08/2021 12:24:59 >> FiltraMusUsersNoDominio
 27/08/2021 12:25:02 MusUsers, antes do filtro (11341422, 2)
+27/08/2021 15:44:48 >> PreProcessaColab
+27/08/2021 15:46:48 >> PreProcessaColab
+27/08/2021 15:48:25 << PreProcessaColab
+27/08/2021 16:13:57 >> PreProcessaColab
+27/08/2021 16:14:21 tamanho ListaDeMusicas 128336
+27/08/2021 16:40:57 >> PreProcessaColab
+28/08/2021 07:43:38 >> PreProcessaColab
+28/08/2021 07:44:07 >> PreProcessaColab
+28/08/2021 07:44:12 tamanho ListaDeMusicas 128336
+28/08/2021 08:02:38 >> PreProcessaColab
+28/08/2021 08:02:41 tamanho ListaDeMusicas 128336
+28/08/2021 08:26:01 >> PreProcessaColab
+28/08/2021 08:31:09 >> PreProcessaColab
+28/08/2021 08:38:22 >> PreProcessaColab
+28/08/2021 10:17:08 NumExpr defaulting to 4 threads.
+28/08/2021 11:37:31 >> PreProcessaColab
+28/08/2021 11:38:00 NumExpr defaulting to 4 threads.
+28/08/2021 11:44:01 >> PreProcessaColab
