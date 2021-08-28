@@ -11,7 +11,6 @@ import seaborn as sns
 import logging
 from sklearn.neighbors import NearestNeighbors
 import os
-import bisect
 
 logging.basicConfig(filename='./Analises/preprocessamento2.log', 
                     level=logging.INFO,
@@ -22,49 +21,60 @@ logging.info('>> PreProcessaColab')
 
 dfMusUsers =  pd.read_pickle ("./FeatureStore/MusUsers.pickle")  
 
-#%%
-dfMusUsers.head
-#%%
-
 dfMusUsers.reset_index(inplace=True, drop=True)
 lstDominioDeMusicas = dfMusUsers['id_musica'].drop_duplicates().sort_values().to_list()
 lstUserIds = dfMusUsers['userid'].drop_duplicates().to_list()
-#%%
+
+logging.info("lstDominioDeMusicas %s", len(lstDominioDeMusicas))
+logging.info('lstUsers %s', len(lstUserIds))
+#
 #print (lstDominioDeMusicas[0:10])
-#%%
 #print (dfMusUsers[dfMusUsers['id_musica']=='0'])
-#%%
-if os.path.isfile("./FeatureStore/MusUsersListaOrd.pickle"):
-        dfMusUsersList = pd.read_pickle ("./FeatureStore/MusUsersListaOrd.pickle")
-else:  
-        dfMusUsersList = dfMusUsers.groupby (by='userid')['id_musica'].apply(lambda x: list(x.sort_values()) )
-       
-        dfMusUsersList.to_pickle ("./FeatureStore/MusUsersListaOrd.pickle")
 
-#%%
-#print (dfMusUsersList['00055176fea33f6e027cd3302289378b'])
-
-#%%
-#print (dfMusUsersList[lstUserIds[1]])
-
-#%% A fazer: 
 # rotina que monsta lista 0,1 para um user, por lista de musicas
 # rowUserMusBin para cada User
-def MontaRowUserMusBin (userid):
+def MontaRowMusUserColab (userid):
         listaMusUser = dfMusUsersList[userid]
         tamListaMusUser = len (listaMusUser)
-        rowUserMusBin = [userid]
-        for mus in lstDominioDeMusicas:
-                # verifica se mus está na lista de músicas do User
-                indice = np.searchsorted(listaMusUser, mus)
-                if (indice != tamListaMusUser) and (mus==listaMusUser[indice]) :
-                        rowUserMusBin.append(1)  # musica encontrada
-                else :
-                        rowUserMusBin.append(0)  # musica não encontrada          
-        return rowUserMusBin
+        rowMusUserColab = [userid]+[0]*len(lstDominioDeMusicas)
+        #busca listaMusUser em Dominio de Musicas
+        indicesListaMusUser = np.searchsorted(listaMusUser, lstDominioDeMusicas)
+        i=0
+        for indice in indicesListaMusUser:
+                if (indice != tamListaMusUser) and (lstDominioDeMusicas[i]==listaMusUser[indice]) :
+                        rowMusUserColab[i] =1  # musica encontrada
+                i=i+1          
+        return rowMusUserColab
 
-CONTINUAR DAQUI
-row = MontaRowUserMusBin ('00055176fea33f6e027cd3302289378b')
+
+if os.path.isfile("./FeatureStore/MusUsersColab.pickle"):
+        dfMusUsersColab = pd.read.pickle ("./FeatureStore/MusUsersColab.pickle")
+else:
+        if os.path.isfile("./FeatureStore/MusUsersListaOrd.pickle"):
+                dfMusUsersList = pd.read_pickle ("./FeatureStore/MusUsersListaOrd.pickle")
+        else:  
+                dfMusUsersList = dfMusUsers.groupby (by='userid')['id_musica'].apply(lambda x: tuple(x.sort_values()) )
+                dfMusUsersList.to_pickle ("./FeatureStore/MusUsersListaOrd.pickle")
+        
+        #print (dfMusUsersList['00055176fea33f6e027cd3302289378b'])
+        #print (dfMusUsersList[lstUserIds[1]])
+
+        MontaRowMusUserColab(lstUserIds[0])
+        PARECE QUE FUNCIONOU, MAS MONTAR UM TESTE PARA CONFIRMAR
+
+        #%% Monta lista de listas MusUserColab, user a user
+        MusUserColab =[]
+        i=0
+        for user in lstUserIds:
+                i=i+1;
+                print (i)
+                MusUserColab.append ( MontaRowMusUserColab (user) )
+#%%
+        colunas=['user']+lstDominioDeMusicas
+        
+        dfMusUsersColab = pd.DataFrame (MusUserColab, columns=colunas)
+#%%
+        dfMusUsersColab.to_pickle ("./FeatureStore/MusUsersColab.pickle")
 
 
 #%% exemplo
@@ -75,12 +85,13 @@ rowUserMusBin0=['User0', 0, 1, 1, 1]
 rowUserMusBin1=['User1', 1, 1, 1, 1]
 rowUserMusBin2=['User2', 0, 1, 0, 1]
 rowUserMusBin3=['User3', 1, 0, 0, 0]
-data = [rowUserMusBin0,
-        rowUserMusBin1,
-        rowUserMusBin2,
-        rowUserMusBin3]
-MusUsersColab = pd.DataFrame(data, columns=colunas)
+MusUsercolab = [rowUserMusBin0,
+                rowUserMusBin1,
+                rowUserMusBin2,
+                rowUserMusBin3]
+MusUsersColab = pd.DataFrame(MusUserColab, columns=colunas)
 print (MusUsersColab)
+
 
 #%% calcula vizinhos do UserA
 k = 3
