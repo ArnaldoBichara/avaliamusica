@@ -156,3 +156,75 @@ min       56.000000
 75%      345.000000
 max     1355.000000
 27/08/2021 14:09:33 << RemoveUsuariosOutliers
+28/08/2021 14:09:51 >> RemoveUsuariosOutliers
+28/08/2021 14:09:53 NumExpr defaulting to 4 threads.
+28/08/2021 14:09:56 MusUsers shape apos filtro (2608871, 5)
+28/08/2021 14:09:56 MusUsers describe apos filtro             level_0         index
+count  2.608871e+06  2.608871e+06
+mean   1.305488e+06  5.557346e+06
+std    7.549654e+05  3.258289e+06
+min    0.000000e+00  1.180000e+02
+25%    6.522175e+05  2.766978e+06
+50%    1.304435e+06  5.547904e+06
+75%    1.956652e+06  8.273804e+06
+max    2.718508e+06  1.134142e+07
+28/08/2021 14:09:56 dfCountPerUser describe apos filtro              nrows
+count  9949.000000
+mean    262.224445
+std     221.801032
+min      56.000000
+25%     109.000000
+50%     188.000000
+75%     332.000000
+max    1355.000000
+28/08/2021 14:09:58 << RemoveUsuariosOutliers
+28/08/2021 14:18:08 >> RemoveUsuariosOutliers
+28/08/2021 14:18:45 >> RemoveUsuariosOutliers
+28/08/2021 14:20:30 >> RemoveUsuariosOutliers
+28/08/2021 14:20:45 >> RemoveUsuariosOutliers
+28/08/2021 14:23:10 >> RemoveUsuariosOutliers
+28/08/2021 14:25:33 >> RemoveUsuariosOutliers
+28/08/2021 14:26:00 >> RemoveUsuariosOutliers
+28/08/2021 14:26:01 NumExpr defaulting to 4 threads.
+28/08/2021 14:26:05 MusUsers shape apos filtro (2718476, 4)
+28/08/2021 14:26:05 MusUsers describe apos filtro               index
+count  2.718476e+06
+mean   5.784129e+06
+std    3.378318e+06
+min    1.180000e+02
+25%    2.874859e+06
+50%    6.015172e+06
+75%    8.706899e+06
+max    1.134142e+07
+28/08/2021 14:26:05 dfCountPerUser describe apos filtro               nrows
+count  10024.000000
+mean     271.200020
+std      231.288028
+min       56.000000
+25%      111.000000
+50%      193.000000
+75%      345.000000
+max     1355.000000
+28/08/2021 14:26:07 << RemoveUsuariosOutliers
+28/08/2021 14:27:42 >> RemoveUsuariosOutliers
+28/08/2021 14:27:43 NumExpr defaulting to 4 threads.
+28/08/2021 14:27:47 MusUsers shape apos filtro (2608871, 5)
+28/08/2021 14:27:47 MusUsers describe apos filtro             level_0         index
+count  2.608871e+06  2.608871e+06
+mean   1.305488e+06  5.557346e+06
+std    7.549654e+05  3.258289e+06
+min    0.000000e+00  1.180000e+02
+25%    6.522175e+05  2.766978e+06
+50%    1.304435e+06  5.547904e+06
+75%    1.956652e+06  8.273804e+06
+max    2.718508e+06  1.134142e+07
+28/08/2021 14:27:47 dfCountPerUser describe apos filtro              nrows
+count  9949.000000
+mean    262.224445
+std     221.801032
+min      56.000000
+25%     109.000000
+50%     188.000000
+75%     332.000000
+max    1355.000000
+28/08/2021 14:27:49 << RemoveUsuariosOutliers

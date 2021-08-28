@@ -64,6 +64,15 @@ for index, row in dfMusUsers.iterrows():
             continue
         else:
             dfMusUsers.at[index,'id_musica']=id_musica
+dfMusUsers.drop(itens_a_remover, inplace=True)
+
+#%%
+dfMusUsers.shape
+#%%
+#dfMusUsers[dfMusUsers['id_musica']=='0'].index
+#dfMusUsers.drop (dfMusUsers[dfMusUsers['id_musica']=='0'].index, inplace=True)   
+#dfMusUsers.to_pickle ("./FeatureStore/MusUsers.pickle")
+    
 #%% removendo coluna temporária
 dfMusUsers.drop(columns=['ja_verificado'], inplace=True)
 #
