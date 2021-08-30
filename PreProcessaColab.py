@@ -19,32 +19,47 @@ logging.basicConfig(filename='./Analises/preprocessamento2.log',
                     )
 logging.info('>> PreProcessaColab')
 
+#%% TESTE
+""" def MontaRow (lstDominio, listaMusUser):
+        tamListaDominio = len (lstDominio)
+        rowMusUserColab = [0]*len(lstDominio)
+        #busca listaMusUser em Dominio de Musicas
+        indicesListaDominio = np.searchsorted(lstDominio, listaMusUser)
+        i=0
+        for indice in indicesListaDominio:
+                if (indice != tamListaDominio) and (lstDominio[indice]==listaMusUser[i]) :
+                        rowMusUserColab[indice] =1  # musica encontrada
+                i=i+1          
+        return ['meuuser']+rowMusUserColab
+teste = MontaRow(['1','3','a','b','x','y','z'],['1','2','3','b','y','z','zza','ZABA'])
+print (teste) """
+#%%
 dfMusUsers =  pd.read_pickle ("./FeatureStore/MusUsers.pickle")  
 
 dfMusUsers.reset_index(inplace=True, drop=True)
-lstDominioDeMusicas = dfMusUsers['id_musica'].drop_duplicates().sort_values().to_list()
+listaDominioDeMusicas = dfMusUsers['id_musica'].drop_duplicates().sort_values().to_list()
 lstUserIds = dfMusUsers['userid'].drop_duplicates().to_list()
 
-logging.info("lstDominioDeMusicas %s", len(lstDominioDeMusicas))
+logging.info("listaDominioDeMusicas %s", len(listaDominioDeMusicas))
 logging.info('lstUsers %s', len(lstUserIds))
 #
-#print (lstDominioDeMusicas[0:10])
+#print (listaDominioDeMusicas[0:10])
 #print (dfMusUsers[dfMusUsers['id_musica']=='0'])
-
+#%%
 # rotina que monsta lista 0,1 para um user, por lista de musicas
 # rowUserMusBin para cada User
 def MontaRowMusUserColab (userid):
         listaMusUser = dfMusUsersList[userid]
-        tamListaMusUser = len (listaMusUser)
-        rowMusUserColab = [userid]+[0]*len(lstDominioDeMusicas)
+        tamListaDominio = len (listaDominioDeMusicas)
+        resposta = [0]*len(listaDominioDeMusicas)
         #busca listaMusUser em Dominio de Musicas
-        indicesListaMusUser = np.searchsorted(listaMusUser, lstDominioDeMusicas)
+        indicesNoDominio = np.searchsorted(listaDominioDeMusicas, listaMusUser)
         i=0
-        for indice in indicesListaMusUser:
-                if (indice != tamListaMusUser) and (lstDominioDeMusicas[i]==listaMusUser[indice]) :
-                        rowMusUserColab[i] =1  # musica encontrada
+        for indice in indicesNoDominio:
+                if (indice != tamListaDominio) and (listaDominioDeMusicas[indice]==listaMusUser[i]) :
+                        resposta[indice] =1  # musica encontrada
                 i=i+1          
-        return rowMusUserColab
+        return [userid]+resposta
 
 
 if os.path.isfile("./FeatureStore/MusUsersColab.pickle"):
@@ -60,7 +75,7 @@ else:
         #print (dfMusUsersList[lstUserIds[1]])
 
         MontaRowMusUserColab(lstUserIds[0])
-        PARECE QUE FUNCIONOU, MAS MONTAR UM TESTE PARA CONFIRMAR
+#        PARECE QUE FUNCIONOU, MAS MONTAR UM TESTE PARA CONFIRMAR
 
         #%% Monta lista de listas MusUserColab, user a user
         MusUserColab =[]
@@ -70,7 +85,7 @@ else:
                 print (i)
                 MusUserColab.append ( MontaRowMusUserColab (user) )
 #%%
-        colunas=['user']+lstDominioDeMusicas
+        colunas=['user']+listaDominioDeMusicas
         
         dfMusUsersColab = pd.DataFrame (MusUserColab, columns=colunas)
 #%%
@@ -78,8 +93,8 @@ else:
 
 
 #%% exemplo
-lstDominioDeMusicas = ['00a','00b','00c','00d']
-colunas=['user']+lstDominioDeMusicas
+listaDominioDeMusicas = ['00a','00b','00c','00d']
+colunas=['user']+listaDominioDeMusicas
 
 rowUserMusBin0=['User0', 0, 1, 1, 1]
 rowUserMusBin1=['User1', 1, 1, 1, 1]
@@ -109,7 +124,7 @@ for row in indices:
 MusUsersColab = pd.DataFrame(lstUserIds, columns=['user'])
 
 #%%
-print (lstDominioDeMusicas[0])
+print (listaDominioDeMusicas[0])
 
 #%% descobrindo se user x possui música y na playlist
 dfMusUsers[['userid','interpretacao']]
