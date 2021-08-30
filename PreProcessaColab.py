@@ -19,32 +19,15 @@ logging.basicConfig(filename='./Analises/preprocessamento2.log',
                     )
 logging.info('>> PreProcessaColab')
 
-#%% TESTE
-""" def MontaRow (lstDominio, listaMusUser):
-        tamListaDominio = len (lstDominio)
-        rowMusUserColab = [0]*len(lstDominio)
-        #busca listaMusUser em Dominio de Musicas
-        indicesListaDominio = np.searchsorted(lstDominio, listaMusUser)
-        i=0
-        for indice in indicesListaDominio:
-                if (indice != tamListaDominio) and (lstDominio[indice]==listaMusUser[i]) :
-                        rowMusUserColab[indice] =1  # musica encontrada
-                i=i+1          
-        return ['meuuser']+rowMusUserColab
-teste = MontaRow(['1','3','a','b','x','y','z'],['1','2','3','b','y','z','zza','ZABA'])
-print (teste) """
 #%%
 dfMusUsers =  pd.read_pickle ("./FeatureStore/MusUsers.pickle")  
-
 dfMusUsers.reset_index(inplace=True, drop=True)
-listaDominioDeMusicas = dfMusUsers['id_musica'].drop_duplicates().sort_values().to_list()
-lstUserIds = dfMusUsers['userid'].drop_duplicates().to_list()
+listaUserIds = dfMusUsers['userid'].drop_duplicates().to_list()
+listaDominioDeMusicas = pd.read_pickle ("./FeatureStore/DominioMusicasColab.pickle")
 
 logging.info("listaDominioDeMusicas %s", len(listaDominioDeMusicas))
-logging.info('lstUsers %s', len(lstUserIds))
+logging.info('listaUsers %s', len(listaUserIds))
 #
-#print (listaDominioDeMusicas[0:10])
-#print (dfMusUsers[dfMusUsers['id_musica']=='0'])
 #%%
 # rotina que monsta lista 0,1 para um user, por lista de musicas
 # rowUserMusBin para cada User
@@ -72,15 +55,15 @@ else:
                 dfMusUsersList.to_pickle ("./FeatureStore/MusUsersListaOrd.pickle")
         
         #print (dfMusUsersList['00055176fea33f6e027cd3302289378b'])
-        #print (dfMusUsersList[lstUserIds[1]])
+        #print (dfMusUsersList[listaUserIds[1]])
 
-        MontaRowMusUserColab(lstUserIds[0])
+        MontaRowMusUserColab(listaUserIds[0])
 #        PARECE QUE FUNCIONOU, MAS MONTAR UM TESTE PARA CONFIRMAR
 
         #%% Monta lista de listas MusUserColab, user a user
         MusUserColab =[]
         i=0
-        for user in lstUserIds:
+        for user in listaUserIds:
                 i=i+1;
                 print (i)
                 MusUserColab.append ( MontaRowMusUserColab (user) )
@@ -121,7 +104,7 @@ for row in indices:
 #%%
 
 #%%
-MusUsersColab = pd.DataFrame(lstUserIds, columns=['user'])
+MusUsersColab = pd.DataFrame(listaUserIds, columns=['user'])
 
 #%%
 print (listaDominioDeMusicas[0])
@@ -160,7 +143,7 @@ df.iloc[0]
 dicionario = dfUsuarios.groups
 print(dicionario)
 #%%
-dicionario.get(lstUserIds[0])
+dicionario.get(listaUserIds[0])
 #%%
 
 logging.info('<< PreProcessaColab')

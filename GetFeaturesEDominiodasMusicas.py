@@ -71,7 +71,7 @@ dominioMusicas.drop_duplicates(inplace=True, ignore_index=True)
 dominioMusicas=dominioMusicas.dropna()
 
 # removendo linhas onde interpretacao não é uma string válida (por algum motivo isso está acontecendo)
-dominioMusicas[dominioMusicas['interpretacao'].apply(lambda x: isinstance(x,str))]
+dominioMusicas = dominioMusicas[dominioMusicas['interpretacao'].apply(lambda x: isinstance(x,str))]
 
 dominioMusicas.reset_index(drop=True)
 
