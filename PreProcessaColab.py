@@ -1,4 +1,4 @@
-# este componente prepara o dataset MusUserColab usado pelo
+# este componente prepara o dataset listaMusUserColab usado pelo
 # algoritmo de Colaboração de Users para descobrir quais os vizinhos
 # do UserA e do UserAbarra
 
@@ -31,7 +31,7 @@ logging.info('listaUsers %s', len(listaUserIds))
 #%%
 # rotina que monsta lista 0,1 para um user, por lista de musicas
 # rowUserMusBin para cada User
-def MontaRowMusUserColab (userid):
+def MontaRowlistaMusUserColab (userid):
         listaMusUser = dfMusUsersList[userid]
         tamListaDominio = len (listaDominioDeMusicas)
         resposta = [0]*len(listaDominioDeMusicas)
@@ -48,29 +48,24 @@ def MontaRowMusUserColab (userid):
 if os.path.isfile("./FeatureStore/MusUsersColab.pickle"):
         dfMusUsersColab = pd.read.pickle ("./FeatureStore/MusUsersColab.pickle")
 else:
-        if os.path.isfile("./FeatureStore/MusUsersListaOrd.pickle"):
-                dfMusUsersList = pd.read_pickle ("./FeatureStore/MusUsersListaOrd.pickle")
-        else:  
-                dfMusUsersList = dfMusUsers.groupby (by='userid')['id_musica'].apply(lambda x: tuple(x.sort_values()) )
-                dfMusUsersList.to_pickle ("./FeatureStore/MusUsersListaOrd.pickle")
-        
-        #print (dfMusUsersList['00055176fea33f6e027cd3302289378b'])
-        #print (dfMusUsersList[listaUserIds[1]])
+        dfMusUsersList = dfMusUsers.groupby (by='userid')['id_musica'].apply(lambda x: tuple(x.sort_values()) )
 
-        MontaRowMusUserColab(listaUserIds[0])
-#        PARECE QUE FUNCIONOU, MAS MONTAR UM TESTE PARA CONFIRMAR
+#        MontaRowlistaMusUserColab(listaUserIds[0])
 
-        #%% Monta lista de listas MusUserColab, user a user
-        MusUserColab =[]
+
+        '''         #%% Monta lista de listas listaMusUserColab, user a user
+        listaMusUserColab =[]
         i=0
         for user in listaUserIds:
                 i=i+1;
                 print (i)
-                MusUserColab.append ( MontaRowMusUserColab (user) )
-#%%
+                listaMusUserColab.append ( MontaRowlistaMusUserColab (user) )
+        '''#%%
+ 
         colunas=['user']+listaDominioDeMusicas
+        listaMusUserColab = ['user1']+[0]*len(listaDominioDeMusicas) +['user2']+[0]*len(listaDominioDeMusicas)
         
-        dfMusUsersColab = pd.DataFrame (MusUserColab, columns=colunas)
+        dfMusUsersColab = pd.DataFrame (listaMusUserColab, columns=colunas)
 #%%
         dfMusUsersColab.to_pickle ("./FeatureStore/MusUsersColab.pickle")
 
@@ -83,11 +78,11 @@ rowUserMusBin0=['User0', 0, 1, 1, 1]
 rowUserMusBin1=['User1', 1, 1, 1, 1]
 rowUserMusBin2=['User2', 0, 1, 0, 1]
 rowUserMusBin3=['User3', 1, 0, 0, 0]
-MusUsercolab = [rowUserMusBin0,
+listaMusUserColab = [rowUserMusBin0,
                 rowUserMusBin1,
                 rowUserMusBin2,
                 rowUserMusBin3]
-MusUsersColab = pd.DataFrame(MusUserColab, columns=colunas)
+MusUsersColab = pd.DataFrame(listaMusUserColab, columns=colunas)
 print (MusUsersColab)
 
 

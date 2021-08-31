@@ -9,3 +9,15 @@ datasets/
 __pycache__/
 
 PreProcColaboracao.py
+FeatureStore backup/AudioFeatures.pickle
+FeatureStore backup/DominioDasMusicas.pickle
+FeatureStore backup/DominioMusicasColab.pickle
+FeatureStore backup/MusUserACurte.pickle
+FeatureStore backup/MusUserANaoCurte.pickle
+FeatureStore backup/MusUsers.pickle
+FeatureStore backup/backup 30-ago/AudioFeatures.pickle
+FeatureStore backup/backup 30-ago/DominioDasMusicas.pickle
+FeatureStore backup/backup 30-ago/DominioMusicasColab.pickle
+FeatureStore backup/backup 30-ago/MusUserACurte.pickle
+FeatureStore backup/backup 30-ago/MusUserANaoCurte.pickle
+FeatureStore backup/backup 30-ago/MusUsers.pickle

@@ -1,10 +1,138 @@
-30/08/2021 18:41:14 >> GetFeaturesEDominio
-30/08/2021 18:41:17 GetFeaturesEDominio: spotify600k_tracks shape = (586672, 16)
-30/08/2021 18:41:19 NumExpr defaulting to 4 threads.
-30/08/2021 18:41:23 GetFeaturesEDominio: dominio head =                                   interpretacao               id_musica
+30/08/2021 19:00:22 >> GetMusUsers
+30/08/2021 19:00:51 MusUsers shape inicial: (12891550, 4)
+30/08/2021 19:00:55 NumExpr defaulting to 4 threads.
+30/08/2021 19:01:41 MusUsers, removidas mus em branco, criada interpretacao e removidas linhas duplicadas (11341422, 2)
+30/08/2021 19:01:47 << GetMusUsers
+30/08/2021 19:01:56 >> GetMusUsrA
+30/08/2021 19:02:06 NumExpr defaulting to 4 threads.
+30/08/2021 19:02:06 MusUserACurte Inicial: (746, 2)
+30/08/2021 19:02:06 MusCurteUserA removidos duplicados: (746, 2)
+30/08/2021 19:02:06 MusUserANaoCurte Inicial: (555, 2)
+30/08/2021 19:02:06 MusUserANaoCurte removidos duplicados: (555, 2)
+30/08/2021 19:02:06 MusUserACurte.head                 id_musica                                      interpretacao
+0  7JSR685hpFDqvTSNHeSKjL                     DEATH CAB FOR CUTIE:>60 & PUNK
+1  1VK5JYdgrJZENDl1taa2cS  LINDSEY STIRLING:>7 YEARS (ACOUSTIC) - RECORDE...
+2  7L5dzeyAk7BmiBUrIBUQR8                         RUBEN GALLOWAY:>ACCEPTANCE
+3  4RlXrkIQWhzxSaqA6YmVhH                        14 BIS:>ADORÁVEIS CRIATURAS
+4  2WNH6N24uph03Ilnoy7HgI                  ENYA:>AFER VENTUS - 2009 REMASTER
+30/08/2021 19:02:06 << GetMusUsrA
+30/08/2021 19:02:09 >> GetFeaturesEDominio
+30/08/2021 19:02:12 GetFeaturesEDominio: spotify600k_tracks shape = (586672, 16)
+30/08/2021 19:02:14 NumExpr defaulting to 4 threads.
+30/08/2021 19:02:18 GetFeaturesEDominio: dominio head =                                   interpretacao               id_musica
 193571  "100 FIRST SONGS PARTICIPANTS":>אבא שלי  7G9BQEncd1eRxjV6ABz33X
-30/08/2021 18:41:23 GetFeaturesEDominio: dominio shape = (587339, 2)
-30/08/2021 18:41:23 GetFeaturesEDominio: AudioFeatures head =    duration_ms  danceability  energy  key  loudness  mode  speechiness  acousticness  instrumentalness  liveness  valence    tempo  time_signature
-0       126903         0.645   0.445    0   -13.338     1        0.451         0.674             0.744     0.151    0.127  104.851               3
-30/08/2021 18:41:23 GetFeaturesEDominio: AudioFeatures shape = (586672, 13)
-30/08/2021 18:41:24 << GetFeaturesEDominio
+30/08/2021 19:02:18 GetFeaturesEDominio: dominio shape = (587339, 2)
+30/08/2021 19:02:18 GetFeaturesEDominio: AudioFeatures head =    duration_ms  danceability  energy  ...  valence    tempo  time_signature
+0       126903         0.645   0.445  ...    0.127  104.851               3
+
+[1 rows x 13 columns]
+30/08/2021 19:02:18 GetFeaturesEDominio: AudioFeatures shape = (586672, 13)
+30/08/2021 19:02:22 << GetFeaturesEDominio
+30/08/2021 19:02:24 >> GetFeaturesEDominio
+30/08/2021 19:02:27 GetFeaturesEDominio: spotify600k_tracks shape = (586672, 16)
+30/08/2021 19:02:29 NumExpr defaulting to 4 threads.
+30/08/2021 19:02:33 GetFeaturesEDominio: dominio head =                                   interpretacao               id_musica
+193571  "100 FIRST SONGS PARTICIPANTS":>אבא שלי  7G9BQEncd1eRxjV6ABz33X
+30/08/2021 19:02:33 GetFeaturesEDominio: dominio shape = (587339, 2)
+30/08/2021 19:02:33 GetFeaturesEDominio: AudioFeatures head =    duration_ms  danceability  energy  ...  valence    tempo  time_signature
+0       126903         0.645   0.445  ...    0.127  104.851               3
+
+[1 rows x 13 columns]
+30/08/2021 19:02:33 GetFeaturesEDominio: AudioFeatures shape = (586672, 13)
+30/08/2021 19:02:34 << GetFeaturesEDominio
+30/08/2021 19:02:38 >> FiltraMusUsersNoDominio
+30/08/2021 19:02:42 MusUsers, antes do filtro (11341422, 2)
+30/08/2021 19:10:04 Indice fora dos limites 587339
+30/08/2021 19:10:04 Indice fora dos limites 587339
+30/08/2021 19:13:12 Indice fora dos limites 587339
+30/08/2021 19:15:10 Indice fora dos limites 587339
+30/08/2021 19:15:10 Indice fora dos limites 587339
+30/08/2021 19:15:10 Indice fora dos limites 587339
+30/08/2021 19:15:10 Indice fora dos limites 587339
+30/08/2021 19:15:10 Indice fora dos limites 587339
+30/08/2021 19:15:10 Indice fora dos limites 587339
+30/08/2021 19:15:10 Indice fora dos limites 587339
+30/08/2021 19:15:10 Indice fora dos limites 587339
+30/08/2021 19:18:08 Indice fora dos limites 587339
+30/08/2021 19:21:35 Indice fora dos limites 587339
+30/08/2021 19:21:35 Indice fora dos limites 587339
+30/08/2021 19:21:35 Indice fora dos limites 587339
+30/08/2021 19:21:35 Indice fora dos limites 587339
+30/08/2021 19:21:45 Indice fora dos limites 587339
+30/08/2021 19:24:07 Indice fora dos limites 587339
+30/08/2021 19:32:44 Indice fora dos limites 587339
+30/08/2021 19:32:44 Indice fora dos limites 587339
+30/08/2021 19:37:56 Indice fora dos limites 587339
+30/08/2021 19:38:53 Indice fora dos limites 587339
+30/08/2021 19:39:06 Indice fora dos limites 587339
+30/08/2021 19:43:32 Indice fora dos limites 587339
+30/08/2021 19:43:32 Indice fora dos limites 587339
+30/08/2021 19:44:07 Indice fora dos limites 587339
+30/08/2021 19:45:59 Indice fora dos limites 587339
+30/08/2021 19:45:59 Indice fora dos limites 587339
+30/08/2021 19:45:59 Indice fora dos limites 587339
+30/08/2021 19:45:59 Indice fora dos limites 587339
+30/08/2021 19:49:53 Indice fora dos limites 587339
+30/08/2021 19:50:53 Indice fora dos limites 587339
+30/08/2021 19:50:53 Indice fora dos limites 587339
+30/08/2021 19:50:53 Indice fora dos limites 587339
+30/08/2021 19:50:53 Indice fora dos limites 587339
+30/08/2021 19:50:53 Indice fora dos limites 587339
+30/08/2021 19:50:53 Indice fora dos limites 587339
+30/08/2021 19:51:08 Indice fora dos limites 587339
+30/08/2021 19:51:09 Indice fora dos limites 587339
+30/08/2021 19:54:51 Indice fora dos limites 587339
+30/08/2021 19:54:51 Indice fora dos limites 587339
+30/08/2021 19:58:26 Indice fora dos limites 587339
+30/08/2021 19:58:36 Indice fora dos limites 587339
+30/08/2021 20:04:24 Indice fora dos limites 587339
+30/08/2021 20:07:14 Indice fora dos limites 587339
+30/08/2021 20:07:14 Indice fora dos limites 587339
+30/08/2021 20:08:01 MusUsers, depois do filtro (3093758, 3)
+30/08/2021 20:08:03 << FiltraMusUsersNoDominio
+30/08/2021 20:08:07 >> FiltraMusUsersNoDominio
+30/08/2021 20:08:08 MusUsers, antes do filtro (3093758, 3)
+30/08/2021 20:15:48 MusUsers, depois do filtro (3093758, 3)
+30/08/2021 20:15:50 << FiltraMusUsersNoDominio
+30/08/2021 20:17:55 >> Analisa MusUsers
+30/08/2021 20:17:57 NumExpr defaulting to 4 threads.
+30/08/2021 20:18:01 dfMusUsers describe                                   userid       interpretacao               id_musica
+count                            3093758             3093758                 3093758
+unique                             15394              137799                  137798
+top     7ee2b92c5bcf6133b8132363e5bda960  M83:>MIDNIGHT CITY  0gnyAfjj9sxtXmpcAf3AKu
+freq                                8197                1890                    1890
+30/08/2021 20:18:02 contagem de users               nrows
+count  15394.000000
+mean     200.971677
+std      307.564530
+min        1.000000
+25%       33.000000
+50%      108.000000
+75%      253.000000
+max     8197.000000
+30/08/2021 20:18:04 << Analisa MusUsers
+30/08/2021 20:18:38 >> RemoveUsuariosOutliers
+30/08/2021 20:18:39 NumExpr defaulting to 4 threads.
+30/08/2021 20:18:42 MusUsers shape apos filtro (1613583, 4)
+30/08/2021 20:18:42 MusUsers describe apos filtro               index
+count  1.613583e+06
+mean   5.605870e+06
+std    3.288577e+06
+min    1.180000e+02
+25%    2.795550e+06
+50%    5.890997e+06
+75%    8.345440e+06
+max    1.134114e+07
+30/08/2021 20:18:42 dfCountPerUser describe apos filtro              nrows
+count  4346.000000
+mean    371.280028
+std     145.824959
+min     201.000000
+25%     254.000000
+50%     327.000000
+75%     453.750000
+max     798.000000
+30/08/2021 20:18:44 << RemoveUsuariosOutliers
+30/08/2021 20:18:49 >> FiltraDomMusicasColab
+30/08/2021 20:18:50 Domínio de músicas para Colab =(111677,)
+30/08/2021 20:18:50 << FiltraDomMusicasColab

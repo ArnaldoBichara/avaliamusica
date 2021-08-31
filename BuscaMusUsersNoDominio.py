@@ -54,7 +54,7 @@ for index, row in dfMusUsers.iterrows():
     if (row['id_musica']=='0'):
         id_musica = BuscaInterpretacaoNoDominio (row['interpretacao'])
         if (contador%500000==0):
-            print (contador)
+#            print (contador)
             dfMusUsers.drop(itens_a_remover, inplace=True)
             itens_a_remover=[]
             dfMusUsers.to_pickle ("./FeatureStore/MusUsers.pickle")
