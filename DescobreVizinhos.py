@@ -45,7 +45,7 @@ MusUserAbarraColab = MontalistaMusUserColab (listMusUserAbarra)
 
 #%%
 # achando k vizinhos mais próximos de user A
-k = 10
+k = 30
 neigh = NearestNeighbors(n_neighbors=k)
 neigh.fit(dfMusUsersColab.drop(columns=['user']))
 distancias, indices = neigh.kneighbors([MusUserAColab])
