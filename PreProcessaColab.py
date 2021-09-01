@@ -44,9 +44,7 @@ def MontaRowlistaMusUserColab (userid):
         return [userid]+resposta
 
 
-if os.path.isfile("./FeatureStore/MusUsersColab.pickle"):
-        dfMusUsersColab = pd.read_pickle ("./FeatureStore/MusUsersColab.pickle")
-else:
+if os.path.isfile("./FeatureStore/MusUsersColab.pickle")==False:
         dfMusUsersList = dfMusUsers.groupby (by='userid')['id_musica'].apply(lambda x: tuple(x.sort_values()) )
 
 # definindo as colunas
@@ -69,9 +67,10 @@ else:
 # montando dataframe e salvando em .pickle     
         dfMusUsersColab = pd.DataFrame (listaMusUserColab, columns=colunas)
         dfMusUsersColab.to_pickle ("./FeatureStore/MusUsersColab.pickle")
+else:
+        dfMusUsersColab = pd.read_pickle ("./FeatureStore/MusUsersColab.pickle")
 
-
-
+#%% obtendo  MusUserAColab
 
 #%% exemplo
 listaDominioDeMusicas = ['00a','00b','00c','00d']
