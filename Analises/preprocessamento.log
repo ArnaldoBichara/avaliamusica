@@ -136,3 +136,220 @@ max     798.000000
 30/08/2021 20:18:49 >> FiltraDomMusicasColab
 30/08/2021 20:18:50 Domínio de músicas para Colab =(111677,)
 30/08/2021 20:18:50 << FiltraDomMusicasColab
+01/09/2021 12:32:36 >> RemoveUsuariosOutliers
+01/09/2021 12:32:37 NumExpr defaulting to 4 threads.
+01/09/2021 12:32:40 MusUsers shape apos filtro (1256818, 5)
+01/09/2021 12:32:40 MusUsers describe apos filtro             level_0         index
+count  1.256818e+06  1.256818e+06
+mean   8.114614e+05  5.637827e+06
+std    4.704469e+05  3.321290e+06
+min    0.000000e+00  1.180000e+02
+25%    3.966852e+05  2.754748e+06
+50%    8.118895e+05  5.923206e+06
+75%    1.225104e+06  8.449840e+06
+max    1.613582e+06  1.134114e+07
+01/09/2021 12:32:40 dfCountPerUser describe apos filtro              nrows
+count  3157.000000
+mean    398.105163
+std     117.596514
+min     251.000000
+25%     299.000000
+50%     369.000000
+75%     478.000000
+max     699.000000
+01/09/2021 12:32:42 << RemoveUsuariosOutliers
+01/09/2021 12:33:27 >> FiltraDomMusicasColab
+01/09/2021 12:33:28 Domínio de músicas para Colab =(102877,)
+01/09/2021 12:33:28 << FiltraDomMusicasColab
+01/09/2021 12:34:27 >> RemoveUsuariosOutliers
+01/09/2021 12:34:27 NumExpr defaulting to 4 threads.
+01/09/2021 12:34:59 >> FiltraDomMusicasColab
+01/09/2021 12:35:00 Domínio de músicas para Colab =(102877,)
+01/09/2021 12:35:00 << FiltraDomMusicasColab
+01/09/2021 12:41:20 >> RemoveUsuariosOutliers
+01/09/2021 12:41:20 NumExpr defaulting to 4 threads.
+01/09/2021 12:41:25 >> FiltraDomMusicasColab
+01/09/2021 12:41:26 Domínio de músicas para Colab =(102877,)
+01/09/2021 12:41:26 << FiltraDomMusicasColab
+01/09/2021 12:44:20 >> RemoveUsuariosOutliers
+01/09/2021 12:44:24 NumExpr defaulting to 4 threads.
+01/09/2021 12:49:08 >> RemoveUsuariosOutliers
+01/09/2021 12:49:09 NumExpr defaulting to 4 threads.
+01/09/2021 12:50:17 >> RemoveUsuariosOutliers
+01/09/2021 12:50:18 NumExpr defaulting to 4 threads.
+01/09/2021 12:50:20 MusUsers shape apos filtro (1037958, 5)
+01/09/2021 12:50:20 MusUsers describe apos filtro             level_0         index
+count  1.037958e+06  1.037958e+06
+mean   8.109874e+05  5.634009e+06
+std    4.735938e+05  3.343197e+06
+min    0.000000e+00  1.180000e+02
+25%    3.904582e+05  2.715952e+06
+50%    8.116675e+05  5.922670e+06
+75%    1.229766e+06  8.483958e+06
+max    1.613324e+06  1.133777e+07
+01/09/2021 12:50:20 dfCountPerUser describe apos filtro              nrows
+count  2356.000000
+mean    440.559423
+std     106.581577
+min     301.000000
+25%     349.750000
+50%     417.000000
+75%     514.000000
+max     699.000000
+01/09/2021 12:50:22 << RemoveUsuariosOutliers
+01/09/2021 12:50:33 >> FiltraDomMusicasColab
+01/09/2021 12:50:33 Domínio de músicas para Colab =(96876,)
+01/09/2021 12:50:33 << FiltraDomMusicasColab
+01/09/2021 12:51:39 >> RemoveUsuariosOutliers
+01/09/2021 12:51:39 NumExpr defaulting to 4 threads.
+01/09/2021 12:51:42 MusUsers shape apos filtro (844181, 5)
+01/09/2021 12:51:42 MusUsers describe apos filtro             level_0         index
+count  8.441810e+05  8.441810e+05
+mean   8.150230e+05  5.662125e+06
+std    4.735904e+05  3.343766e+06
+min    0.000000e+00  1.180000e+02
+25%    3.914990e+05  2.720316e+06
+50%    8.196430e+05  5.963505e+06
+75%    1.236849e+06  8.515371e+06
+max    1.613324e+06  1.133777e+07
+01/09/2021 12:51:42 dfCountPerUser describe apos filtro              nrows
+count  1758.000000
+mean    480.193970
+std      94.667909
+min     351.000000
+25%     399.250000
+50%     461.000000
+75%     554.000000
+max     699.000000
+01/09/2021 12:51:42 << RemoveUsuariosOutliers
+01/09/2021 12:51:56 >> FiltraDomMusicasColab
+01/09/2021 12:51:56 Domínio de músicas para Colab =(89796,)
+01/09/2021 12:51:56 << FiltraDomMusicasColab
+01/09/2021 12:53:09 >> FiltraDomMusicasColab
+01/09/2021 12:53:10 Domínio de músicas para Colab =(89796,)
+01/09/2021 12:53:10 << FiltraDomMusicasColab
+01/09/2021 12:53:29 >> RemoveUsuariosOutliers
+01/09/2021 12:53:29 NumExpr defaulting to 4 threads.
+01/09/2021 12:53:31 MusUsers shape apos filtro (679750, 5)
+01/09/2021 12:53:31 MusUsers describe apos filtro             level_0         index
+count  6.797500e+05  6.797500e+05
+mean   8.096374e+05  5.622697e+06
+std    4.753212e+05  3.355900e+06
+min    0.000000e+00  1.180000e+02
+25%    3.753372e+05  2.604460e+06
+50%    8.072275e+05  5.893138e+06
+75%    1.234056e+06  8.498728e+06
+max    1.613324e+06  1.133777e+07
+01/09/2021 12:53:31 dfCountPerUser describe apos filtro              nrows
+count  1503.000000
+mean    452.262142
+std      70.466709
+min     351.000000
+25%     392.000000
+50%     438.000000
+75%     506.000000
+max     599.000000
+01/09/2021 12:53:32 << RemoveUsuariosOutliers
+01/09/2021 12:53:37 >> FiltraDomMusicasColab
+01/09/2021 12:53:37 Domínio de músicas para Colab =(84290,)
+01/09/2021 12:53:37 << FiltraDomMusicasColab
+01/09/2021 12:56:53 >> RemoveUsuariosOutliers
+01/09/2021 12:56:54 NumExpr defaulting to 4 threads.
+01/09/2021 12:56:56 MusUsers shape apos filtro (679750, 4)
+01/09/2021 12:56:56 MusUsers describe apos filtro               index
+count  6.797500e+05
+mean   5.622697e+06
+std    3.355900e+06
+min    1.180000e+02
+25%    2.604460e+06
+50%    5.893138e+06
+75%    8.498728e+06
+max    1.133777e+07
+01/09/2021 12:56:56 dfCountPerUser describe apos filtro              nrows
+count  1503.000000
+mean    452.262142
+std      70.466709
+min     351.000000
+25%     392.000000
+50%     438.000000
+75%     506.000000
+max     599.000000
+01/09/2021 12:56:57 << RemoveUsuariosOutliers
+01/09/2021 12:57:01 >> FiltraDomMusicasColab
+01/09/2021 12:57:01 Domínio de músicas para Colab =(84290,)
+01/09/2021 12:57:01 << FiltraDomMusicasColab
+01/09/2021 12:58:11 >> RemoveUsuariosOutliers
+01/09/2021 12:58:11 NumExpr defaulting to 4 threads.
+01/09/2021 12:58:14 MusUsers shape apos filtro (1093690, 4)
+01/09/2021 12:58:14 MusUsers describe apos filtro               index
+count  1.093690e+06
+mean   5.646179e+06
+std    3.323972e+06
+min    1.180000e+02
+25%    2.756374e+06
+50%    5.891012e+06
+75%    8.452878e+06
+max    1.134114e+07
+01/09/2021 12:58:14 dfCountPerUser describe apos filtro              nrows
+count  3504.000000
+mean    312.126142
+std      81.541245
+min     201.000000
+25%     242.000000
+50%     294.000000
+75%     373.000000
+max     499.000000
+01/09/2021 12:58:15 << RemoveUsuariosOutliers
+01/09/2021 12:58:18 >> FiltraDomMusicasColab
+01/09/2021 12:58:19 Domínio de músicas para Colab =(99182,)
+01/09/2021 12:58:19 << FiltraDomMusicasColab
+01/09/2021 12:59:54 >> RemoveUsuariosOutliers
+01/09/2021 12:59:55 NumExpr defaulting to 4 threads.
+01/09/2021 12:59:57 MusUsers shape apos filtro (452715, 4)
+01/09/2021 12:59:57 MusUsers describe apos filtro               index
+count  4.527150e+05
+mean   5.700821e+06
+std    3.405514e+06
+min    1.180000e+02
+25%    2.638644e+06
+50%    5.964009e+06
+75%    8.654900e+06
+max    1.133777e+07
+01/09/2021 12:59:57 dfCountPerUser describe apos filtro              nrows
+count  1088.000000
+mean    416.098346
+std      42.270349
+min     351.000000
+25%     380.000000
+50%     413.000000
+75%     447.250000
+max     499.000000
+01/09/2021 12:59:57 << RemoveUsuariosOutliers
+01/09/2021 13:00:01 >> FiltraDomMusicasColab
+01/09/2021 13:00:01 Domínio de músicas para Colab =(71974,)
+01/09/2021 13:00:01 << FiltraDomMusicasColab
+01/09/2021 13:01:45 >> RemoveUsuariosOutliers
+01/09/2021 13:01:45 NumExpr defaulting to 4 threads.
+01/09/2021 13:01:48 MusUsers shape apos filtro (358387, 4)
+01/09/2021 13:01:48 MusUsers describe apos filtro               index
+count  3.583870e+05
+mean   5.601695e+06
+std    3.347252e+06
+min    1.077100e+04
+25%    2.767132e+06
+50%    5.624474e+06
+75%    8.356674e+06
+max    1.133400e+07
+01/09/2021 13:01:48 dfCountPerUser describe apos filtro              nrows
+count  1038.000000
+mean    345.266859
+std      28.720800
+min     301.000000
+25%     320.000000
+50%     344.000000
+75%     369.000000
+max     399.000000
+01/09/2021 13:01:48 << RemoveUsuariosOutliers
+01/09/2021 13:01:52 >> FiltraDomMusicasColab
+01/09/2021 13:01:52 Domínio de músicas para Colab =(64879,)
+01/09/2021 13:01:52 << FiltraDomMusicasColab

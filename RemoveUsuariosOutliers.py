@@ -25,15 +25,15 @@ dfCountPerUser['nrows']=1
 dfCountPerUser = dfCountPerUser.groupby('userid')['nrows'].sum().reset_index()
 #%%
 # filtrando users dentro da faixa determinada
-dfCountPerUser = dfCountPerUser[dfCountPerUser['nrows']>200]
-dfCountPerUser = dfCountPerUser[dfCountPerUser['nrows']<800]
+dfCountPerUser = dfCountPerUser[dfCountPerUser['nrows']>300]
+dfCountPerUser = dfCountPerUser[dfCountPerUser['nrows']<400]
 
 listaUsersAManter = list(dfCountPerUser['userid'])
 
 # filtrando users definidos na lista de users
 dfMusUsers= dfMusUsers[dfMusUsers['userid'].isin(listaUsersAManter)]
 #%%
-dfMusUsers.reset_index(inplace=True)
+dfMusUsers = dfMusUsers.reset_index(level=0, drop=True)
 
 #%% removendo linhas que tenham algo com NaN
 dfMusUsers.dropna(inplace=True)

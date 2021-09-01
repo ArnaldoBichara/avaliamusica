@@ -23,7 +23,7 @@ logging.info('>> PreProcessaColab')
 dfMusUsers =  pd.read_pickle ("./FeatureStore/MusUsers.pickle")  
 dfMusUsers.reset_index(inplace=True, drop=True)
 listaUserIds = dfMusUsers['userid'].drop_duplicates().to_list()
-listaDominioDeMusicas = pd.read_pickle ("./FeatureStore/DominioMusicasColab.pickle")
+listaDominioDeMusicas = pd.read_pickle ("./FeatureStore/DominioMusicasColab.pickle").to_list()
 
 logging.info("listaDominioDeMusicas %s", len(listaDominioDeMusicas))
 logging.info('listaUsers %s', len(listaUserIds))
@@ -50,23 +50,26 @@ if os.path.isfile("./FeatureStore/MusUsersColab.pickle"):
 else:
         dfMusUsersList = dfMusUsers.groupby (by='userid')['id_musica'].apply(lambda x: tuple(x.sort_values()) )
 
-#        MontaRowlistaMusUserColab(listaUserIds[0])
+# definindo as colunas
+        colunas=['user']
+        colunas.extend (listaDominioDeMusicas)
 
 
-        '''         #%% Monta lista de listas listaMusUserColab, user a user
+#%% Monta lista de listas listaMusUserColab, user a user
         listaMusUserColab =[]
         i=0
         for user in listaUserIds:
                 i=i+1;
                 print (i)
                 listaMusUserColab.append ( MontaRowlistaMusUserColab (user) )
-        '''#%%
- 
-        colunas=['user']+listaDominioDeMusicas
-        listaMusUserColab = ['user1']+[0]*len(listaDominioDeMusicas) +['user2']+[0]*len(listaDominioDeMusicas)
+
+# liberando memória
+        del dfMusUsers
+        del listaDominioDeMusicas
+        del listaUserIds
         
+#%% montando dataframe e salvando em .pickle     
         dfMusUsersColab = pd.DataFrame (listaMusUserColab, columns=colunas)
-#%%
         dfMusUsersColab.to_pickle ("./FeatureStore/MusUsersColab.pickle")
 
 

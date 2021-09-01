@@ -7,7 +7,7 @@ import seaborn as sns
 import logging
 from sklearn.neighbors import NearestNeighbors
 
-#%%
+
 dfMusUsers =  pd.read_pickle ("./FeatureStore/MusUsers.pickle")  
 dfMusUsers.reset_index(inplace=True, drop=True)
 listaUserIds = dfMusUsers['userid'].drop_duplicates().to_list()
@@ -18,17 +18,26 @@ listaDominioDeMusicas = listaDominioDeMusicas.to_list()
 #%% teste com itens vazios, para ser se existe problema de memória
 colunas=['user']
 #!!!!!!
-colunas.extend (listaDominioDeMusicas[0:70000])
-resposta = [0]*len(listaDominioDeMusicas[0:70000])
+colunas.extend (listaDominioDeMusicas)
+resposta = [0]*len(listaDominioDeMusicas)
 listaMusUserColab =[]
 i=0
 for userid in listaUserIds:
         i=i+1
         print(i)
         listaMusUserColab.append ([userid]+resposta)
+
+#%%
+# liberando memória para outros objetos
+#!!!!
+del dfMusUsers
+del listaDominioDeMusicas
+del listaUserIds
 #%%
 #%%
 MusUsersColab = pd.DataFrame(listaMusUserColab, columns=colunas)
+#%%
+del listaMusUserColab
 #%%
 MusUsersColab.to_pickle ("./FeatureStore/MusUsersColab.pickle")
 #print (MusUsersColab.head())
@@ -53,7 +62,6 @@ def MontaRowlistaMusUserColab (userid):
 
 dfMusUsersList = dfMusUsers.groupby (by='userid')['id_musica'].apply(lambda x: tuple(x.sort_values()) )
 
-#        MontaRowlistaMusUserColab(listaUserIds[0])
 
 
 '''         #%% Monta lista de listas listaMusUserColab, user a user
@@ -69,6 +77,7 @@ colunas=['user']+listaDominioDeMusicas
 listaMusUserColab = ['user1']+[0]*len(listaDominioDeMusicas) +['user2']+[0]*len(listaDominioDeMusicas)
 #%%
 dfMusUsersColab = pd.DataFrame (listaMusUserColab, columns=colunas)
+
 #%%
 
 #%% exemplo de cálculo de N vizinhos do User A
