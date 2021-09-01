@@ -353,3 +353,28 @@ max     399.000000
 01/09/2021 13:01:52 >> FiltraDomMusicasColab
 01/09/2021 13:01:52 Domínio de músicas para Colab =(64879,)
 01/09/2021 13:01:52 << FiltraDomMusicasColab
+01/09/2021 13:33:44 >> RemoveUsuariosOutliers
+01/09/2021 13:33:45 NumExpr defaulting to 4 threads.
+01/09/2021 13:33:48 MusUsers shape apos filtro (1037958, 4)
+01/09/2021 13:33:48 MusUsers describe apos filtro               index
+count  1.037958e+06
+mean   5.634009e+06
+std    3.343197e+06
+min    1.180000e+02
+25%    2.715952e+06
+50%    5.922670e+06
+75%    8.483958e+06
+max    1.133777e+07
+01/09/2021 13:33:48 dfCountPerUser describe apos filtro              nrows
+count  2356.000000
+mean    440.559423
+std     106.581577
+min     301.000000
+25%     349.750000
+50%     417.000000
+75%     514.000000
+max     699.000000
+01/09/2021 13:33:50 << RemoveUsuariosOutliers
+01/09/2021 13:35:06 >> FiltraDomMusicasColab
+01/09/2021 13:35:06 Domínio de músicas para Colab =(96876,)
+01/09/2021 13:35:06 << FiltraDomMusicasColab

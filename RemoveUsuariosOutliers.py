@@ -26,7 +26,7 @@ dfCountPerUser = dfCountPerUser.groupby('userid')['nrows'].sum().reset_index()
 #%%
 # filtrando users dentro da faixa determinada
 dfCountPerUser = dfCountPerUser[dfCountPerUser['nrows']>300]
-dfCountPerUser = dfCountPerUser[dfCountPerUser['nrows']<400]
+dfCountPerUser = dfCountPerUser[dfCountPerUser['nrows']<700]
 
 listaUsersAManter = list(dfCountPerUser['userid'])
 

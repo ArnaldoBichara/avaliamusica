@@ -2,7 +2,6 @@
 # algoritmo de Colaboração de Users para descobrir quais os vizinhos
 # do UserA e do UserAbarra
 
-
 #%% Importando packages
 from numpy.ma import sort
 import pandas as pd
@@ -19,7 +18,7 @@ logging.basicConfig(filename='./Analises/preprocessamento2.log',
                     )
 logging.info('>> PreProcessaColab')
 
-#%%
+#
 dfMusUsers =  pd.read_pickle ("./FeatureStore/MusUsers.pickle")  
 dfMusUsers.reset_index(inplace=True, drop=True)
 listaUserIds = dfMusUsers['userid'].drop_duplicates().to_list()
@@ -28,7 +27,7 @@ listaDominioDeMusicas = pd.read_pickle ("./FeatureStore/DominioMusicasColab.pick
 logging.info("listaDominioDeMusicas %s", len(listaDominioDeMusicas))
 logging.info('listaUsers %s', len(listaUserIds))
 #
-#%%
+#
 # rotina que monsta lista 0,1 para um user, por lista de musicas
 # rowUserMusBin para cada User
 def MontaRowlistaMusUserColab (userid):
@@ -46,7 +45,7 @@ def MontaRowlistaMusUserColab (userid):
 
 
 if os.path.isfile("./FeatureStore/MusUsersColab.pickle"):
-        dfMusUsersColab = pd.read.pickle ("./FeatureStore/MusUsersColab.pickle")
+        dfMusUsersColab = pd.read_pickle ("./FeatureStore/MusUsersColab.pickle")
 else:
         dfMusUsersList = dfMusUsers.groupby (by='userid')['id_musica'].apply(lambda x: tuple(x.sort_values()) )
 
@@ -54,8 +53,7 @@ else:
         colunas=['user']
         colunas.extend (listaDominioDeMusicas)
 
-
-#%% Monta lista de listas listaMusUserColab, user a user
+# Monta lista de listas listaMusUserColab, user a user
         listaMusUserColab =[]
         i=0
         for user in listaUserIds:
@@ -68,9 +66,11 @@ else:
         del listaDominioDeMusicas
         del listaUserIds
         
-#%% montando dataframe e salvando em .pickle     
+# montando dataframe e salvando em .pickle     
         dfMusUsersColab = pd.DataFrame (listaMusUserColab, columns=colunas)
         dfMusUsersColab.to_pickle ("./FeatureStore/MusUsersColab.pickle")
+
+
 
 
 #%% exemplo
