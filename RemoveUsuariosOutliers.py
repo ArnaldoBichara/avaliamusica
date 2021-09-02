@@ -9,7 +9,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import logging
 
-logging.basicConfig(filename='./Analises/preprocessamento.log', 
+logging.basicConfig(filename='./Analises/preprocessamentoColab.log', 
                     level=logging.INFO,
                     format='%(asctime)s %(message)s',
                     datefmt='%d/%m/%Y %H:%M:%S'
@@ -25,8 +25,8 @@ dfCountPerUser['nrows']=1
 dfCountPerUser = dfCountPerUser.groupby('userid')['nrows'].sum().reset_index()
 #%%
 # filtrando users dentro da faixa determinada
-dfCountPerUser = dfCountPerUser[dfCountPerUser['nrows']>300]
-dfCountPerUser = dfCountPerUser[dfCountPerUser['nrows']<700]
+dfCountPerUser = dfCountPerUser[dfCountPerUser['nrows']>100]
+dfCountPerUser = dfCountPerUser[dfCountPerUser['nrows']<500]
 
 listaUsersAManter = list(dfCountPerUser['userid'])
 

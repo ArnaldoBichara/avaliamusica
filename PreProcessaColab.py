@@ -9,7 +9,7 @@ import numpy as np
 import logging
 import os
 
-logging.basicConfig(filename='./Analises/preprocessamento2.log', 
+logging.basicConfig(filename='./Analises/preprocessamentoColab.log', 
                     level=logging.INFO,
                     format='%(asctime)s %(message)s',
                     datefmt='%d/%m/%Y %H:%M:%S'

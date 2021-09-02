@@ -1,0 +1,28 @@
+02/09/2021 13:15:09 >> RemoveUsuariosOutliers
+02/09/2021 13:15:10 NumExpr defaulting to 4 threads.
+02/09/2021 13:15:12 MusUsers shape apos filtro (1093690, 4)
+02/09/2021 13:15:12 MusUsers describe apos filtro               index
+count  1.093690e+06
+mean   5.646179e+06
+std    3.323972e+06
+min    1.180000e+02
+25%    2.756374e+06
+50%    5.891012e+06
+75%    8.452878e+06
+max    1.134114e+07
+02/09/2021 13:15:12 dfCountPerUser describe apos filtro              nrows
+count  3504.000000
+mean    312.126142
+std      81.541245
+min     201.000000
+25%     242.000000
+50%     294.000000
+75%     373.000000
+max     499.000000
+02/09/2021 13:15:13 << RemoveUsuariosOutliers
+02/09/2021 13:15:19 >> FiltraDomMusicasColab
+02/09/2021 13:15:19 Domínio de músicas para Colab =(99182,)
+02/09/2021 13:15:19 << FiltraDomMusicasColab
+02/09/2021 13:16:12 >> PreProcessaColab
+02/09/2021 13:16:13 listaDominioDeMusicas 99182
+02/09/2021 13:16:13 listaUsers 3504
