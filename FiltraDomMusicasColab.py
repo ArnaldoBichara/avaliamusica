@@ -18,7 +18,7 @@ logging.info('>> FiltraDomMusicasColab')
 musUsers        =  pd.read_pickle ("./FeatureStore/MusUsers.pickle")  
 musUserA        =  pd.read_pickle ("./FeatureStore/MusUserACurte.pickle")  
 musUserANaoCurte =  pd.read_pickle ("./FeatureStore/MusUserANaoCurte.pickle")  
-
+#%%
 domMusColab = pd.concat([musUsers['id_musica'], musUserA['id_musica'], musUserANaoCurte['id_musica']], ignore_index=True, verify_integrity=True)        
 
 domMusColab.drop_duplicates(inplace=True)
