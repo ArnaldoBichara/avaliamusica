@@ -42,26 +42,34 @@ def MontalistaMusUserColab (listaMusUser):
                 i=i+1          
         return resposta
 
+
 #%% removendo linhas que tenham algum NaN
 dfMusUsersColab=dfMusUsersColab.dropna()
 
 MusUserAColab      = MontalistaMusUserColab (listMusUserA)
 MusUserAbarraColab = MontalistaMusUserColab (listMusUserAbarra)
 
+#%% liberando memória
+del listaDominioDeMusicas
+del listMusUserA
+del listMusUserAbarra
+
 #%%
-# achando k vizinhos mais próximos de user A
 k = 10
 serMusColab = dfMusUsersColab.drop(columns=['user'])
+
+#
+# achando k vizinhos mais próximos de user A
 
 neigh = NearestNeighbors(n_neighbors=k, metric='jaccard')
 neigh.fit(serMusColab)
 distancias, indices = neigh.kneighbors([MusUserAColab])
 
-#%%
 for i in range (0, len(indices[0])):
         logging.info ("vizinho de A %s com dist %s", dfMusUsersColab.loc[indices[0][i],'user'], distancias[0][i])
         print ("vizinho de A", dfMusUsersColab.loc[indices[0][i],'user'], distancias[0][i])
 
+#
 #%% matriz de confusão comparando userA com primeiro e último vizinhos
 confusionMatrixVizinho0 = confusion_matrix(MusUserAColab, serMusColab.loc[indices[0][0]])
 logging.info ("confusion Matrix primeiro vizinho de A %s", confusionMatrixVizinho0)
@@ -70,7 +78,10 @@ confusionMatrixVizinho9 = confusion_matrix(MusUserAColab, serMusColab.loc[indice
 logging.info ("confusion Matrix 10o vizinho de A %s", confusionMatrixVizinho9)
 print ("confusion Matrix 10o vizinho de A", confusionMatrixVizinho9)
 
+#%% liberando memória
+del MusUserAColab
 
+#
 # achando k vizinhos mais próximos de user Abarra
 distancias, indices = neigh.kneighbors([MusUserAbarraColab])
 
@@ -89,11 +100,7 @@ logging.info ("confusion Matrix 10o vizinho de Abarra %s", confusionMatrixVizinh
 print ("confusion Matrix 10o vizinho de Abarra", confusionMatrixVizinho9)
 
 #%% liberando memória
-del MusUserAColab
 del MusUserAbarraColab
-del listaDominioDeMusicas
-del listMusUserA
-del listMusUserAbarra
 del dfMusUsersColab
 del serMusColab
 logging.info('<< DescobreVizinhos')
