@@ -1,0 +1,24 @@
+02/09/2021 10:32:56 >> DescobreVizinhos: DescobreVizinhos de UserA e UserAbarra
+02/09/2021 10:32:57 MusUsersColab lido. shape (2356, 96877)
+02/09/2021 10:32:57 listMusUsrA 746
+02/09/2021 10:32:57 listMusUsrAbarra 555
+02/09/2021 10:33:51 vizinhos de A dist:[[0.9787627  0.98328025 0.98365123 0.98655914 0.98667602 0.9872814
+  0.98783666 0.98803659 0.98857645 0.98864629]]
+02/09/2021 10:46:41 >> DescobreVizinhos: DescobreVizinhos de UserA e UserAbarra
+02/09/2021 10:46:46 MusUsersColab lido. shape (2356, 96877)
+02/09/2021 10:46:46 listMusUsrA 746
+02/09/2021 10:46:46 listMusUsrAbarra 555
+02/09/2021 10:46:47 NumExpr defaulting to 6 threads.
+02/09/2021 10:46:53 vizinhos de A dist:[[0.9787627  0.98328025 0.98365123 0.98655914 0.98667602 0.9872814
+  0.98783666 0.98803659 0.98857645 0.98864629]]
+02/09/2021 11:32:43 >> DescobreVizinhos: DescobreVizinhos de UserA e UserAbarra
+02/09/2021 11:32:44 MusUsersColab lido. shape (2356, 96877)
+02/09/2021 11:32:44 listMusUsrA 746
+02/09/2021 11:32:44 listMusUsrAbarra 555
+02/09/2021 11:32:47 NumExpr defaulting to 6 threads.
+02/09/2021 11:33:52 vizinhos de A dist:[[0.9787627  0.98328025 0.98365123 0.98655914 0.98667602 0.9872814
+  0.98783666 0.98803659 0.98857645 0.98864629]]
+02/09/2021 11:41:53 confusion Matrix primeiro vizinho de A [[95793   337]
+ [  723    23]]
+02/09/2021 11:41:53 confusion Matrix 10o vizinho de A [[95731   399]
+ [  733    13]]
