@@ -51,7 +51,6 @@ del dfSpotMusicas['name']
 
 dfSpotMusicas.rename(columns={'id':'id_musica'}, inplace=True)
 
-
 # Criando DominioDasMusicas
 dominioMusicas = dfSpotMusicas[['interpretacao','id_musica']].copy()
 
@@ -59,15 +58,18 @@ dominioMusicas = dfSpotMusicas[['interpretacao','id_musica']].copy()
 del dfSpotMusicas['id_musica']
 del dfSpotMusicas['interpretacao']
 
-#%% incluindo músicas do UserA no dominio das Músicas
+# incluindo músicas do UserA no dominio das Músicas
 dfUserACurte    =  pd.read_pickle ("./FeatureStore/MusUserACurte.pickle")  
 dfUserANaoCurte =  pd.read_pickle ("./FeatureStore/MusUserANaoCurte.pickle")  
 
-dominioMusicas = pd.concat([dominioMusicas, dfUserACurte, dfUserANaoCurte], ignore_index=True, verify_integrity=True)        
+#
+dominioMusicas = pd.concat([dfUserACurte, dfUserANaoCurte, dominioMusicas], ignore_index=True, verify_integrity=True)        
+#
+logging.info ("Dominio antes de remover duplicates =%s", dominioMusicas.shape)
+dominioMusicas.drop_duplicates(subset='interpretacao', inplace=True, ignore_index=True)
+logging.info ("Dominio apos remover duplicates =%s", dominioMusicas.shape)
 
-dominioMusicas.drop_duplicates(inplace=True, ignore_index=True)
-
-#%% removendo linhas que tenham algo com NaN
+# removendo linhas que tenham algo com NaN
 dominioMusicas=dominioMusicas.dropna()
 
 # removendo linhas onde interpretacao não é uma string válida (por algum motivo isso está acontecendo)
@@ -78,13 +80,12 @@ dominioMusicas.reset_index(drop=True)
 # ordenando dominioMusicas para tornar acesso mais rápido
 dominioMusicas.sort_values(by=['interpretacao'], kind='quicksort', inplace=True)
 
-logging.info ('GetFeaturesEDominio: dominio head = %s', dominioMusicas.head(1))
 logging.info ('GetFeaturesEDominio: dominio shape = %s', dominioMusicas.shape)
-
-logging.info ('GetFeaturesEDominio: AudioFeatures head = %s', dfSpotMusicas.head(1))
 logging.info ('GetFeaturesEDominio: AudioFeatures shape = %s', dfSpotMusicas.shape)
 
 dfSpotMusicas.to_pickle('./FeatureStore/AudioFeatures.pickle')
 dominioMusicas.to_pickle('./FeatureStore/DominioDasMusicas.pickle')
 
 logging.info('<< GetFeaturesEDominio')
+
+# %%

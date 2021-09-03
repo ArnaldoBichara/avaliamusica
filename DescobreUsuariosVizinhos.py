@@ -55,12 +55,12 @@ del listMusUserA
 del listMusUserAbarra
 
 #
-k = 10
+k = 30
 serMusColab = dfMusUsersColab.drop(columns=['user'])
 
 #
 # achando k vizinhos mais próximos de user A
-# mudança => ao invés de jaccard, vamos usar russellrao
+
 neigh = NearestNeighbors(n_neighbors=k, metric='russellrao')
 neigh.fit(serMusColab)
 distancias, indices = neigh.kneighbors([MusUserAColab])
@@ -70,27 +70,11 @@ for i in range (0, len(indices[0])):
         print ("vizinho de A", dfMusUsersColab.loc[indices[0][i],'user'], distancias[0][i])
 
 #
-# matriz de confusão comparando userA com primeiro e último vizinhos
-logging.info ("Matriz de confusão vizinhos de A:")
-confusionMatrixVizinho = confusion_matrix(MusUserAColab, serMusColab.loc[indices[0][0]])
-logging.info ("%s", confusionMatrixVizinho)
-confusionMatrixVizinho = confusion_matrix(MusUserAColab, serMusColab.loc[indices[0][1]])
-logging.info ("%s", confusionMatrixVizinho)
-confusionMatrixVizinho = confusion_matrix(MusUserAColab, serMusColab.loc[indices[0][2]])
-logging.info ("%s", confusionMatrixVizinho)
-confusionMatrixVizinho = confusion_matrix(MusUserAColab, serMusColab.loc[indices[0][3]])
-logging.info ("%s", confusionMatrixVizinho)
-confusionMatrixVizinho = confusion_matrix(MusUserAColab, serMusColab.loc[indices[0][4]])
-logging.info ("%s", confusionMatrixVizinho)
-confusionMatrixVizinho = confusion_matrix(MusUserAColab, serMusColab.loc[indices[0][5]])
-logging.info ("%s", confusionMatrixVizinho)
-confusionMatrixVizinho = confusion_matrix(MusUserAColab, serMusColab.loc[indices[0][6]])
-logging.info ("%s", confusionMatrixVizinho)
-confusionMatrixVizinho = confusion_matrix(MusUserAColab, serMusColab.loc[indices[0][7]])
-logging.info ("%s", confusionMatrixVizinho)
-confusionMatrixVizinho = confusion_matrix(MusUserAColab, serMusColab.loc[indices[0][8]])
-logging.info ("%s", confusionMatrixVizinho)
-confusionMatrixVizinho9 = confusion_matrix(MusUserAColab, serMusColab.loc[indices[0][9]])
+# matriz de confusao comparando userA com primeiro e último vizinhos
+logging.info ("Matriz de confusao vizinhos de A:")
+for i in range (0, k):
+        confusionMatrixVizinho = confusion_matrix(MusUserAColab, serMusColab.loc[indices[0][i]])
+        logging.info ("%s", confusionMatrixVizinho)
 
 # liberando memória
 del MusUserAColab
@@ -99,33 +83,15 @@ del MusUserAColab
 # achando k vizinhos mais próximos de user Abarra
 distancias, indices = neigh.kneighbors([MusUserAbarraColab])
 
-logging.info ("vizinhos de Abarra dist:%s", distancias)
-
 for i in range (0, len(indices[0])):
         logging.info ("vizinho de Abarra %s com dist %s", dfMusUsersColab.loc[indices[0][i],'user'], distancias[0][i])
         print ("vizinho de Abarra", dfMusUsersColab.loc[indices[0][i],'user'], distancias[0][i])
 
-# matriz de confusão comparando userAbarra com primeiro e último vizinhos
-logging.info ("Matriz de confusão vizinhos de Abarra:")
-confusionMatrixVizinho = confusion_matrix(MusUserAbarraColab, serMusColab.loc[indices[0][0]])
-logging.info ("%s", confusionMatrixVizinho)
-confusionMatrixVizinho = confusion_matrix(MusUserAbarraColab, serMusColab.loc[indices[0][1]])
-logging.info ("%s", confusionMatrixVizinho)
-confusionMatrixVizinho = confusion_matrix(MusUserAbarraColab, serMusColab.loc[indices[0][2]])
-logging.info ("%s", confusionMatrixVizinho)
-confusionMatrixVizinho = confusion_matrix(MusUserAbarraColab, serMusColab.loc[indices[0][3]])
-logging.info ("%s", confusionMatrixVizinho)
-confusionMatrixVizinho = confusion_matrix(MusUserAbarraColab, serMusColab.loc[indices[0][4]])
-logging.info ("%s", confusionMatrixVizinho)
-confusionMatrixVizinho = confusion_matrix(MusUserAbarraColab, serMusColab.loc[indices[0][5]])
-logging.info ("%s", confusionMatrixVizinho)
-confusionMatrixVizinho = confusion_matrix(MusUserAbarraColab, serMusColab.loc[indices[0][6]])
-logging.info ("%s", confusionMatrixVizinho)
-confusionMatrixVizinho = confusion_matrix(MusUserAbarraColab, serMusColab.loc[indices[0][7]])
-logging.info ("%s", confusionMatrixVizinho)
-confusionMatrixVizinho = confusion_matrix(MusUserAbarraColab, serMusColab.loc[indices[0][8]])
-logging.info ("%s", confusionMatrixVizinho)
-confusionMatrixVizinho9 = confusion_matrix(MusUserAbarraColab, serMusColab.loc[indices[0][9]])
+# matriz de confusao comparando userAbarra com primeiro e último vizinhos
+logging.info ("Matriz de confusao vizinhos de Abarra:")
+for i in range (0, k):
+        confusionMatrixVizinho = confusion_matrix(MusUserAbarraColab, serMusColab.loc[indices[0][i]])
+        logging.info ("%s", confusionMatrixVizinho)
 
 # liberando memória
 del MusUserAbarraColab

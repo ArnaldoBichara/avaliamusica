@@ -24,3 +24,12 @@ FeatureStore backup/backup 30-ago/MusUsers.pickle
 FeatureStore/MusUsersColab.pickle
 FeatureStore backup/MusUsersColab.pickle
 FeatureStore backup/MusUsersColab100_500.pickle
+.venv/pyvenv.cfg
+.venv/Scripts/activate
+.venv/Scripts/activate.bat
+.venv/Scripts/Activate.ps1
+.venv/Scripts/deactivate.bat
+.venv/Scripts/python.exe
+.venv/Scripts/pythonw.exe
+.vscode/settings.json
+.vscode/launch.json
