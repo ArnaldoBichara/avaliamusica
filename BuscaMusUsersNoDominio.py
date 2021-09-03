@@ -17,7 +17,7 @@ logging.info('>> FiltraMusUsersNoDominio')
 
 
 dfMusUsers =  pd.read_pickle ("./FeatureStore/MusUsers.pickle")  
-#%%
+#
 dfDominioMusicas = pd.read_pickle ("./FeatureStore/DominioDasMusicas.pickle")
 
 logging.info('MusUsers, antes do filtro %s', dfMusUsers.shape)
@@ -36,9 +36,9 @@ def BuscaInterpretacaoNoDominio (interpretacao):
         logging.info('Indice fora dos limites %s', index)
         return '0'
 
-#%%
+#
 #print (dfMusUsers.head(100))       
-#%%
+#
 if 'id_musica' not in dfMusUsers:
     dfMusUsers = dfMusUsers.assign(id_musica='0')
 if 'ja_verificado' not in dfMusUsers:
@@ -66,14 +66,14 @@ for index, row in dfMusUsers.iterrows():
             dfMusUsers.at[index,'id_musica']=id_musica
 dfMusUsers.drop(itens_a_remover, inplace=True)
 
-#%%
+#
 dfMusUsers.shape
-#%%
+#
 #dfMusUsers[dfMusUsers['id_musica']=='0'].index
 #dfMusUsers.drop (dfMusUsers[dfMusUsers['id_musica']=='0'].index, inplace=True)   
 #dfMusUsers.to_pickle ("./FeatureStore/MusUsers.pickle")
     
-#%% removendo coluna temporária
+# removendo coluna temporária
 dfMusUsers.drop(columns=['ja_verificado'], inplace=True)
 #
 logging.info('MusUsers, depois do filtro %s', dfMusUsers.shape)
@@ -84,4 +84,4 @@ logging.info('<< FiltraMusUsersNoDominio')
 
 #
 
-# %%
+# 
