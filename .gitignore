@@ -33,3 +33,7 @@ FeatureStore backup/MusUsersColab100_500.pickle
 .venv/Scripts/pythonw.exe
 .vscode/settings.json
 .vscode/launch.json
+FeatureStore/MusUsersFiltradas100a500.pickle
+FeatureStore/MusUsersNoDominio.pickle
+FeatureStore backup/MusUsersFiltradas100a500.pickle
+FeatureStore backup/MusUsersNoDominio.pickle
