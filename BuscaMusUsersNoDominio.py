@@ -13,7 +13,7 @@ logging.basicConfig(filename='./Analises/preprocessamento.log',
                     format='%(asctime)s %(message)s',
                     datefmt='%d/%m/%Y %H:%M:%S'
                     )
-logging.info('>> FiltraMusUsersNoDominio')
+logging.info('>> BuscaMusUsersNoDominio')
 
 
 dfMusUsers =  pd.read_pickle ("./FeatureStore/MusUsers.pickle")  
@@ -57,7 +57,7 @@ for index, row in dfMusUsers.iterrows():
 #            print (contador)
             dfMusUsers.drop(itens_a_remover, inplace=True)
             itens_a_remover=[]
-            dfMusUsers.to_pickle ("./FeatureStore/MusUsers.pickle")
+            dfMusUsers.to_pickle ("./FeatureStore/MusUsersNoDominio.pickle")
 
         if id_musica=='0':
             itens_a_remover.append(index)
@@ -79,8 +79,8 @@ dfMusUsers.drop(columns=['ja_verificado'], inplace=True)
 logging.info('MusUsers, depois do filtro %s', dfMusUsers.shape)
 
 # salvando dataset
-dfMusUsers.to_pickle ("./FeatureStore/MusUsers.pickle")
-logging.info('<< FiltraMusUsersNoDominio')
+dfMusUsers.to_pickle ("./FeatureStore/MusUsersNoDominio.pickle")
+logging.info('<< BuscaMusUsersNoDominio')
 
 #
 

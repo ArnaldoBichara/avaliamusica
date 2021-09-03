@@ -17,7 +17,7 @@ logging.basicConfig(filename='./Analises/preprocessamentoColab.log',
 logging.info('>> PreProcessaColab')
 
 #
-dfMusUsers =  pd.read_pickle ("./FeatureStore/MusUsers.pickle")  
+dfMusUsers =  pd.read_pickle ("./FeatureStore/MusUsersFiltradas.pickle")  
 dfMusUsers.reset_index(inplace=True, drop=True)
 listaUserIds = dfMusUsers['userid'].drop_duplicates().to_list()
 listaDominioDeMusicas = pd.read_pickle ("./FeatureStore/DominioMusicasColab.pickle").to_list()

@@ -15,7 +15,7 @@ logging.basicConfig(filename='./Analises/preprocessamentoColab.log',
                     )
 logging.info('>> FiltraDomMusicasColab')
 
-musUsers        =  pd.read_pickle ("./FeatureStore/MusUsers.pickle")  
+musUsers        =  pd.read_pickle ("./FeatureStore/MusUsersFiltradas.pickle")  
 musUserA        =  pd.read_pickle ("./FeatureStore/MusUserACurte.pickle")  
 musUserANaoCurte =  pd.read_pickle ("./FeatureStore/MusUserANaoCurte.pickle")  
 #

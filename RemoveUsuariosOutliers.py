@@ -16,7 +16,7 @@ logging.basicConfig(filename='./Analises/preprocessamentoColab.log',
                     )
 logging.info('>> RemoveUsuariosOutliers')
 
-dfMusUsers =  pd.read_pickle ("./FeatureStore/MusUsers.pickle")  
+dfMusUsers =  pd.read_pickle ("./FeatureStore/MusUsersNoDominio.pickle")  
 
 
 # dataframe para contar linhas de usuário
@@ -49,7 +49,7 @@ logging.info ('dfCountPerUser describe apos filtro %s', dfCountPerUser.describe(
 
 
 # salvando dataset
-dfMusUsers.to_pickle ("./FeatureStore/MusUsers.pickle")
+dfMusUsers.to_pickle ("./FeatureStore/MusUsersFiltradas.pickle")
 
 logging.info('<< RemoveUsuariosOutliers')
 

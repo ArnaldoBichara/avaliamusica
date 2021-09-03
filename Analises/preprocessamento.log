@@ -1,29 +1,95 @@
-03/09/2021 13:44:53 >> GetFeaturesEDominio
-03/09/2021 13:44:55 GetFeaturesEDominio: spotify600k_tracks shape = (586672, 16)
-03/09/2021 13:44:57 Dominio antes de remover duplicates =(587973, 2)
-03/09/2021 13:44:57 Dominio apos remover duplicates =(521349, 2)
-03/09/2021 13:44:58 GetFeaturesEDominio: dominio shape = (521348, 2)
-03/09/2021 13:44:58 GetFeaturesEDominio: AudioFeatures head =    duration_ms  danceability  energy  key  loudness  mode  speechiness  \
-0       126903         0.645   0.445    0   -13.338     1        0.451   
+03/09/2021 14:00:18 >> GetMusUsers
+03/09/2021 14:00:51 MusUsers shape inicial: (12891550, 4)
+03/09/2021 14:00:55 NumExpr defaulting to 4 threads.
+03/09/2021 14:01:45 MusUsers, removidas mus em branco, criada interpretacao e removidas linhas duplicadas (11341422, 2)
+03/09/2021 14:01:53 << GetMusUsers
+03/09/2021 14:01:57 >> GetMusUsrA
+03/09/2021 14:02:02 NumExpr defaulting to 4 threads.
+03/09/2021 14:02:02 MusUserACurte Inicial: (746, 2)
+03/09/2021 14:02:02 MusCurteUserA removidos duplicados: (746, 2)
+03/09/2021 14:02:02 MusUserANaoCurte Inicial: (555, 2)
+03/09/2021 14:02:02 MusUserANaoCurte removidos duplicados: (555, 2)
+03/09/2021 14:02:02 MusUserACurte.head                 id_musica                                      interpretacao
+0  7JSR685hpFDqvTSNHeSKjL                     DEATH CAB FOR CUTIE:>60 & PUNK
+1  1VK5JYdgrJZENDl1taa2cS  LINDSEY STIRLING:>7 YEARS (ACOUSTIC) - RECORDE...
+2  7L5dzeyAk7BmiBUrIBUQR8                         RUBEN GALLOWAY:>ACCEPTANCE
+3  4RlXrkIQWhzxSaqA6YmVhH                        14 BIS:>ADORÁVEIS CRIATURAS
+4  2WNH6N24uph03Ilnoy7HgI                  ENYA:>AFER VENTUS - 2009 REMASTER
+03/09/2021 14:02:02 << GetMusUsrA
+03/09/2021 14:02:04 >> GetFeaturesEDominio
+03/09/2021 14:02:07 GetFeaturesEDominio: spotify600k_tracks shape = (586672, 16)
+03/09/2021 14:02:09 NumExpr defaulting to 4 threads.
+03/09/2021 14:02:10 Dominio antes de remover duplicates =(587973, 2)
+03/09/2021 14:02:10 Dominio apos remover duplicates =(521349, 2)
+03/09/2021 14:02:13 GetFeaturesEDominio: dominio shape = (521348, 2)
+03/09/2021 14:02:13 GetFeaturesEDominio: AudioFeatures shape = (586672, 13)
+03/09/2021 14:02:13 << GetFeaturesEDominio
+03/09/2021 14:02:18 >> FiltraMusUsersNoDominio
+03/09/2021 14:02:21 MusUsers, antes do filtro (11341422, 2)
+03/09/2021 14:09:49 Indice fora dos limites 521348
+03/09/2021 14:09:49 Indice fora dos limites 521348
+03/09/2021 14:13:04 Indice fora dos limites 521348
+03/09/2021 14:15:05 Indice fora dos limites 521348
+03/09/2021 14:15:05 Indice fora dos limites 521348
+03/09/2021 14:15:05 Indice fora dos limites 521348
+03/09/2021 14:15:05 Indice fora dos limites 521348
+03/09/2021 14:15:05 Indice fora dos limites 521348
+03/09/2021 14:15:05 Indice fora dos limites 521348
+03/09/2021 14:15:05 Indice fora dos limites 521348
+03/09/2021 14:15:05 Indice fora dos limites 521348
+03/09/2021 14:17:50 Indice fora dos limites 521348
+03/09/2021 14:21:15 Indice fora dos limites 521348
+03/09/2021 14:21:15 Indice fora dos limites 521348
+03/09/2021 14:21:15 Indice fora dos limites 521348
+03/09/2021 14:21:15 Indice fora dos limites 521348
+03/09/2021 14:21:25 Indice fora dos limites 521348
+03/09/2021 14:23:53 Indice fora dos limites 521348
+03/09/2021 14:32:34 Indice fora dos limites 521348
+03/09/2021 14:32:35 Indice fora dos limites 521348
+03/09/2021 14:37:46 Indice fora dos limites 521348
+03/09/2021 14:38:40 Indice fora dos limites 521348
+03/09/2021 14:38:53 Indice fora dos limites 521348
+03/09/2021 14:43:12 Indice fora dos limites 521348
+03/09/2021 14:43:12 Indice fora dos limites 521348
+03/09/2021 14:43:50 Indice fora dos limites 521348
+03/09/2021 14:45:47 Indice fora dos limites 521348
+03/09/2021 14:45:47 Indice fora dos limites 521348
+03/09/2021 14:45:47 Indice fora dos limites 521348
+03/09/2021 14:45:47 Indice fora dos limites 521348
+03/09/2021 14:49:49 Indice fora dos limites 521348
+03/09/2021 14:50:50 Indice fora dos limites 521348
+03/09/2021 14:50:50 Indice fora dos limites 521348
+03/09/2021 14:50:50 Indice fora dos limites 521348
+03/09/2021 14:50:50 Indice fora dos limites 521348
+03/09/2021 14:50:50 Indice fora dos limites 521348
+03/09/2021 14:50:50 Indice fora dos limites 521348
+03/09/2021 14:51:06 Indice fora dos limites 521348
+03/09/2021 14:51:06 Indice fora dos limites 521348
+03/09/2021 14:55:01 Indice fora dos limites 521348
+03/09/2021 14:55:01 Indice fora dos limites 521348
+03/09/2021 14:58:36 Indice fora dos limites 521348
+03/09/2021 14:58:47 Indice fora dos limites 521348
+03/09/2021 15:04:32 Indice fora dos limites 521348
+03/09/2021 15:07:11 Indice fora dos limites 521348
+03/09/2021 15:07:11 Indice fora dos limites 521348
+03/09/2021 15:07:56 MusUsers, depois do filtro (3093758, 3)
+03/09/2021 15:07:59 << FiltraMusUsersNoDominio
+03/09/2021 15:08:10 >> Analisa MusUsers
+03/09/2021 15:08:12 NumExpr defaulting to 4 threads.
+03/09/2021 15:08:17 dfMusUsers describe                                   userid  ...               id_musica
+count                            3093758  ...                 3093758
+unique                             15394  ...                  137798
+top     7ee2b92c5bcf6133b8132363e5bda960  ...  6GyFP1nfCDB8lbD2bG0Hq9
+freq                                8197  ...                    1890
 
-   acousticness  instrumentalness  liveness  valence    tempo  time_signature  
-0         0.674             0.744     0.151    0.127  104.851               3  
-03/09/2021 13:44:58 GetFeaturesEDominio: AudioFeatures shape = (586672, 13)
-03/09/2021 13:44:58 << GetFeaturesEDominio
-03/09/2021 13:45:34 >> GetFeaturesEDominio
-03/09/2021 13:45:36 GetFeaturesEDominio: spotify600k_tracks shape = (586672, 16)
-03/09/2021 13:45:37 NumExpr defaulting to 6 threads.
-03/09/2021 13:45:37 Dominio antes de remover duplicates =(587973, 2)
-03/09/2021 13:45:37 Dominio apos remover duplicates =(521349, 2)
-03/09/2021 13:45:38 GetFeaturesEDominio: dominio shape = (521348, 2)
-03/09/2021 13:45:38 GetFeaturesEDominio: AudioFeatures head =    duration_ms  danceability  energy  key  loudness  mode  speechiness  acousticness  instrumentalness  liveness  valence    tempo  time_signature
-0       126903         0.645   0.445    0   -13.338     1        0.451         0.674             0.744     0.151    0.127  104.851               3
-03/09/2021 13:45:38 GetFeaturesEDominio: AudioFeatures shape = (586672, 13)
-03/09/2021 13:45:39 << GetFeaturesEDominio
-03/09/2021 13:46:39 >> GetFeaturesEDominio
-03/09/2021 13:46:41 GetFeaturesEDominio: spotify600k_tracks shape = (586672, 16)
-03/09/2021 13:46:43 Dominio antes de remover duplicates =(587973, 2)
-03/09/2021 13:46:43 Dominio apos remover duplicates =(521349, 2)
-03/09/2021 13:46:44 GetFeaturesEDominio: dominio shape = (521348, 2)
-03/09/2021 13:46:44 GetFeaturesEDominio: AudioFeatures shape = (586672, 13)
-03/09/2021 13:46:44 << GetFeaturesEDominio
+[4 rows x 3 columns]
+03/09/2021 15:08:18 contagem de users               nrows
+count  15394.000000
+mean     200.971677
+std      307.564530
+min        1.000000
+25%       33.000000
+50%      108.000000
+75%      253.000000
+max     8197.000000
+03/09/2021 15:08:21 << Analisa MusUsers
