@@ -8,7 +8,7 @@ import logging
 from sklearn.neighbors import NearestNeighbors
 from sklearn.neighbors import DistanceMetric
 from sklearn.metrics import confusion_matrix
-import os
+from pathlib import Path
 
 logging.basicConfig(filename='./Analises/preprocessamentoColab.log', 
                     level=logging.INFO,
@@ -22,7 +22,7 @@ listaDominioDeMusicas = pd.read_pickle ("./FeatureStore/DominioMusicasColab.pick
 
 logging.info("MusUsersColab lido. shape %s", dfMusUsersColab.shape)
 
-#%% obtendo  MusUserAColab
+# obtendo  MusUserAColab
 listMusUserA      =  pd.read_pickle ("./FeatureStore/MusUserACurte.pickle")['id_musica'].sort_values().to_list()
 listMusUserAbarra =  pd.read_pickle ("./FeatureStore/MusUserANaoCurte.pickle")['id_musica'].sort_values().to_list()
 
@@ -55,7 +55,7 @@ del listMusUserA
 del listMusUserAbarra
 
 #
-k = 30
+k = 20
 serMusColab = dfMusUsersColab.drop(columns=['user'])
 
 #
@@ -65,33 +65,42 @@ neigh = NearestNeighbors(n_neighbors=k, metric='sokalsneath')
 neigh.fit(serMusColab)
 distancias, indices = neigh.kneighbors([MusUserAColab])
 
+#%% salvando vizinhos em arquivo VizinhosUserA.pickle
+VizinhosUserA = Path("./FeatureStore/ColabVizinhosUserA.pickle")
+if VizinhosUserA.is_file():
+        dfVizinhosUserA = pd.read_pickle ("./FeatureStore/ColabVizinhosUserA.pickle")
+else:
+        dfVizinhosUserA = pd.DataFrame (columns=['userid',"distancia"])
 for i in range (0, len(indices[0])):
-        logging.info ("vizinho de A %s com dist %s", dfMusUsersColab.loc[indices[0][i],'user'], distancias[0][i])
-        print ("vizinho de A", dfMusUsersColab.loc[indices[0][i],'user'], distancias[0][i])
+        vizinho={'userid': dfMusUsersColab.loc[indices[0][i],'user'],
+                 'distancia': distancias[0][i]}
+        df= pd.DataFrame(data=vizinho, index=[i])
+        dfVizinhosUserA = dfVizinhosUserA.append(df, ignore_index=True)
+dfVizinhosUserA.to_pickle("./FeatureStore/ColabVizinhosUserA.pickle")
 
-#
-# matriz de confusao comparando userA com primeiro e último vizinhos
-logging.info ("Matriz de confusao vizinhos de A:")
-for i in range (0, k):
-        confusionMatrixVizinho = confusion_matrix(MusUserAColab, serMusColab.loc[indices[0][i]])
-        logging.info ("%s", confusionMatrixVizinho)
-
-# liberando memória
+#%% liberando memória
 del MusUserAColab
 
+#%%
 #
 # achando k vizinhos mais próximos de user Abarra
 distancias, indices = neigh.kneighbors([MusUserAbarraColab])
 
-for i in range (0, len(indices[0])):
-        logging.info ("vizinho de Abarra %s com dist %s", dfMusUsersColab.loc[indices[0][i],'user'], distancias[0][i])
-        print ("vizinho de Abarra", dfMusUsersColab.loc[indices[0][i],'user'], distancias[0][i])
 
-# matriz de confusao comparando userAbarra com primeiro e último vizinhos
-logging.info ("Matriz de confusao vizinhos de Abarra:")
-for i in range (0, k):
-        confusionMatrixVizinho = confusion_matrix(MusUserAbarraColab, serMusColab.loc[indices[0][i]])
-        logging.info ("%s", confusionMatrixVizinho)
+#%%
+#%% salvando vizinhos em arquivo VizinhosUserAbarra.pickle
+VizinhosUserAbarra = Path("./FeatureStore/ColabVizinhosUserAbarra.pickle")
+if VizinhosUserAbarra.is_file():
+        dfVizinhosUserAbarra = pd.read_pickle ("./FeatureStore/ColabVizinhosUserAbarra.pickle")
+else:
+        dfVizinhosUserAbarra = pd.DataFrame (columns=['userid',"distancia"])
+for i in range (0, len(indices[0])):
+        vizinho={'userid': dfMusUsersColab.loc[indices[0][i],'user'],
+                 'distancia': distancias[0][i]}
+        df= pd.DataFrame(data=vizinho, index=[i])
+        dfVizinhosUserAbarra = dfVizinhosUserAbarra.append(df, ignore_index=True)
+dfVizinhosUserAbarra.to_pickle("./FeatureStore/ColabVizinhosUserA.pickle")
+
 
 # liberando memória
 del MusUserAbarraColab
