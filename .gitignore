@@ -38,3 +38,5 @@ FeatureStore/MusUsersNoDominio.pickle
 FeatureStore backup/MusUsersFiltradas100a500.pickle
 FeatureStore backup/MusUsersNoDominio.pickle
 FeatureStore backup/
+FeatureStore/MusUsersFiltradas.pickle
+FeatureStore/DominioMusicasColab.pickle

@@ -25,8 +25,8 @@ dfCountPerUser['nrows']=1
 dfCountPerUser = dfCountPerUser.groupby('userid')['nrows'].sum().reset_index()
 #
 # filtrando users dentro da faixa determinada
-minplay = 401
-maxplay = 499
+minplay = 1501
+maxplay = 5000
 logging.info ('filtrando usuários com playlist entre %s e %s', minplay, maxplay)
 dfCountPerUser = dfCountPerUser[dfCountPerUser['nrows']>minplay]
 dfCountPerUser = dfCountPerUser[dfCountPerUser['nrows']<maxplay]
@@ -54,7 +54,7 @@ logging.info ('dfCountPerUser describe apos filtro %s', dfCountPerUser.describe(
 # salvando dataset
 dfMusUsers.to_pickle ("./FeatureStore/MusUsersFiltradas.pickle")
 
-logging.info('<< ColabFiltraFaixaDeUsuarios')
+logging.info('\n<< ColabFiltraFaixaDeUsuarios')
 
 
 # %%

@@ -12,17 +12,17 @@ import os
 
 logging.basicConfig(filename='./Analises/preprocessamentoColab.log', 
                     level=logging.INFO,
-                    format='%(asctime)s %(message)s',
+                    format='%(message)s',
                     datefmt='%d/%m/%Y %H:%M:%S'
                     )
-logging.info('>> DescobreVizinhos: DescobreVizinhos de UserA e UserAbarra')
+logging.info('\n>> ColabProcessaUsuariosVizinhos: DescobreVizinhos de UserA e UserAbarra')
 
 dfMusUsersColab = pd.read_pickle ("./FeatureStore/ColabMusUsersEsparsa.pickle")
 listaDominioDeMusicas = pd.read_pickle ("./FeatureStore/DominioMusicasColab.pickle").to_list()
 
 logging.info("MusUsersColab lido. shape %s", dfMusUsersColab.shape)
 
-# obtendo  MusUserAColab
+#%% obtendo  MusUserAColab
 listMusUserA      =  pd.read_pickle ("./FeatureStore/MusUserACurte.pickle")['id_musica'].sort_values().to_list()
 listMusUserAbarra =  pd.read_pickle ("./FeatureStore/MusUserANaoCurte.pickle")['id_musica'].sort_values().to_list()
 
@@ -61,7 +61,7 @@ serMusColab = dfMusUsersColab.drop(columns=['user'])
 #
 # achando k vizinhos mais próximos de user A
 
-neigh = NearestNeighbors(n_neighbors=k, metric='russellrao')
+neigh = NearestNeighbors(n_neighbors=k, metric='jaccard')
 neigh.fit(serMusColab)
 distancias, indices = neigh.kneighbors([MusUserAColab])
 
@@ -98,6 +98,6 @@ del MusUserAbarraColab
 del dfMusUsersColab
 del serMusColab
 
-logging.info('<< DescobreVizinhos')
+logging.info('\n<< ColabProcessaUsuariosVizinhos')
 
 # %%

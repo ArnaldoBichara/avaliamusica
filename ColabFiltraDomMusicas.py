@@ -50,7 +50,7 @@ logging.info ("Dominio de musicas para Colab =%s", domMusColab.shape)
 # salvando dataset
 domMusColab.to_pickle ("./FeatureStore/DominioMusicasColab.pickle")
 
-logging.info('<< ColabFiltraDomMusicas')
+logging.info('\n<< ColabFiltraDomMusicas')
 
 #
 

@@ -14,7 +14,7 @@ logging.basicConfig(filename='./Analises/preprocessamentoColab.log',
                     format='%(asctime)s %(message)s',
                     datefmt='%d/%m/%Y %H:%M:%S'
                     )
-logging.info('>> PreProcessaColab')
+logging.info('\n>> ColabPreProcessamento')
 
 #
 dfMusUsers =  pd.read_pickle ("./FeatureStore/MusUsersFiltradas.pickle")  
@@ -66,6 +66,6 @@ del dfMusUsersList
 dfMusUsersColab = pd.DataFrame (listaMusUserColab, columns=colunas)
 dfMusUsersColab.to_pickle ("./FeatureStore/ColabMusUsersEsparsa.pickle")
 
-logging.info('<< PreProcessaColab')
+logging.info('\n<< ColabPreProcessamento')
 
 # %%
