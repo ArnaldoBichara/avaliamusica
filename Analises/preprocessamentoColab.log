@@ -1,16 +1,16 @@
-04/09/2021 15:21:15 
+04/09/2021 15:53:08 
 >> ColabFiltraFaixaDeUsuarios
-04/09/2021 15:21:17 filtrando users com playlist entre 50 e 150
-04/09/2021 15:21:17 NumExpr defaulting to 4 threads.
-04/09/2021 15:21:20 MusUsers shape apos filtro (400530, 3)
-04/09/2021 15:21:20 MusUsers describe apos filtro                                   userid  ...               id_musica
+04/09/2021 15:53:10 filtrando users com playlist entre 50 e 150
+04/09/2021 15:53:10 NumExpr defaulting to 4 threads.
+04/09/2021 15:53:12 MusUsers shape apos filtro (400530, 3)
+04/09/2021 15:53:13 MusUsers describe apos filtro                                   userid  ...               id_musica
 count                             400530  ...                  400530
 unique                              4207  ...                   68231
-top     cafad119c0315043e53001bb56fda768  ...  62yJjFtgkhUrXktIoSjgP2
+top     b40f4deae1dbdce5327d6b0ab9c43a02  ...  62yJjFtgkhUrXktIoSjgP2
 freq                                 149  ...                     391
 
 [4 rows x 3 columns]
-04/09/2021 15:21:20 dfCountPerUser describe apos filtro              nrows
+04/09/2021 15:53:13 dfCountPerUser describe apos filtro              nrows
 count  4207.000000
 mean     95.205610
 std      28.381299
@@ -19,21 +19,21 @@ min      51.000000
 50%      93.000000
 75%     118.500000
 max     149.000000
-04/09/2021 15:21:21 
+04/09/2021 15:53:13 
 << ColabFiltraFaixaDeUsuarios
-04/09/2021 15:21:24 
+04/09/2021 15:53:16 
 >> ColabFiltraDomMusicas
-04/09/2021 15:21:24 Dominio antes de remover duplicates =(401831, 2)
-04/09/2021 15:21:24 Dominio apos remover duplicates =(69123, 2)
-04/09/2021 15:21:24 NumExpr defaulting to 4 threads.
-04/09/2021 15:21:24 Dominio de musicas para Colab =(69123,)
-04/09/2021 15:21:24 
+04/09/2021 15:53:16 Dominio antes de remover duplicates =(401831, 2)
+04/09/2021 15:53:16 Dominio apos remover duplicates =(69123, 2)
+04/09/2021 15:53:16 NumExpr defaulting to 4 threads.
+04/09/2021 15:53:17 Dominio de musicas para Colab =(69123,)
+04/09/2021 15:53:17 
 << ColabFiltraDomMusicas
-04/09/2021 15:21:27 
+04/09/2021 15:53:19 
 >> ColabPreProcessamento
-04/09/2021 15:21:27 listaDominioDeMusicas 69123
-04/09/2021 15:21:27 listaUsers 4207
-04/09/2021 15:27:32 
+04/09/2021 15:53:19 listaDominioDeMusicas 69123
+04/09/2021 15:53:19 listaUsers 4207
+04/09/2021 15:58:55 
 << ColabPreProcessamento
 
 >> ColabProcessaUsuariosVizinhos: DescobreVizinhos de UserA e UserAbarra
@@ -43,67 +43,19 @@ listMusUsrAbarra 555
 NumExpr defaulting to 4 threads.
 
 << ColabProcessaUsuariosVizinhos
-04/09/2021 15:28:28 
->> ColabFiltraDomMusicas
-04/09/2021 15:28:28 Dominio antes de remover duplicates =(401831, 2)
-04/09/2021 15:28:28 Dominio apos remover duplicates =(69123, 2)
-04/09/2021 15:28:28 NumExpr defaulting to 4 threads.
-04/09/2021 15:28:28 Dominio de musicas para Colab =(69123,)
-04/09/2021 15:28:28 
-<< ColabFiltraDomMusicas
-04/09/2021 15:28:32 
->> ColabFiltraDomMusicas
-04/09/2021 15:28:32 Dominio antes de remover duplicates =(401831, 2)
-04/09/2021 15:28:32 Dominio apos remover duplicates =(69123, 2)
-04/09/2021 15:28:32 NumExpr defaulting to 4 threads.
-04/09/2021 15:28:32 Dominio de musicas para Colab =(69123,)
-04/09/2021 15:28:32 
-<< ColabFiltraDomMusicas
-04/09/2021 15:28:35 
->> ColabFiltraDomMusicas
-04/09/2021 15:28:35 Dominio antes de remover duplicates =(401831, 2)
-04/09/2021 15:28:36 Dominio apos remover duplicates =(69123, 2)
-04/09/2021 15:28:36 NumExpr defaulting to 4 threads.
-04/09/2021 15:28:36 Dominio de musicas para Colab =(69123,)
-04/09/2021 15:28:36 
-<< ColabFiltraDomMusicas
-04/09/2021 15:28:41 
->> ColabFiltraDomMusicas
-04/09/2021 15:28:42 Dominio antes de remover duplicates =(401831, 2)
-04/09/2021 15:28:42 Dominio apos remover duplicates =(69123, 2)
-04/09/2021 15:28:42 NumExpr defaulting to 4 threads.
-04/09/2021 15:28:42 Dominio de musicas para Colab =(69123,)
-04/09/2021 15:28:42 
-<< ColabFiltraDomMusicas
-04/09/2021 15:28:48 
->> ColabFiltraDomMusicas
-04/09/2021 15:28:48 Dominio antes de remover duplicates =(401831, 2)
-04/09/2021 15:28:48 Dominio apos remover duplicates =(69123, 2)
-04/09/2021 15:28:48 NumExpr defaulting to 4 threads.
-04/09/2021 15:28:48 Dominio de musicas para Colab =(69123,)
-04/09/2021 15:28:48 
-<< ColabFiltraDomMusicas
-04/09/2021 15:28:56 
->> ColabFiltraDomMusicas
-04/09/2021 15:28:56 Dominio antes de remover duplicates =(401831, 2)
-04/09/2021 15:28:56 Dominio apos remover duplicates =(69123, 2)
-04/09/2021 15:28:56 NumExpr defaulting to 4 threads.
-04/09/2021 15:28:56 Dominio de musicas para Colab =(69123,)
-04/09/2021 15:28:56 
-<< ColabFiltraDomMusicas
-04/09/2021 15:29:05 
+04/09/2021 15:59:41 
 >> ColabFiltraFaixaDeUsuarios
-04/09/2021 15:29:07 filtrando users com playlist entre 151 e 230
-04/09/2021 15:29:07 NumExpr defaulting to 4 threads.
-04/09/2021 15:29:10 MusUsers shape apos filtro (353039, 3)
-04/09/2021 15:29:10 MusUsers describe apos filtro                                   userid  ...               id_musica
+04/09/2021 15:59:43 filtrando users com playlist entre 151 e 230
+04/09/2021 15:59:43 NumExpr defaulting to 4 threads.
+04/09/2021 15:59:46 MusUsers shape apos filtro (353039, 3)
+04/09/2021 15:59:46 MusUsers describe apos filtro                                   userid  ...               id_musica
 count                             353039  ...                  353039
 unique                              1876  ...                   62331
-top     ecab6dd15b9bc9773e3f62ebc80505c6  ...  0nrRP2bk19rLc0orkWPQk2
+top     3d358d29745534544d38b577ebe2a5c2  ...  0nrRP2bk19rLc0orkWPQk2
 freq                                 229  ...                     269
 
 [4 rows x 3 columns]
-04/09/2021 15:29:10 dfCountPerUser describe apos filtro             nrows
+04/09/2021 15:59:46 dfCountPerUser describe apos filtro             nrows
 count  1876.00000
 mean    188.18710
 std      22.48476
@@ -112,21 +64,252 @@ min     152.00000
 50%     187.00000
 75%     207.00000
 max     229.00000
-04/09/2021 15:29:10 
+04/09/2021 15:59:49 
 << ColabFiltraFaixaDeUsuarios
-04/09/2021 15:29:13 
+04/09/2021 15:59:54 
+>> ColabFiltraDomMusicas
+04/09/2021 15:59:54 Dominio antes de remover duplicates =(354340, 2)
+04/09/2021 15:59:55 Dominio apos remover duplicates =(63265, 2)
+04/09/2021 15:59:55 NumExpr defaulting to 4 threads.
+04/09/2021 15:59:55 Dominio de musicas para Colab =(63265,)
+04/09/2021 15:59:55 
+<< ColabFiltraDomMusicas
+04/09/2021 15:59:58 
 >> ColabPreProcessamento
-04/09/2021 15:29:13 listaDominioDeMusicas 69123
-04/09/2021 15:29:13 listaUsers 1876
-04/09/2021 15:31:40 
+04/09/2021 15:59:58 listaDominioDeMusicas 63265
+04/09/2021 15:59:58 listaUsers 1876
+04/09/2021 16:02:19 
 << ColabPreProcessamento
-04/09/2021 15:31:49 
+
+>> ColabProcessaUsuariosVizinhos: DescobreVizinhos de UserA e UserAbarra
+MusUsersColab lido. shape (1876, 63266)
+listMusUsrA 746
+listMusUsrAbarra 555
+NumExpr defaulting to 4 threads.
+
+<< ColabProcessaUsuariosVizinhos
+04/09/2021 16:02:40 
+>> ColabFiltraFaixaDeUsuarios
+04/09/2021 16:02:42 filtrando users com playlist entre 231 e 350
+04/09/2021 16:02:42 NumExpr defaulting to 4 threads.
+04/09/2021 16:02:44 MusUsers shape apos filtro (496514, 3)
+04/09/2021 16:02:45 MusUsers describe apos filtro                                   userid  ...               id_musica
+count                             496514  ...                  496514
+unique                              1752  ...                   72985
+top     38e671726f4144240432bdb4c17eacb1  ...  6GyFP1nfCDB8lbD2bG0Hq9
+freq                                 349  ...                     360
+
+[4 rows x 3 columns]
+04/09/2021 16:02:45 dfCountPerUser describe apos filtro              nrows
+count  1752.000000
+mean    283.398402
+std      33.720827
+min     232.000000
+25%     254.000000
+50%     279.500000
+75%     312.000000
+max     349.000000
+04/09/2021 16:02:45 
+<< ColabFiltraFaixaDeUsuarios
+04/09/2021 16:02:48 
+>> ColabFiltraDomMusicas
+04/09/2021 16:02:48 Dominio antes de remover duplicates =(497815, 2)
+04/09/2021 16:02:48 Dominio apos remover duplicates =(73899, 2)
+04/09/2021 16:02:48 NumExpr defaulting to 4 threads.
+04/09/2021 16:02:48 Dominio de musicas para Colab =(73899,)
+04/09/2021 16:02:48 
+<< ColabFiltraDomMusicas
+04/09/2021 16:02:51 
 >> ColabPreProcessamento
-04/09/2021 15:31:49 listaDominioDeMusicas 69123
-04/09/2021 15:31:49 listaUsers 1876
-04/09/2021 15:34:32 
+04/09/2021 16:02:51 listaDominioDeMusicas 73899
+04/09/2021 16:02:51 listaUsers 1752
+04/09/2021 16:05:21 
 << ColabPreProcessamento
-04/09/2021 15:34:39 
+
+>> ColabProcessaUsuariosVizinhos: DescobreVizinhos de UserA e UserAbarra
+MusUsersColab lido. shape (1752, 73900)
+listMusUsrA 746
+listMusUsrAbarra 555
+NumExpr defaulting to 4 threads.
+
+<< ColabProcessaUsuariosVizinhos
+04/09/2021 16:05:44 
+>> ColabFiltraFaixaDeUsuarios
+04/09/2021 16:05:45 filtrando users com playlist entre 351 e 500
+04/09/2021 16:05:45 NumExpr defaulting to 4 threads.
+04/09/2021 16:05:48 MusUsers shape apos filtro (448152, 3)
+04/09/2021 16:05:49 MusUsers describe apos filtro                                   userid  ...               id_musica
+count                             448152  ...                  448152
+unique                              1075  ...                   70746
+top     c8544d489081fe1808e86e6b473af7f6  ...  6GyFP1nfCDB8lbD2bG0Hq9
+freq                                 499  ...                     293
+
+[4 rows x 3 columns]
+04/09/2021 16:05:49 dfCountPerUser describe apos filtro              nrows
+count  1075.000000
+mean    416.885581
+std      41.910552
+min     352.000000
+25%     381.000000
+50%     413.000000
+75%     448.000000
+max     499.000000
+04/09/2021 16:05:53 
+<< ColabFiltraFaixaDeUsuarios
+04/09/2021 16:06:05 
+>> ColabFiltraDomMusicas
+04/09/2021 16:06:05 Dominio antes de remover duplicates =(449453, 2)
+04/09/2021 16:06:06 Dominio apos remover duplicates =(71663, 2)
+04/09/2021 16:06:06 NumExpr defaulting to 4 threads.
+04/09/2021 16:06:06 Dominio de musicas para Colab =(71663,)
+04/09/2021 16:06:06 
+<< ColabFiltraDomMusicas
+04/09/2021 16:06:14 
 >> ColabPreProcessamento
-04/09/2021 15:34:39 listaDominioDeMusicas 69123
-04/09/2021 15:34:39 listaUsers 1876
+04/09/2021 16:06:14 listaDominioDeMusicas 71663
+04/09/2021 16:06:14 listaUsers 1075
+04/09/2021 16:07:45 
+<< ColabPreProcessamento
+
+>> ColabProcessaUsuariosVizinhos: DescobreVizinhos de UserA e UserAbarra
+MusUsersColab lido. shape (1075, 71664)
+listMusUsrA 746
+listMusUsrAbarra 555
+NumExpr defaulting to 4 threads.
+
+<< ColabProcessaUsuariosVizinhos
+04/09/2021 16:08:01 
+>> ColabFiltraFaixaDeUsuarios
+04/09/2021 16:08:03 filtrando users com playlist entre 501 e 800
+04/09/2021 16:08:03 NumExpr defaulting to 4 threads.
+04/09/2021 16:08:06 MusUsers shape apos filtro (512887, 3)
+04/09/2021 16:08:06 MusUsers describe apos filtro                                   userid  ...               id_musica
+count                             512887  ...                  512887
+unique                               828  ...                   73694
+top     ec6a9abc7a818b0c00788add9ec69c58  ...  6GyFP1nfCDB8lbD2bG0Hq9
+freq                                 798  ...                     267
+
+[4 rows x 3 columns]
+04/09/2021 16:08:06 dfCountPerUser describe apos filtro             nrows
+count  828.000000
+mean   619.428744
+std     82.462544
+min    502.000000
+25%    550.750000
+50%    603.500000
+75%    681.250000
+max    798.000000
+04/09/2021 16:08:07 
+<< ColabFiltraFaixaDeUsuarios
+04/09/2021 16:08:10 
+>> ColabFiltraDomMusicas
+04/09/2021 16:08:10 Dominio antes de remover duplicates =(514188, 2)
+04/09/2021 16:08:10 Dominio apos remover duplicates =(74622, 2)
+04/09/2021 16:08:10 NumExpr defaulting to 4 threads.
+04/09/2021 16:08:10 Dominio de musicas para Colab =(74622,)
+04/09/2021 16:08:10 
+<< ColabFiltraDomMusicas
+04/09/2021 16:08:12 
+>> ColabPreProcessamento
+04/09/2021 16:08:12 listaDominioDeMusicas 74622
+04/09/2021 16:08:12 listaUsers 828
+04/09/2021 16:09:28 
+<< ColabPreProcessamento
+
+>> ColabProcessaUsuariosVizinhos: DescobreVizinhos de UserA e UserAbarra
+MusUsersColab lido. shape (828, 74623)
+listMusUsrA 746
+listMusUsrAbarra 555
+NumExpr defaulting to 4 threads.
+
+<< ColabProcessaUsuariosVizinhos
+04/09/2021 16:09:45 
+>> ColabFiltraFaixaDeUsuarios
+04/09/2021 16:09:46 filtrando users com playlist entre 801 e 1500
+04/09/2021 16:09:46 NumExpr defaulting to 4 threads.
+04/09/2021 16:09:49 MusUsers shape apos filtro (453565, 3)
+04/09/2021 16:09:49 MusUsers describe apos filtro                                   userid  ...               id_musica
+count                             453565  ...                  453565
+unique                               436  ...                   72204
+top     ce7e417103da08f74a17f1324099e035  ...  4hy4fb5D1KL50b3sng9cjw
+freq                                1486  ...                     208
+
+[4 rows x 3 columns]
+04/09/2021 16:09:49 dfCountPerUser describe apos filtro              nrows
+count   436.000000
+mean   1040.286697
+std     181.739153
+min     802.000000
+25%     883.500000
+50%    1001.500000
+75%    1172.500000
+max    1486.000000
+04/09/2021 16:09:50 
+<< ColabFiltraFaixaDeUsuarios
+04/09/2021 16:09:52 
+>> ColabFiltraDomMusicas
+04/09/2021 16:09:52 Dominio antes de remover duplicates =(454866, 2)
+04/09/2021 16:09:53 Dominio apos remover duplicates =(73132, 2)
+04/09/2021 16:09:53 NumExpr defaulting to 4 threads.
+04/09/2021 16:09:53 Dominio de musicas para Colab =(73132,)
+04/09/2021 16:09:53 
+<< ColabFiltraDomMusicas
+04/09/2021 16:09:55 
+>> ColabPreProcessamento
+04/09/2021 16:09:55 listaDominioDeMusicas 73132
+04/09/2021 16:09:55 listaUsers 436
+04/09/2021 16:10:39 
+<< ColabPreProcessamento
+
+>> ColabProcessaUsuariosVizinhos: DescobreVizinhos de UserA e UserAbarra
+MusUsersColab lido. shape (436, 73133)
+listMusUsrA 746
+listMusUsrAbarra 555
+NumExpr defaulting to 4 threads.
+
+<< ColabProcessaUsuariosVizinhos
+04/09/2021 16:10:58 
+>> ColabFiltraFaixaDeUsuarios
+04/09/2021 16:11:00 filtrando users com playlist entre 1501 e 30000
+04/09/2021 16:11:00 NumExpr defaulting to 4 threads.
+04/09/2021 16:11:03 MusUsers shape apos filtro (297653, 3)
+04/09/2021 16:11:03 MusUsers describe apos filtro                                   userid  ...               id_musica
+count                             297653  ...                  297653
+unique                               129  ...                   72961
+top     7ee2b92c5bcf6133b8132363e5bda960  ...  4hy4fb5D1KL50b3sng9cjw
+freq                                8197  ...                      92
+
+[4 rows x 3 columns]
+04/09/2021 16:11:03 dfCountPerUser describe apos filtro              nrows
+count   129.000000
+mean   2307.387597
+std     987.044581
+min    1505.000000
+25%    1646.000000
+50%    2033.000000
+75%    2570.000000
+max    8197.000000
+04/09/2021 16:11:03 
+<< ColabFiltraFaixaDeUsuarios
+04/09/2021 16:11:07 
+>> ColabFiltraDomMusicas
+04/09/2021 16:11:07 Dominio antes de remover duplicates =(298954, 2)
+04/09/2021 16:11:08 Dominio apos remover duplicates =(73856, 2)
+04/09/2021 16:11:08 NumExpr defaulting to 4 threads.
+04/09/2021 16:11:08 Dominio de musicas para Colab =(73856,)
+04/09/2021 16:11:08 
+<< ColabFiltraDomMusicas
+04/09/2021 16:11:10 
+>> ColabPreProcessamento
+04/09/2021 16:11:10 listaDominioDeMusicas 73856
+04/09/2021 16:11:10 listaUsers 129
+04/09/2021 16:11:29 
+<< ColabPreProcessamento
+
+>> ColabProcessaUsuariosVizinhos: DescobreVizinhos de UserA e UserAbarra
+MusUsersColab lido. shape (129, 73857)
+listMusUsrA 746
+listMusUsrAbarra 555
+NumExpr defaulting to 4 threads.
+
+<< ColabProcessaUsuariosVizinhos
