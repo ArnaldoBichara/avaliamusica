@@ -61,7 +61,7 @@ serMusColab = dfMusUsersColab.drop(columns=['user'])
 #
 # achando k vizinhos mais próximos de user A
 
-neigh = NearestNeighbors(n_neighbors=k, metric='jaccard')
+neigh = NearestNeighbors(n_neighbors=k, metric='sokalsneath')
 neigh.fit(serMusColab)
 distancias, indices = neigh.kneighbors([MusUserAColab])
 

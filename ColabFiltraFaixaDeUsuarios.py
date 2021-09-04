@@ -26,7 +26,7 @@ dfCountPerUser = dfCountPerUser.groupby('userid')['nrows'].sum().reset_index()
 #
 # filtrando users dentro da faixa determinada
 minplay = 1501
-maxplay = 5000
+maxplay = 30000
 logging.info ('filtrando usuários com playlist entre %s e %s', minplay, maxplay)
 dfCountPerUser = dfCountPerUser[dfCountPerUser['nrows']>minplay]
 dfCountPerUser = dfCountPerUser[dfCountPerUser['nrows']<maxplay]

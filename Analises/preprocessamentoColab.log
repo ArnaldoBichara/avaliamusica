@@ -1,225 +1,227 @@
-04/09/2021 09:54:03 
+04/09/2021 11:32:04 
 >> ColabFiltraFaixaDeUsuarios
-04/09/2021 09:54:05 filtrando usuários com playlist entre 1501 e 5000
-04/09/2021 09:54:05 NumExpr defaulting to 4 threads.
-04/09/2021 09:54:07 MusUsers shape apos filtro (277509, 3)
-04/09/2021 09:54:07 MusUsers describe apos filtro                                   userid                     interpretacao               id_musica
-count                             277509                            277509                  277509
-unique                               126                             68858                   68858
-top     4398de6902abde3351347b048fcdc287  NIRVANA:>SMELLS LIKE TEEN SPIRIT  4hy4fb5D1KL50b3sng9cjw
-freq                                4390                                89                      89
-04/09/2021 09:54:07 dfCountPerUser describe apos filtro              nrows
-count   126.000000
-mean   2202.452381
-std     695.122672
+04/09/2021 11:32:06 filtrando usuários com playlist entre 1501 e 30000
+04/09/2021 11:32:06 NumExpr defaulting to 4 threads.
+04/09/2021 11:32:08 MusUsers shape apos filtro (297653, 3)
+04/09/2021 11:32:09 MusUsers describe apos filtro                                   userid  ...               id_musica
+count                             297653  ...                  297653
+unique                               129  ...                   72961
+top     7ee2b92c5bcf6133b8132363e5bda960  ...  4hy4fb5D1KL50b3sng9cjw
+freq                                8197  ...                      92
+
+[4 rows x 3 columns]
+04/09/2021 11:32:09 dfCountPerUser describe apos filtro              nrows
+count   129.000000
+mean   2307.387597
+std     987.044581
 min    1505.000000
-25%    1634.000000
-50%    2019.000000
-75%    2562.500000
-max    4390.000000
-04/09/2021 09:54:07 
+25%    1646.000000
+50%    2033.000000
+75%    2570.000000
+max    8197.000000
+04/09/2021 11:32:10 
 << ColabFiltraFaixaDeUsuarios
-04/09/2021 09:54:11 
+04/09/2021 11:32:18 
 >> ColabFiltraDomMusicas
-04/09/2021 09:54:11 Dominio antes de remover duplicates =(278810, 2)
-04/09/2021 09:54:11 Dominio apos remover duplicates =(69760, 2)
-04/09/2021 09:54:11 NumExpr defaulting to 4 threads.
-04/09/2021 09:54:11 Dominio de musicas para Colab =(69760,)
-04/09/2021 09:54:11 
+04/09/2021 11:32:18 Dominio antes de remover duplicates =(298954, 2)
+04/09/2021 11:32:18 Dominio apos remover duplicates =(73856, 2)
+04/09/2021 11:32:18 NumExpr defaulting to 4 threads.
+04/09/2021 11:32:19 Dominio de musicas para Colab =(73856,)
+04/09/2021 11:32:19 
 << ColabFiltraDomMusicas
-04/09/2021 09:54:15 
+04/09/2021 11:32:25 
 >> ColabPreProcessamento
-04/09/2021 09:54:15 listaDominioDeMusicas 69760
-04/09/2021 09:54:15 listaUsers 126
-04/09/2021 09:54:32 
+04/09/2021 11:32:25 listaDominioDeMusicas 73856
+04/09/2021 11:32:25 listaUsers 129
+04/09/2021 11:32:43 
 << ColabPreProcessamento
 
 >> ColabProcessaUsuariosVizinhos: DescobreVizinhos de UserA e UserAbarra
-MusUsersColab lido. shape (126, 69761)
+MusUsersColab lido. shape (129, 73857)
 listMusUsrA 746
 listMusUsrAbarra 555
 NumExpr defaulting to 4 threads.
-vizinho de A 8873e03b8622c5354a7600591a7adfde com dist 0.9828118113706479
-vizinho de A 799889dc03c73949da844073696974b5 com dist 0.9859943977591037
-vizinho de A 7ffae624f8f096dd429b1f7e78efb32b com dist 0.986170563055647
-vizinho de A e6f5ad32cb36d06566f9c5c780006918 com dist 0.9864818024263432
-vizinho de A 5c71e5b64e184b46edd84afd44ad0a46 com dist 0.9868061874431301
-vizinho de A 00dd7fde8040db835d917e077bb47e4b com dist 0.9870588235294118
-vizinho de A 6bfd867c3bfd8aaf6c963c900d92e76e com dist 0.987693710118505
-vizinho de A be025481e694f545dbe01082e2ef7a67 com dist 0.9877551020408163
-vizinho de A b365b371563fc5238a158efa08a7139e com dist 0.9880607814761215
-vizinho de A 718037f0e3fc772ec4616e5dca986361 com dist 0.9880847308031774
-vizinho de A 28848a0dd73195aee92dd2aac49b85a0 com dist 0.9884047786366831
-vizinho de A 84d3144396e1404debb8a63448edd8ca com dist 0.9886980108499096
-vizinho de A c2c30e68129d68ef9e533ff6611d146c com dist 0.989433237271854
-vizinho de A 32b524ed367b1e5a714228fbec80849d com dist 0.9897982842568978
-vizinho de A cc83579aa6ecfa7d34e0cdd8a63cdddb com dist 0.9898167006109979
-vizinho de A 9fe28ed9a634ebcd180e475657dfed49 com dist 0.9898236092265943
-vizinho de A e33f0c4ea274ca137af82d9040033a1e com dist 0.9900733707380233
-vizinho de A 0978b72a937f963b67cdec98c71ee93d com dist 0.9901079136690647
-vizinho de A 45b0a9429f54ea767bdbeeeba41398fb com dist 0.9901356350184957
-vizinho de A 6b85a8076b4f3b1036ef15f09e2feeeb com dist 0.9902286902286902
-vizinho de A 5974698501e05d24c6599fb5a849cc93 com dist 0.9904862579281184
-vizinho de A ca66c0dba50b8b2269c560a592cd5d44 com dist 0.9905505341002465
-vizinho de A 812171731b24d7f184ac727a1bb7c488 com dist 0.9905702739110912
-vizinho de A ce7eab9cbb66a49a8b71c751458e8663 com dist 0.9907448215072719
-vizinho de A 6752faf971cd451d87b270621979e2d5 com dist 0.990780577750461
-vizinho de A da4b7a3e9103d530b4fcb74a6fe5eac4 com dist 0.9908136482939632
-vizinho de A ee72596274442315fee63dd6d43bbce2 com dist 0.9910562180579217
-vizinho de A 6a84fc1511d2a79f951d7d22a7872861 com dist 0.9911479944674966
-vizinho de A b7ed37d2d2b1d8e9db1b1b15f17cf2a6 com dist 0.9914683430624158
-vizinho de A e9cd5d794fa122de70c7714f61a38c0a com dist 0.9916003536693192
+vizinho de A 8873e03b8622c5354a7600591a7adfde com dist 0.9913314069793288
+vizinho de A 799889dc03c73949da844073696974b5 com dist 0.9929478138222849
+vizinho de A 7ffae624f8f096dd429b1f7e78efb32b com dist 0.9930371352785146
+vizinho de A e6f5ad32cb36d06566f9c5c780006918 com dist 0.9931949049031583
+vizinho de A 5c71e5b64e184b46edd84afd44ad0a46 com dist 0.9933592855507213
+vizinho de A 00dd7fde8040db835d917e077bb47e4b com dist 0.9934872705743043
+vizinho de A 6bfd867c3bfd8aaf6c963c900d92e76e com dist 0.9938087594588397
+vizinho de A be025481e694f545dbe01082e2ef7a67 com dist 0.9938398357289527
+vizinho de A b365b371563fc5238a158efa08a7139e com dist 0.9939945404913558
+vizinho de A 718037f0e3fc772ec4616e5dca986361 com dist 0.9940066592674806
+vizinho de A 28848a0dd73195aee92dd2aac49b85a0 com dist 0.9941685810213818
+vizinho de A 84d3144396e1404debb8a63448edd8ca com dist 0.9943168902023187
+vizinho de A c2c30e68129d68ef9e533ff6611d146c com dist 0.9946885562530179
+vizinho de A 32b524ed367b1e5a714228fbec80849d com dist 0.9948729899790258
+vizinho de A cc83579aa6ecfa7d34e0cdd8a63cdddb com dist 0.9948822927328557
+vizinho de A 9fe28ed9a634ebcd180e475657dfed49 com dist 0.9948857824752813
+vizinho de A e33f0c4ea274ca137af82d9040033a1e com dist 0.995011927998265
+vizinho de A 0978b72a937f963b67cdec98c71ee93d com dist 0.9950293718933574
+vizinho de A 45b0a9429f54ea767bdbeeeba41398fb com dist 0.9950433705080545
+vizinho de A 6b85a8076b4f3b1036ef15f09e2feeeb com dist 0.9950903582993836
+vizinho de A 5974698501e05d24c6599fb5a849cc93 com dist 0.9952203929899097
+vizinho de A ca66c0dba50b8b2269c560a592cd5d44 com dist 0.9952528379772961
+vizinho de A 812171731b24d7f184ac727a1bb7c488 com dist 0.9952628017144146
+vizinho de A ce7eab9cbb66a49a8b71c751458e8663 com dist 0.9953508966127961
+vizinho de A 6752faf971cd451d87b270621979e2d5 com dist 0.9953689410311825
+vizinho de A da4b7a3e9103d530b4fcb74a6fe5eac4 com dist 0.995385629531971
+vizinho de A ee72596274442315fee63dd6d43bbce2 com dist 0.9955080213903743
+vizinho de A 6a84fc1511d2a79f951d7d22a7872861 com dist 0.9955543206446235
+vizinho de A b7ed37d2d2b1d8e9db1b1b15f17cf2a6 com dist 0.9957158962795941
+vizinho de A e9cd5d794fa122de70c7714f61a38c0a com dist 0.9957824639289679
 Matriz de confusao vizinhos de A:
-[[67491  1553]
+[[71587  1553]
  [  677    39]]
-[[66904  2140]
+[[71000  2140]
  [  676    40]]
-[[66723  2321]
+[[70819  2321]
  [  674    42]]
-[[66875  2169]
+[[70971  2169]
  [  677    39]]
-[[67562  1482]
+[[71658  1482]
  [  687    29]]
-[[67210  1834]
+[[71306  1834]
  [  683    33]]
-[[67566  1478]
+[[71662  1478]
  [  689    27]]
-[[67555  1489]
+[[71651  1489]
  [  689    27]]
-[[66996  2048]
+[[71092  2048]
  [  683    33]]
-[[67494  1550]
+[[71590  1550]
  [  689    27]]
-[[66914  2130]
+[[71010  2130]
  [  683    33]]
-[[67548  1496]
+[[71644  1496]
  [  691    25]]
-[[66637  2407]
+[[70733  2407]
  [  683    33]]
-[[65447  3597]
+[[69543  3597]
  [  672    44]]
-[[67305  1739]
+[[71401  1739]
  [  691    25]]
-[[66812  2232]
+[[70908  2232]
  [  686    30]]
-[[67443  1601]
+[[71539  1601]
  [  693    23]]
-[[67536  1508]
+[[71632  1508]
  [  694    22]]
-[[67327  1717]
+[[71423  1717]
  [  692    24]]
-[[64950  4094]
+[[69046  4094]
  [  669    47]]
-[[66922  2122]
+[[71018  2122]
  [  689    27]]
-[[67326  1718]
+[[71422  1718]
  [  693    23]]
-[[67533  1511]
+[[71629  1511]
  [  695    21]]
-[[67491  1553]
+[[71587  1553]
  [  695    21]]
-[[66506  2538]
+[[70602  2538]
  [  686    30]]
-[[67474  1570]
+[[71570  1570]
  [  695    21]]
-[[67412  1632]
+[[71508  1632]
  [  695    21]]
-[[66145  2899]
+[[70241  2899]
  [  684    32]]
-[[67533  1511]
+[[71629  1511]
  [  697    19]]
-[[67498  1546]
+[[71594  1546]
  [  697    19]]
-vizinho de Abarra ca66c0dba50b8b2269c560a592cd5d44 com dist 0.9826897470039947
-vizinho de Abarra d8a30c6826f861a300bbd83544711e8e com dist 0.9839270199826238
-vizinho de Abarra baaae200dddfd12293014349cacf7848 com dist 0.9853694220921726
-vizinho de Abarra 7852a19ed03fa773aaca03478ef4e475 com dist 0.9863592075349139
-vizinho de Abarra 8d534bb9b880f7a41dcf499cc28720d0 com dist 0.9864864864864865
-vizinho de Abarra 097ea65e0ab962d31230169076505184 com dist 0.986905916585839
-vizinho de Abarra e6f5ad32cb36d06566f9c5c780006918 com dist 0.9875229357798165
-vizinho de Abarra bdcf539e8e77b705259c1110db88ce9b com dist 0.9876325088339223
-vizinho de Abarra 812171731b24d7f184ac727a1bb7c488 com dist 0.9878522837706512
-vizinho de Abarra 47300b211a76740722648b21a438653a com dist 0.9882198952879581
-vizinho de Abarra 014e695cc6df96011b90a5beb3206012 com dist 0.9895046179680941
-vizinho de Abarra 1810cb5e9488f6bb427f2f1d7870cdd0 com dist 0.9896030245746692
-vizinho de Abarra db937456654d2465292c4daa947c95de com dist 0.9898826386078511
-vizinho de Abarra 8b77e77b5699d948cb7bd415b55f94e9 com dist 0.9900559353635798
-vizinho de Abarra 139c408e52a497aac29753125d65b0ae com dist 0.990205081114172
-vizinho de Abarra 7828c8c38a51637339cdb965dc1acc1b com dist 0.9903100775193798
-vizinho de Abarra 6a84fc1511d2a79f951d7d22a7872861 com dist 0.9907246376811594
-vizinho de Abarra 84d3144396e1404debb8a63448edd8ca com dist 0.990745250852411
-vizinho de Abarra b38804ddef21178dd8a94dc897a2ea69 com dist 0.9908350305498982
-vizinho de Abarra c2d2fed26e858f82fdd8ac2e791cab1f com dist 0.9908447773616313
-vizinho de Abarra b68233d97a575a6ee64ee2907dc95407 com dist 0.9908759124087592
-vizinho de Abarra a8bd8f240b3736ab31e22fc306c36ed4 com dist 0.9909473003556418
-vizinho de Abarra acb4965613fe484786942bba8b23ff24 com dist 0.9911504424778761
-vizinho de Abarra 10e35fc70c923f3407006419c68d3015 com dist 0.9912157413914265
-vizinho de Abarra 675687eafb4c14f1ea561e6089ee2ec0 com dist 0.9913916786226685
-vizinho de Abarra 954ff5b0c8d11fa0f1ad53c4d7a91abf com dist 0.9914129586260734
-vizinho de Abarra 95c206362d58124cad87e82b9c3652a6 com dist 0.9914529914529915
-vizinho de Abarra 479b70f0fa04f20af57002cc34b025f0 com dist 0.9914617486338798
-vizinho de Abarra 235af84f0039ee849ae8e9059741cc2d com dist 0.9917355371900827
-vizinho de Abarra 64f832b188cc5eef8b665c464c2880e2 com dist 0.9921161825726141
+vizinho de Abarra ca66c0dba50b8b2269c560a592cd5d44 com dist 0.9912693082605776
+vizinho de Abarra d8a30c6826f861a300bbd83544711e8e com dist 0.9918984015765273
+vizinho de Abarra baaae200dddfd12293014349cacf7848 com dist 0.9926308032424466
+vizinho de Abarra 7852a19ed03fa773aaca03478ef4e475 com dist 0.9931327665140615
+vizinho de Abarra 8d534bb9b880f7a41dcf499cc28720d0 com dist 0.9931972789115646
+vizinho de Abarra 097ea65e0ab962d31230169076505184 com dist 0.9934098120576031
+vizinho de Abarra e6f5ad32cb36d06566f9c5c780006918 com dist 0.9937223042836041
+vizinho de Abarra bdcf539e8e77b705259c1110db88ce9b com dist 0.9937777777777778
+vizinho de Abarra 812171731b24d7f184ac727a1bb7c488 com dist 0.9938890246883403
+vizinho de Abarra 47300b211a76740722648b21a438653a com dist 0.9940750493745886
+vizinho de Abarra 014e695cc6df96011b90a5beb3206012 com dist 0.9947246254484068
+vizinho de Abarra 1810cb5e9488f6bb427f2f1d7870cdd0 com dist 0.9947743467933492
+vizinho de Abarra db937456654d2465292c4daa947c95de com dist 0.9949155989424446
+vizinho de Abarra 8b77e77b5699d948cb7bd415b55f94e9 com dist 0.9950031230480949
+vizinho de Abarra 139c408e52a497aac29753125d65b0ae com dist 0.9950784374038757
+vizinho de Abarra 7828c8c38a51637339cdb965dc1acc1b com dist 0.9951314508276533
+vizinho de Abarra 6a84fc1511d2a79f951d7d22a7872861 com dist 0.9953407105416424
+vizinho de Abarra 84d3144396e1404debb8a63448edd8ca com dist 0.9953511132860289
+vizinho de Abarra b38804ddef21178dd8a94dc897a2ea69 com dist 0.9953964194373401
+vizinho de Abarra c2d2fed26e858f82fdd8ac2e791cab1f com dist 0.9954013377926422
+vizinho de Abarra b68233d97a575a6ee64ee2907dc95407 com dist 0.995417048579285
+vizinho de Abarra a8bd8f240b3736ab31e22fc306c36ed4 com dist 0.9954530691783047
+vizinho de Abarra acb4965613fe484786942bba8b23ff24 com dist 0.9955555555555555
+vizinho de Abarra 10e35fc70c923f3407006419c68d3015 com dist 0.9955884947944239
+vizinho de Abarra 675687eafb4c14f1ea561e6089ee2ec0 com dist 0.9956772334293948
+vizinho de Abarra 954ff5b0c8d11fa0f1ad53c4d7a91abf com dist 0.9956879655037241
+vizinho de Abarra 95c206362d58124cad87e82b9c3652a6 com dist 0.9957081545064378
+vizinho de Abarra 479b70f0fa04f20af57002cc34b025f0 com dist 0.9957125707425828
+vizinho de Abarra 235af84f0039ee849ae8e9059741cc2d com dist 0.995850622406639
+vizinho de Abarra 64f832b188cc5eef8b665c464c2880e2 com dist 0.9960424911476776
 Matriz de confusao vizinhos de Abarra:
-[[67507  1702]
+[[71603  1702]
  [  512    39]]
-[[67458  1751]
+[[71554  1751]
  [  514    37]]
-[[67026  2183]
+[[71122  2183]
  [  511    40]]
-[[66681  2528]
+[[70777  2528]
  [  509    42]]
-[[67540  1669]
+[[71636  1669]
  [  521    30]]
-[[67698  1511]
+[[71794  1511]
  [  524    27]]
-[[67035  2174]
+[[71131  2174]
  [  517    34]]
-[[66930  2279]
+[[71026  2279]
  [  516    35]]
-[[67702  1507]
+[[71798  1507]
  [  526    25]]
-[[66704  2505]
+[[70800  2505]
  [  515    36]]
-[[67378  1831]
+[[71474  1831]
  [  526    25]]
-[[67644  1565]
+[[71740  1565]
  [  529    22]]
-[[67289  1920]
+[[71385  1920]
  [  526    25]]
-[[66542  2667]
+[[70638  2667]
  [  519    32]]
-[[66493  2716]
+[[70589  2716]
  [  519    32]]
-[[67696  1513]
+[[71792  1513]
  [  531    20]]
-[[66310  2899]
+[[70406  2899]
  [  519    32]]
-[[67707  1502]
+[[71803  1502]
  [  532    19]]
-[[66814  2395]
+[[70910  2395]
  [  524    27]]
-[[64954  4255]
+[[69050  4255]
  [  507    44]]
-[[67568  1641]
+[[71664  1641]
  [  531    20]]
-[[66667  2542]
+[[70763  2542]
  [  523    28]]
-[[67048  2161]
+[[71144  2161]
  [  527    24]]
-[[66914  2295]
+[[71010  2295]
  [  526    25]]
-[[67669  1540]
+[[71765  1540]
  [  533    18]]
-[[67198  2011]
+[[71294  2011]
  [  529    22]]
-[[66601  2608]
+[[70697  2608]
  [  524    27]]
-[[66832  2377]
+[[70928  2377]
  [  526    25]]
-[[67340  1869]
+[[71436  1869]
  [  531    20]]
-[[67350  1859]
+[[71446  1859]
  [  532    19]]
 
 << ColabProcessaUsuariosVizinhos
