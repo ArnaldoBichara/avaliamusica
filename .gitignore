@@ -41,3 +41,19 @@ FeatureStore backup/
 FeatureStore/MusUsersFiltradas.pickle
 FeatureStore/DominioMusicasColab.pickle
 FeatureStore/MusUsersFiltradas.pickle
+FeatureStore/Jaccard/ResProcessaVizinhos50a150.txt
+FeatureStore/Jaccard/ResProcessaVizinhos151a250.txt
+FeatureStore/Jaccard/ResProcessaVizinhos251a350.txt
+FeatureStore/Jaccard/ResProcessaVizinhos351a500.txt
+FeatureStore/Jaccard/ResProcessaVizinhos501a800.txt
+FeatureStore/Jaccard/ResProcessaVizinhos801a1500.txt
+FeatureStore/Jaccard/ResProcessaVizinhos1501a5000.txt
+FeatureStore/Jaccard/ResProcessaVizinhos5000a30000.txt
+FeatureStore/sokalsneath/ResProcessaVizinhos50a150.txt
+FeatureStore/sokalsneath/ResProcessaVizinhos151a250.txt
+FeatureStore/sokalsneath/ResProcessaVizinhos251a350.txt
+FeatureStore/sokalsneath/ResProcessaVizinhos351a500.txt
+FeatureStore/sokalsneath/ResProcessaVizinhos501a800.txt
+FeatureStore/sokalsneath/ResProcessaVizinhos801a1500.txt
+FeatureStore/sokalsneath/ResProcessaVizinhos1501a30000.txt
+FeatureStore/sokalsneath/user aconsolidado.txt
