@@ -1,17 +1,16 @@
-04/09/2021 14:40:50 
+04/09/2021 15:21:15 
 >> ColabFiltraFaixaDeUsuarios
-04/09/2021 14:40:51 filtrando usuários com playlist entre c:/Users/abalm/Documents/TCC/dags/avaliamusica/ColabFiltraFaixaDeUsuarios.py e 50
-04/09/2021 14:45:02 
->> ColabFiltraFaixaDeUsuarios
-04/09/2021 14:45:04 filtrando usuários com playlist entre 50 e 150
-04/09/2021 14:45:04 NumExpr defaulting to 6 threads.
-04/09/2021 14:45:05 MusUsers shape apos filtro (400530, 3)
-04/09/2021 14:45:06 MusUsers describe apos filtro                                   userid                 interpretacao               id_musica
-count                             400530                        400530                  400530
-unique                              4207                         68231                   68231
-top     033607ccb5a93ad76424d178fd5deec6  IMAGINE DRAGONS:>RADIOACTIVE  62yJjFtgkhUrXktIoSjgP2
-freq                                 149                           391                     391
-04/09/2021 14:45:06 dfCountPerUser describe apos filtro              nrows
+04/09/2021 15:21:17 filtrando users com playlist entre 50 e 150
+04/09/2021 15:21:17 NumExpr defaulting to 4 threads.
+04/09/2021 15:21:20 MusUsers shape apos filtro (400530, 3)
+04/09/2021 15:21:20 MusUsers describe apos filtro                                   userid  ...               id_musica
+count                             400530  ...                  400530
+unique                              4207  ...                   68231
+top     cafad119c0315043e53001bb56fda768  ...  62yJjFtgkhUrXktIoSjgP2
+freq                                 149  ...                     391
+
+[4 rows x 3 columns]
+04/09/2021 15:21:20 dfCountPerUser describe apos filtro              nrows
 count  4207.000000
 mean     95.205610
 std      28.381299
@@ -20,26 +19,114 @@ min      51.000000
 50%      93.000000
 75%     118.500000
 max     149.000000
-04/09/2021 14:45:06 
+04/09/2021 15:21:21 
 << ColabFiltraFaixaDeUsuarios
-04/09/2021 14:45:40 
+04/09/2021 15:21:24 
+>> ColabFiltraDomMusicas
+04/09/2021 15:21:24 Dominio antes de remover duplicates =(401831, 2)
+04/09/2021 15:21:24 Dominio apos remover duplicates =(69123, 2)
+04/09/2021 15:21:24 NumExpr defaulting to 4 threads.
+04/09/2021 15:21:24 Dominio de musicas para Colab =(69123,)
+04/09/2021 15:21:24 
+<< ColabFiltraDomMusicas
+04/09/2021 15:21:27 
+>> ColabPreProcessamento
+04/09/2021 15:21:27 listaDominioDeMusicas 69123
+04/09/2021 15:21:27 listaUsers 4207
+04/09/2021 15:27:32 
+<< ColabPreProcessamento
+
+>> ColabProcessaUsuariosVizinhos: DescobreVizinhos de UserA e UserAbarra
+MusUsersColab lido. shape (4207, 69124)
+listMusUsrA 746
+listMusUsrAbarra 555
+NumExpr defaulting to 4 threads.
+
+<< ColabProcessaUsuariosVizinhos
+04/09/2021 15:28:28 
+>> ColabFiltraDomMusicas
+04/09/2021 15:28:28 Dominio antes de remover duplicates =(401831, 2)
+04/09/2021 15:28:28 Dominio apos remover duplicates =(69123, 2)
+04/09/2021 15:28:28 NumExpr defaulting to 4 threads.
+04/09/2021 15:28:28 Dominio de musicas para Colab =(69123,)
+04/09/2021 15:28:28 
+<< ColabFiltraDomMusicas
+04/09/2021 15:28:32 
+>> ColabFiltraDomMusicas
+04/09/2021 15:28:32 Dominio antes de remover duplicates =(401831, 2)
+04/09/2021 15:28:32 Dominio apos remover duplicates =(69123, 2)
+04/09/2021 15:28:32 NumExpr defaulting to 4 threads.
+04/09/2021 15:28:32 Dominio de musicas para Colab =(69123,)
+04/09/2021 15:28:32 
+<< ColabFiltraDomMusicas
+04/09/2021 15:28:35 
+>> ColabFiltraDomMusicas
+04/09/2021 15:28:35 Dominio antes de remover duplicates =(401831, 2)
+04/09/2021 15:28:36 Dominio apos remover duplicates =(69123, 2)
+04/09/2021 15:28:36 NumExpr defaulting to 4 threads.
+04/09/2021 15:28:36 Dominio de musicas para Colab =(69123,)
+04/09/2021 15:28:36 
+<< ColabFiltraDomMusicas
+04/09/2021 15:28:41 
+>> ColabFiltraDomMusicas
+04/09/2021 15:28:42 Dominio antes de remover duplicates =(401831, 2)
+04/09/2021 15:28:42 Dominio apos remover duplicates =(69123, 2)
+04/09/2021 15:28:42 NumExpr defaulting to 4 threads.
+04/09/2021 15:28:42 Dominio de musicas para Colab =(69123,)
+04/09/2021 15:28:42 
+<< ColabFiltraDomMusicas
+04/09/2021 15:28:48 
+>> ColabFiltraDomMusicas
+04/09/2021 15:28:48 Dominio antes de remover duplicates =(401831, 2)
+04/09/2021 15:28:48 Dominio apos remover duplicates =(69123, 2)
+04/09/2021 15:28:48 NumExpr defaulting to 4 threads.
+04/09/2021 15:28:48 Dominio de musicas para Colab =(69123,)
+04/09/2021 15:28:48 
+<< ColabFiltraDomMusicas
+04/09/2021 15:28:56 
+>> ColabFiltraDomMusicas
+04/09/2021 15:28:56 Dominio antes de remover duplicates =(401831, 2)
+04/09/2021 15:28:56 Dominio apos remover duplicates =(69123, 2)
+04/09/2021 15:28:56 NumExpr defaulting to 4 threads.
+04/09/2021 15:28:56 Dominio de musicas para Colab =(69123,)
+04/09/2021 15:28:56 
+<< ColabFiltraDomMusicas
+04/09/2021 15:29:05 
 >> ColabFiltraFaixaDeUsuarios
-04/09/2021 14:45:41 filtrando users com playlist entre 50 e 150
-04/09/2021 14:45:41 NumExpr defaulting to 6 threads.
-04/09/2021 14:45:43 MusUsers shape apos filtro (400530, 3)
-04/09/2021 14:45:43 MusUsers describe apos filtro                                   userid                 interpretacao               id_musica
-count                             400530                        400530                  400530
-unique                              4207                         68231                   68231
-top     9bd7d082ecc681ca0cdc66106432f694  IMAGINE DRAGONS:>RADIOACTIVE  62yJjFtgkhUrXktIoSjgP2
-freq                                 149                           391                     391
-04/09/2021 14:45:43 dfCountPerUser describe apos filtro              nrows
-count  4207.000000
-mean     95.205610
-std      28.381299
-min      51.000000
-25%      70.000000
-50%      93.000000
-75%     118.500000
-max     149.000000
-04/09/2021 14:45:43 
+04/09/2021 15:29:07 filtrando users com playlist entre 151 e 230
+04/09/2021 15:29:07 NumExpr defaulting to 4 threads.
+04/09/2021 15:29:10 MusUsers shape apos filtro (353039, 3)
+04/09/2021 15:29:10 MusUsers describe apos filtro                                   userid  ...               id_musica
+count                             353039  ...                  353039
+unique                              1876  ...                   62331
+top     ecab6dd15b9bc9773e3f62ebc80505c6  ...  0nrRP2bk19rLc0orkWPQk2
+freq                                 229  ...                     269
+
+[4 rows x 3 columns]
+04/09/2021 15:29:10 dfCountPerUser describe apos filtro             nrows
+count  1876.00000
+mean    188.18710
+std      22.48476
+min     152.00000
+25%     169.00000
+50%     187.00000
+75%     207.00000
+max     229.00000
+04/09/2021 15:29:10 
 << ColabFiltraFaixaDeUsuarios
+04/09/2021 15:29:13 
+>> ColabPreProcessamento
+04/09/2021 15:29:13 listaDominioDeMusicas 69123
+04/09/2021 15:29:13 listaUsers 1876
+04/09/2021 15:31:40 
+<< ColabPreProcessamento
+04/09/2021 15:31:49 
+>> ColabPreProcessamento
+04/09/2021 15:31:49 listaDominioDeMusicas 69123
+04/09/2021 15:31:49 listaUsers 1876
+04/09/2021 15:34:32 
+<< ColabPreProcessamento
+04/09/2021 15:34:39 
+>> ColabPreProcessamento
+04/09/2021 15:34:39 listaDominioDeMusicas 69123
+04/09/2021 15:34:39 listaUsers 1876

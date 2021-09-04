@@ -99,7 +99,7 @@ for i in range (0, len(indices[0])):
                  'distancia': distancias[0][i]}
         df= pd.DataFrame(data=vizinho, index=[i])
         dfVizinhosUserAbarra = dfVizinhosUserAbarra.append(df, ignore_index=True)
-dfVizinhosUserAbarra.to_pickle("./FeatureStore/ColabVizinhosUserA.pickle")
+dfVizinhosUserAbarra.to_pickle("./FeatureStore/ColabVizinhosUserAbarra.pickle")
 
 
 # liberando memória
