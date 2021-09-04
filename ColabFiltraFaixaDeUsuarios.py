@@ -8,7 +8,19 @@ import pickle
 import seaborn as sns
 import matplotlib.pyplot as plt
 import logging
+import sys
 
+
+# Argumentos de entrada 
+# minplay
+# maxplay
+#%%
+if (len(sys.argv)<2):
+  print ('argumentos obrigatorios: minplay e maxplay')
+  quit()
+minplay = int(sys.argv[1])
+maxplay = int(sys.argv[2])
+#%%
 logging.basicConfig(filename='./Analises/preprocessamentoColab.log', 
                     level=logging.INFO,
                     format='%(asctime)s %(message)s',
@@ -18,16 +30,13 @@ logging.info('\n>> ColabFiltraFaixaDeUsuarios')
 
 dfMusUsers =  pd.read_pickle ("./FeatureStore/MusUsersNoDominio.pickle")  
 
-
 # dataframe para contar linhas de usuário
 dfCountPerUser = dfMusUsers.copy()
 dfCountPerUser['nrows']=1
 dfCountPerUser = dfCountPerUser.groupby('userid')['nrows'].sum().reset_index()
 #
 # filtrando users dentro da faixa determinada
-minplay = 1501
-maxplay = 30000
-logging.info ('filtrando usuários com playlist entre %s e %s', minplay, maxplay)
+logging.info ('filtrando users com playlist entre %s e %s', minplay, maxplay)
 dfCountPerUser = dfCountPerUser[dfCountPerUser['nrows']>minplay]
 dfCountPerUser = dfCountPerUser[dfCountPerUser['nrows']<maxplay]
 
@@ -56,5 +65,3 @@ dfMusUsers.to_pickle ("./FeatureStore/MusUsersFiltradas.pickle")
 
 logging.info('\n<< ColabFiltraFaixaDeUsuarios')
 
-
-# %%
