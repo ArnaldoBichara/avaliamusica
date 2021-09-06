@@ -8,7 +8,10 @@
 import pandas as pd
 import numpy as np
 import logging
-from sklearn.metrics import confusion_matrix
+import pickle
+
+# Número de vizinhos mais próximos a considerar
+NVizinhos = 5
 
 #
 logging.basicConfig(filename='./Analises/preprocessamentoColab.log', 
@@ -21,15 +24,15 @@ logging.info('\n>> ColabMontaMusCandidatas')
 VizinhosUserA       =  pd.read_pickle ("./FeatureStore/ColabVizinhosUserA.pickle")  
 VizinhosUserAbarra  =  pd.read_pickle ("./FeatureStore/ColabVizinhosUserAbarra.pickle")  
 
-# ordenando vizinhos por distancia e pegando apenas os 15 primeiros
+# ordenando vizinhos por distancia e pegando apenas os N primeiros
 VizinhosUserA.sort_values(by=['distancia'], inplace=True)
 VizinhosUserAbarra.sort_values(by=['distancia'], inplace=True)
 
-# Pegando apenas primeiros 15 users#%%
 VizinhosUserA.reset_index(inplace=True, drop=True)
 VizinhosUserAbarra.reset_index(inplace=True, drop=True)
 
-NVizinhos = 15
+# Pegando apenas primeiros N users mais próximos
+
 VizinhosUserA      = VizinhosUserA[:NVizinhos]
 logging.info ('\n%s Melhores vizinhos de UserA:', NVizinhos)
 for i in range(NVizinhos):
@@ -47,7 +50,62 @@ for i in range(NVizinhos):
 # remove duplicates
 # salva .pickle
 
-listaMusCandidatas
+MusUsers       =  pd.read_pickle ("./FeatureStore/MusUsersNoDominio.pickle")  
+
+# 
+# Montando músicas candidatas para UserA
+#
+listaMusCandUserA = []
+for i in range(NVizinhos):
+    vizinho = VizinhosUserA.iloc[i]['userid']
+    MusUser = MusUsers[MusUsers['userid']==vizinho]['id_musica'].tolist()
+    listaMusCandUserA.extend(MusUser)
+    
+# removendo duplicados na lista
+listaMusCandUserA = list(set(listaMusCandUserA))
+
+# removendo itens que já estão na playlist do UserA
+MusUserA       =  pd.read_pickle ("./FeatureStore/MusUserACurte.pickle")['id_musica'].tolist()
+
+listaFinal = list(filter(lambda x: x not in MusUserA, listaMusCandUserA))
+
+# Vamos salvar a lista interseccao apenas para análise
+listaInterseccao = list(filter(lambda x: x in MusUserA, listaMusCandUserA))
+
+logging.info ("Total de músicas candidatas para UserA: %s", len(listaFinal))
+
+# salvando lista de músicas candidatas em .pickle
+with open('./FeatureStore/MusCandUserACurte.pickle', 'wb') as arq:
+    pickle.dump(listaFinal, arq)
+with open('./FeatureStore/MusInterseccaoVizinhosComA.pickle', 'wb') as arq:
+    pickle.dump(listaInterseccao, arq)
+
+    
+# 
+# Montando músicas candidatas para UserAbarra
+#
+listaMusCandUserAbarra = []
+for i in range(NVizinhos):
+    vizinho = VizinhosUserAbarra.iloc[i]['userid']
+    MusUser = MusUsers[MusUsers['userid']==vizinho]['id_musica'].tolist()
+    listaMusCandUserAbarra.extend(MusUser)
+    
+# removendo duplicados na lista
+listaMusCandUserAbarra = list(set(listaMusCandUserAbarra))
+
+# removendo itens que já estão na playlist do UserAbarra
+MusUserAbarra       =  pd.read_pickle ("./FeatureStore/MusUserANaoCurte.pickle")['id_musica'].tolist()
+
+listaFinal = list(filter(lambda x: x not in MusUserAbarra, listaMusCandUserAbarra))
+listaInterseccao = list(filter(lambda x: x in MusUserAbarra, listaMusCandUserAbarra))
+
+logging.info ("Total de músicas candidatas para UserAbarra: %s", len(listaFinal))
+
+# salvando lista de músicas candidatas em .pickle
+with open('./FeatureStore/MusCandUserANaoCurte.pickle', 'wb') as arq:
+    pickle.dump(listaFinal, arq)    
+with open('./FeatureStore/MusInterseccaoVizinhosComAbarra.pickle', 'wb') as arq:
+    pickle.dump(listaInterseccao, arq)
 
 #%%
 logging.info('\n<< ColabMontaMusCandidatas')
