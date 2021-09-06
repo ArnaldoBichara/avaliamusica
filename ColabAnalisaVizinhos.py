@@ -25,20 +25,20 @@ VizinhosUserAbarra.sort_values(by=['distancia'], inplace=True)
 VizinhosUserA.reset_index(inplace=True, drop=True)
 VizinhosUserAbarra.reset_index(inplace=True, drop=True)
 
-VizinhosUserA      = VizinhosUserA[:15]
-VizinhosUserAbarra = VizinhosUserAbarra[:15]
+NVizinhos = 15
+VizinhosUserA      = VizinhosUserA[:NVizinhos]
+logging.info ('\n%s Melhores vizinhos de UserA:', NVizinhos)
+for i in range(NVizinhos):
+    logging.info ("%s", VizinhosUserA.iloc[i]['userid'])
 
-# Lendo matrizes esparsas
-dfEsparsaUsers      =  pd.read_pickle ("./FeatureStore/ColabMusUsersEsparsa.pickle")  
-dfEsparsaUserA      = pd.read_pickle("./FeatureStore/ColabMusUserAEsparsa.pickle")
-dfEsparsaUserAbarra = pd.read_pickle("./FeatureStore/ColabMusUserAbarraEsparsa.pickle")
 
-#%%
-userid = VizinhosUserA.iloc[0]['userid']
-dfEsparsaVizinho = dfEsparsaUsers[dfEsparsaUsers['user']==VizinhosUserA.iloc[0]['userid']]
-#%%
-res = confusion_matrix (dfEsparsaUserA, VizinhosUserA[0])
- 
+VizinhosUserAbarra = VizinhosUserAbarra[:NVizinhos]
+logging.info ('\n%s Melhores vizinhos de UserAbarra:', NVizinhos)
+for i in range(NVizinhos):
+    logging.info ("%s", VizinhosUserAbarra.iloc[i]['userid'])
+
+
+
 #%%
 logging.info('<< Analisa Vizinhos')
 
