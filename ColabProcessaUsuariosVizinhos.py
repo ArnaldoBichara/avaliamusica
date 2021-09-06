@@ -18,94 +18,71 @@ logging.basicConfig(filename='./Analises/preprocessamentoColab.log',
 logging.info('\n>> ColabProcessaUsuariosVizinhos: DescobreVizinhos de UserA e UserAbarra')
 
 dfMusUsersColab = pd.read_pickle ("./FeatureStore/ColabMusUsersEsparsa.pickle")
-listaDominioDeMusicas = pd.read_pickle ("./FeatureStore/DominioMusicasColab.pickle").to_list()
+
+# obtendo  matriz esparsa de User A
+MusUserAColab      =  pd.read_pickle ("./FeatureStore/ColabMusUserAEsparsa.pickle")
+MusUserAbarraColab =  pd.read_pickle ("./FeatureStore/ColabMusUserAbarraEsparsa.pickle")
 
 logging.info("MusUsersColab lido. shape %s", dfMusUsersColab.shape)
 
-# obtendo  MusUserAColab
-listMusUserA      =  pd.read_pickle ("./FeatureStore/MusUserACurte.pickle")['id_musica'].sort_values().to_list()
-listMusUserAbarra =  pd.read_pickle ("./FeatureStore/MusUserANaoCurte.pickle")['id_musica'].sort_values().to_list()
-
-logging.info ("listMusUsrA %s"     , len (listMusUserA))
-logging.info ("listMusUsrAbarra %s", len (listMusUserAbarra))
-
-# rotina que monsta lista 0,1 para um user, por lista de musicas
-def MontalistaMusUserColab (listaMusUser):
-        tamListaDominio = len (listaDominioDeMusicas)
-        resposta = [0]*len(listaDominioDeMusicas)
-        #busca listaMusUser em Dominio de Musicas
-        indicesNoDominio = np.searchsorted(listaDominioDeMusicas, listaMusUser)
-        i=0
-        for indice in indicesNoDominio:
-                if (indice != tamListaDominio) and (listaDominioDeMusicas[indice]==listaMusUser[i]) :
-                        resposta[indice] =1  # musica encontrada
-                i=i+1          
-        return resposta
-
-
-# removendo linhas que tenham algum NaN
-dfMusUsersColab=dfMusUsersColab.dropna()
-
-MusUserAColab      = MontalistaMusUserColab (listMusUserA)
-MusUserAbarraColab = MontalistaMusUserColab (listMusUserAbarra)
-
-# liberando memória
-del listaDominioDeMusicas
-del listMusUserA
-del listMusUserAbarra
-
-#
 k = 20
 serMusColab = dfMusUsersColab.drop(columns=['user'])
 
-#
-# achando k vizinhos mais próximos de user A
-
+# Prepara algoritimo NearestNeighbors com Matriz esparsa
 neigh = NearestNeighbors(n_neighbors=k, metric='sokalsneath')
 neigh.fit(serMusColab)
+
+# achando k vizinhos mais próximos de user A e atualizando ColabVizinhosUserA.pickle com novos vizinhos
 distancias, indices = neigh.kneighbors([MusUserAColab])
 
-#%% salvando vizinhos em arquivo VizinhosUserA.pickle
 VizinhosUserA = Path("./FeatureStore/ColabVizinhosUserA.pickle")
 if VizinhosUserA.is_file():
         dfVizinhosUserA = pd.read_pickle ("./FeatureStore/ColabVizinhosUserA.pickle")
 else:
-        dfVizinhosUserA = pd.DataFrame (columns=['userid',"distancia"])
+        dfVizinhosUserA = pd.DataFrame (columns=['userid',"distancia"]) # dataframe vazio
+
+logging.info ("vizinhos de A:")
 for i in range (0, len(indices[0])):
-        vizinho={'userid': dfMusUsersColab.loc[indices[0][i],'user'],
-                 'distancia': distancias[0][i]}
+        indice = indices[0][i]
+        vizinho={'userid': dfMusUsersColab.loc[indice,'user'],
+                'distancia': distancias[0][i]}
+        listaMusUser = dfMusUsersColab.loc[indice, dfMusUsersColab.columns !='user'].tolist()
+        matriz_confusao = confusion_matrix (MusUserAColab, listaMusUser)
+        logging.info ("%s %s", dfMusUsersColab.loc[indice,'user'], distancias[0][i])
+        logging.info ("%s", matriz_confusao)              
         df= pd.DataFrame(data=vizinho, index=[i])
         dfVizinhosUserA = dfVizinhosUserA.append(df, ignore_index=True)
 dfVizinhosUserA.to_pickle("./FeatureStore/ColabVizinhosUserA.pickle")
 
 #%% liberando memória
 del MusUserAColab
+del serMusColab
 
-#%%
-#
-# achando k vizinhos mais próximos de user Abarra
+# achando k vizinhos mais próximos de user Abarra e atualizando ColabVizinhosUserAbarra.pickle com novos vizinhos
 distancias, indices = neigh.kneighbors([MusUserAbarraColab])
 
-
-#%%
-#%% salvando vizinhos em arquivo VizinhosUserAbarra.pickle
 VizinhosUserAbarra = Path("./FeatureStore/ColabVizinhosUserAbarra.pickle")
 if VizinhosUserAbarra.is_file():
         dfVizinhosUserAbarra = pd.read_pickle ("./FeatureStore/ColabVizinhosUserAbarra.pickle")
 else:
-        dfVizinhosUserAbarra = pd.DataFrame (columns=['userid',"distancia"])
+        dfVizinhosUserAbarra = pd.DataFrame (columns=['userid',"distancia"]) # dataframe vazio
+
 for i in range (0, len(indices[0])):
-        vizinho={'userid': dfMusUsersColab.loc[indices[0][i],'user'],
-                 'distancia': distancias[0][i]}
+        indice = indices[0][i]
+        vizinho={'userid': dfMusUsersColab.loc[indice,'user'],
+                'distancia': distancias[0][i]}
+        listaMusUser = dfMusUsersColab.loc[indice, dfMusUsersColab.columns !='user'].tolist()
+        matriz_confusao = confusion_matrix (MusUserAbarraColab, listaMusUser)
+        logging.info ("%s %s", dfMusUsersColab.loc[indice,'user'], distancias[0][i])
+        logging.info ("%s", matriz_confusao)              
         df= pd.DataFrame(data=vizinho, index=[i])
         dfVizinhosUserAbarra = dfVizinhosUserAbarra.append(df, ignore_index=True)
+        
 dfVizinhosUserAbarra.to_pickle("./FeatureStore/ColabVizinhosUserAbarra.pickle")
-
 
 # liberando memória
 del MusUserAbarraColab
 del dfMusUsersColab
-del serMusColab
 
 logging.info('\n<< ColabProcessaUsuariosVizinhos')
 
