@@ -24,6 +24,9 @@ logging.info('\n>> ColabMontaMusCandidatas')
 VizinhosUserA       =  pd.read_pickle ("./FeatureStore/ColabVizinhosUserA.pickle")  
 VizinhosUserAbarra  =  pd.read_pickle ("./FeatureStore/ColabVizinhosUserAbarra.pickle")  
 
+logging.info ("ColabVizinhosUserA shape %s", VizinhosUserA.shape)
+logging.info ("ColabVizinhosUserAbarra shape %s", VizinhosUserAbarra.shape)
+
 # ordenando vizinhos por distancia e pegando apenas os N primeiros
 VizinhosUserA.sort_values(by=['distancia'], inplace=True)
 VizinhosUserAbarra.sort_values(by=['distancia'], inplace=True)
@@ -51,7 +54,7 @@ for i in range(NVizinhos):
 # salva .pickle
 
 MusUsers       =  pd.read_pickle ("./FeatureStore/MusUsersNoDominio.pickle")  
-
+DominioDasMusicas =  pd.read_pickle ("./FeatureStore/DominioDasMusicas.pickle")  
 # 
 # Montando músicas candidatas para UserA
 #
@@ -72,15 +75,25 @@ listaFinal = list(filter(lambda x: x not in MusUserA, listaMusCandUserA))
 # Vamos salvar a lista interseccao apenas para análise
 listaInterseccao = list(filter(lambda x: x in MusUserA, listaMusCandUserA))
 
-logging.info ("Total de músicas candidatas para UserA: %s", len(listaFinal))
-
-# salvando lista de músicas candidatas em .pickle
-with open('./FeatureStore/MusCandUserACurte.pickle', 'wb') as arq:
-    pickle.dump(listaFinal, arq)
-with open('./FeatureStore/MusInterseccaoVizinhosComA.pickle', 'wb') as arq:
-    pickle.dump(listaInterseccao, arq)
-
-    
+#passando músicas para dataframe e incluindo interpretacao
+#%%
+dfMusCandUserACurte = pd.DataFrame (listaFinal, columns=['id_musica'])
+dfMusCandUserACurte['interpretacao']=''
+for index, row in dfMusCandUserACurte.iterrows():
+    print (index)
+    dfMusCandUserACurte['interpretacao']= DominioDasMusicas[DominioDasMusicas['id_musica'] == row['id_musica']]['interpretacao']
+logging.info ("MusCandUserACurte shape: %s", dfMusCandUserACurte.shape)
+dfMusCandUserACurte.to_pickle('./FeatureStore/MusCandUserACurte.pickle')
+#%%
+#passando interseccao para dataframe e incluindo interpretacao
+MusInterseccaoVizinhoscomA = pd.DataFrame (listaInterseccao, columns=['id_musica'])
+MusInterseccaoVizinhoscomA['interpretacao']=''
+for index, row in MusInterseccaoVizinhoscomA.iterrows():
+    print (index)
+    MusInterseccaoVizinhoscomA['interpretacao']= DominioDasMusicas[DominioDasMusicas['id_musica'] == row['id_musica']]['interpretacao']
+logging.info ("MusInterseccaoVizinhoscomA shape: %s", MusInterseccaoVizinhoscomA.shape)
+MusInterseccaoVizinhoscomA.to_pickle('./FeatureStore/MusInterseccaoVizinhoscomA.pickle')
+#%%    
 # 
 # Montando músicas candidatas para UserAbarra
 #
@@ -99,13 +112,17 @@ MusUserAbarra       =  pd.read_pickle ("./FeatureStore/MusUserANaoCurte.pickle")
 listaFinal = list(filter(lambda x: x not in MusUserAbarra, listaMusCandUserAbarra))
 listaInterseccao = list(filter(lambda x: x in MusUserAbarra, listaMusCandUserAbarra))
 
-logging.info ("Total de músicas candidatas para UserAbarra: %s", len(listaFinal))
+#passando músicas para dataframe e incluindo interpretacao
+#%%
+dfMusCandUserANaoCurte = pd.DataFrame (listaFinal, columns=['id_musica'])
+dfMusCandUserANaoCurte['interpretacao']=''
+for index, row in dfMusCandUserANaoCurte.iterrows():
+    print (index)
+    dfMusCandUserANaoCurte['interpretacao']= DominioDasMusicas[DominioDasMusicas['id_musica'] == row['id_musica']]['interpretacao']
+logging.info ("MusCandUserANaoCurte shape: %s", dfMusCandUserANaoCurte.shape)
+dfMusCandUserANaoCurte.to_pickle('./FeatureStore/MusCandUserACurte.pickle')
 
-# salvando lista de músicas candidatas em .pickle
-with open('./FeatureStore/MusCandUserANaoCurte.pickle', 'wb') as arq:
-    pickle.dump(listaFinal, arq)    
-with open('./FeatureStore/MusInterseccaoVizinhosComAbarra.pickle', 'wb') as arq:
-    pickle.dump(listaInterseccao, arq)
+logging.info ("lista de Interseccao UserAbarra: %s", len(listaInterseccao))
 
 #%%
 logging.info('\n<< ColabMontaMusCandidatas')

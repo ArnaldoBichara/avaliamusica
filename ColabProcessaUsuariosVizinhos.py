@@ -18,12 +18,13 @@ logging.basicConfig(filename='./Analises/preprocessamentoColab.log',
 logging.info('\n>> ColabProcessaUsuariosVizinhos: DescobreVizinhos de UserA e UserAbarra')
 
 dfMusUsersColab = pd.read_pickle ("./FeatureStore/ColabMusUsersEsparsa.pickle")
+logging.info("ColabMusUsersEsparsa shape %s", dfMusUsersColab.shape)
 
 # obtendo  matriz esparsa de User A
 MusUserAColab      =  pd.read_pickle ("./FeatureStore/ColabMusUserAEsparsa.pickle")
 MusUserAbarraColab =  pd.read_pickle ("./FeatureStore/ColabMusUserAbarraEsparsa.pickle")
 
-logging.info("MusUsersColab lido. shape %s", dfMusUsersColab.shape)
+
 
 k = 20
 serMusColab = dfMusUsersColab.drop(columns=['user'])
@@ -53,7 +54,7 @@ for i in range (0, len(indices[0])):
         df= pd.DataFrame(data=vizinho, index=[i])
         dfVizinhosUserA = dfVizinhosUserA.append(df, ignore_index=True)
 dfVizinhosUserA.to_pickle("./FeatureStore/ColabVizinhosUserA.pickle")
-
+logging.info("vizinhos de A shape:%s", dfVizinhosUserA.shape)
 #%% liberando memória
 del MusUserAColab
 del serMusColab
@@ -67,6 +68,7 @@ if VizinhosUserAbarra.is_file():
 else:
         dfVizinhosUserAbarra = pd.DataFrame (columns=['userid',"distancia"]) # dataframe vazio
 
+logging.info ("vizinhos de Abarra:")
 for i in range (0, len(indices[0])):
         indice = indices[0][i]
         vizinho={'userid': dfMusUsersColab.loc[indice,'user'],
@@ -79,7 +81,7 @@ for i in range (0, len(indices[0])):
         dfVizinhosUserAbarra = dfVizinhosUserAbarra.append(df, ignore_index=True)
         
 dfVizinhosUserAbarra.to_pickle("./FeatureStore/ColabVizinhosUserAbarra.pickle")
-
+logging.info("vizinhos de Abarra shape:%s", dfVizinhosUserAbarra.shape)
 # liberando memória
 del MusUserAbarraColab
 del dfMusUsersColab
