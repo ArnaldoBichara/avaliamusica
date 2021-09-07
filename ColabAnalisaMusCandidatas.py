@@ -14,13 +14,10 @@ logging.basicConfig(filename='./Analises/MusColab.log',
                     )
 #logging.info('\n>> ColabAnalisaMusicasCandidatas')
 
-CandCurto    =  pd.read_pickle ("./FeatureStore/MusCandUserACurte.pickle")  
-CandNaoCurto =  pd.read_pickle ("./FeatureStore/MusCandUserANaoCurte.pickle")  
-IntersCurto    =pd.read_pickle ("./FeatureStore/MusInterseccaoVizinhosComA.pickle")  
-IntersNaoCurto =pd.read_pickle ("./FeatureStore/MusInterseccaoVizinhosComAbarra.pickle")
-  
-dfCandCurto = 
-#%%
-#logging.info('\n<< ColabAnalisaMusicasCandidatas')
+CandCurto    =  pd.read_pickle ("./FeatureStore/MusCandidatasCurte.pickle")  
+CandNaoCurto =  pd.read_pickle ("./FeatureStore/MusCandidatasNaoCurte.pickle")  
+IntersCurto    =pd.read_pickle ("./FeatureStore/MusInterseccaoVizinhoscomA.pickle")  
+
+print(pd.array(IntersCurto['interpretacao']))
 
 # %%

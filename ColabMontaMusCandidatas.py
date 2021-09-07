@@ -46,13 +46,6 @@ logging.info ('\n%s Melhores vizinhos de UserAbarra:', NVizinhos)
 for i in range(NVizinhos):
     logging.info ("%s", VizinhosUserAbarra.iloc[i]['userid'])
 
-# Para cada user vizinho, 
-#    encontra as músicas do User
-#    'appenda' lista de músicas candidatas
-#    'appenda' lista de músicas comuns com user A
-# remove duplicates
-# salva .pickle
-
 MusUsers       =  pd.read_pickle ("./FeatureStore/MusUsersNoDominio.pickle")  
 DominioDasMusicas =  pd.read_pickle ("./FeatureStore/DominioDasMusicas.pickle")  
 # 
@@ -75,13 +68,22 @@ listaFinal = list(filter(lambda x: x not in MusUserA, listaMusCandUserA))
 # Vamos salvar a lista interseccao apenas para análise
 listaInterseccao = list(filter(lambda x: x in MusUserA, listaMusCandUserA))
 
+# ordenando dominioMusicas para tornar acesso mais rápido por id_musica
+DominioDasMusicas.sort_values(by=['id_musica'], kind='quicksort', inplace=True)
+
+def BuscaInterpretacaoNoDominio (id_musica):
+    index = DominioDasMusicas['id_musica'].values.searchsorted(id_musica)
+    return DominioDasMusicas.iloc[index]['interpretacao']
+
 #passando músicas para dataframe e incluindo interpretacao
 #%%
 dfMusCandUserACurte = pd.DataFrame (listaFinal, columns=['id_musica'])
 dfMusCandUserACurte['interpretacao']=''
 for index, row in dfMusCandUserACurte.iterrows():
     print (index)
-    dfMusCandUserACurte.iloc[index]['interpretacao']= DominioDasMusicas[DominioDasMusicas['id_musica'] == row['id_musica']]['interpretacao']
+    dfMusCandUserACurte.iloc[index]['interpretacao']= BuscaInterpretacaoNoDominio(row['id_musica'])
+
+#%%
 logging.info ("MusCandUserACurte shape: %s", dfMusCandUserACurte.shape)
 dfMusCandUserACurte.to_pickle('./FeatureStore/MusCandidatasCurte.pickle')
 #%%
@@ -90,8 +92,7 @@ MusInterseccaoVizinhoscomA = pd.DataFrame (listaInterseccao, columns=['id_musica
 MusInterseccaoVizinhoscomA['interpretacao']=''
 for index, row in MusInterseccaoVizinhoscomA.iterrows():
     print (index)
-    id_musica=row['id_musica']
-    MusInterseccaoVizinhoscomA.iloc[index]['interpretacao']= DominioDasMusicas[DominioDasMusicas['id_musica'] == id_musica]['interpretacao']
+    MusInterseccaoVizinhoscomA.iloc[index]['interpretacao']= BuscaInterpretacaoNoDominio(row['id_musica'])
 logging.info ("MusInterseccaoVizinhoscomA shape: %s", MusInterseccaoVizinhoscomA.shape)
 MusInterseccaoVizinhoscomA.to_pickle('./FeatureStore/MusInterseccaoVizinhoscomA.pickle')
 #%%    
@@ -118,7 +119,7 @@ dfMusCandUserANaoCurte = pd.DataFrame (listaFinal, columns=['id_musica'])
 dfMusCandUserANaoCurte['interpretacao']=''
 for index, row in dfMusCandUserANaoCurte.iterrows():
     print (index)
-    dfMusCandUserANaoCurte.iloc[index]['interpretacao']= DominioDasMusicas[DominioDasMusicas['id_musica'] == row['id_musica']]['interpretacao']
+    dfMusCandUserANaoCurte.iloc[index]['interpretacao']= BuscaInterpretacaoNoDominio(row['id_musica'])
 logging.info ("MusCandUserANaoCurte shape: %s", dfMusCandUserANaoCurte.shape)
 dfMusCandUserANaoCurte.to_pickle('./FeatureStore/MusCandidatasNaoCurte.pickle')
 
