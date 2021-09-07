@@ -18,6 +18,6 @@ CandCurto    =  pd.read_pickle ("./FeatureStore/MusCandidatasCurte.pickle")
 CandNaoCurto =  pd.read_pickle ("./FeatureStore/MusCandidatasNaoCurte.pickle")  
 IntersCurto    =pd.read_pickle ("./FeatureStore/MusInterseccaoVizinhoscomA.pickle")  
 
-print(pd.array(IntersCurto['interpretacao']))
+print(IntersCurto['interpretacao'].values)
 
 # %%
