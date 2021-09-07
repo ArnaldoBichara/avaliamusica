@@ -83,7 +83,7 @@ for index, row in dfMusCandUserACurte.iterrows():
     print (index)
     dfMusCandUserACurte.iloc[index]['interpretacao']= DominioDasMusicas[DominioDasMusicas['id_musica'] == row['id_musica']]['interpretacao']
 logging.info ("MusCandUserACurte shape: %s", dfMusCandUserACurte.shape)
-dfMusCandUserACurte.to_pickle('./FeatureStore/MusCandUserACurte.pickle')
+dfMusCandUserACurte.to_pickle('./FeatureStore/MusCandidatasCurte.pickle')
 #%%
 #passando interseccao para dataframe e incluindo interpretacao
 MusInterseccaoVizinhoscomA = pd.DataFrame (listaInterseccao, columns=['id_musica'])
@@ -114,14 +114,13 @@ listaFinal = list(filter(lambda x: x not in MusUserAbarra, listaMusCandUserAbarr
 listaInterseccao = list(filter(lambda x: x in MusUserAbarra, listaMusCandUserAbarra))
 
 #passando músicas para dataframe e incluindo interpretacao
-#%%
 dfMusCandUserANaoCurte = pd.DataFrame (listaFinal, columns=['id_musica'])
 dfMusCandUserANaoCurte['interpretacao']=''
 for index, row in dfMusCandUserANaoCurte.iterrows():
     print (index)
     dfMusCandUserANaoCurte.iloc[index]['interpretacao']= DominioDasMusicas[DominioDasMusicas['id_musica'] == row['id_musica']]['interpretacao']
 logging.info ("MusCandUserANaoCurte shape: %s", dfMusCandUserANaoCurte.shape)
-dfMusCandUserANaoCurte.to_pickle('./FeatureStore/MusCandUserACurte.pickle')
+dfMusCandUserANaoCurte.to_pickle('./FeatureStore/MusCandidatasNaoCurte.pickle')
 
 logging.info ("lista de Interseccao UserAbarra: %s", len(listaInterseccao))
 
