@@ -6,13 +6,7 @@ import numpy as np
 import logging
 from sklearn.metrics import confusion_matrix
 
-#
-logging.basicConfig(filename='./Analises/MusColab.log', 
-                    level=logging.INFO,
-                    format='%(message)s',
-                    datefmt='%d/%m/%Y %H:%M:%S'
-                    )
-#logging.info('\n>> ColabAnalisaMusicasCandidatas')
+
 
 CandCurto    =  pd.read_pickle ("./FeatureStore/MusCandidatasCurte.pickle")  
 CandNaoCurto =  pd.read_pickle ("./FeatureStore/MusCandidatasNaoCurte.pickle")  

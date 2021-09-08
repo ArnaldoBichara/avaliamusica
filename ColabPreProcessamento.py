@@ -10,7 +10,7 @@ import logging
 from pathlib import Path
 import pickle
 
-logging.basicConfig(filename='./Analises/preprocessamentoColab.log', 
+logging.basicConfig(filename='./Analises/processamentoColab.log', 
                     level=logging.INFO,
                     format='%(asctime)s %(message)s',
                     datefmt='%d/%m/%Y %H:%M:%S'

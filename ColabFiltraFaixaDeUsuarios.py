@@ -21,7 +21,7 @@ if (len(sys.argv)<2):
 minplay = int(sys.argv[1])
 maxplay = int(sys.argv[2])
 #%%
-logging.basicConfig(filename='./Analises/preprocessamentoColab.log', 
+logging.basicConfig(filename='./Analises/processamentoColab.log', 
                     level=logging.INFO,
                     format='%(asctime)s %(message)s',
                     datefmt='%d/%m/%Y %H:%M:%S'

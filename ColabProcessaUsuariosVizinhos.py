@@ -27,10 +27,12 @@ MusUserAbarraColab =  pd.read_pickle ("./FeatureStore/ColabMusUserAbarraEsparsa.
 
 
 k = 20
+metrica ='jaccard'
+#metrica = 'sokalsneath')
 serMusColab = dfMusUsersColab.drop(columns=['user'])
 
 # Prepara algoritimo NearestNeighbors com Matriz esparsa
-neigh = NearestNeighbors(n_neighbors=k, metric='sokalsneath')
+neigh = NearestNeighbors(n_neighbors=k, metric=metrica)
 neigh.fit(serMusColab)
 
 # achando k vizinhos mais próximos de user A e atualizando ColabVizinhosUserA.pickle com novos vizinhos

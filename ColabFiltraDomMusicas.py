@@ -8,7 +8,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import logging
 
-logging.basicConfig(filename='./Analises/preprocessamentoColab.log', 
+logging.basicConfig(filename='./Analises/processamentoColab.log', 
                     level=logging.INFO,
                     format='%(asctime)s %(message)s',
                     datefmt='%d/%m/%Y %H:%M:%S'
