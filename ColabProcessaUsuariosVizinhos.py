@@ -10,7 +10,7 @@ from sklearn.neighbors import DistanceMetric
 from sklearn.metrics import confusion_matrix
 from pathlib import Path
 
-logging.basicConfig(filename='./Analises/preprocessamentoColab.log', 
+logging.basicConfig(filename='./Analises/processamentoColab.log', 
                     level=logging.INFO,
                     format='%(message)s',
                     datefmt='%d/%m/%Y %H:%M:%S'

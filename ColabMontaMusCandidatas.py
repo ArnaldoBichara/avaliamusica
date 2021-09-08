@@ -11,7 +11,7 @@ import logging
 import pickle
 
 # Número de vizinhos mais próximos a considerar
-NVizinhos = 5
+NVizinhos = 7
 
 #
 logging.basicConfig(filename='./Analises/processamentoColab.log', 

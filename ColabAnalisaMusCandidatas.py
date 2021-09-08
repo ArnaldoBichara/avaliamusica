@@ -12,6 +12,8 @@ CandCurto    =  pd.read_pickle ("./FeatureStore/MusCandidatasCurte.pickle")
 CandNaoCurto =  pd.read_pickle ("./FeatureStore/MusCandidatasNaoCurte.pickle")  
 IntersCurto    =pd.read_pickle ("./FeatureStore/MusInterseccaoVizinhoscomA.pickle")  
 
-print(IntersCurto['interpretacao'].values)
+inter = np.sort(IntersCurto['interpretacao'].values)
+#%%
+print(inter)
 
 # %%
