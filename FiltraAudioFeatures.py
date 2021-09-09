@@ -46,7 +46,7 @@ logging.info('AudioFeatures antes de filtro = %s', dfAudioFeatures.shape)
 dfAudioFeatures = dfAudioFeatures[dfAudioFeatures['speechiness'] < 0.6]
 logging.info('AudioFeatures com speechiness < 0,6 = %s', dfAudioFeatures.shape)
 
-#%% removendo coluna loudness já que
+# removendo coluna loudness já que
 # é muito correlacionada com energy e acousticness
 dfAudioFeatures.drop(columns=['loudness'], inplace=True, errors='ignore')
 dfUserAAudioFeatures.drop(columns=['loudness'], inplace=True, errors='ignore')
@@ -56,7 +56,7 @@ logging.info('AudioFeatures sem loudness = %s',      dfAudioFeatures.shape)
 logging.info('AudioFeaturesUserA sem loudness = %s', dfUserAAudioFeatures.shape)
 logging.info('AudioFeaturesUserAbarra sem loudness = %s', dfUserAbarraAudioFeatures.shape)
 
-#%% normalizando atributos key, tempo, time_signature e duration_ms entre 0 e 1
+# normalizando atributos key, tempo, time_signature e duration_ms entre 0 e 1
 def normaliza_minmax(df, valormax):
     return (df - df.min()) / (valormax - df.min())
 
@@ -75,9 +75,15 @@ dfUserAbarraAudioFeatures[['key']] = normaliza_minmax(dfUserAbarraAudioFeatures[
 dfUserAbarraAudioFeatures[['tempo']] = normaliza_minmax(dfUserAbarraAudioFeatures[['tempo']],200)
 dfUserAbarraAudioFeatures[['time_signature']] = normaliza_minmax(dfUserAbarraAudioFeatures[['time_signature']], 5)
 
-#%% salvando filtrado
+# Monta arquivo de Features para uso dos algoritmos por conteúdo
+dfUserAFeatureSamples = pd.concat([dfUserAAudioFeatures,dfUserAbarraAudioFeatures], ignore_index=True, verify_integrity=True)
+dfUserAFeatureSamples = dfUserAFeatureSamples.sample(frac=1)
+# removendo linhas que tenham algo com NaN
+dfUserAFeatureSamples=dfUserAFeatureSamples.dropna()
+logging.info("dfUserAFeatureSamples shape=%s", dfUserAFeatureSamples.shape)
+# salvando filtrado
 dfAudioFeatures.to_pickle('./FeatureStore/AudioFeatures.pickle')
-dfUserAAudioFeatures.to_pickle('./FeatureStore/AudioFeaturesUserACurte.pickle')
-dfUserAbarraAudioFeatures.to_pickle('./FeatureStore/AudioFeaturesUserANaoCurte.pickle')
+dfUserAFeatureSamples.to_pickle('./FeatureStore/UserAFeatureSamples.pickle')
 
 logging.info('<< FiltraAudioFeatures')
+# %%
