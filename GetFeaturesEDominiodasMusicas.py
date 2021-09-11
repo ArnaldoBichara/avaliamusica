@@ -51,29 +51,29 @@ del dfSpotMusicas['name']
 
 dfSpotMusicas.rename(columns={'id':'id_musica'}, inplace=True)
 
+dfSpotMusicas.drop_duplicates(subset='interpretacao', inplace=True, ignore_index=True)
+# removendo linhas que tenham algo com NaN
+dfSpotMusicas=dfSpotMusicas.dropna()
+
 # Criando DominioDasMusicas
 dominioMusicas = dfSpotMusicas[['interpretacao','id_musica']].copy()
 
-# removendo algumas colunas não úteis par AudioFeatures
-del dfSpotMusicas['id_musica']
+# removendo algumas colunas não úteis para AudioFeatures
 del dfSpotMusicas['interpretacao']
 
 # incluindo músicas do UserA no dominio das Músicas
 dfUserACurte    =  pd.read_pickle ("./FeatureStore/MusUserACurte.pickle")  
 dfUserANaoCurte =  pd.read_pickle ("./FeatureStore/MusUserANaoCurte.pickle")  
 
-#
 dominioMusicas = pd.concat([dfUserACurte, dfUserANaoCurte, dominioMusicas], ignore_index=True, verify_integrity=True)        
-#
+
 logging.info ("Dominio antes de remover duplicates =%s", dominioMusicas.shape)
 dominioMusicas.drop_duplicates(subset='interpretacao', inplace=True, ignore_index=True)
-logging.info ("Dominio apos remover duplicates =%s", dominioMusicas.shape)
-
 # removendo linhas que tenham algo com NaN
 dominioMusicas=dominioMusicas.dropna()
-
 # removendo linhas onde interpretacao não é uma string válida (por algum motivo isso está acontecendo)
 dominioMusicas = dominioMusicas[dominioMusicas['interpretacao'].apply(lambda x: isinstance(x,str))]
+logging.info ("Dominio apos remover duplicates =%s", dominioMusicas.shape)
 
 dominioMusicas.reset_index(drop=True)
 
@@ -83,7 +83,7 @@ dominioMusicas.sort_values(by=['interpretacao'], kind='quicksort', inplace=True)
 logging.info ('GetFeaturesEDominio: dominio shape = %s', dominioMusicas.shape)
 logging.info ('GetFeaturesEDominio: AudioFeatures shape = %s', dfSpotMusicas.shape)
 
-dfSpotMusicas.to_pickle('./FeatureStore/AudioFeatures.pickle')
+dfSpotMusicas.to_pickle('./FeatureStore/DominioAudioFeatures.pickle')
 dominioMusicas.to_pickle('./FeatureStore/DominioDasMusicas.pickle')
 
 logging.info('<< GetFeaturesEDominio')

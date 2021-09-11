@@ -93,3 +93,11 @@ min        1.000000
 75%      253.000000
 max     8197.000000
 03/09/2021 15:08:21 << Analisa MusUsers
+11/09/2021 16:59:42 >> GetFeaturesEDominio
+11/09/2021 16:59:45 GetFeaturesEDominio: spotify600k_tracks shape = (586672, 16)
+11/09/2021 16:59:47 NumExpr defaulting to 4 threads.
+11/09/2021 16:59:49 Dominio antes de remover duplicates =(522037, 2)
+11/09/2021 16:59:50 Dominio apos remover duplicates =(521348, 2)
+11/09/2021 16:59:51 GetFeaturesEDominio: dominio shape = (521348, 2)
+11/09/2021 16:59:51 GetFeaturesEDominio: AudioFeatures shape = (520736, 14)
+11/09/2021 16:59:52 << GetFeaturesEDominio
