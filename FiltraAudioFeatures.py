@@ -21,7 +21,7 @@ logging.basicConfig(filename='./Analises/preprocessamento2.log',
                     )
 logging.info('>> FiltraAudioFeatures')
 
-dfAudioFeatures      =  pd.read_pickle ("./FeatureStore/AudioFeatures.pickle")  
+dfAudioFeatures      =  pd.read_pickle ("./FeatureStore/DominioAudioFeatures.pickle")  
 dfUserAAudioFeatures =  pd.read_pickle ("./FeatureStore/AudioFeaturesUserACurte.pickle")  
 dfUserAbarraAudioFeatures =  pd.read_pickle ("./FeatureStore/AudioFeaturesUserANaoCurte.pickle")  
 
@@ -82,7 +82,7 @@ dfUserAFeatureSamples = dfUserAFeatureSamples.sample(frac=1)
 dfUserAFeatureSamples=dfUserAFeatureSamples.dropna()
 logging.info("dfUserAFeatureSamples shape=%s", dfUserAFeatureSamples.shape)
 # salvando filtrado
-dfAudioFeatures.to_pickle('./FeatureStore/AudioFeatures.pickle')
+dfAudioFeatures.to_pickle('./FeatureStore/DominioAudioFeatures.pickle')
 dfUserAFeatureSamples.to_pickle('./FeatureStore/UserAFeatureSamples.pickle')
 
 logging.info('<< FiltraAudioFeatures')
