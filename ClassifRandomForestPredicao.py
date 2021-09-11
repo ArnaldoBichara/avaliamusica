@@ -16,7 +16,7 @@ import sys
 
 # Argumento de entrada 
 # id_musica a prever
-#%%
+
 if (len(sys.argv)<1):
   print ('argumento obrigatório: id_musica')
   quit()
@@ -32,7 +32,10 @@ logging.info('\n>> ClassifPrediçãoRandomForestPredicao')
 #lendo dataset
 modeloRF = pd.read_pickle ("./FeatureStore/modeloRandomForest.pickle")
 
-# buscando audiofeatures da música[id_musica] no spotify
+# buscando audiofeatures da música[id_musica] no domínio
+dominioAudioFeatures = pd.read_pickle ("./FeatureStore/dominioAudioFeatures.pickle")
+
+#%%
 TODO
 
 # faz predição dos dados de teste
