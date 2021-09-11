@@ -13,12 +13,12 @@ import logging
 from sklearn.metrics import accuracy_score
 from sklearn.ensemble import RandomForestClassifier
 
-logging.basicConfig(filename='./Analises/treinoModeloPorConteudo.log', 
+logging.basicConfig(filename='./Analises/processamentoClassificacao.log', 
                     level=logging.INFO,
-                    format='%(message)s',
+                    format='%(asctime)s %(message)s',
                     datefmt='%d/%m/%Y %H:%M:%S'
                     )
-logging.info('\n>> ConteudoTreina')
+logging.info('\n>> ClassifRandomForestTreinamento')
 
 #lendo dataset
 UserAFeatureSamples = pd.read_pickle ("./FeatureStore/UserAFeatureSamples.pickle")
@@ -51,4 +51,4 @@ logging.info ("acuracias %s", acuracias)
 with open("./FeatureStore/modeloRandomForest.pickle", 'wb') as arq:
     pickle.dump (modeloRF, arq)
 #%%
-logging.info('\n<< ConteudoTreina')
+logging.info('\n<< ClassifRandomForestTreinamento')
