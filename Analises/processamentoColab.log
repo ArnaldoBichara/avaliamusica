@@ -1226,3 +1226,80 @@ vizinhos de Abarra shape:(140, 2)
 08/09/2021 17:07:33 lista de Interseccao UserAbarra: 57
 08/09/2021 17:07:33 
 << ColabMontaMusCandidatas
+13/09/2021 17:30:50 
+>> ColabFiltraUsuariosOutliers
+13/09/2021 17:30:53 filtrando users com playlist entre 50 e 3194
+13/09/2021 17:30:53 NumExpr defaulting to 4 threads.
+13/09/2021 17:30:54 MusUsers shape apos filtro (2927661, 3)
+13/09/2021 17:30:58 MusUsers describe apos filtro                                   userid       interpretacao               id_musica
+count                            2927661             2927661                 2927661
+unique                             10420              133982                  133982
+top     a9f844ceb4d928d7ff7c189211f301c5  M83:>MIDNIGHT CITY  6GyFP1nfCDB8lbD2bG0Hq9
+freq                                3144                1777                    1777
+13/09/2021 17:30:58 dfCountPerUser describe apos filtro               nrows
+count  10420.000000
+mean     280.965547
+std      297.050521
+min       51.000000
+25%      105.000000
+50%      187.000000
+75%      339.000000
+max     3144.000000
+13/09/2021 17:31:02 Dominio antes de remover duplicates =(2928962, 2)
+13/09/2021 17:31:03 Dominio apos remover duplicates =(134782, 2)
+13/09/2021 17:31:04 Dominio de musicas para Colab =(134781,)
+13/09/2021 17:31:07 
+<< ColabFiltraUsuariosOutliers
+13/09/2021 17:33:15 
+>> ColabFiltraUsuariosOutliers
+13/09/2021 17:33:17 filtrando users com playlist entre 50 e 3194
+13/09/2021 17:33:17 NumExpr defaulting to 4 threads.
+13/09/2021 17:33:18 MusUsers shape apos filtro (2804323, 3)
+13/09/2021 17:33:22 MusUsers describe apos filtro                                   userid       interpretacao               id_musica
+count                            2804323             2804323                 2804323
+unique                             10369              131148                  131148
+top     f2604a69836c94d00fcd11dd602944fc  M83:>MIDNIGHT CITY  6GyFP1nfCDB8lbD2bG0Hq9
+freq                                1988                1759                    1759
+13/09/2021 17:33:22 dfCountPerUser describe apos filtro               nrows
+count  10369.000000
+mean     270.452599
+std      256.371166
+min       51.000000
+25%      105.000000
+50%      186.000000
+75%      336.000000
+max     1988.000000
+13/09/2021 17:33:25 Dominio antes de remover duplicates =(2805624, 2)
+13/09/2021 17:33:26 Dominio apos remover duplicates =(131950, 2)
+13/09/2021 17:33:26 Dominio de musicas para Colab =(131949,)
+13/09/2021 17:33:30 
+<< ColabFiltraUsuariosOutliers
+13/09/2021 17:35:33 
+>> ColabFiltraUsuariosOutliers
+13/09/2021 17:35:35 filtrando users com playlist entre 50 e 2000
+13/09/2021 17:35:35 NumExpr defaulting to 4 threads.
+13/09/2021 17:35:36 MusUsers shape apos filtro (2804323, 3)
+13/09/2021 17:35:41 MusUsers describe apos filtro                                   userid       interpretacao               id_musica
+count                            2804323             2804323                 2804323
+unique                             10369              131148                  131148
+top     f2604a69836c94d00fcd11dd602944fc  M83:>MIDNIGHT CITY  6GyFP1nfCDB8lbD2bG0Hq9
+freq                                1988                1759                    1759
+13/09/2021 17:35:41 dfCountPerUser describe apos filtro               nrows
+count  10369.000000
+mean     270.452599
+std      256.371166
+min       51.000000
+25%      105.000000
+50%      186.000000
+75%      336.000000
+max     1988.000000
+13/09/2021 17:35:45 Dominio de musicas para Colab =(131949,)
+13/09/2021 17:35:48 
+<< ColabFiltraUsuariosOutliers
+13/09/2021 18:01:36 
+>> ColabPreProcessamento
+13/09/2021 18:01:38 filtrando users com playlist entre 50 e 150
+13/09/2021 18:01:38 NumExpr defaulting to 4 threads.
+13/09/2021 18:01:38 listaUsers 4207
+13/09/2021 18:08:02 
+<< ColabPreProcessamento
