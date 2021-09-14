@@ -41,3 +41,50 @@ Curte: Analise por conteudo nao bate com Colab 2
 Nao Curte: Analise por conteudo nao bate com Colab 1
 
 << ClassifRandomForest
+
+>> ClassifRandomForest
+musicaCandidataCurte 238    FLORENCE + THE MACHINE:>HEARTLINES
+Name: interpretacao, dtype: object
+musicaCandidataNaoCurte 88    ROXETTE:>QUEEN OF RAIN
+Name: interpretacao, dtype: object
+musicas não encontradas 0
+Curte: Analise por conteudo nao bate com Colab 6
+Nao Curte: Analise por conteudo nao bate com Colab 1
+
+<< ClassifRandomForest
+
+>> ClassifRandomForest
+Curte - avaliação não bate para: 308    RED HOT CHILI PEPPERS:>CAN'T STOP
+Name: interpretacao, dtype: object
+Curte - avaliação não bate para: 108    MS MR:>HURRICANE
+Name: interpretacao, dtype: object
+musicaCandidataCurte 229    ROSANA:>PA TI NO ESTOY
+Name: interpretacao, dtype: object
+NaoCurte - avaliação não bate para: 546    ENNIO MORRICONE:>TITLES - FROM ''THE GOOD THE ...
+Name: interpretacao, dtype: object
+musicaCandidataNaoCurte 739    QUEEN:>THE INVISIBLE MAN - REMASTERED 2011
+Name: interpretacao, dtype: object
+musicas não encontradas 0
+Curte: Analise por conteudo nao bate com Colab 2
+Nao Curte: Analise por conteudo nao bate com Colab 1
+
+<< ClassifRandomForest
+
+>> ClassifRandomForest
+Curte - avaliacao nao bate para: 192    LIMP BIZKIT:>TAKE A LOOK AROUND
+Name: interpretacao, dtype: object
+Curte - avaliacao nao bate para: 101    THE COMMON LINNETS:>CALM AFTER THE STORM - RAD...
+Name: interpretacao, dtype: object
+Curte - avaliacao nao bate para: 2    BOB DYLAN:>KNOCKIN' ON HEAVEN'S DOOR
+Name: interpretacao, dtype: object
+Curte - avaliacao nao bate para: 82    ARONCHUPA:>I'M AN ALBATRAOZ
+Name: interpretacao, dtype: object
+musicaCandidataCurte 89    AMARAL:>ESTA MADRUGADA
+Name: interpretacao, dtype: object
+musicaCandidataNaoCurte 655    LIMP BIZKIT:>MY GENERATION
+Name: interpretacao, dtype: object
+musicas não encontradas 0
+Curte: Analise por conteudo nao bate com Colab 6
+Nao Curte: Analise por conteudo nao bate com Colab 1
+
+<< ClassifRandomForest

@@ -66,6 +66,7 @@ def EncontraCandidata (tipo):
       encontrou = True
     else:
       estatisticas[estat] = estatisticas.get(estat, 0) +1
+      logging.info ("%s - avaliacao nao bate para: %s", tipo, musCandidata['interpretacao'])
 
   return musCandidata
 
@@ -81,7 +82,7 @@ logging.info ("musicaCandidataNaoCurte %s", musCandidataNaoCurte['interpretacao'
 
 with open('./Analises/estatisticas.pickle', 'wb') as arq:
     pickle.dump(estatisticas, arq)
-logging.info ("musicas não encontradas %s", estatisticas["MusNaoEncontradaEmAudioFeature"])
+logging.info ("musicas nao encontradas %s", estatisticas["MusNaoEncontradaEmAudioFeature"])
 logging.info ("Curte: Analise por conteudo nao bate com Colab %s", estatisticas["CurteAnaliseConteudoNaobateComAnaliseColab"])
 logging.info ("Nao Curte: Analise por conteudo nao bate com Colab %s", estatisticas["NaoCurteAnaliseConteudoNaobateComAnaliseColab"])
 
