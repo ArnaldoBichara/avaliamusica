@@ -32,9 +32,10 @@ y_folds = np.array_split ( np.array(UserAFeatureSamples['classe'])      , num_fo
 #%% treinando o modelo
 acuracias=[]
 matrizes = []
-# n_jobs= -1 : usa todos os processadores da máquina
-modeloRF = RandomForestClassifier(n_jobs=-1)
+
 for i in range(num_folds):  
+    # n_jobs= -1 : usa todos os processadores da máquina
+    modeloRF = RandomForestClassifier(n_jobs=-1)
     dados_trein   = np.concatenate (X_folds[:i] + X_folds[i+1:])
     labels_trein = np.concatenate (y_folds[:i] + y_folds[i+1:])
     dados_teste   = X_folds[i]
