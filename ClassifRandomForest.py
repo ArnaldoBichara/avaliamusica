@@ -74,11 +74,13 @@ musCandidataCurte = EncontraCandidata ('Curte')
 with open('./FeatureStore/musicaCandidataCurte.pickle', 'wb') as arq:
     pickle.dump(musCandidataCurte, arq)
 logging.info ("musicaCandidataCurte %s", musCandidataCurte['interpretacao'])
+print ('música candidata a Curtir:', musCandidataCurte['interpretacao'])
 
 musCandidataNaoCurte = EncontraCandidata ('NaoCurte')
 with open('./FeatureStore/musicaCandidataNaoCurte.pickle', 'wb') as arq:
     pickle.dump(musCandidataNaoCurte, arq)
 logging.info ("musicaCandidataNaoCurte %s", musCandidataNaoCurte['interpretacao'])
+print ('música candidata a Não Curtir:', musCandidataNaoCurte['interpretacao'])
 
 with open('./Analises/estatisticas.pickle', 'wb') as arq:
     pickle.dump(estatisticas, arq)

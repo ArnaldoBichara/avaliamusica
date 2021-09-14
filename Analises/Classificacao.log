@@ -88,3 +88,75 @@ Curte: Analise por conteudo nao bate com Colab 6
 Nao Curte: Analise por conteudo nao bate com Colab 1
 
 << ClassifRandomForest
+
+>> ClassifRandomForest
+Curte - avaliacao nao bate para: 78    DAVID GUETTA:>IN LOVE WITH MYSELF
+Name: interpretacao, dtype: object
+Curte - avaliacao nao bate para: 53    TOM PETTY AND THE HEARTBREAKERS:>LEARNING TO FLY
+Name: interpretacao, dtype: object
+Curte - avaliacao nao bate para: 494    U2:>ELEVATION
+Name: interpretacao, dtype: object
+musicaCandidataCurte 211    JOHN NEWMAN:>LOVE ME AGAIN
+Name: interpretacao, dtype: object
+NaoCurte - avaliacao nao bate para: 729    HAMMERFALL:>RENEGADE
+Name: interpretacao, dtype: object
+musicaCandidataNaoCurte 625    MANOWAR:>THE OATH
+Name: interpretacao, dtype: object
+musicas nao encontradas 0
+Curte: Analise por conteudo nao bate com Colab 9
+Nao Curte: Analise por conteudo nao bate com Colab 2
+
+<< ClassifRandomForest
+
+>> ClassifRandomForest
+musicaCandidataCurte 66    ENRIQUE IGLESIAS:>NOCHE Y DE DIA
+Name: interpretacao, dtype: object
+musicaCandidataNaoCurte 161    ROXETTE:>CRASH! BOOM! BANG!
+Name: interpretacao, dtype: object
+musicas nao encontradas 0
+Curte: Analise por conteudo nao bate com Colab 9
+Nao Curte: Analise por conteudo nao bate com Colab 2
+
+<< ClassifRandomForest
+
+>> ClassifRandomForest
+Curte - avaliacao nao bate para: 150    TEXAS:>SAY WHAT YOU WANT
+Name: interpretacao, dtype: object
+Curte - avaliacao nao bate para: 308    RED HOT CHILI PEPPERS:>CAN'T STOP
+Name: interpretacao, dtype: object
+Curte - avaliacao nao bate para: 343    ROLF LØVLAND:>PASSACAGLIA
+Name: interpretacao, dtype: object
+Curte - avaliacao nao bate para: 368    MECANO:>EL 7 DE SEPTIEMBRE (VERSIÓN ACUSTICA)
+Name: interpretacao, dtype: object
+musicaCandidataCurte 358    DIE FANTASTISCHEN VIER:>MILLIONEN LEGIONEN
+Name: interpretacao, dtype: object
+musicaCandidataNaoCurte 466    ROYAL BLOOD:>COME ON OVER
+Name: interpretacao, dtype: object
+musicas nao encontradas 0
+Curte: Analise por conteudo nao bate com Colab 13
+Nao Curte: Analise por conteudo nao bate com Colab 2
+
+<< ClassifRandomForest
+
+>> ClassifRandomForest
+Curte - avaliacao nao bate para: 241    KATY PERRY:>FIREWORK
+Name: interpretacao, dtype: object
+Curte - avaliacao nao bate para: 2    BOB DYLAN:>KNOCKIN' ON HEAVEN'S DOOR
+Name: interpretacao, dtype: object
+Curte - avaliacao nao bate para: 492    ROBERT MILES:>CHILDREN
+Name: interpretacao, dtype: object
+Curte - avaliacao nao bate para: 387    ENNIO MORRICONE:>VISIT TO THE CINEMA
+Name: interpretacao, dtype: object
+musicaCandidataCurte 412    FLORENCE + THE MACHINE:>DRUMMING SONG
+Name: interpretacao, dtype: object
+NaoCurte - avaliacao nao bate para: 411    THE KILLERS:>SMILE LIKE YOU MEAN IT
+Name: interpretacao, dtype: object
+NaoCurte - avaliacao nao bate para: 624    SABATON:>THE FINAL SOLUTION
+Name: interpretacao, dtype: object
+musicaCandidataNaoCurte 712    BLACK STONE CHERRY:>CAN'T YOU SEE
+Name: interpretacao, dtype: object
+musicas nao encontradas 0
+Curte: Analise por conteudo nao bate com Colab 17
+Nao Curte: Analise por conteudo nao bate com Colab 4
+
+<< ClassifRandomForest

@@ -10,7 +10,7 @@ import numpy as np
 import pickle
 import logging
 
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import accuracy_score, confusion_matrix
 from sklearn.ensemble import RandomForestClassifier
 
 logging.basicConfig(filename='./Analises/processamentoClassificacao.log', 
@@ -31,6 +31,7 @@ y_folds = np.array_split ( np.array(UserAFeatureSamples['classe'])      , num_fo
 
 #%% treinando o modelo
 acuracias=[]
+matrizes = []
 # n_jobs= -1 : usa todos os processadores da máquina
 modeloRF = RandomForestClassifier(n_jobs=-1)
 for i in range(num_folds):  
@@ -44,8 +45,13 @@ for i in range(num_folds):
     labels_predicao = modeloRF.predict(dados_teste)
     acuracia = np.sum(labels_predicao == labels_teste)/len(labels_teste)
     acuracias.append(acuracia)
+    # matriz de confusao
+    matriz_confusao = confusion_matrix(labels_teste, labels_predicao)
+    matrizes.append(matriz_confusao)
+
 print(acuracias)
 logging.info ("acuracias %s", acuracias)
+logging.info ("matrizes %s", matrizes)
 
 # salvando modelo em .pickle
 with open("./FeatureStore/modeloRandomForest.pickle", 'wb') as arq:
