@@ -13,3 +13,18 @@
 14/09/2021 12:34:51 AudioFeaturesUserAbarra sem loudness = (551, 13)
 14/09/2021 12:34:52 dfUserAFeatureSamples shape=(1295, 13)
 14/09/2021 12:34:52 << FiltraAudioFeatures
+14/09/2021 12:42:54 >> FiltraAudioFeatures
+14/09/2021 12:42:54 NumExpr defaulting to 4 threads.
+14/09/2021 12:42:54 AudioFeatures com duration_ms > 30 seg = (520536, 14)
+14/09/2021 12:42:54 UserAAudioFeatures com duration_ms > 30 seg = (744, 14)
+14/09/2021 12:42:54 UserAbarraAudioFeatures com duration_ms > 30 seg = (551, 14)
+14/09/2021 12:42:54 AudioFeatures (520536, 14)
+14/09/2021 12:42:54 AudioFeaturesUserA (744, 14)
+14/09/2021 12:42:54 AudioFeaturesUserAbarra (551, 14)
+14/09/2021 12:42:54 AudioFeatures antes de filtro = (520536, 14)
+14/09/2021 12:42:54 AudioFeatures com speechiness < 0,6 = (497279, 14)
+14/09/2021 12:42:54 AudioFeatures sem loudness = (497279, 13)
+14/09/2021 12:42:54 AudioFeaturesUserA sem loudness = (744, 13)
+14/09/2021 12:42:54 AudioFeaturesUserAbarra sem loudness = (551, 13)
+14/09/2021 12:42:54 dfUserAFeatureSamples shape=(1295, 13)
+14/09/2021 12:42:55 << FiltraAudioFeatures

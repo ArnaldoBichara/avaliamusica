@@ -46,3 +46,41 @@ Name: interpretacao, dtype: object
 >> ClassifRandomForest
 
 >> ClassifRandomForest
+
+>> ClassifRandomForest
+
+>> ClassifRandomForest
+
+>> ClassifRandomForest
+
+>> ClassifRandomForest
+musicaCandidataCurte 2412    FLORENCE + THE MACHINE:>HEARTLINES
+Name: interpretacao, dtype: object
+musicaCandidataNaoCurte 1699    SONIC YOUTH:>TOM VIOLENCE
+Name: interpretacao, dtype: object
+musicas não encontradas 0
+Analise por conteudo nao bate com Colab 4
+
+<< ClassifRandomForest
+
+>> ClassifRandomForest
+musicaCandidataCurte 1765    WILL.I.AM:>#THATPOWER
+Name: interpretacao, dtype: object
+musicaCandidataNaoCurte 1600    VAN MORRISON:>BROWN EYED GIRL
+Name: interpretacao, dtype: object
+musicas não encontradas 0
+Curte: Analise por conteudo nao bate com Colab 0
+Nao Curte: Analise por conteudo nao bate com Colab 0
+
+<< ClassifRandomForest
+
+>> ClassifRandomForest
+musicaCandidataCurte 1030    EXTREMODURO:>HOY TE LA METO HASTA LAS OREJAS
+Name: interpretacao, dtype: object
+musicaCandidataNaoCurte 699    L7:>ANDRES
+Name: interpretacao, dtype: object
+musicas não encontradas 0
+Curte: Analise por conteudo nao bate com Colab 2
+Nao Curte: Analise por conteudo nao bate com Colab 1
+
+<< ClassifRandomForest

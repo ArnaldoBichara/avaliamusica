@@ -22,9 +22,9 @@ logging.info('\n>> ClassifRandomForest')
 
 #lendo modelo e datasets
 modeloRF = pd.read_pickle ("./FeatureStore/modeloRandomForest.pickle")
-dominioAudioFeatures = pd.read_pickle ("./FeatureStore/dominioAudioFeatures.pickle")
-musCandidatasCurte = pd.read_pickle ("./FeatureStore/musCandidatasCurte.pickle")
-musCandidatasNaoCurte = pd.read_pickle ("./FeatureStore/musCandidatasNaoCurte.pickle")
+dominioAudioFeatures = pd.read_pickle ("./FeatureStore/DominioAudioFeatures.pickle")
+musCandidatasCurte = pd.read_pickle ("./FeatureStore/MusCandidatasCurte.pickle")
+musCandidatasNaoCurte = pd.read_pickle ("./FeatureStore/MusCandidatasNaoCurte.pickle")
 
 # preparando estatísticas interessantes
 if (os.path.isfile("./Analises/estatisticas.pickle")):
@@ -32,7 +32,8 @@ if (os.path.isfile("./Analises/estatisticas.pickle")):
 else:
   estatisticas = {}
   estatisticas['MusNaoEncontradaEmAudioFeature'] = 0
-  estatisticas["AnaliseConteudoNaobateComAnaliseColab"] = 0
+  estatisticas["CurteAnaliseConteudoNaobateComAnaliseColab"] = 0
+  estatisticas["NaoCurteAnaliseConteudoNaobateComAnaliseColab"] = 0
 
 #%%
 
@@ -41,10 +42,11 @@ def EncontraCandidata (tipo):
   if (tipo=='Curte'):
     musCandidatas = musCandidatasCurte
     predicao_esperada = 1
+    estat = "CurteAnaliseConteudoNaobateComAnaliseColab"
   else:
     musCandidatas = musCandidatasNaoCurte
     predicao_esperada = 0
- 
+    estat = "NaoCurteAnaliseConteudoNaobateComAnaliseColab"
   encontrou = False
   while not encontrou:
     # Escolha aleatória de uma música Candidata
@@ -56,13 +58,14 @@ def EncontraCandidata (tipo):
       estatisticas["MusNaoEncontradaEmAudioFeature"] = estatisticas.get("MusNaoEncontradaEmAudioFeature", 0) +1
       continue
 
-    dados_predicao = audioFeaturesMusCand.drop(columns=['id_musica'])
+    
+    dados_predicao = audioFeaturesMusCand.drop(columns=['id_musica']).to_numpy()
     # fazendo classificação por conteúdo
     label_predicao = modeloRF.predict(dados_predicao)
     if (label_predicao[0]==[predicao_esperada]):
       encontrou = True
     else:
-      estatisticas["AnaliseConteudoNaobateComAnaliseColab"] = estatisticas.get("AnaliseConteudoNaobateComAnaliseColab", 0) +1
+      estatisticas[estat] = estatisticas.get(estat, 0) +1
 
   return musCandidata
 
@@ -79,6 +82,7 @@ logging.info ("musicaCandidataNaoCurte %s", musCandidataNaoCurte['interpretacao'
 with open('./Analises/estatisticas.pickle', 'wb') as arq:
     pickle.dump(estatisticas, arq)
 logging.info ("musicas não encontradas %s", estatisticas["MusNaoEncontradaEmAudioFeature"])
-logging.info ("Analise por conteudo nao bate com Colab %s", estatisticas["AnaliseConteudoNaobateComAnaliseColab"])
+logging.info ("Curte: Analise por conteudo nao bate com Colab %s", estatisticas["CurteAnaliseConteudoNaobateComAnaliseColab"])
+logging.info ("Nao Curte: Analise por conteudo nao bate com Colab %s", estatisticas["NaoCurteAnaliseConteudoNaobateComAnaliseColab"])
 
 logging.info('\n<< ClassifRandomForest')
