@@ -1,16 +1,16 @@
-14/09/2021 08:41:54 
+14/09/2021 09:13:26 
 >> ColabFiltraUsuariosOutliers
-14/09/2021 08:41:56 filtrando users com playlist entre 50 e 2000
-14/09/2021 08:41:56 NumExpr defaulting to 4 threads.
-14/09/2021 08:41:57 MusUsers shape apos filtro (2804323, 3)
-14/09/2021 08:42:02 MusUsers describe apos filtro                                   userid  ...               id_musica
+14/09/2021 09:13:28 filtrando users com playlist entre 50 e 2000
+14/09/2021 09:13:28 NumExpr defaulting to 4 threads.
+14/09/2021 09:13:29 MusUsers shape apos filtro (2804323, 3)
+14/09/2021 09:13:33 MusUsers describe apos filtro                                   userid  ...               id_musica
 count                            2804323  ...                 2804323
 unique                             10369  ...                  131148
 top     f2604a69836c94d00fcd11dd602944fc  ...  6GyFP1nfCDB8lbD2bG0Hq9
 freq                                1988  ...                    1759
 
 [4 rows x 3 columns]
-14/09/2021 08:42:02 dfCountPerUser describe apos filtro               nrows
+14/09/2021 09:13:33 dfCountPerUser describe apos filtro               nrows
 count  10369.000000
 mean     270.452599
 std      256.371166
@@ -19,15 +19,15 @@ min       51.000000
 50%      186.000000
 75%      336.000000
 max     1988.000000
-14/09/2021 08:42:06 Dominio de musicas para Colab =(131949,)
-14/09/2021 08:42:12 
+14/09/2021 09:13:37 Dominio de musicas para Colab =(131949,)
+14/09/2021 09:13:54 
 << ColabFiltraUsuariosOutliers
-14/09/2021 08:42:17 
+14/09/2021 09:14:02 
 >> ColabPreProcessamento
-14/09/2021 08:42:19 filtrando users com playlist entre 50 e 120
-14/09/2021 08:42:19 NumExpr defaulting to 4 threads.
-14/09/2021 08:42:19 listaUsers 3191
-14/09/2021 08:46:48 
+14/09/2021 09:14:03 filtrando users com playlist entre 50 e 120
+14/09/2021 09:14:03 NumExpr defaulting to 4 threads.
+14/09/2021 09:14:03 listaUsers 3191
+14/09/2021 09:18:19 
 << ColabPreProcessamento
 
 >> ColabProcessaUsuariosVizinhos: DescobreVizinhos de UserA e UserAbarra
@@ -158,12 +158,12 @@ cc7f73ea488be6e4f72059e0399281e8 0.9884105960264901
 vizinhos de Abarra shape:(20, 2)
 
 << ColabProcessaUsuariosVizinhos
-14/09/2021 08:47:45 
+14/09/2021 09:19:10 
 >> ColabPreProcessamento
-14/09/2021 08:47:50 filtrando users com playlist entre 121 e 200
-14/09/2021 08:47:50 NumExpr defaulting to 4 threads.
-14/09/2021 08:47:50 listaUsers 2214
-14/09/2021 08:50:51 
+14/09/2021 09:19:11 filtrando users com playlist entre 121 e 200
+14/09/2021 09:19:11 NumExpr defaulting to 4 threads.
+14/09/2021 09:19:12 listaUsers 2214
+14/09/2021 09:22:19 
 << ColabPreProcessamento
 
 >> ColabProcessaUsuariosVizinhos: DescobreVizinhos de UserA e UserAbarra
@@ -294,12 +294,12 @@ ec0dacc996c178d274cfa0af4d98af9e 0.9873949579831933
 vizinhos de Abarra shape:(40, 2)
 
 << ColabProcessaUsuariosVizinhos
-14/09/2021 08:51:30 
+14/09/2021 09:22:58 
 >> ColabPreProcessamento
-14/09/2021 08:51:32 filtrando users com playlist entre 201 e 270
-14/09/2021 08:51:32 NumExpr defaulting to 4 threads.
-14/09/2021 08:51:32 listaUsers 1332
-14/09/2021 08:53:27 
+14/09/2021 09:22:59 filtrando users com playlist entre 201 e 270
+14/09/2021 09:23:00 NumExpr defaulting to 4 threads.
+14/09/2021 09:23:00 listaUsers 1332
+14/09/2021 09:24:53 
 << ColabPreProcessamento
 
 >> ColabProcessaUsuariosVizinhos: DescobreVizinhos de UserA e UserAbarra
@@ -430,12 +430,12 @@ cf788d4ebadb0a7eac264bc7c7275794 0.9861111111111112
 vizinhos de Abarra shape:(60, 2)
 
 << ColabProcessaUsuariosVizinhos
-14/09/2021 08:54:00 
+14/09/2021 09:25:27 
 >> ColabPreProcessamento
-14/09/2021 08:54:02 filtrando users com playlist entre 271 e 400
-14/09/2021 08:54:02 NumExpr defaulting to 4 threads.
-14/09/2021 08:54:03 listaUsers 1456
-14/09/2021 08:56:12 
+14/09/2021 09:25:28 filtrando users com playlist entre 271 e 400
+14/09/2021 09:25:28 NumExpr defaulting to 4 threads.
+14/09/2021 09:25:29 listaUsers 1456
+14/09/2021 09:27:36 
 << ColabPreProcessamento
 
 >> ColabProcessaUsuariosVizinhos: DescobreVizinhos de UserA e UserAbarra
@@ -566,12 +566,12 @@ a51bf8359b92019872ae25be2edcfe5f 0.9827981651376146
 vizinhos de Abarra shape:(80, 2)
 
 << ColabProcessaUsuariosVizinhos
-14/09/2021 08:56:46 
+14/09/2021 09:28:10 
 >> ColabPreProcessamento
-14/09/2021 08:56:48 filtrando users com playlist entre 401 e 700
-14/09/2021 08:56:48 NumExpr defaulting to 4 threads.
-14/09/2021 08:56:48 listaUsers 1301
-14/09/2021 08:58:47 
+14/09/2021 09:28:12 filtrando users com playlist entre 401 e 700
+14/09/2021 09:28:12 NumExpr defaulting to 4 threads.
+14/09/2021 09:28:13 listaUsers 1301
+14/09/2021 09:30:04 
 << ColabPreProcessamento
 
 >> ColabProcessaUsuariosVizinhos: DescobreVizinhos de UserA e UserAbarra
@@ -702,41 +702,29 @@ c81036938bcc98a5080bf4f155731004 0.9828209764918626
 vizinhos de Abarra shape:(100, 2)
 
 << ColabProcessaUsuariosVizinhos
-14/09/2021 08:59:23 
+14/09/2021 09:30:37 
 >> ColabPreProcessamento
-14/09/2021 08:59:25 filtrando users com playlist entre 701 e 12000
-14/09/2021 08:59:25 NumExpr defaulting to 4 threads.
-14/09/2021 08:59:25 listaUsers 672
-14/09/2021 09:00:34 
+14/09/2021 09:30:38 filtrando users com playlist entre 701 e 1200
+14/09/2021 09:30:38 NumExpr defaulting to 4 threads.
+14/09/2021 09:30:38 listaUsers 512
+14/09/2021 09:31:30 
 << ColabPreProcessamento
 
 >> ColabProcessaUsuariosVizinhos: DescobreVizinhos de UserA e UserAbarra
-ColabMusUsersEsparsa shape (672, 131950)
+ColabMusUsersEsparsa shape (512, 131950)
 vizinhos de A:
-793bca611ca9d783dd49ca8b1ef5e58d 0.9779874213836478
-[[130041   1192]
- [   674     42]]
 277caa9d9c73131761440c642430319b 0.9802538787023978
 [[130531    702]
  [   688     28]]
 137403a48e27371b322fa5d75e64c6e4 0.981020942408377
 [[130421    812]
  [   687     29]]
-1ed31a332fb451c36a93c6a9d791fb73 0.9814145585957667
-[[130012   1221]
- [   680     36]]
-380246124c11b4de49ca9f82b89ee971 0.9814814814814815
-[[130059   1174]
- [   681     35]]
 b60af45d21859a8f9fe65caa95628e28 0.9824135839902971
 [[130300    933]
  [   687     29]]
 950a14d1070955085ffc9eed4716ba7f 0.9827586206896551
 [[130441    792]
  [   690     26]]
-8873e03b8622c5354a7600591a7adfde 0.9828118113706479
-[[129680   1553]
- [   677     39]]
 d509cf2f117a1c4ee310c87652d1f251 0.9834660134721371
 [[130316    917]
  [   689     27]]
@@ -764,15 +752,27 @@ d509cf2f117a1c4ee310c87652d1f251 0.9834660134721371
 24b681215493a2de518c4e7a98ffcbaa 0.9849892780557541
 [[130550    683]
  [   695     21]]
-6a70dc170abd576171d74f1e63b4c903 0.9853709508881923
-[[130035   1198]
- [   688     28]]
 32bf6cdf577f4551f372cd52206306be 0.9858849077090119
 [[130107   1126]
  [   690     26]]
 78bf71f2bb5c828aad3a050047586dee 0.9862068965517241
 [[130499    734]
  [   696     20]]
+e94c454467df5037f9a5a781910f98e8 0.9863370201691607
+[[130412    821]
+ [   695     21]]
+55f361fad00af15e96e790bc360ce1c6 0.9866017052375152
+[[130307    926]
+ [   694     22]]
+cebc0571dba7053ec055f1f27604bf5d 0.9866385372714487
+[[130527    706]
+ [   697     19]]
+dd38c2a219a2803b54b5719f3cbdb6aa 0.9866399465597863
+[[130452    781]
+ [   696     20]]
+1230be2648e39fb909517e30e6033c10 0.9866760168302945
+[[130523    710]
+ [   697     19]]
 vizinhos de A shape:(120, 2)
 vizinhos de Abarra:
 5750a33e48cb55101414a254019c0687 0.9757174392935982
@@ -790,12 +790,6 @@ vizinhos de Abarra:
 6b733f10109dddca07866f8cd8875c85 0.9814540059347181
 [[130601    797]
  [   526     25]]
-ca66c0dba50b8b2269c560a592cd5d44 0.9826897470039947
-[[129696   1702]
- [   512     39]]
-072f97536340ac57a8becca9e035e36a 0.9827405857740585
-[[130037   1361]
- [   518     33]]
 11208b7680bd92c68592693f62d34239 0.9829329962073325
 [[130367   1031]
  [   524     27]]
@@ -805,18 +799,12 @@ ca66c0dba50b8b2269c560a592cd5d44 0.9826897470039947
 923c7ff3ade0af8f4a32d43720d17620 0.9832102081934184
 [[130460    938]
  [   526     25]]
-1b3f1b61de428c29df865a9ed8830a78 0.9834285714285714
-[[130199   1199]
- [   522     29]]
 04fdb72192881895cdcd0fef3adbdd15 0.9834462001504891
 [[130620    778]
  [   529     22]]
 c85d7aa63cf4f2a02286c0badd37b1a9 0.9838187702265372
 [[130713    685]
  [   531     20]]
-d8a30c6826f861a300bbd83544711e8e 0.9839270199826238
-[[129647   1751]
- [   514     37]]
 c381fa5affd6eb78be34e8f8f8cf58a6 0.9840848806366048
 [[130441    957]
  [   527     24]]
@@ -835,15 +823,27 @@ cebc0571dba7053ec055f1f27604bf5d 0.984884645982498
 6fc611e9766aaec732410b1e6212ccc5 0.9849306811332128
 [[130290   1108]
  [   526     25]]
+a5454a22ecd0d9ace6c36b427f586b93 0.9850187265917603
+[[130614    784]
+ [   531     20]]
+1b41d6b49e85f0a16f15fac25f924aae 0.9850552306692657
+[[130410    988]
+ [   528     23]]
+fccf4fe64593304bc46b6e0a1ace91b7 0.9852280025690431
+[[130392   1006]
+ [   528     23]]
+137403a48e27371b322fa5d75e64c6e4 0.9854227405247813
+[[130577    821]
+ [   531     20]]
 vizinhos de Abarra shape:(120, 2)
 
 << ColabProcessaUsuariosVizinhos
-14/09/2021 09:01:03 
+14/09/2021 09:31:56 
 >> ColabPreProcessamento
-14/09/2021 09:01:05 filtrando users com playlist entre 1201 e 2000
-14/09/2021 09:01:05 NumExpr defaulting to 4 threads.
-14/09/2021 09:01:06 listaUsers 160
-14/09/2021 09:01:29 
+14/09/2021 09:31:58 filtrando users com playlist entre 1201 e 2000
+14/09/2021 09:31:58 NumExpr defaulting to 4 threads.
+14/09/2021 09:31:59 listaUsers 160
+14/09/2021 09:32:21 
 << ColabPreProcessamento
 
 >> ColabProcessaUsuariosVizinhos: DescobreVizinhos de UserA e UserAbarra
@@ -974,31 +974,31 @@ db937456654d2465292c4daa947c95de 0.9898826386078511
 vizinhos de Abarra shape:(140, 2)
 
 << ColabProcessaUsuariosVizinhos
-14/09/2021 09:01:52 
+14/09/2021 09:32:43 
 >> ColabMontaMusCandidatas
-14/09/2021 09:01:52 ColabVizinhosUserA shape (140, 2)
-14/09/2021 09:01:52 ColabVizinhosUserAbarra shape (140, 2)
-14/09/2021 09:01:52 
+14/09/2021 09:32:43 ColabVizinhosUserA shape (140, 2)
+14/09/2021 09:32:43 ColabVizinhosUserAbarra shape (140, 2)
+14/09/2021 09:32:43 
 7 Melhores vizinhos de UserA:
-14/09/2021 09:01:52 28c5b1d357cb414f140be7f2b662f5b3
-14/09/2021 09:01:52 4112a2d73341b083607be0dbb918a9a0
-14/09/2021 09:01:52 0ff9b681f4dfa0e263df690a81240089
-14/09/2021 09:01:52 440335af03b7bf70932704f11dfc6849
-14/09/2021 09:01:52 793bca611ca9d783dd49ca8b1ef5e58d
-14/09/2021 09:01:52 793bca611ca9d783dd49ca8b1ef5e58d
-14/09/2021 09:01:52 0fcb39b49933824859a706f8c8c4b719
-14/09/2021 09:01:52 
+14/09/2021 09:32:43 28c5b1d357cb414f140be7f2b662f5b3
+14/09/2021 09:32:43 4112a2d73341b083607be0dbb918a9a0
+14/09/2021 09:32:43 0ff9b681f4dfa0e263df690a81240089
+14/09/2021 09:32:43 440335af03b7bf70932704f11dfc6849
+14/09/2021 09:32:43 793bca611ca9d783dd49ca8b1ef5e58d
+14/09/2021 09:32:43 0fcb39b49933824859a706f8c8c4b719
+14/09/2021 09:32:43 7473dc79603d0536b2dba55f32c8e9d5
+14/09/2021 09:32:43 
 7 Melhores vizinhos de UserAbarra:
-14/09/2021 09:01:52 c08f88e56ad2ee43da479aff3770dbfd
-14/09/2021 09:01:52 868abb81ec7b9d234c6bd51f1854a4bb
-14/09/2021 09:01:52 e0ab16b0f642ba9fb8cc4e90479014cf
-14/09/2021 09:01:52 2f67baa8719b93c030618a6286c4b6f3
-14/09/2021 09:01:52 e9df7a35882b1559d2d8843a54320604
-14/09/2021 09:01:52 6bd5941ff0cde3dc28ed7f68a9ab0b8d
-14/09/2021 09:01:52 5750a33e48cb55101414a254019c0687
-14/09/2021 09:02:00 MusCandUserACurte shape: (2576, 2)
-14/09/2021 09:02:00 MusInterseccaoVizinhoscomA shape: (78, 2)
-14/09/2021 09:02:04 MusCandUserANaoCurte shape: (1796, 2)
-14/09/2021 09:02:04 lista de Interseccao UserAbarra: 57
-14/09/2021 09:02:04 
+14/09/2021 09:32:43 c08f88e56ad2ee43da479aff3770dbfd
+14/09/2021 09:32:43 868abb81ec7b9d234c6bd51f1854a4bb
+14/09/2021 09:32:43 e0ab16b0f642ba9fb8cc4e90479014cf
+14/09/2021 09:32:43 2f67baa8719b93c030618a6286c4b6f3
+14/09/2021 09:32:43 e9df7a35882b1559d2d8843a54320604
+14/09/2021 09:32:43 6bd5941ff0cde3dc28ed7f68a9ab0b8d
+14/09/2021 09:32:43 5750a33e48cb55101414a254019c0687
+14/09/2021 09:32:51 MusCandUserACurte shape: (2750, 2)
+14/09/2021 09:32:51 MusInterseccaoVizinhoscomA shape: (81, 2)
+14/09/2021 09:32:55 MusCandUserANaoCurte shape: (1796, 2)
+14/09/2021 09:32:55 lista de Interseccao UserAbarra: 57
+14/09/2021 09:32:55 
 << ColabMontaMusCandidatas
