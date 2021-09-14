@@ -14,6 +14,10 @@ IntersCurto    =pd.read_pickle ("./FeatureStore/MusInterseccaoVizinhoscomA.pickl
 
 inter = np.sort(IntersCurto['interpretacao'].values)
 #%%
+CandCurto.loc[CandCurto['interpretacao'].str.contains("SKRILLEX:>")]
+#%%
+CandNaoCurto.loc[CandNaoCurto['interpretacao'].str.contains("SKRILLEX:>")]
+#%%
 print(inter)
 
 # %%

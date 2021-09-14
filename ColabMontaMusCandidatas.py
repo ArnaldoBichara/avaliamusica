@@ -11,7 +11,8 @@ import logging
 import pickle
 
 # Número de vizinhos mais próximos a considerar
-NVizinhos = 7
+#NVizinhos = 7
+NVizinhos = 3
 
 #
 logging.basicConfig(filename='./Analises/processamentoColab.log', 
@@ -30,21 +31,21 @@ logging.info ("ColabVizinhosUserAbarra shape %s", VizinhosUserAbarra.shape)
 # ordenando vizinhos por distancia e pegando apenas os N primeiros
 VizinhosUserA.sort_values(by=['distancia'], inplace=True)
 VizinhosUserAbarra.sort_values(by=['distancia'], inplace=True)
-
-VizinhosUserA.reset_index(inplace=True, drop=True)
-VizinhosUserAbarra.reset_index(inplace=True, drop=True)
-
+#%%
 # Pegando apenas primeiros N users mais próximos
 
 VizinhosUserA      = VizinhosUserA[:NVizinhos]
+VizinhosUserA.reset_index(inplace=True, drop=True)
 logging.info ('\n%s Melhores vizinhos de UserA:', NVizinhos)
 for i in range(NVizinhos):
-    logging.info ("%s", VizinhosUserA.iloc[i]['userid'])
+    logging.info ("%s %s", VizinhosUserA.iloc[i]['userid'], VizinhosUserA.iloc[i]['distancia'])
 
 VizinhosUserAbarra = VizinhosUserAbarra[:NVizinhos]
+VizinhosUserAbarra.reset_index(inplace=True, drop=True)
+
 logging.info ('\n%s Melhores vizinhos de UserAbarra:', NVizinhos)
 for i in range(NVizinhos):
-    logging.info ("%s", VizinhosUserAbarra.iloc[i]['userid'])
+    logging.info ("%s %s", VizinhosUserAbarra.iloc[i]['userid'], VizinhosUserAbarra.iloc[i]['distancia'])
 
 MusUsers       =  pd.read_pickle ("./FeatureStore/MusUsersNoDominio.pickle")  
 DominioDasMusicas =  pd.read_pickle ("./FeatureStore/DominioDasMusicas.pickle")  
