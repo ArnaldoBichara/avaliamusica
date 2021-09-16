@@ -23,7 +23,7 @@ logging.basicConfig(filename='./Analises/processamentoClassificacao.log',
 
 #lendo dataset
 UserAFeatureSamples = pd.read_pickle ("./FeatureStore/UserAFeatureSamples.pickle")
-
+#
 # X - features
 # y - classe
 X = UserAFeatureSamples.drop(columns=['classe'])
@@ -35,12 +35,12 @@ X_trein, X_teste, labels_trein, labels_teste = train_test_split(X, y, random_sta
 
 scoring = ['balanced_accuracy','precision_macro', 'recall_macro', 'roc_auc', 'neg_mean_squared_error']
 
-def calcula_cross_val_scores(clf, X_trein, labels_trein, scoring):
-    mul_scores = cross_validate(clf, X_trein, labels_trein, scoring=scoring, return_train_score=True)
+def calcula_cross_val_scores(clf, X_trein, labels_trein, cv):
+    mul_scores = cross_validate(clf, X_trein, labels_trein, scoring=scoring, cv=cv, return_train_score=True)
     acuracias_treino = mul_scores['train_balanced_accuracy']
-#    print ("train_balanced_accuracy:      {:.2e} (+/- {:.2e})".format(acuracias_treino.mean(), acuracias_treino.std()))
+    #print ("train_balanced_accuracy:      {:.2e} (+/- {:.2e})".format(acuracias_treino.mean(), acuracias_treino.std()))
     acuracias_teste  = mul_scores['test_balanced_accuracy']
-#    print ("test_balanced_accuracy:       {:.2e} (+/- {:.2e})".format(acuracias_teste.mean(), acuracias_teste.std()))
+    #print ("test_balanced_accuracy:       {:.3f} (+/- {:.3f})".format(acuracias_teste.mean(), acuracias_teste.std()))
     # scores = mul_scores['test_precision_macro']
     # print ("test_precision_macro:         {:.2e} (+/- {:.2e})".format(scores.mean(), scores.std()))
     # scores = mul_scores['test_recall_macro']
@@ -49,56 +49,98 @@ def calcula_cross_val_scores(clf, X_trein, labels_trein, scoring):
     # print ("test_roc_auc:                 {:.2e} (+/- {:.2e})".format(scores.mean(), scores.std()))
     # scores = mul_scores['train_neg_mean_squared_error']
     # print ("train_neg_mean_squared_error: {:.2e} (+/- {:.2e})".format(-scores.mean(), scores.std()))
-    # scores = mul_scores['test_neg_mean_squared_error']
-    # print ("test_neg_mean_squared_error : {:.2e} (+/- {:.2e})".format(-scores.mean(), scores.std()))
+    #scores = mul_scores['test_neg_mean_squared_error']
+    #print ("test_neg_mean_squared_error : {:.3f} (+/- {:.3f})".format(-scores.mean(), scores.std()))
+    return acuracias_treino.mean(), acuracias_teste.mean()
 
-#%%
 # Análise modelo RandomForest
 # Shallow decision trees (e.g. few levels) generally do not overfit but have poor performance (high bias, low variance). 
 # Whereas deep trees (e.g. many levels) generally do overfit and have good performance (low bias, high variance). 
 # A desirable tree is one that is not so shallow that it has low skill and not so deep that it overfits the training dataset.
+#%%
 acuracias_treino, acuracias_teste = list(), list()
-profundidades = [i for i in range(1,21)]
-for profundidade in profundidades: 
+params = [i for i in range(1,21)]
+for profundidade in params: 
 #    print ("\nRandom Forest com max_depth: {:d}".format(profundidade))
-    # n_jobs= -1 : usa todos os processadores da máquina
-    clf = RandomForestClassifier(max_depth=profundidade)
-    #scores = cross_val_score (clf, X_trein, labels_trein, cv=10)
-    mul_scores = cross_validate(clf, X_trein, labels_trein, scoring=scoring, return_train_score=True)
-    acuracias_treino.append( mul_scores['train_balanced_accuracy'].mean() )
-    acuracias_teste.append( mul_scores['test_balanced_accuracy'].mean() )
-    print('>%d, treino: %.3f, teste: %.3f' % (profundidade, mul_scores['train_balanced_accuracy'].mean(), mul_scores['test_balanced_accuracy'].mean()))
+    clf = RandomForestClassifier(max_depth=profundidade, min_samples_split=10)
+    acuracia_treino, acuracia_teste = calcula_cross_val_scores (clf, X_trein, labels_trein, cv=5)
+    acuracias_treino.append( acuracia_treino )
+    acuracias_teste.append( acuracia_teste )
+    print('>%d, treino: %.3f, teste: %.3f' % (profundidade, acuracia_treino, acuracia_teste))
 
-pyplot.plot(profundidades, acuracias_treino, '-o', label='Treino')
-pyplot.plot(profundidades, acuracias_teste, '-o', label='Teste')
+pyplot.plot(params, acuracias_treino, '-o', label='Treino')
+pyplot.plot(params, acuracias_teste, '-o', label='Teste')
 pyplot.legend()
 pyplot.show()
 
-# adaBoost RandomForest
-# print ("\nAdaBoost Random Forest:")
-# clf = AdaBoostClassifier()
-# calcula_cross_val_scores(clf, X_trein, labels_trein, scoring=scoring)
+# com max-depth = 8 vamos alterar min_sample_split
 #%%
-#adaBoost random forest cross validation 
-# print ("\nAdaBoost Random Forest: max_depth=2")
-# rf = RandomForestClassifier(max_depth=2)
-# clf = AdaBoostClassifier(base_estimator=rf)
-# calcula_cross_val_scores(clf, X_trein, labels_trein, scoring=scoring)
+acuracias_treino, acuracias_teste = list(), list()
+params = [i for i in range(2,20)]
+for param in params: 
+#    print ("\nRandom Forest com max_depth: {:d}".format(profundidade))
+    clf = RandomForestClassifier(max_depth=9, 
+                                 min_samples_split=param)
+    acuracia_treino, acuracia_teste = calcula_cross_val_scores (clf, X_trein, labels_trein, cv=5)
+    acuracias_treino.append( acuracia_treino )
+    acuracias_teste.append( acuracia_teste )
+    print('>%d, treino: %.3f, teste: %.3f' % (param, acuracia_treino, acuracia_teste))
+
+pyplot.plot(params, acuracias_treino, '-o', label='Treino')
+pyplot.plot(params, acuracias_teste, '-o', label='Teste')
+pyplot.legend()
+pyplot.show()
 
 #%%
-#adaBoost random forest cross validation 
-# print ("\nAdaBoost Random Forest: max_depth=2")
-# rf = RandomForestClassifier(max_depth=2)
-# clf = AdaBoostClassifier(base_estimator=rf, n_estimators=200)
-# calcula_cross_val_scores(clf, X_trein, labels_trein, scoring=scoring)
+acuracias_treino, acuracias_teste = list(), list()
+params = [i for i in range(10,200,2)]
+for param in params: 
+#    print ("\nRandom Forest com max_depth: {:d}".format(profundidade))
+    clf = RandomForestClassifier(max_depth=9, 
+                                 max_leaf_nodes=param)
+    acuracia_treino, acuracia_teste = calcula_cross_val_scores (clf, X_trein, labels_trein, cv=5)
+    acuracias_treino.append( acuracia_treino )
+    acuracias_teste.append( acuracia_teste )
+    print('>%d, treino: %.3f, teste: %.3f' % (param, acuracia_treino, acuracia_teste))
+
+pyplot.plot(params, acuracias_treino, '-o', label='Treino')
+pyplot.plot(params, acuracias_teste, '-o', label='Teste')
+pyplot.legend()
+pyplot.show()
+
 #%%
-#adaBoost svc cross validation 
-# print ("\nAdaBoost SVC:")
-# from sklearn.svm import SVC
-# svc=SVC(probability=True, kernel='linear')
-# clf = AdaBoostClassifier(base_estimator=svc)
-# calcula_cross_val_scores(clf, X_trein, labels_trein, scoring=scoring)
+acuracias_treino, acuracias_teste = list(), list()
+params = [i for i in range(1,100,5)]
+for param in params: 
+#    print ("\nRandom Forest com max_depth: {:d}".format(profundidade))
+    clf = RandomForestClassifier(max_depth=9, 
+                                 min_samples_leaf=param)
+    acuracia_treino, acuracia_teste = calcula_cross_val_scores (clf, X_trein, labels_trein, cv=5)
+    acuracias_treino.append( acuracia_treino )
+    acuracias_teste.append( acuracia_teste )
+    print('>%d, treino: %.3f, teste: %.3f' % (param, acuracia_treino, acuracia_teste))
+
+pyplot.plot(params, acuracias_treino, '-o', label='Treino')
+pyplot.plot(params, acuracias_teste, '-o', label='Teste')
+pyplot.legend()
+pyplot.show()
 
 
+#%%
+acuracias_treino, acuracias_teste = list(), list()
+params = [i for i in range(2,13)]
+for param in params: 
+#    print ("\nRandom Forest com max_depth: {:d}".format(profundidade))
+    clf = RandomForestClassifier(max_depth=9, 
+                                 max_features=param)
+    acuracia_treino, acuracia_teste = calcula_cross_val_scores (clf, X_trein, labels_trein, cv=5)
+    acuracias_treino.append( acuracia_treino )
+    acuracias_teste.append( acuracia_teste )
+    print('>%d, treino: %.3f, teste: %.3f' % (param, acuracia_treino, acuracia_teste))
+
+pyplot.plot(params, acuracias_treino, '-o', label='Treino')
+pyplot.plot(params, acuracias_teste, '-o', label='Teste')
+pyplot.legend()
+pyplot.show()
 #%%
 #logging.info('\n<< Classif Analise Treinamento')
