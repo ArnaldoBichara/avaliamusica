@@ -49,35 +49,37 @@ X_trein, X_teste, y_trein, y_teste = train_test_split(X, y, random_state=0, test
 #
 rf.fit (X_trein, y_trein)
 y_predicao = rf.predict (X_teste)
-acuracia = np.sum(y_predicao == y_teste)/len(y_teste)
-print("acurácia RandomForest:", acuracia)
-logging.info ("acuracia RandomForest %s", acuracia)
+acuraciarf = np.sum(y_predicao == y_teste)/len(y_teste)
+print("acurácia RandomForest:", acuraciarf)
+logging.info ("acuracia RandomForest %s", acuraciarf)
 
 ab.fit (X_trein, y_trein)
 y_predicao = ab.predict (X_teste)
-acuracia = np.sum(y_predicao == y_teste)/len(y_teste)
-print("acurácia AdaBoost:", acuracia)
-logging.info ("acuracia AdaBoost %s", acuracia)
+acuraciaab = np.sum(y_predicao == y_teste)/len(y_teste)
+print("acurácia AdaBoost:", acuraciaab)
+logging.info ("acuracia AdaBoost %s", acuraciaab)
 
 gb.fit (X_trein, y_trein)
 y_predicao = gb.predict (X_teste)
-acuracia = np.sum(y_predicao == y_teste)/len(y_teste)
-print("acurácia GradientBoost:", acuracia)
-logging.info ("acuracia GradientBoost %s", acuracia)
+acuraciagb = np.sum(y_predicao == y_teste)/len(y_teste)
+print("acurácia GradientBoost:", acuraciagb)
+logging.info ("acuracia GradientBoost %s", acuraciagb)
 #
 # Treino do classificador com todos os dados
 # e salvando o modelo treinado
+if (acuraciagb > acuraciaab):
+    if (acuraciagb > acuraciarf):
+        modeloEscolhido = gb
+    else:
+        modeloEscolhido = rf
+else:
+    if (acuraciaab > acuraciarf):
+        modeloEscolhido = ab
+    else:
+        modeloEscolhido = rf
 
-rf.fit (X, y)
-with open("./FeatureStore/modeloRandomForest.pickle", 'wb') as arq:
+modeloEscolhido.fit (X, y)
+with open("./FeatureStore/modeloClassif.pickle", 'wb') as arq:
     pickle.dump (rf, arq)
 
-ab.fit (X, y)
-with open("./FeatureStore/modeloAdaBoost.pickle", 'wb') as arq:
-    pickle.dump (ab, arq)
-gb.fit (X, y)
-with open("./FeatureStore/modeloGradientBoost.pickle", 'wb') as arq:
-    pickle.dump (gb, arq)
-#
-#
 logging.info('\n<< ClassifTreinamento')
