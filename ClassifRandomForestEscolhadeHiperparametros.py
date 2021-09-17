@@ -43,7 +43,7 @@ random_grid = {'max_depth': range (8,14),
 # A desirable tree is one that is not so shallow that it has low skill and not so deep that it overfits the training dataset.
 #%%
 # cross validation tipo stratifiedKFole, com 3 repetições e 10 splits
-cv = RepeatedStratifiedKFold(n_splits=10, n_repeats=3, random_state=1)
+cv = RepeatedStratifiedKFold(n_splits=10, n_repeats=3)
 clf = RandomForestClassifier()
 clf_random = RandomizedSearchCV (estimator = clf, param_distributions = random_grid, n_iter = 2000, cv = cv, verbose=2, n_jobs=-1)
 search = clf_random.fit (X,y)
