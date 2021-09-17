@@ -12,7 +12,7 @@ import logging
 from matplotlib import pyplot 
 
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.model_selection import train_test_split, cross_val_score, cross_validate
+from sklearn.model_selection import RepeatedStratifiedKFold
 from sklearn.model_selection._search import RandomizedSearchCV
 
 logging.basicConfig(filename='./Analises/processamentoClassificacao.log', 
@@ -42,8 +42,10 @@ random_grid = {'max_depth': range (8,14),
 # Whereas deep trees (e.g. many levels) generally do overfit and have good performance (low bias, high variance). 
 # A desirable tree is one that is not so shallow that it has low skill and not so deep that it overfits the training dataset.
 #%%
+# cross validation tipo stratifiedKFole, com 3 repetições e 10 splits
+cv = RepeatedStratifiedKFold(n_splits=10, n_repeats=3, random_state=1)
 clf = RandomForestClassifier()
-clf_random = RandomizedSearchCV (estimator = clf, param_distributions = random_grid, n_iter = 2000, cv = 5, verbose=2, n_jobs=-1)
+clf_random = RandomizedSearchCV (estimator = clf, param_distributions = random_grid, n_iter = 2000, cv = cv, verbose=2, n_jobs=-1)
 search = clf_random.fit (X,y)
 print (search.best_params_)
 #%%

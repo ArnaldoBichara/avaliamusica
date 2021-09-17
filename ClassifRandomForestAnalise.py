@@ -30,20 +30,7 @@ UserAFeatureSamples = pd.read_pickle ("./FeatureStore/UserAFeatureSamples.pickle
 X = UserAFeatureSamples.drop(columns=['classe'])
 y = np.array(UserAFeatureSamples['classe'])
 
-#!!!!!!
-# Particionando a base de dados, 30% para teste
-X_trein, X_teste, labels_trein, labels_teste = train_test_split(X, y, random_state=0, test_size=0.30)
-
 scoring = ['balanced_accuracy','precision_macro', 'recall_macro', 'roc_auc', 'neg_mean_squared_error']
-
-
-#%% Calculando o RandoForest com os parametros definidos pelo RandomSearch
-acuracias_treino, acuracias_teste = list(), list()
-clf = RandomForestClassifier(max_depth=10,
-                             min_samples_split=3,
-                             min_samples_leaf=2,
-                             max_leaf_nodes=110)
-acuracia_treino, acuracia_teste = calcula_cross_val_scores (clf, X_trein, labels_trein, cv=10)
 
 #%%
 
@@ -57,7 +44,7 @@ params = [i for i in range(1,21)]
 for profundidade in params: 
 #    print ("\nRandom Forest com max_depth: {:d}".format(profundidade))
     clf = RandomForestClassifier(max_depth=profundidade, min_samples_split=10)
-    acuracia_treino, acuracia_teste = calcula_cross_val_scores (clf, X_trein, labels_trein, cv=5)
+    acuracia_treino, acuracia_teste = calcula_cross_val_scores (clf, X, y)
     acuracias_treino.append( acuracia_treino )
     acuracias_teste.append( acuracia_teste )
     print('>%d, treino: %.3f, teste: %.3f' % (profundidade, acuracia_treino, acuracia_teste))
@@ -75,7 +62,7 @@ for param in params:
 #    print ("\nRandom Forest com max_depth: {:d}".format(profundidade))
     clf = RandomForestClassifier(max_depth=9, 
                                  min_samples_split=param)
-    acuracia_treino, acuracia_teste = calcula_cross_val_scores (clf, X_trein, labels_trein, cv=5)
+    acuracia_treino, acuracia_teste = calcula_cross_val_scores (clf, X, y)
     acuracias_treino.append( acuracia_treino )
     acuracias_teste.append( acuracia_teste )
     print('>%d, treino: %.3f, teste: %.3f' % (param, acuracia_treino, acuracia_teste))
@@ -92,7 +79,7 @@ for param in params:
 #    print ("\nRandom Forest com max_depth: {:d}".format(profundidade))
     clf = RandomForestClassifier(max_depth=9, 
                                  max_leaf_nodes=param)
-    acuracia_treino, acuracia_teste = calcula_cross_val_scores (clf, X_trein, labels_trein, cv=5)
+    acuracia_treino, acuracia_teste = calcula_cross_val_scores (clf, X, y)
     acuracias_treino.append( acuracia_treino )
     acuracias_teste.append( acuracia_teste )
     print('>%d, treino: %.3f, teste: %.3f' % (param, acuracia_treino, acuracia_teste))
@@ -109,7 +96,7 @@ for param in params:
 #    print ("\nRandom Forest com max_depth: {:d}".format(profundidade))
     clf = RandomForestClassifier(max_depth=9, 
                                  min_samples_leaf=param)
-    acuracia_treino, acuracia_teste = calcula_cross_val_scores (clf, X_trein, labels_trein, cv=5)
+    acuracia_treino, acuracia_teste = calcula_cross_val_scores (clf, X, y)
     acuracias_treino.append( acuracia_treino )
     acuracias_teste.append( acuracia_teste )
     print('>%d, treino: %.3f, teste: %.3f' % (param, acuracia_treino, acuracia_teste))
@@ -126,7 +113,7 @@ for param in params:
 #    print ("\nRandom Forest com max_depth: {:d}".format(profundidade))
     clf = RandomForestClassifier(max_depth=9, 
                                  min_samples_leaf=param)
-    acuracia_treino, acuracia_teste = calcula_cross_val_scores (clf, X_trein, labels_trein, cv=5)
+    acuracia_treino, acuracia_teste = calcula_cross_val_scores (clf, X, y)
     acuracias_treino.append( acuracia_treino )
     acuracias_teste.append( acuracia_teste )
     print('>%d, treino: %.3f, teste: %.3f' % (param, acuracia_treino, acuracia_teste))

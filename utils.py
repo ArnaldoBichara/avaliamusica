@@ -1,10 +1,11 @@
 from sklearn.metrics import accuracy_score
-from sklearn.model_selection import cross_validate
+from sklearn.model_selection import cross_validate, RepeatedStratifiedKFold
 import logging
 
-def calcula_cross_val_scores(clf, X_trein, labels_trein, cv):
+def calcula_cross_val_scores(clf, X, y):
+    cv = RepeatedStratifiedKFold(n_splits=10, n_repeats=3, random_state=1)
     scoring = ['balanced_accuracy','precision_macro', 'recall_macro', 'roc_auc', 'neg_mean_squared_error']
-    mul_scores = cross_validate(clf, X_trein, labels_trein, scoring=scoring, cv=cv, return_train_score=True)
+    mul_scores = cross_validate(clf, X, y, scoring=scoring, cv=cv, return_train_score=True)
     acuracias_treino = mul_scores['train_balanced_accuracy']
     result = "train_balanced_accuracy:      {:.3f} (+/- {:.3f})".format(acuracias_treino.mean(), acuracias_treino.std())
     print (result)

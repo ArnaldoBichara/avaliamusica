@@ -30,20 +30,27 @@ UserAFeatureSamples = pd.read_pickle ("./FeatureStore/UserAFeatureSamples.pickle
 X = UserAFeatureSamples.drop(columns=['classe'])
 y = np.array(UserAFeatureSamples['classe'])
 
-# Particionando a base de dados, 30% para teste
-X_trein, X_teste, labels_trein, labels_teste = train_test_split(X, y, random_state=0, test_size=0.30)
-
-
-#%% treinando o modelo
-acuracias_treino, acuracias_teste = list(), list()
-clf = RandomForestClassifier(max_depth=10,
+#%% definindo o modelo, com os hiperparametros previamente escolhidos
+clf = RandomForestClassifier(n_jobs=-1,
+                             max_depth=10,
                              min_samples_split=3,
                              min_samples_leaf=2,
                              max_leaf_nodes=110)
-calcula_cross_val_scores (clf, X_trein, labels_trein, cv=10)
+#
+# Cálculo de acurácia:
+#
+X_trein, X_teste, y_trein, y_teste = train_test_split(X, y, random_state=0, test_size=0.30)
+clf.fit (X_trein, y_trein)
+y_predicao = clf.predict (X_teste)
+acuracia = np.sum(y_predicao == y_teste)/len(y_teste)
+print(acuracia)
+logging.info ("acuracia %s", acuracia)
+#
+# Treino do classificador com todos os dados
+# e salvando o modelo treinado
 
-# salvando modelo em .pickle
+clf.fit (X, y)
 with open("./FeatureStore/modeloRandomForest.pickle", 'wb') as arq:
     pickle.dump (clf, arq)
-#%%
+#
 logging.info('\n<< ClassifRandomForestTreinamento')

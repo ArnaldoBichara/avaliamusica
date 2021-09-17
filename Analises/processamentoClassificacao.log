@@ -79,3 +79,26 @@
 17/09/2021 09:41:10 test_neg_mean_squared_error : 0.198 (+/- 0.040)
 17/09/2021 09:41:10 
 << ClassifRandomForestTreinamento
+17/09/2021 10:14:29 
+>> ClassifRandomForestTreinamento
+17/09/2021 10:14:49 
+>> ClassifRandomForestTreinamento
+17/09/2021 10:14:56 train_balanced_accuracy:      0.958 (+/- 0.005)
+17/09/2021 10:14:56 test_balanced_accuracy:       0.785 (+/- 0.045)
+17/09/2021 10:14:56 test_precision_macro:         0.800 (+/- 0.040)
+17/09/2021 10:14:56 test_recall_macro:            0.785 (+/- 0.045)
+17/09/2021 10:14:56 test_roc_auc:                 0.860 (+/- 0.044)
+17/09/2021 10:14:56 train_neg_mean_squared_error: 0.039 (+/- 0.005)
+17/09/2021 10:14:56 test_neg_mean_squared_error : 0.205 (+/- 0.041)
+17/09/2021 10:14:56 
+<< ClassifRandomForestTreinamento
+17/09/2021 11:09:54 
+>> ClassifRandomForestTreinamento
+17/09/2021 11:09:55 acuracia 0.7866323907455013
+17/09/2021 11:09:55 
+<< ClassifRandomForestTreinamento
+17/09/2021 11:23:30 
+>> ClassifRandomForestTreinamento
+17/09/2021 11:23:30 acuracia 0.7840616966580977
+17/09/2021 11:23:30 
+<< ClassifRandomForestTreinamento
