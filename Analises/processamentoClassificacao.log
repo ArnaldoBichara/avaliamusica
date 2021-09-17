@@ -229,3 +229,10 @@
 17/09/2021 16:47:36 acuracia AdaBoost 0.7789203084832905
 17/09/2021 16:47:36 
 << ClassifTreinamento
+17/09/2021 17:36:14 
+>> ClassifTreinamento
+17/09/2021 17:36:14 acuracia RandomForest 0.7789203084832905
+17/09/2021 17:36:15 acuracia AdaBoost 0.7789203084832905
+17/09/2021 17:36:16 acuracia GradientBoost 0.7892030848329049
+17/09/2021 17:36:18 
+<< ClassifTreinamento

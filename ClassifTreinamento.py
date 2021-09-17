@@ -13,7 +13,7 @@ import pickle
 import logging
 from utils import calcula_cross_val_scores
 
-from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
+from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier, GradientBoostingClassifier
 from sklearn.model_selection import train_test_split
 
 
@@ -39,7 +39,9 @@ rf = RandomForestClassifier(n_jobs=-1,
                             min_samples_leaf=2,
                             max_leaf_nodes=110)
 ab = AdaBoostClassifier (n_estimators=300,
-                         learning_rate=0.1)                            
+                         learning_rate=0.1)    
+gb = GradientBoostingClassifier (n_estimators=400,
+                                learning_rate=0.08)                           
 
 X_trein, X_teste, y_trein, y_teste = train_test_split(X, y, random_state=0, test_size=0.30)
 #
@@ -56,6 +58,12 @@ y_predicao = ab.predict (X_teste)
 acuracia = np.sum(y_predicao == y_teste)/len(y_teste)
 print("acurácia AdaBoost:", acuracia)
 logging.info ("acuracia AdaBoost %s", acuracia)
+
+gb.fit (X_trein, y_trein)
+y_predicao = gb.predict (X_teste)
+acuracia = np.sum(y_predicao == y_teste)/len(y_teste)
+print("acurácia GradientBoost:", acuracia)
+logging.info ("acuracia GradientBoost %s", acuracia)
 #
 # Treino do classificador com todos os dados
 # e salvando o modelo treinado
@@ -67,5 +75,9 @@ with open("./FeatureStore/modeloRandomForest.pickle", 'wb') as arq:
 ab.fit (X, y)
 with open("./FeatureStore/modeloAdaBoost.pickle", 'wb') as arq:
     pickle.dump (ab, arq)
+gb.fit (X, y)
+with open("./FeatureStore/modeloGradientBoost.pickle", 'wb') as arq:
+    pickle.dump (gb, arq)
+#
 #
 logging.info('\n<< ClassifTreinamento')
