@@ -10,7 +10,7 @@ import pickle
 import logging
 import sys
 import os
-
+import random
 
 logging.basicConfig(filename='./Analises/Classificacao.log', 
                     level=logging.INFO,
@@ -35,7 +35,6 @@ else:
   estatisticas["NaoCurteAnaliseConteudoNaobateComAnaliseColab"] = 0
 
 #%%
-
 # encontra música candidata de tipo (Curte ou NaoCurte)
 def EncontraCandidata (tipo):
   if (tipo=='Curte'):
@@ -56,7 +55,6 @@ def EncontraCandidata (tipo):
     if (audioFeaturesMusCand.empty == True):
       estatisticas["MusNaoEncontradaEmAudioFeature"] = estatisticas.get("MusNaoEncontradaEmAudioFeature", 0) +1
       continue
-
     dados_predicao = audioFeaturesMusCand.drop(columns=['id_musica']).to_numpy()
     # fazendo classificação por conteúdo
     label_predicao = modelo.predict(dados_predicao)
@@ -65,25 +63,37 @@ def EncontraCandidata (tipo):
     else:
       estatisticas[estat] = estatisticas.get(estat, 0) +1
       logging.info ("%s - avaliacao nao bate para: %s", tipo, musCandidata['interpretacao'])
-
   return musCandidata
 
-musCandidataCurte = EncontraCandidata ('Curte')
-with open('./FeatureStore/musicaCandidataCurte.pickle', 'wb') as arq:
-    pickle.dump(musCandidataCurte, arq)
-logging.info ("musicaCandidataCurte %s", musCandidataCurte['interpretacao'])
-print ('música candidata a Curtir:', musCandidataCurte['interpretacao'])
+# escolhendo aleatoriamente entre tipo 'Curte' ou 'NaoCurte'
+escolhas = ['Curte', 'NaoCurte']
+tipo = random.choice(escolhas)
 
-musCandidataNaoCurte = EncontraCandidata ('NaoCurte')
-with open('./FeatureStore/musicaCandidataNaoCurte.pickle', 'wb') as arq:
-    pickle.dump(musCandidataNaoCurte, arq)
-logging.info ("musicaCandidataNaoCurte %s", musCandidataNaoCurte['interpretacao'])
-print ('música candidata a Não Curtir:', musCandidataNaoCurte['interpretacao'])
+if (tipo == 'Curte'):
+  ArquivoASalvar = './FeatureStore/musicaCandidataCurte.pickle'
+else:
+  ArquivoASalvar = './FeatureStore/musicaCandidataNaoCurte.pickle'
+
+musCandidata = EncontraCandidata (tipo)
+with open(ArquivoASalvar, 'wb') as arq:
+    pickle.dump(musCandidata, arq)
+
+logging.info ("musicaCandidata %s %s", tipo, musCandidata['interpretacao'].to_string(index=False))
+print ('música candidata:', tipo, musCandidata['interpretacao'].to_string(index=False))
 
 with open('./Analises/estatisticas.pickle', 'wb') as arq:
     pickle.dump(estatisticas, arq)
-logging.info ("musicas nao encontradas %s", estatisticas["MusNaoEncontradaEmAudioFeature"])
-logging.info ("Curte: Analise por conteudo nao bate com Colab %s", estatisticas["CurteAnaliseConteudoNaobateComAnaliseColab"])
-logging.info ("Nao Curte: Analise por conteudo nao bate com Colab %s", estatisticas["NaoCurteAnaliseConteudoNaobateComAnaliseColab"])
+
+string = "musicas nao encontradas {0}".format(estatisticas["MusNaoEncontradaEmAudioFeature"])
+print (string)
+logging.info (string)
+
+string = "Curte: Analise por conteudo nao bate com Colab {0}".format(estatisticas["CurteAnaliseConteudoNaobateComAnaliseColab"])
+print (string) 
+logging.info (string)
+
+string = "Nao Curte: Analise por conteudo nao bate com Colab {0}".format(estatisticas["NaoCurteAnaliseConteudoNaobateComAnaliseColab"])
+print (string) 
+logging.info (string)
 
 logging.info('\n<< ClassifRandomForest')

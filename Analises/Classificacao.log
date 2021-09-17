@@ -162,3 +162,108 @@ Nao Curte: Analise por conteudo nao bate com Colab 4
 << ClassifRandomForest
 
 >> ClassifRandomForest
+
+>> ClassifRandomForest
+musicaCandidataCurte 461    FOO FIGHTERS:>TIMES LIKE THESE
+Name: interpretacao, dtype: object
+musicaCandidataNaoCurte 560    BRUCE SPRINGSTEEN:>RADIO NOWHERE
+Name: interpretacao, dtype: object
+musicas nao encontradas 0
+Curte: Analise por conteudo nao bate com Colab 17
+Nao Curte: Analise por conteudo nao bate com Colab 4
+
+<< ClassifRandomForest
+
+>> ClassifRandomForest
+Curte - avaliacao nao bate para: 395    SIMPLE MINDS:>ALIVE AND KICKING
+Name: interpretacao, dtype: object
+Curte - avaliacao nao bate para: 41    DAMIAN MARLEY:>WELCOME TO JAMROCK
+Name: interpretacao, dtype: object
+Curte - avaliacao nao bate para: 21    SHERYL CROW:>IF IT MAKES YOU HAPPY
+Name: interpretacao, dtype: object
+Curte - avaliacao nao bate para: 516    BON JOVI:>IN THESE ARMS
+Name: interpretacao, dtype: object
+Curte - avaliacao nao bate para: 251    NOAH AND THE WHALE:>5 YEARS TIME
+Name: interpretacao, dtype: object
+Curte - avaliacao nao bate para: 484    JAMES MORRISON:>THE PIECES DON'T FIT ANYMORE
+Name: interpretacao, dtype: object
+musicaCandidataCurte 222    ELLIE GOULDING:>LIGHTS - SINGLE VERSION
+Name: interpretacao, dtype: object
+musicaCandidataNaoCurte 673    METALLICA:>WHERE THE WILD THINGS ARE
+Name: interpretacao, dtype: object
+musicas nao encontradas %s
+Curte: Analise por conteudo nao bate com Colab %s
+Nao Curte: Analise por conteudo nao bate com Colab %s
+
+<< ClassifRandomForest
+
+>> ClassifRandomForest
+Curte - avaliacao nao bate para: 3    EFECTO MARIPOSA:>NO ME CREES
+Name: interpretacao, dtype: object
+Curte - avaliacao nao bate para: 413    SAK NOEL:>LOCA PEOPLE - RADIO EDIT
+Name: interpretacao, dtype: object
+musicaCandidataCurte 379    MECANO:>UNA ROSA ES UNA ROSA
+Name: interpretacao, dtype: object
+musicaCandidataNaoCurte 316    BON JOVI:>IF THAT'S WHAT IT TAKES
+Name: interpretacao, dtype: object
+
+>> ClassifRandomForest
+musicaCandidataCurte 510    JOCELYN POOK:>FOREVER WITHOUT END - 1999 REMIX
+Name: interpretacao, dtype: object
+musicaCandidataNaoCurte 28    METALLICA:>THE SHORTEST STRAW
+Name: interpretacao, dtype: object
+musicas nao encontradas 0
+Curte: Analise por conteudo nao bate com Colab 8
+Nao Curte: Analise por conteudo nao bate com Colab 0
+
+<< ClassifRandomForest
+
+>> ClassifRandomForest
+Curte - avaliacao nao bate para: 399    VETUSTA MORLA:>COPENHAGUE
+Name: interpretacao, dtype: object
+Curte - avaliacao nao bate para: 207    BIRDY:>WINGS
+Name: interpretacao, dtype: object
+musicaCandidataCurte 24    DEEPSIDE DEEJAYS:>NEVER BE ALONE - RADIO EDIT
+Name: interpretacao, dtype: object
+musicaCandidataNaoCurte 613    BON JOVI:>BORN TO BE MY BABY
+Name: interpretacao, dtype: object
+musicas nao encontradas 0
+Curte: Analise por conteudo nao bate com Colab 10
+Nao Curte: Analise por conteudo nao bate com Colab 0
+
+<< ClassifRandomForest
+
+>> ClassifRandomForest
+
+>> ClassifRandomForest
+musicaCandidata NaoCurte 690    P.O.D.:>BOOM
+Name: interpretacao, dtype: object
+musicas nao encontradas 0
+Curte: Analise por conteudo nao bate com Colab 10
+Nao Curte: Analise por conteudo nao bate com Colab 0
+
+<< ClassifRandomForest
+
+>> ClassifRandomForest
+musicaCandidata Curte BEYONCÉ:>HALO
+musicas nao encontradas 0
+Curte: Analise por conteudo nao bate com Colab 10
+Nao Curte: Analise por conteudo nao bate com Colab 0
+
+<< ClassifRandomForest
+
+>> ClassifRandomForest
+Curte - avaliacao nao bate para: 56    CRYSTAL CASTLES:>MAGIC SPELLS
+Name: interpretacao, dtype: object
+Curte - avaliacao nao bate para: 524    PETE YORN:>RELATOR
+Name: interpretacao, dtype: object
+Curte - avaliacao nao bate para: 226    SMASH MOUTH:>ALL STAR
+Name: interpretacao, dtype: object
+Curte - avaliacao nao bate para: 509    GOLDFRAPP:>OOH LA LA
+Name: interpretacao, dtype: object
+musicaCandidata Curte R.E.M.:>LOSING MY RELIGION
+musicas nao encontradas 0
+Curte: Analise por conteudo nao bate com Colab 14
+Nao Curte: Analise por conteudo nao bate com Colab 0
+
+<< ClassifRandomForest
