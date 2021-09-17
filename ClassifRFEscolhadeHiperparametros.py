@@ -1,5 +1,6 @@
 ###################
 # Faz busca automática de melhores hiperparametros 
+# do RandomForest
 # usando RandomizedSearchCV
 ###################
 #%%
@@ -29,9 +30,9 @@ X = UserAFeatureSamples.drop(columns=['classe'])
 y = np.array(UserAFeatureSamples['classe'])
 
 random_grid = {'max_depth': range (8,14),
-               'min_samples_split': [2,3,4,5,6,8],
-               'max_leaf_nodes': range(90,120, 4),
-               'min_samples_leaf': [1, 2, 4],
+               'min_samples_split': [2,3,4],
+               'max_leaf_nodes': range(90,114, 4),
+               'min_samples_leaf': [1, 2],
 #               'max_samples': range(300,400,5)
                }
 

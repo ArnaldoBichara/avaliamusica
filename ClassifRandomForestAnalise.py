@@ -9,6 +9,7 @@ import numpy as np
 import pickle
 import logging
 from matplotlib import pyplot 
+from utils import calcula_cross_val_scores
 
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
@@ -35,23 +36,16 @@ X_trein, X_teste, labels_trein, labels_teste = train_test_split(X, y, random_sta
 
 scoring = ['balanced_accuracy','precision_macro', 'recall_macro', 'roc_auc', 'neg_mean_squared_error']
 
-def calcula_cross_val_scores(clf, X_trein, labels_trein, cv):
-    mul_scores = cross_validate(clf, X_trein, labels_trein, scoring=scoring, cv=cv, return_train_score=True)
-    acuracias_treino = mul_scores['train_balanced_accuracy']
-    #print ("train_balanced_accuracy:      {:.2e} (+/- {:.2e})".format(acuracias_treino.mean(), acuracias_treino.std()))
-    acuracias_teste  = mul_scores['test_balanced_accuracy']
-    #print ("test_balanced_accuracy:       {:.3f} (+/- {:.3f})".format(acuracias_teste.mean(), acuracias_teste.std()))
-    # scores = mul_scores['test_precision_macro']
-    # print ("test_precision_macro:         {:.2e} (+/- {:.2e})".format(scores.mean(), scores.std()))
-    # scores = mul_scores['test_recall_macro']
-    # print ("test_recall_macro:            {:.2e} (+/- {:.2e})".format(scores.mean(), scores.std()))
-    # scores = mul_scores['test_roc_auc']
-    # print ("test_roc_auc:                 {:.2e} (+/- {:.2e})".format(scores.mean(), scores.std()))
-    # scores = mul_scores['train_neg_mean_squared_error']
-    # print ("train_neg_mean_squared_error: {:.2e} (+/- {:.2e})".format(-scores.mean(), scores.std()))
-    #scores = mul_scores['test_neg_mean_squared_error']
-    #print ("test_neg_mean_squared_error : {:.3f} (+/- {:.3f})".format(-scores.mean(), scores.std()))
-    return acuracias_treino.mean(), acuracias_teste.mean()
+
+#%% Calculando o RandoForest com os parametros definidos pelo RandomSearch
+acuracias_treino, acuracias_teste = list(), list()
+clf = RandomForestClassifier(max_depth=10,
+                             min_samples_split=3,
+                             min_samples_leaf=2,
+                             max_leaf_nodes=110)
+acuracia_treino, acuracia_teste = calcula_cross_val_scores (clf, X_trein, labels_trein, cv=10)
+
+#%%
 
 # Análise modelo RandomForest
 # Shallow decision trees (e.g. few levels) generally do not overfit but have poor performance (high bias, low variance). 
@@ -125,14 +119,13 @@ pyplot.plot(params, acuracias_teste, '-o', label='Teste')
 pyplot.legend()
 pyplot.show()
 
-
 #%%
 acuracias_treino, acuracias_teste = list(), list()
-params = [i for i in range(2,13)]
+params = [i for i in range(1,100,5)]
 for param in params: 
 #    print ("\nRandom Forest com max_depth: {:d}".format(profundidade))
     clf = RandomForestClassifier(max_depth=9, 
-                                 max_features=param)
+                                 min_samples_leaf=param)
     acuracia_treino, acuracia_teste = calcula_cross_val_scores (clf, X_trein, labels_trein, cv=5)
     acuracias_treino.append( acuracia_treino )
     acuracias_teste.append( acuracia_teste )
@@ -142,5 +135,6 @@ pyplot.plot(params, acuracias_treino, '-o', label='Treino')
 pyplot.plot(params, acuracias_teste, '-o', label='Teste')
 pyplot.legend()
 pyplot.show()
+
 #%%
 #logging.info('\n<< Classif Analise Treinamento')

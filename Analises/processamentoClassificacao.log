@@ -59,3 +59,23 @@
 16/09/2021 09:07:21 
 >> Classif Analise Treinamento
 16/09/2021 09:07:30 Random Forest:
+17/09/2021 09:39:55 
+>> ClassifRandomForestTreinamento
+17/09/2021 09:39:57 train_balanced_accuracy:      0.959 (+/- 0.006)
+17/09/2021 09:39:57 test_balanced_accuracy:       0.801 (+/- 0.045)
+17/09/2021 09:39:57 test_precision_macro:         0.821 (+/- 0.053)
+17/09/2021 09:39:57 test_recall_macro:            0.801 (+/- 0.045)
+17/09/2021 09:39:57 test_roc_auc:                 0.862 (+/- 0.034)
+17/09/2021 09:39:57 train_neg_mean_squared_error: 0.037 (+/- 0.005)
+17/09/2021 09:39:57 test_neg_mean_squared_error : 0.188 (+/- 0.045)
+17/09/2021 09:41:08 
+>> ClassifRandomForestTreinamento
+17/09/2021 09:41:10 train_balanced_accuracy:      0.957 (+/- 0.005)
+17/09/2021 09:41:10 test_balanced_accuracy:       0.791 (+/- 0.041)
+17/09/2021 09:41:10 test_precision_macro:         0.810 (+/- 0.046)
+17/09/2021 09:41:10 test_recall_macro:            0.791 (+/- 0.041)
+17/09/2021 09:41:10 test_roc_auc:                 0.862 (+/- 0.038)
+17/09/2021 09:41:10 train_neg_mean_squared_error: 0.039 (+/- 0.004)
+17/09/2021 09:41:10 test_neg_mean_squared_error : 0.198 (+/- 0.040)
+17/09/2021 09:41:10 
+<< ClassifRandomForestTreinamento

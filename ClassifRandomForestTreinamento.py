@@ -9,9 +9,11 @@ import pandas as pd
 import numpy as np
 import pickle
 import logging
+from utils import calcula_cross_val_scores
 
-from sklearn.metrics import accuracy_score, confusion_matrix
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+
 
 logging.basicConfig(filename='./Analises/processamentoClassificacao.log', 
                     level=logging.INFO,
@@ -23,39 +25,25 @@ logging.info('\n>> ClassifRandomForestTreinamento')
 #lendo dataset
 UserAFeatureSamples = pd.read_pickle ("./FeatureStore/UserAFeatureSamples.pickle")
 
-#%% dividindo dataset em folds, para uso pelo procedimento de cross-validation
-num_folds = 10
+# X - features
+# y - classe
+X = UserAFeatureSamples.drop(columns=['classe'])
+y = np.array(UserAFeatureSamples['classe'])
 
-X_folds = np.array_split ( UserAFeatureSamples.drop(columns=['classe']) , num_folds)
-y_folds = np.array_split ( np.array(UserAFeatureSamples['classe'])      , num_folds)
+# Particionando a base de dados, 30% para teste
+X_trein, X_teste, labels_trein, labels_teste = train_test_split(X, y, random_state=0, test_size=0.30)
+
 
 #%% treinando o modelo
-acuracias=[]
-matrizes = []
-
-for i in range(num_folds):  
-    # n_jobs= -1 : usa todos os processadores da máquina
-    modeloRF = RandomForestClassifier(n_jobs=-1)
-    dados_trein   = np.concatenate (X_folds[:i] + X_folds[i+1:])
-    labels_trein = np.concatenate (y_folds[:i] + y_folds[i+1:])
-    dados_teste   = X_folds[i]
-    labels_teste = y_folds[i]
-    # executa treinamento
-    modeloRF.fit(dados_trein, labels_trein)
-    # faz predição dos dados de teste
-    labels_predicao = modeloRF.predict(dados_teste)
-    acuracia = np.sum(labels_predicao == labels_teste)/len(labels_teste)
-    acuracias.append(acuracia)
-    # matriz de confusao
-    matriz_confusao = confusion_matrix(labels_teste, labels_predicao)
-    matrizes.append(matriz_confusao)
-
-print(acuracias)
-logging.info ("acuracias %s", acuracias)
-logging.info ("matrizes %s", matrizes)
+acuracias_treino, acuracias_teste = list(), list()
+clf = RandomForestClassifier(max_depth=10,
+                             min_samples_split=3,
+                             min_samples_leaf=2,
+                             max_leaf_nodes=110)
+calcula_cross_val_scores (clf, X_trein, labels_trein, cv=10)
 
 # salvando modelo em .pickle
 with open("./FeatureStore/modeloRandomForest.pickle", 'wb') as arq:
-    pickle.dump (modeloRF, arq)
+    pickle.dump (clf, arq)
 #%%
 logging.info('\n<< ClassifRandomForestTreinamento')
