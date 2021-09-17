@@ -1,7 +1,6 @@
 ###################
 # Este componente executa a classificação entre Curtir ou Não Curtir uma música
-# a partir do modelo contentbased escolhido
-# O 
+# a partir do modelo contentbased escolhido durante o treinamento
 ###################
 #%%
 # Importando packages
@@ -21,7 +20,7 @@ logging.basicConfig(filename='./Analises/Classificacao.log',
 logging.info('\n>> ClassifRandomForest')
 
 #lendo modelo e datasets
-modeloRF = pd.read_pickle ("./FeatureStore/modeloRandomForest.pickle")
+modelo = pd.read_pickle ("./FeatureStore/modeloClassif.pickle")
 dominioAudioFeatures = pd.read_pickle ("./FeatureStore/DominioAudioFeatures.pickle")
 musCandidatasCurte = pd.read_pickle ("./FeatureStore/MusCandidatasCurte.pickle")
 musCandidatasNaoCurte = pd.read_pickle ("./FeatureStore/MusCandidatasNaoCurte.pickle")
@@ -60,7 +59,7 @@ def EncontraCandidata (tipo):
 
     dados_predicao = audioFeaturesMusCand.drop(columns=['id_musica']).to_numpy()
     # fazendo classificação por conteúdo
-    label_predicao = modeloRF.predict(dados_predicao)
+    label_predicao = modelo.predict(dados_predicao)
     if (label_predicao[0]==[predicao_esperada]):
       encontrou = True
     else:
