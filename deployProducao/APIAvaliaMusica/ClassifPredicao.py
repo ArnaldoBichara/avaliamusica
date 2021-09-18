@@ -14,12 +14,12 @@ import os
 import random
 
 def Predicao() -> dict:
-  logging.info('\n>> ClassifPredicao') 
-  logging.basicConfig(filename='./Previsao.log', 
+  logging.basicConfig(filename='Previsao.log', 
                       level=logging.INFO,
                       format='%(message)s',
                       datefmt='%d/%m/%Y %H:%M:%S'
                       )
+  logging.info('\n>> ClassifPredicao') 
   #lendo modelo e datasets
   modelo                = pd.read_pickle ("modeloClassif.pickle")
   dominioAudioFeatures  = pd.read_pickle ("DominioAudioFeatures.pickle")
