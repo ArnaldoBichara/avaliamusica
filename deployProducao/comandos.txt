@@ -1,0 +1,16 @@
+Docker - container
+    docker info 
+    docker version
+    docker images
+    docker search node
+    cd apiIris
+    docker build -t flask-iris:latest .
+    docker run -d -p 5001:5001 flask-iris
+
+    docker ps
+    docker logs -f id
+    docker stop id
+
+curl --location --request POST "http://localhost:5001/security" --header "Authorization: Basic Y2FybG9zOnRlc3Rl"
+
+curl --location --request POST "http://localhost:5001/predicao" --header "Content-Type: application/json" --data-raw "{\"id\":2, \"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiY2FybG9zIiwiZXhwIjoxNjMyMDIzNDA5fQ.VsOOLDqlrOqYVUTy2D8pc64x9Yn0WU-xxeKoSgzfloA\"}"
