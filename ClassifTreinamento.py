@@ -1,9 +1,10 @@
 ###################
 # Este componente executa o treino dos modelos de machine learning para recomendação por conteúdo
-# usando modelos RandomForest (bagging) e AdaBoost (boosting)
-# Os hiperparâmetros foram definidos previamente, em outro módulo
-# A entrada é as amostras de audio features do Usuário A com a classe (0-não curte, 1-curte)
-# Uso de validação cruzada (cross-validation)
+# usando modelos RandomForest (bagging) e AdaBoost, GradienteBoosting (boosting)
+# Os hiperparâmetros devem ser definidos previamente, através de Classif*EscolhadeHiperparametros.py
+# A entrada consiste nas amostras de audio features do Usuário A com a classe (0-não curte, 1-curte)
+# Uso de validação cruzada (cross-validation) para cálculo das métricas.
+# O modelo com melhor acurácia é salvo como modeloClassif.pickle.
 ###################
 #%%
 # Importando packages

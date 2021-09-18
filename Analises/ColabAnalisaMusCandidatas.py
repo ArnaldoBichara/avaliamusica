@@ -8,9 +8,9 @@ from sklearn.metrics import confusion_matrix
 
 
 
-CandCurto    =  pd.read_pickle ("./FeatureStore/MusCandidatasCurte.pickle")  
-CandNaoCurto =  pd.read_pickle ("./FeatureStore/MusCandidatasNaoCurte.pickle")  
-IntersCurto    =pd.read_pickle ("./FeatureStore/MusInterseccaoVizinhoscomA.pickle")  
+CandCurto    =  pd.read_pickle ("../FeatureStore/MusCandidatasCurte.pickle")  
+CandNaoCurto =  pd.read_pickle ("../FeatureStore/MusCandidatasNaoCurte.pickle")  
+IntersCurto    =pd.read_pickle ("../FeatureStore/MusInterseccaoVizinhoscomA.pickle")  
 
 inter = np.sort(IntersCurto['interpretacao'].values)
 #%%
