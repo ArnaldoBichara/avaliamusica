@@ -4,9 +4,10 @@ Docker - container
     docker images
     docker search node
     cd APIAvaliaMusica
-    sudo docker build -t api_avaliamusica:latest .
-    sudo docker run -d -p 5001:5001 api_avaliamusica
-
+    sudo docker build -t arnaldobichara/api_avaliamusica:latest .
+    sudo docker push arnaldobichara/api_avaliamusica:latest
+    sudo docker run -d -p 5001:5001 arnaldobichara/api_avaliamusica
+    
     docker ps
     docker logs -f id
     docker stop id
