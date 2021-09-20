@@ -3,9 +3,9 @@ Docker - container
     docker version
     docker images
     docker search node
-    cd apiIris
-    docker build -t flask-iris:latest .
-    docker run -d -p 5001:5001 flask-iris
+    cd APIAvaliaMusica
+    sudo docker build -t api_avaliamusica:latest .
+    sudo docker run -d -p 5001:5001 api_avaliamusica
 
     docker ps
     docker logs -f id
