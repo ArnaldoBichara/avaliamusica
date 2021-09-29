@@ -12,4 +12,4 @@ Docker - container
     docker logs -f id
     docker stop id
 
-curl --location --request POST --data "user=arnaldo" "http://localhost:5001/predicao" --header "Content-Type: application/json" 
+curl --location --request GET "http://localhost:5001/predicao" --header "Content-Type: application/json" 

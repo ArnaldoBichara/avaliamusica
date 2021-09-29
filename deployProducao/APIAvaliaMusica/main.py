@@ -4,7 +4,7 @@ from ClassifPredicao import Predicao
 
 app = Flask(__name__)
 
-@app.route('/predicao', methods=['POST'])
+@app.route('/predicao', methods=['GET'])
 def root() -> object:
     try:
         return jsonify(Predicao())
