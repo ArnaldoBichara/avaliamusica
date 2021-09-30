@@ -1,0 +1,697 @@
+
+>> ClassifPredicao
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\__pycache__\\_config.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\__pycache__\\_distributor_init.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\__check_build\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\__pycache__\\base.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\utils\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\_lib\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\_lib\\__pycache__\\_testutils.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\_lib\\__pycache__\\deprecation.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\__pycache__\\__config__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\__pycache__\\version.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\__pycache__\\_distributor_init.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\_lib\\__pycache__\\_pep440.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\_lib\\__pycache__\\_ccallback.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\sparse\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\sparse\\__pycache__\\base.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\sparse\\__pycache__\\sputils.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\_lib\\__pycache__\\_util.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\sparse\\__pycache__\\csr.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\sparse\\__pycache__\\compressed.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\sparse\\__pycache__\\data.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\sparse\\__pycache__\\dia.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\sparse\\__pycache__\\_index.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\sparse\\__pycache__\\csc.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\sparse\\__pycache__\\lil.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\sparse\\__pycache__\\dok.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\sparse\\__pycache__\\coo.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\sparse\\__pycache__\\bsr.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\sparse\\__pycache__\\construct.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\sparse\\__pycache__\\extract.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\sparse\\__pycache__\\_matrix_io.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\sparse\\csgraph\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\sparse\\csgraph\\__pycache__\\_laplacian.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\sparse\\csgraph\\__pycache__\\_validation.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\utils\\__pycache__\\class_weight.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\utils\\__pycache__\\validation.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\__pycache__\\memory.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\pydoc.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\__pycache__\\hashing.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\__pycache__\\func_inspect.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\__pycache__\\logger.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\__pycache__\\disk.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\__pycache__\\_store_backends.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\__pycache__\\backports.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\__pycache__\\numpy_pickle.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\__pycache__\\compressor.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\__pycache__\\numpy_pickle_utils.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\__pycache__\\numpy_pickle_compat.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\__pycache__\\parallel.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\__pycache__\\_multiprocessing_helpers.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\__pycache__\\_parallel_backends.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\__pycache__\\my_exceptions.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\__pycache__\\_deprecated_my_exceptions.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\__pycache__\\pool.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\__pycache__\\_memmapping_reducer.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\externals\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\externals\\loky\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\externals\\loky\\__pycache__\\_base.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\externals\\loky\\backend\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\externals\\loky\\backend\\__pycache__\\context.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\externals\\loky\\backend\\__pycache__\\process.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\externals\\loky\\backend\\__pycache__\\compat.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\externals\\loky\\backend\\__pycache__\\compat_win32.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\multiprocessing\\__pycache__\\popen_spawn_win32.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\multiprocessing\\__pycache__\\spawn.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\externals\\loky\\backend\\__pycache__\\reduction.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\externals\\loky\\backend\\__pycache__\\_win_reduction.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\externals\\cloudpickle\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\externals\\cloudpickle\\__pycache__\\cloudpickle.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\externals\\cloudpickle\\__pycache__\\compat.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\__pycache__\\typing_extensions.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\externals\\cloudpickle\\__pycache__\\cloudpickle_fast.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\externals\\loky\\__pycache__\\reusable_executor.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\externals\\loky\\__pycache__\\process_executor.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\externals\\loky\\backend\\__pycache__\\queues.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\externals\\loky\\backend\\__pycache__\\utils.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\psutil\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\psutil\\__pycache__\\_common.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\psutil\\__pycache__\\_compat.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\psutil\\__pycache__\\_pswindows.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\externals\\loky\\__pycache__\\cloudpickle_wrapper.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\externals\\loky\\backend\\__pycache__\\resource_tracker.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\externals\\loky\\backend\\__pycache__\\spawn.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\multiprocessing\\__pycache__\\pool.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\__pycache__\\executor.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\utils\\__pycache__\\fixes.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\stats\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\stats\\__pycache__\\stats.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\spatial\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\spatial\\__pycache__\\kdtree.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\spatial\\__pycache__\\_spherical_voronoi.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\spatial\\__pycache__\\_plotutils.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\_lib\\__pycache__\\decorator.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\spatial\\__pycache__\\_procrustes.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\linalg\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\linalg\\__pycache__\\misc.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\linalg\\__pycache__\\blas.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\linalg\\__pycache__\\lapack.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\linalg\\__pycache__\\basic.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\linalg\\__pycache__\\flinalg.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\linalg\\__pycache__\\decomp.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\linalg\\__pycache__\\decomp_svd.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\linalg\\__pycache__\\decomp_lu.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\linalg\\__pycache__\\_decomp_ldl.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\linalg\\__pycache__\\decomp_cholesky.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\linalg\\__pycache__\\decomp_qr.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\linalg\\__pycache__\\_decomp_qz.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\linalg\\__pycache__\\decomp_schur.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\linalg\\__pycache__\\_decomp_polar.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\linalg\\__pycache__\\matfuncs.cpython-38.pyc', reloading
+
+>> ClassifPredicao
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\interpolate\\__pycache__\\polyint.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\interpolate\\__pycache__\\fitpack2.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\interpolate\\__pycache__\\rbf.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\interpolate\\__pycache__\\_cubic.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\interpolate\\__pycache__\\ndgriddata.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\interpolate\\__pycache__\\_pade.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\stats\\__pycache__\\_rvs_sampling.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\stats\\__pycache__\\_tukeylambda_stats.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\stats\\__pycache__\\_ksstats.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\stats\\__pycache__\\_discrete_distns.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\stats\\__pycache__\\mstats_basic.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\stats\\__pycache__\\_stats_mstats_common.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\_lib\\__pycache__\\_bunch.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\stats\\__pycache__\\_hypotests.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\stats\\__pycache__\\_wilcoxon_data.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\stats\\__pycache__\\morestats.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\stats\\__pycache__\\contingency.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\stats\\__pycache__\\_binned_statistic.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\stats\\__pycache__\\kde.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\stats\\__pycache__\\mstats.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\stats\\__pycache__\\mstats_extras.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\stats\\__pycache__\\_multivariate.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\utils\\__pycache__\\deprecation.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\pkg_resources\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\pkg_resources\\extern\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\pkg_resources\\_vendor\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\pkg_resources\\_vendor\\__pycache__\\appdirs.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\pkg_resources\\_vendor\\packaging\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\pkg_resources\\_vendor\\packaging\\__pycache__\\__about__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\pkg_resources\\_vendor\\packaging\\__pycache__\\version.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\pkg_resources\\_vendor\\packaging\\__pycache__\\_structures.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\pkg_resources\\_vendor\\packaging\\__pycache__\\_typing.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\pkg_resources\\_vendor\\packaging\\__pycache__\\specifiers.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\pkg_resources\\_vendor\\packaging\\__pycache__\\_compat.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\pkg_resources\\_vendor\\packaging\\__pycache__\\utils.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\pkg_resources\\_vendor\\packaging\\__pycache__\\requirements.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\pkg_resources\\_vendor\\__pycache__\\pyparsing.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\pkg_resources\\_vendor\\packaging\\__pycache__\\markers.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\__pycache__\\exceptions.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\utils\\__pycache__\\_joblib.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\utils\\__pycache__\\_estimator_html_repr.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\utils\\__pycache__\\_tags.cpython-38.pyc', reloading
+
+>> ClassifPredicao
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\utils\\__pycache__\\_show_versions.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\ensemble\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\ensemble\\__pycache__\\_base.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\utils\\__pycache__\\metaestimators.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\ensemble\\__pycache__\\_forest.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\metrics\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\metrics\\__pycache__\\_ranking.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\utils\\__pycache__\\multiclass.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\utils\\__pycache__\\extmath.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\utils\\__pycache__\\sparsefuncs.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\preprocessing\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\preprocessing\\__pycache__\\_function_transformer.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\preprocessing\\__pycache__\\_data.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\preprocessing\\__pycache__\\_encoders.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\utils\\__pycache__\\_encode.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\preprocessing\\__pycache__\\_label.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\preprocessing\\__pycache__\\_discretization.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\metrics\\__pycache__\\_base.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\metrics\\__pycache__\\_classification.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\metrics\\cluster\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\metrics\\cluster\\__pycache__\\_supervised.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\metrics\\cluster\\__pycache__\\_unsupervised.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\metrics\\__pycache__\\pairwise.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\utils\\__pycache__\\_mask.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\metrics\\cluster\\__pycache__\\_bicluster.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\metrics\\__pycache__\\_regression.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\_loss\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\_loss\\__pycache__\\glm_distribution.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\utils\\__pycache__\\stats.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\metrics\\__pycache__\\_scorer.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\metrics\\_plot\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\metrics\\_plot\\__pycache__\\det_curve.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\metrics\\_plot\\__pycache__\\base.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\metrics\\_plot\\__pycache__\\roc_curve.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\metrics\\_plot\\__pycache__\\precision_recall_curve.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\metrics\\_plot\\__pycache__\\confusion_matrix.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\tree\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\tree\\__pycache__\\_classes.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\neighbors\\__pycache__\\__init__.cpython-38.pyc', reloading
+
+>> ClassifPredicao
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\neighbors\\__pycache__\\_graph.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\neighbors\\__pycache__\\_base.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\neighbors\\__pycache__\\_unsupervised.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\neighbors\\__pycache__\\_classification.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\neighbors\\__pycache__\\_regression.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\neighbors\\__pycache__\\_nearest_centroid.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\neighbors\\__pycache__\\_kde.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\neighbors\\__pycache__\\_lof.cpython-38.pyc', reloading
+NaoCurte - avaliacao nao bate para: 77    DANKO JONES:>I THINK BAD THOUGHTS
+Name: interpretacao, dtype: object
+NaoCurte - avaliacao nao bate para: 79    SABATON:>40 1
+Name: interpretacao, dtype: object
+
+>> ClassifPredicao
+NaoCurte - avaliacao nao bate para: 115    RAINBOW:>I SURRENDER
+Name: interpretacao, dtype: object
+musicas nao encontradas 0
+Curte: Analise por conteudo nao bate com Colab 0
+Nao Curte: Analise por conteudo nao bate com Colab 1
+musicaCandidata NaoCurte QUEENS OF THE STONE AGE:>LITTLE SISTER
+
+<< ClassifPredicao
+127.0.0.1 - - [30/Sep/2021 13:50:53] "[37mGET /predicao HTTP/1.1[0m" 200 -
+ * Detected change in 'c:\\Users\\abalm\\Documents\\TCC\\dags\\avaliamusica\\deployProducao\\APIAvaliaMusica\\main.py', reloading
+ * Detected change in 'c:\\Users\\abalm\\Documents\\TCC\\dags\\avaliamusica\\deployProducao\\APIAvaliaMusica\\main.py', reloading
+ * Detected change in 'c:\\Users\\abalm\\Documents\\TCC\\dags\\avaliamusica\\deployProducao\\APIAvaliaMusica\\main.py', reloading
+
+>> ClassifPredicao
+NaoCurte - avaliacao nao bate para: 150    TENACIOUS D:>MASTER EXPLODER
+Name: interpretacao, dtype: object
+NaoCurte - avaliacao nao bate para: 637    BON JOVI:>LOVE LIES
+Name: interpretacao, dtype: object
+musicas nao encontradas 0
+Curte: Analise por conteudo nao bate com Colab 0
+Nao Curte: Analise por conteudo nao bate com Colab 3
+musicaCandidata NaoCurte POETS OF THE FALL:>LIFT
+
+<< ClassifPredicao
+127.0.0.1 - - [30/Sep/2021 13:52:20] "[37mGET /predicao HTTP/1.1[0m" 200 -
+ * Detected change in 'c:\\Users\\abalm\\Documents\\TCC\\dags\\avaliamusica\\deployProducao\\APIAvaliaMusica\\main.py', reloading
+ * Detected change in 'c:\\Users\\abalm\\Documents\\TCC\\dags\\avaliamusica\\deployProducao\\APIAvaliaMusica\\main.py', reloading
+ * Detected change in 'c:\\Users\\abalm\\Documents\\TCC\\dags\\avaliamusica\\deployProducao\\APIAvaliaMusica\\main.py', reloading
+
+>> ClassifPredicao
+Curte - avaliacao nao bate para: 491    MUSE:>MADNESS
+Name: interpretacao, dtype: object
+Curte - avaliacao nao bate para: 29    ENYA:>THE RIVER SINGS
+Name: interpretacao, dtype: object
+Curte - avaliacao nao bate para: 352    SUPERTRAMP:>IT'S RAINING AGAIN
+Name: interpretacao, dtype: object
+Curte - avaliacao nao bate para: 387    ENNIO MORRICONE:>VISIT TO THE CINEMA
+Name: interpretacao, dtype: object
+Curte - avaliacao nao bate para: 201    ROSS COPPERMAN:>HOLDING ON AND LETTING GO
+Name: interpretacao, dtype: object
+musicas nao encontradas 0
+Curte: Analise por conteudo nao bate com Colab 5
+Nao Curte: Analise por conteudo nao bate com Colab 3
+musicaCandidata Curte HARI MATA HARI:>LEJLA
+
+<< ClassifPredicao
+127.0.0.1 - - [30/Sep/2021 13:53:02] "[37mGET /predicao HTTP/1.1[0m" 200 -
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Scripts\\conda-script.py', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\encodings\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\codecs.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\encodings\\__pycache__\\aliases.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\encodings\\__pycache__\\utf_8.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\encodings\\__pycache__\\cp1252.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\encodings\\__pycache__\\latin_1.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\io.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\abc.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\site.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\os.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\stat.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\_collections_abc.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\ntpath.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\genericpath.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\_sitebuiltins.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\_bootlocale.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\types.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\importlib\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\warnings.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\importlib\\__pycache__\\util.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\importlib\\__pycache__\\abc.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\importlib\\__pycache__\\machinery.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\contextlib.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\collections\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\operator.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\keyword.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\heapq.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\reprlib.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\functools.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\__future__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\json\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\json\\__pycache__\\decoder.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\re.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\enum.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\sre_compile.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\sre_parse.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\sre_constants.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\copyreg.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\json\\__pycache__\\scanner.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\json\\__pycache__\\encoder.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\common\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\common\\__pycache__\\compat.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\tempfile.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\shutil.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\fnmatch.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\posixpath.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\bz2.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\_compression.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\threading.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\_weakrefset.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\lzma.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\random.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\bisect.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\weakref.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\collections\\__pycache__\\abc.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\cli\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\cli\\__pycache__\\main.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\__pycache__\\exceptions.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\datetime.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\logging\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\traceback.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\linecache.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\tokenize.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\token.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\string.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\textwrap.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\getpass.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\_vendor\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\_vendor\\auxlib\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\_vendor\\auxlib\\__pycache__\\entity.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\_vendor\\auxlib\\_vendor\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\_vendor\\auxlib\\_vendor\\boltons\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\_vendor\\auxlib\\_vendor\\boltons\\__pycache__\\timeutils.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\_vendor\\auxlib\\__pycache__\\collection.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\_vendor\\auxlib\\__pycache__\\compat.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\_vendor\\auxlib\\_vendor\\__pycache__\\five.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\imp.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\_vendor\\auxlib\\_vendor\\__pycache__\\six.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\struct.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\shlex.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\_vendor\\auxlib\\__pycache__\\exceptions.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\_vendor\\auxlib\\__pycache__\\ish.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\_vendor\\auxlib\\__pycache__\\logz.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\_vendor\\auxlib\\__pycache__\\type_coercion.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\_vendor\\auxlib\\__pycache__\\decorators.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\_vendor\\toolz\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\cytoolz\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\toolz\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\toolz\\__pycache__\\itertoolz.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\toolz\\__pycache__\\utils.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\toolz\\__pycache__\\functoolz.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\inspect.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\dis.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\opcode.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\toolz\\__pycache__\\_signatures.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\toolz\\__pycache__\\dicttoolz.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\toolz\\__pycache__\\recipes.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\toolz\\curried\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\toolz\\curried\\__pycache__\\operator.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\ast.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\toolz\\curried\\__pycache__\\exceptions.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\toolz\\sandbox\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\toolz\\sandbox\\__pycache__\\core.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\toolz\\sandbox\\__pycache__\\parallel.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\toolz\\__pycache__\\_version.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\cytoolz\\__pycache__\\_signatures.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\copy.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\cytoolz\\curried\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\cytoolz\\curried\\__pycache__\\operator.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\cytoolz\\curried\\__pycache__\\exceptions.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\cytoolz\\__pycache__\\_version.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\base\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\base\\__pycache__\\constants.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\common\\__pycache__\\io.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\concurrent\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\concurrent\\futures\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\concurrent\\futures\\__pycache__\\_base.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\concurrent\\futures\\__pycache__\\process.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\queue.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\multiprocessing\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\multiprocessing\\__pycache__\\context.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\multiprocessing\\__pycache__\\process.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\signal.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\multiprocessing\\__pycache__\\reduction.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\pickle.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\_compat_pickle.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\socket.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\selectors.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\multiprocessing\\__pycache__\\connection.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\multiprocessing\\__pycache__\\util.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\subprocess.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\multiprocessing\\__pycache__\\queues.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\concurrent\\futures\\__pycache__\\thread.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\common\\__pycache__\\constants.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\common\\__pycache__\\path.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\distutils\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\distutils\\__pycache__\\spawn.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\distutils\\__pycache__\\errors.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\distutils\\__pycache__\\debug.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\distutils\\__pycache__\\log.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\urllib\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\urllib\\__pycache__\\parse.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\_vendor\\tqdm\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\_vendor\\tqdm\\__pycache__\\_monitor.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\_vendor\\tqdm\\__pycache__\\cli.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\_vendor\\tqdm\\__pycache__\\std.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\numbers.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\_vendor\\tqdm\\__pycache__\\utils.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\AppData\\Roaming\\Python\\Python38\\site-packages\\colorama\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\AppData\\Roaming\\Python\\Python38\\site-packages\\colorama\\__pycache__\\initialise.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\AppData\\Roaming\\Python\\Python38\\site-packages\\colorama\\__pycache__\\ansitowin32.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\AppData\\Roaming\\Python\\Python38\\site-packages\\colorama\\__pycache__\\ansi.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\AppData\\Roaming\\Python\\Python38\\site-packages\\colorama\\__pycache__\\winterm.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\AppData\\Roaming\\Python\\Python38\\site-packages\\colorama\\__pycache__\\win32.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\ctypes\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\ctypes\\__pycache__\\_endian.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\ctypes\\__pycache__\\wintypes.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\_vendor\\tqdm\\__pycache__\\version.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\common\\__pycache__\\signals.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\cli\\__pycache__\\conda_argparse.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\argparse.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\gettext.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\locale.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\base\\__pycache__\\context.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\platform.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\_vendor\\__pycache__\\appdirs.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\win32com\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\__pycache__\\pythoncom.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\win32\\lib\\__pycache__\\pywintypes.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\win32comext\\shell\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\_vendor\\boltons\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\_vendor\\boltons\\__pycache__\\setutils.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\_vendor\\__pycache__\\frozendict.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\common\\__pycache__\\configuration.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\common\\__pycache__\\serialize.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\ruamel_yaml\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\ruamel_yaml\\__pycache__\\cyaml.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\ruamel_yaml\\ext\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\ruamel_yaml\\__pycache__\\error.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\ruamel_yaml\\__pycache__\\compat.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\ruamel_yaml\\__pycache__\\reader.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\ruamel_yaml\\__pycache__\\util.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\ruamel_yaml\\__pycache__\\scanner.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\ruamel_yaml\\__pycache__\\tokens.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\ruamel_yaml\\__pycache__\\parser.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\ruamel_yaml\\__pycache__\\events.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\ruamel_yaml\\__pycache__\\composer.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\ruamel_yaml\\__pycache__\\nodes.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\ruamel_yaml\\__pycache__\\constructor.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\base64.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\ruamel_yaml\\__pycache__\\comments.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\ruamel_yaml\\__pycache__\\scalarstring.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\ruamel_yaml\\__pycache__\\anchor.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\ruamel_yaml\\__pycache__\\scalarint.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\ruamel_yaml\\__pycache__\\scalarfloat.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\ruamel_yaml\\__pycache__\\scalarbool.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\ruamel_yaml\\__pycache__\\timestamp.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\ruamel_yaml\\__pycache__\\emitter.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\ruamel_yaml\\__pycache__\\serializer.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\ruamel_yaml\\__pycache__\\representer.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\ruamel_yaml\\__pycache__\\resolver.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\ruamel_yaml\\__pycache__\\main.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\glob.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\ruamel_yaml\\__pycache__\\loader.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\ruamel_yaml\\__pycache__\\dumper.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\common\\_os\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\common\\_os\\__pycache__\\windows.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\common\\_os\\__pycache__\\linux.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\common\\__pycache__\\url.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\_vendor\\urllib3\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\_vendor\\urllib3\\__pycache__\\exceptions.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\_vendor\\urllib3\\util\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\_vendor\\urllib3\\util\\__pycache__\\url.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\common\\__pycache__\\decorators.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\gateways\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\gateways\\__pycache__\\logging.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\cli\\__pycache__\\main_list.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\cli\\__pycache__\\common.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\models\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\models\\__pycache__\\match_spec.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\models\\__pycache__\\channel.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\models\\__pycache__\\version.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\core\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\core\\__pycache__\\prefix_data.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\common\\pkg_formats\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\common\\pkg_formats\\__pycache__\\python.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\csv.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\email\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\email\\__pycache__\\parser.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\email\\__pycache__\\feedparser.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\email\\__pycache__\\errors.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\email\\__pycache__\\_policybase.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\email\\__pycache__\\header.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\email\\__pycache__\\quoprimime.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\email\\__pycache__\\base64mime.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\email\\__pycache__\\charset.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\email\\__pycache__\\encoders.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\quopri.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\email\\__pycache__\\utils.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\email\\__pycache__\\_parseaddr.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\calendar.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\configparser.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\gateways\\disk\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\gateways\\disk\\__pycache__\\create.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\gateways\\disk\\__pycache__\\delete.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\gateways\\disk\\__pycache__\\link.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\gateways\\disk\\__pycache__\\permissions.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\gateways\\disk\\__pycache__\\update.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\models\\__pycache__\\enums.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\gateways\\disk\\__pycache__\\read.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\hashlib.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\models\\__pycache__\\package_info.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\models\\__pycache__\\records.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\_vendor\\boltons\\__pycache__\\timeutils.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\gateways\\disk\\__pycache__\\test.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\uuid.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\models\\__pycache__\\prefix_graph.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\__pycache__\\history.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\conda\\models\\__pycache__\\dist.cpython-38.pyc', reloading
+
+>> ClassifPredicao
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\__pycache__\\_config.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\__pycache__\\_distributor_init.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\__check_build\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\__pycache__\\base.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\utils\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\_lib\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\_lib\\__pycache__\\_testutils.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\_lib\\__pycache__\\deprecation.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\__pycache__\\__config__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\__pycache__\\version.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\__pycache__\\_distributor_init.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\_lib\\__pycache__\\_pep440.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\_lib\\__pycache__\\_ccallback.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\sparse\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\sparse\\__pycache__\\base.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\sparse\\__pycache__\\sputils.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\_lib\\__pycache__\\_util.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\sparse\\__pycache__\\csr.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\sparse\\__pycache__\\compressed.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\sparse\\__pycache__\\data.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\sparse\\__pycache__\\dia.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\sparse\\__pycache__\\_index.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\sparse\\__pycache__\\csc.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\sparse\\__pycache__\\lil.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\sparse\\__pycache__\\dok.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\sparse\\__pycache__\\coo.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\sparse\\__pycache__\\bsr.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\sparse\\__pycache__\\construct.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\sparse\\__pycache__\\extract.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\sparse\\__pycache__\\_matrix_io.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\sparse\\csgraph\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\sparse\\csgraph\\__pycache__\\_laplacian.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\scipy\\sparse\\csgraph\\__pycache__\\_validation.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\utils\\__pycache__\\class_weight.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\sklearn\\utils\\__pycache__\\validation.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\__pycache__\\memory.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\pydoc.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\__pycache__\\hashing.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\__pycache__\\func_inspect.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\__pycache__\\logger.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\__pycache__\\disk.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\__pycache__\\_store_backends.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\__pycache__\\backports.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\__pycache__\\numpy_pickle.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\__pycache__\\compressor.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\__pycache__\\numpy_pickle_utils.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\__pycache__\\numpy_pickle_compat.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\__pycache__\\parallel.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\__pycache__\\_multiprocessing_helpers.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\__pycache__\\_parallel_backends.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\__pycache__\\my_exceptions.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\__pycache__\\_deprecated_my_exceptions.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\__pycache__\\pool.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\__pycache__\\_memmapping_reducer.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\externals\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\externals\\loky\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\externals\\loky\\__pycache__\\_base.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\externals\\loky\\backend\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\externals\\loky\\backend\\__pycache__\\context.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\externals\\loky\\backend\\__pycache__\\process.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\externals\\loky\\backend\\__pycache__\\compat.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\externals\\loky\\backend\\__pycache__\\compat_win32.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\multiprocessing\\__pycache__\\popen_spawn_win32.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\multiprocessing\\__pycache__\\spawn.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\__pycache__\\runpy.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\multiprocessing\\__pycache__\\synchronize.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\externals\\loky\\backend\\__pycache__\\reduction.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\externals\\loky\\backend\\__pycache__\\_win_reduction.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\externals\\cloudpickle\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\externals\\cloudpickle\\__pycache__\\cloudpickle.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\externals\\cloudpickle\\__pycache__\\compat.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\__pycache__\\typing_extensions.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\externals\\cloudpickle\\__pycache__\\cloudpickle_fast.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\externals\\loky\\__pycache__\\reusable_executor.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\externals\\loky\\__pycache__\\process_executor.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\externals\\loky\\backend\\__pycache__\\queues.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\joblib\\externals\\loky\\backend\\__pycache__\\utils.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\psutil\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\psutil\\__pycache__\\_common.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\psutil\\__pycache__\\_compat.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\psutil\\__pycache__\\_pswindows.cpython-38.pyc', reloading
+
+>> ClassifPredicao
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\multiprocessing\\dummy\\__pycache__\\__init__.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\multiprocessing\\dummy\\__pycache__\\connection.cpython-38.pyc', reloading
+Curte - avaliacao nao bate para: 11    BEBE:>CON MIS MANOS
+Name: interpretacao, dtype: object
+Curte - avaliacao nao bate para: 479    SIMON & GARFUNKEL:>THE ONLY LIVING BOY IN NEW ...
+Name: interpretacao, dtype: object
+Curte - avaliacao nao bate para: 157    MECANO:>HAWAII-BOMBAY
+Name: interpretacao, dtype: object
+Curte - avaliacao nao bate para: 7    ENRIQUE IGLESIAS:>BAILANDO - SPANISH VERSION
+Name: interpretacao, dtype: object
+Curte - avaliacao nao bate para: 122    THE CRANBERRIES:>ZOMBIE
+Name: interpretacao, dtype: object
+musicas nao encontradas 0
+Curte: Analise por conteudo nao bate com Colab 10
+Nao Curte: Analise por conteudo nao bate com Colab 3
+musicaCandidata Curte ANASTACIA:>ONE DAY IN YOUR LIFE - EUROPEAN VERSION
+
+<< ClassifPredicao
+127.0.0.1 - - [30/Sep/2021 15:35:18] "[37mGET /predicao HTTP/1.1[0m" 200 -
+
+>> ClassifPredicao
+Curte - avaliacao nao bate para: 256    BAND OF HORSES:>NO ONE'S GONNA LOVE YOU
+Name: interpretacao, dtype: object
+musicas nao encontradas 0
+Curte: Analise por conteudo nao bate com Colab 11
+Nao Curte: Analise por conteudo nao bate com Colab 3
+musicaCandidata Curte ENNIO MORRICONE:>LOVE THEME FOR NATA
+
+<< ClassifPredicao
+127.0.0.1 - - [30/Sep/2021 15:35:57] "[37mGET /predicao/ HTTP/1.0[0m" 200 -
+ * Detected change in 'c:\\Users\\abalm\\Documents\\TCC\\dags\\avaliamusica\\deployProducao\\APIAvaliaMusica\\main.py', reloading
+ * Detected change in 'c:\\Users\\abalm\\Documents\\TCC\\dags\\avaliamusica\\deployProducao\\APIAvaliaMusica\\main.py', reloading
+ * Detected change in 'c:\\Users\\abalm\\Documents\\TCC\\dags\\avaliamusica\\deployProducao\\APIAvaliaMusica\\main.py', reloading
+
+>> ClassifPredicao
+Curte - avaliacao nao bate para: 292    ENNIO MORRICONE:>FOUR INTERLUDES
+Name: interpretacao, dtype: object
+Curte - avaliacao nao bate para: 284    THE RIGHTEOUS BROTHERS:>UNCHAINED MELODY
+Name: interpretacao, dtype: object
+Curte - avaliacao nao bate para: 70    BLINK-182:>EVERY TIME I LOOK FOR YOU
+Name: interpretacao, dtype: object
+musicas nao encontradas 0
+Curte: Analise por conteudo nao bate com Colab 14
+Nao Curte: Analise por conteudo nao bate com Colab 3
+musicaCandidata Curte MASSIVE ATTACK:>SAFE FROM HARM - 2012 MIX/MASTER
+
+<< ClassifPredicao
+127.0.0.1 - - [30/Sep/2021 15:36:26] "[37mGET /predicao/ HTTP/1.0[0m" 200 -
+ * Detected change in 'c:\\Users\\abalm\\Documents\\TCC\\dags\\avaliamusica\\deployProducao\\APIAvaliaMusica\\main.py', reloading
+ * Detected change in 'c:\\Users\\abalm\\Documents\\TCC\\dags\\avaliamusica\\deployProducao\\APIAvaliaMusica\\main.py', reloading
+ * Detected change in 'c:\\Users\\abalm\\Documents\\TCC\\dags\\avaliamusica\\deployProducao\\APIAvaliaMusica\\main.py', reloading
+
+>> ClassifPredicao
+NaoCurte - avaliacao nao bate para: 451    DREAM THEATER:>FORSAKEN
+Name: interpretacao, dtype: object
+musicas nao encontradas 0
+Curte: Analise por conteudo nao bate com Colab 14
+Nao Curte: Analise por conteudo nao bate com Colab 4
+musicaCandidata NaoCurte TESTAMENT:>ELECTRIC CROWN
+
+<< ClassifPredicao
+127.0.0.1 - - [30/Sep/2021 15:36:58] "[37mGET /predicao/ HTTP/1.0[0m" 200 -
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\flask\\__pycache__\\debughelpers.cpython-38.pyc', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\flask\\app.py', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\flask_cors\\extension.py', reloading
+ * Detected change in 'C:\\Users\\abalm\\anaconda3\\Lib\\site-packages\\flask\\_compat.py', reloading
+127.0.0.1 - - [30/Sep/2021 15:37:42] "[35m[1mPOST /predicao HTTP/1.1[0m" 500 -
+
+>> ClassifPredicao
+musicas nao encontradas 0
+Curte: Analise por conteudo nao bate com Colab 14
+Nao Curte: Analise por conteudo nao bate com Colab 4
+musicaCandidata Curte FLORENCE + THE MACHINE:>GIRL WITH ONE EYE
+
+<< ClassifPredicao
+127.0.0.1 - - [30/Sep/2021 15:38:49] "[37mGET /predicao/ HTTP/1.0[0m" 200 -
+
+>> ClassifPredicao
+musicas nao encontradas 0
+Curte: Analise por conteudo nao bate com Colab 14
+Nao Curte: Analise por conteudo nao bate com Colab 4
+musicaCandidata NaoCurte SEX PISTOLS:>ANARCHY IN THE UK
+
+<< ClassifPredicao
+127.0.0.1 - - [30/Sep/2021 15:38:55] "[37mGET /predicao/ HTTP/1.1[0m" 200 -
+127.0.0.1 - - [30/Sep/2021 15:39:05] "[37mPOST /predicao/ HTTP/1.1[0m" 200 -

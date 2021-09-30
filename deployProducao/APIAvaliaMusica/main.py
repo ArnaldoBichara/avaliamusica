@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, Response
+from flask import Flask, jsonify, Response, request
 from flask_cors import CORS, cross_origin
 import pandas as pd
 from ClassifPredicao import Predicao
@@ -7,11 +7,18 @@ app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
-@app.route('/predicao', methods=['GET'])
+@app.route('/predicao/', methods=['GET', 'POST'])
 @cross_origin()
 def root() -> object:
     try:
-        return jsonify(Predicao())
+         if (request.method) == 'GET':
+            return jsonify(Predicao())
+         if (request.method) == 'POST':
+            data = request.form #dicionário contendo dados do post
+            return jsonify(isError= False,
+                    message= "Success",
+                    statusCode= 200,
+                    data= data)
     except:
         return Response("erro", status=404, mimetype='application/json')
 
