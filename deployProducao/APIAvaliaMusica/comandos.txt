@@ -17,4 +17,4 @@ Docker - container
 curl --location --request GET "http://localhost:5001/predicao/" --header "Content-Type: application/json" 
 curl --location --request GET 'http://localhost:5001/predicao/' --header 'Content-Type: application/json' 
 
-curl --location --request POST 'http://localhost:5001/predicao/' --header 'Content-Type: application/json' --body '' 
+curl --location --request POST 'http://localhost:5001/predicao/' --header 'Content-Type: application/json'  
