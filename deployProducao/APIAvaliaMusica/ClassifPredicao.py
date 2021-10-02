@@ -14,12 +14,12 @@ import os
 import random
 
 def Predicao() -> dict:
-  logging.basicConfig(filename='Previsao.log', 
-                      level=logging.INFO,
-                      format='%(message)s',
-                      datefmt='%d/%m/%Y %H:%M:%S'
-                      )
-  logging.info('\n>> ClassifPredicao') 
+  #logging.basicConfig(filename='Previsao.log', 
+                      # level=logging.INFO,
+                      # format='%(message)s',
+                      # datefmt='%d/%m/%Y %H:%M:%S'
+                      # )
+  #logging.info('\n>> ClassifPredicao') 
   #lendo modelo e datasets
   modelo                = pd.read_pickle ("modeloClassif.pickle")
   dominioAudioFeatures  = pd.read_pickle ("DominioAudioFeatures.pickle")
@@ -27,13 +27,7 @@ def Predicao() -> dict:
   musCandidatasNaoCurte = pd.read_pickle ("MusCandidatasNaoCurte.pickle")
 
   # obtendo estatísticas já acumuladas
-  if (os.path.isfile("estatisticas.pickle")):
-    estatisticas = pd.read_pickle ("estatisticas.pickle")
-  else:
-    estatisticas = {}
-    estatisticas['MusNaoEncontradaEmAudioFeature'] = 0
-    estatisticas["CurteAnaliseConteudoNaobateComAnaliseColab"] = 0
-    estatisticas["NaoCurteAnaliseConteudoNaobateComAnaliseColab"] = 0
+  estatisticas = pd.read_pickle ("estatisticas.pickle")
 
   # escolhendo aleatoriamente entre tipo 'Curte' ou 'NaoCurte'
   escolhas = ['Curte', 'NaoCurte']
@@ -64,20 +58,20 @@ def Predicao() -> dict:
     label_predicao = modelo.predict(dados_predicao)
     if (label_predicao[0]==[predicao_esperada]):
       encontrou = True
-    else:
-      estatisticas[estat] = estatisticas.get(estat, 0) +1
-      logging.info ("%s - avaliacao nao bate para: %s", tipo, musCandidata['interpretacao'])
+#    else:
+#      estatisticas[estat] = estatisticas.get(estat, 0) +1
+      #logging.info ("%s - avaliacao nao bate para: %s", tipo, musCandidata['interpretacao'])
 
   # salvando estatísticas acumuladas
   with open('estatisticas.pickle', 'wb') as arq:
       pickle.dump(estatisticas, arq)
 
-  logging.info ("musicas nao encontradas {0}".format(estatisticas["MusNaoEncontradaEmAudioFeature"]))
-  logging.info ("Curte: Analise por conteudo nao bate com Colab {0}".format(estatisticas["CurteAnaliseConteudoNaobateComAnaliseColab"]))
-  logging.info ("Nao Curte: Analise por conteudo nao bate com Colab {0}".format(estatisticas["NaoCurteAnaliseConteudoNaobateComAnaliseColab"]))
-  logging.info ("musicaCandidata %s %s", tipo, musCandidata['interpretacao'].to_string(index=False))
+  #logging.info ("musicas nao encontradas {0}".format(estatisticas["MusNaoEncontradaEmAudioFeature"]))
+  #logging.info ("Curte: Analise por conteudo nao bate com Colab {0}".format(estatisticas["CurteAnaliseConteudoNaobateComAnaliseColab"]))
+  #logging.info ("Nao Curte: Analise por conteudo nao bate com Colab {0}".format(estatisticas["NaoCurteAnaliseConteudoNaobateComAnaliseColab"]))
+  #logging.info ("musicaCandidata %s %s", tipo, musCandidata['interpretacao'].to_string(index=False))
 
-  logging.info('\n<< ClassifPredicao')
+  #logging.info('\n<< ClassifPredicao')
 
   return {'tipo':tipo, 'interpretacao':musCandidata['interpretacao'].to_string(index=False)}
   
