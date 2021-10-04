@@ -22,6 +22,7 @@ if (os.path.isfile("estatisticas.pickle") == False):
     estatisticas["PredicoesFalsoNegativo"] = 0
     with open('estatisticas.pickle', 'wb') as arq:
         pickle.dump(estatisticas, arq)
+    arq.close()
 
 def updateStats(data):
     estatisticas = pd.read_pickle("estatisticas.pickle")
@@ -38,8 +39,14 @@ def updateStats(data):
 
 def getStats():
     estatisticas = pd.read_pickle("estatisticas.pickle")
-    data = "Total de Predicoes: {}    Predicoes Corretas: {}\nTotal de Falsas Predicoes Curto: {}\nTotal de Falsas Predicoes Nao Curto: {}".format(
-        estatisticas.get("NumTotalDePredicoes"), estatisticas.get("PredicoesCorretas"), estatisticas.get("PredicoesFalsoPositivo"), estatisticas.get("PredicoesFalsoNegativo"))
+    totalDePredicoes = estatisticas.get("NumTotalDePredicoes");
+    predicoesCorretas = estatisticas.get("PredicoesCorretas");
+    data = "Total de Predicoes: {}    Predicoes Corretas: {} ({:.0f}%)\nFalsas Predicoes Curto: {}    Falsas Predicoes Nao Curto: {}".format(
+        totalDePredicoes, 
+        predicoesCorretas,
+        (predicoesCorretas*100/totalDePredicoes),
+        estatisticas.get("PredicoesFalsoPositivo"), 
+        estatisticas.get("PredicoesFalsoNegativo"))
     return data
 
 @app.route('/predicao/', methods=['GET', 'POST'])
