@@ -27,7 +27,7 @@ def Predicao() -> dict:
   musCandidatasNaoCurte = pd.read_pickle ("MusCandidatasNaoCurte.pickle")
 
   # obtendo estatísticas já acumuladas
-  estatisticas = pd.read_pickle ("estatisticas.pickle")
+  #estatisticas = pd.read_pickle ("estatisticas.pickle")
 
   # escolhendo aleatoriamente entre tipo 'Curte' ou 'NaoCurte'
   escolhas = ['Curte', 'NaoCurte']
@@ -51,7 +51,7 @@ def Predicao() -> dict:
     id_musica = musCandidata['id_musica'].item()
     audioFeaturesMusCand = dominioAudioFeatures.loc[dominioAudioFeatures['id_musica'].str.contains(id_musica)]
     if (audioFeaturesMusCand.empty == True):
-      estatisticas["MusNaoEncontradaEmAudioFeature"] = estatisticas.get("MusNaoEncontradaEmAudioFeature", 0) +1
+#      estatisticas["MusNaoEncontradaEmAudioFeature"] = estatisticas.get("MusNaoEncontradaEmAudioFeature", 0) +1
       continue
     dados_predicao = audioFeaturesMusCand.drop(columns=['id_musica']).to_numpy()
     # fazendo classificação por conteúdo
@@ -63,8 +63,8 @@ def Predicao() -> dict:
       #logging.info ("%s - avaliacao nao bate para: %s", tipo, musCandidata['interpretacao'])
 
   # salvando estatísticas acumuladas
-  with open('estatisticas.pickle', 'wb') as arq:
-      pickle.dump(estatisticas, arq)
+#  with open('estatisticas.pickle', 'wb') as arq:
+#      pickle.dump(estatisticas, arq)
 
   #logging.info ("musicas nao encontradas {0}".format(estatisticas["MusNaoEncontradaEmAudioFeature"]))
   #logging.info ("Curte: Analise por conteudo nao bate com Colab {0}".format(estatisticas["CurteAnaliseConteudoNaobateComAnaliseColab"]))

@@ -22,8 +22,7 @@ if (os.path.isfile("estatisticas.pickle") == False):
     estatisticas["PredicoesFalsoNegativo"] = 0
     with open('estatisticas.pickle', 'wb') as arq:
         pickle.dump(estatisticas, arq)
-    arq.close()
-
+    
 def updateStats(data):
     estatisticas = pd.read_pickle("estatisticas.pickle")
     estatisticas["NumTotalDePredicoes"] += 1
