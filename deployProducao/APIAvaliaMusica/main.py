@@ -26,10 +26,10 @@ if (os.path.isfile("estatisticas.pickle") == False):
 def updateStats(data):
     estatisticas = pd.read_pickle("estatisticas.pickle")
     estatisticas["NumTotalDePredicoes"] += 1
-    if (data['predicao'] == data['gosto']):
+    if (data['predicao'] == data['gostoReal']):
         estatisticas["PredicoesCorretas"] += 1
     else:
-        if (data['predicao'] == 'NaoCurto'):
+        if (data['predicao'] == 'NaoCurte'):
             estatisticas["PredicoesFalsoNegativo"] = estatisticas.get("PredicoesFalsoNegativo",0) +1
         else:
             estatisticas["PredicoesFalsoPositivo"] = estatisticas.get("PredicoesFalsoPositivo",0)+1
@@ -38,7 +38,7 @@ def updateStats(data):
 
 def getStats():
     estatisticas = pd.read_pickle("estatisticas.pickle")
-    data = "Total de Predições: {}\n Predições Corretas: {}\nTotal de Falsas Curtidas: {}\n Total de Falsos Não Curto: {}".format(
+    data = "Total de Predicoes: {}    Predicoes Corretas: {}\nTotal de Falsas Predicoes Curto: {}\nTotal de Falsas Predicoes Nao Curto: {}".format(
         estatisticas.get("NumTotalDePredicoes"), estatisticas.get("PredicoesCorretas"), estatisticas.get("PredicoesFalsoPositivo"), estatisticas.get("PredicoesFalsoNegativo"))
     return data
 
@@ -61,10 +61,7 @@ def rotaPredicao() -> object:
 def rotaStats() -> object:
     try:
         data = getStats()
-        return jsonify(isError=False,
-                       message="Success",
-                       statusCode=200,
-                       data=data)
+        return jsonify(texto=data)
     except:
         return Response("erro", status=404, mimetype='application/json')
 
