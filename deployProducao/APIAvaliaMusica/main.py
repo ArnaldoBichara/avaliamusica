@@ -13,40 +13,39 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 # iniciando estatísticas
 if (os.path.isfile("estatisticas.pickle") == False):
     estatisticas = {}
-    estatisticas['MusNaoEncontradaEmAudioFeature'] = 0
+    estatisticas["MusNaoEncontradaEmAudioFeature"] = 0
     estatisticas["CurteAnaliseConteudoNaobateComAnaliseColab"] = 0
     estatisticas["NaoCurteAnaliseConteudoNaobateComAnaliseColab"] = 0
-    estatisticas["NumTotalDePredicoes"] = 0
-    estatisticas["PredicoesCorretas"] = 0
-    estatisticas["PredicoesFalsoPositivo"] = 0
-    estatisticas["PredicoesFalsoNegativo"] = 0
+    estatisticas["predicoes"] = 0
+    estatisticas["predicoescorretas"] = 0
+    estatisticas["falsospositivos"] = 0
+    estatisticas["falsosnegativos"] = 0
     with open('estatisticas.pickle', 'wb') as arq:
         pickle.dump(estatisticas, arq)
-    arq.close()
-
+    
 def updateStats(data):
-    estatisticas = pd.read_pickle("estatisticas.pickle")
-    estatisticas["NumTotalDePredicoes"] += 1
+    estats = pd.read_pickle("estatisticas.pickle")
+    estats["predicoes"] += 1
     if (data['predicao'] == data['gostoReal']):
-        estatisticas["PredicoesCorretas"] += 1
+        estats["predicoescorretas"] += 1
     else:
         if (data['predicao'] == 'NaoCurte'):
-            estatisticas["PredicoesFalsoNegativo"] = estatisticas.get("PredicoesFalsoNegativo",0) +1
+            estats["falsosnegativos"] = estats.get("falsosnegativos",0) +1
         else:
-            estatisticas["PredicoesFalsoPositivo"] = estatisticas.get("PredicoesFalsoPositivo",0)+1
+            estats["falsospositivos"] = estats.get("falsospositivos",0)+1
     with open('estatisticas.pickle', 'wb') as arq:
-        pickle.dump(estatisticas, arq)
+        pickle.dump(estats, arq)
 
 def getStats():
-    estatisticas = pd.read_pickle("estatisticas.pickle")
-    totalDePredicoes = estatisticas.get("NumTotalDePredicoes");
-    predicoesCorretas = estatisticas.get("PredicoesCorretas");
+    estats = pd.read_pickle("estatisticas.pickle")
+    totalDePredicoes = estats.get("predicoes");
+    predicoesCorretas = estats.get("predicoescorretas");
     data = "Total de Predicoes: {}    Predicoes Corretas: {} ({:.0f}%)\nFalsas Predicoes Curto: {}    Falsas Predicoes Nao Curto: {}".format(
         totalDePredicoes, 
         predicoesCorretas,
         (predicoesCorretas*100/totalDePredicoes),
-        estatisticas.get("PredicoesFalsoPositivo"), 
-        estatisticas.get("PredicoesFalsoNegativo"))
+        estats.get("falsospositivos"), 
+        estats.get("falsosnegativos"))
     return data
 
 @app.route('/predicao/', methods=['GET', 'POST'])
@@ -57,9 +56,8 @@ def rotaPredicao() -> object:
             return jsonify(Predicao())
         if (request.method) == 'POST':
             updateStats(request.json)
-            return jsonify(isError=False,
-                           message="Success",
-                           statusCode=200)
+            data = getStats()
+            return jsonify(texto=data)
     except:
         return Response("erro", status=404, mimetype='application/json')
 
