@@ -12,7 +12,8 @@ import pickle
 
 # Número de vizinhos mais próximos a considerar
 #NVizinhos = 7
-NVizinhos = 3
+NVizinhos = 6
+NMusPorUser = 150
 
 #
 logging.basicConfig(filename='./Analises/processamentoColab.log', 
@@ -32,8 +33,7 @@ logging.info ("ColabVizinhosUserAbarra shape %s", VizinhosUserAbarra.shape)
 VizinhosUserA.sort_values(by=['distancia'], inplace=True)
 VizinhosUserAbarra.sort_values(by=['distancia'], inplace=True)
 #%%
-# Pegando apenas primeiros N users mais próximos
-
+# Pegando N users mais próximos
 VizinhosUserA      = VizinhosUserA[:NVizinhos]
 VizinhosUserA.reset_index(inplace=True, drop=True)
 logging.info ('\n%s Melhores vizinhos de UserA:', NVizinhos)
@@ -49,14 +49,23 @@ for i in range(NVizinhos):
 
 MusUsers       =  pd.read_pickle ("./FeatureStore/MusUsersNoDominio.pickle")  
 DominioDasMusicas =  pd.read_pickle ("./FeatureStore/DominioDasMusicas.pickle")  
+
+# rotina que obtem aleatoriamente N músicas do vizinho
+def GetMusUserParcial (TodasMusUser):
+    if (TodasMusUser.count()<= NMusPorUser):
+        MusUserParcial = TodasMusUser
+    else:
+        MusUserParcial = TodasMusUser.sample (n=NMusPorUser)
+    return MusUserParcial
 # 
 # Montando músicas candidatas para UserA
 #
 listaMusCandUserA = []
 for i in range(NVizinhos):
     vizinho = VizinhosUserA.iloc[i]['userid']
-    MusUser = MusUsers[MusUsers['userid']==vizinho]['id_musica'].tolist()
-    listaMusCandUserA.extend(MusUser)
+    MusUser = MusUsers[MusUsers['userid']==vizinho]['id_musica']
+    MusUser = GetMusUserParcial (MusUser)
+    listaMusCandUserA.extend(MusUser.tolist())
     
 # removendo duplicados na lista
 listaMusCandUserA = list(set(listaMusCandUserA))
@@ -103,8 +112,9 @@ MusInterseccaoVizinhoscomA.to_pickle('./FeatureStore/MusInterseccaoVizinhoscomA.
 listaMusCandUserAbarra = []
 for i in range(NVizinhos):
     vizinho = VizinhosUserAbarra.iloc[i]['userid']
-    MusUser = MusUsers[MusUsers['userid']==vizinho]['id_musica'].tolist()
-    listaMusCandUserAbarra.extend(MusUser)
+    MusUser = MusUsers[MusUsers['userid']==vizinho]['id_musica']
+    MusUser = GetMusUserParcial (MusUser)
+    listaMusCandUserAbarra.extend(MusUser.tolist())
     
 # removendo duplicados na lista
 listaMusCandUserAbarra = list(set(listaMusCandUserAbarra))
