@@ -12,10 +12,23 @@ import pandas as pd
 import numpy as np
 import pickle
 import logging
+import statistics
 from utils import calcula_cross_val_scores
 
 from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier, GradientBoostingClassifier
 from sklearn.model_selection import train_test_split
+
+from sklearn.preprocessing import StandardScaler
+from sklearn.pipeline import Pipeline
+
+from keras.models import Sequential
+from keras.layers import Dense, Dropout
+from keras.wrappers.scikit_learn import KerasClassifier
+from keras.constraints import maxnorm
+
+import tensorflow as tf
+from statistics import mean
+tf.get_logger().setLevel('ERROR') 
 
 
 logging.basicConfig(filename='./Analises/processamentoClassificacao.log', 
@@ -32,6 +45,19 @@ UserAFeatureSamples = pd.read_pickle ("./FeatureStore/UserAFeatureSamples.pickle
 # y - classe
 X = UserAFeatureSamples.drop(columns=['classe'])
 y = np.array(UserAFeatureSamples['classe'])
+numDimEntrada = len(X.columns)
+
+def create_model_MLP(optimizer='rmsprop', init='uniform', weight_constraint=1, dropout_rate=0.1):
+    # create model
+    model = Sequential()
+    model.add(Dense(12, input_dim=numDimEntrada, activation='relu', kernel_initializer=init, kernel_constraint=maxnorm(weight_constraint)))
+    model.add(Dropout(dropout_rate))
+    model.add(Dense(9,  activation='relu', kernel_initializer=init))
+    model.add(Dropout(dropout_rate))
+    model.add(Dense(1, activation='sigmoid', kernel_initializer=init))
+	# Compile model
+    model.compile(loss='binary_crossentropy', optimizer=optimizer, metrics=['accuracy'])
+    return model
 
 #%% definindo o modelo, com os hiperparametros previamente escolhidos
 rf = RandomForestClassifier(n_jobs=-1,
@@ -42,42 +68,83 @@ rf = RandomForestClassifier(n_jobs=-1,
 ab = AdaBoostClassifier (n_estimators=300,
                          learning_rate=0.1)    
 gb = GradientBoostingClassifier (n_estimators=400,
-                                learning_rate=0.08)                           
+                                learning_rate=0.08)  
+mlp = Pipeline([
+                ('standardize', StandardScaler()), # passa média para 0 e desvio para 1
+                ('mlp', KerasClassifier(build_fn=create_model_MLP, epochs=100, batch_size=20, verbose=0))
+            ])                                                       
 
 X_trein, X_teste, y_trein, y_teste = train_test_split(X, y, random_state=0, test_size=0.30)
 #
 # Cálculo de acurácia:
 #
-rf.fit (X_trein, y_trein)
-y_predicao = rf.predict (X_teste)
-acuraciarf = np.sum(y_predicao == y_teste)/len(y_teste)
+acuracias=[]
+for i in range (5):
+    rf.fit (X_trein, y_trein)
+    y_predicao = rf.predict (X_teste)
+    acuracia = np.sum(y_predicao == y_teste)/len(y_teste)
+    acuracias.append(acuracia)
+acuraciarf = mean(acuracias)
 print("acurácia RandomForest:", acuraciarf)
-logging.info ("acuracia RandomForest %s", acuraciarf)
+logging.info ("acuracia RandomForest {:.3f}".format(acuraciarf))
 
-ab.fit (X_trein, y_trein)
-y_predicao = ab.predict (X_teste)
-acuraciaab = np.sum(y_predicao == y_teste)/len(y_teste)
+acuracias=[]
+for i in range (5):
+    ab.fit (X_trein, y_trein)
+    y_predicao = ab.predict (X_teste)
+    acuracia = np.sum(y_predicao == y_teste)/len(y_teste)
+    acuracias.append(acuracia)
+acuraciaab = mean(acuracias)
 print("acurácia AdaBoost:", acuraciaab)
-logging.info ("acuracia AdaBoost %s", acuraciaab)
+logging.info ("acuracia AdaBoost {:.3f}".format(acuraciaab))
 
-gb.fit (X_trein, y_trein)
-y_predicao = gb.predict (X_teste)
-acuraciagb = np.sum(y_predicao == y_teste)/len(y_teste)
+acuracias=[]
+for i in range (5):
+    gb.fit (X_trein, y_trein)
+    y_predicao = gb.predict (X_teste)
+    acuracia = np.sum(y_predicao == y_teste)/len(y_teste)
+    acuracias.append(acuracia)
+acuraciagb = mean(acuracias)
 print("acurácia GradientBoost:", acuraciagb)
-logging.info ("acuracia GradientBoost %s", acuraciagb)
+logging.info ("acuracia GradientBoost {:.3f}".format(acuraciagb))
+
+acuracias=[]
+for i in range (5):
+    mlp.fit (X_trein, y_trein)
+    y_predicao = mlp.predict (X_teste)
+    # os valores de y_predicao são entre 0 e 1 (probabilidade). 
+    # Então temos de arredondá-los
+    y_predicao = [round(y[0]) for y in y_predicao]
+    acuracia = np.sum(y_predicao == y_teste)/len(y_teste)
+    acuracias.append(acuracia)
+acuraciamlp = mean(acuracias)
+print("acurácia Rede Neural MLP:", acuraciamlp)
+logging.info ("acuracia Rede Neural MLP {:.3f}".format(acuraciamlp))
 #
 # Treino do classificador com todos os dados
 # e salvando o modelo treinado
-if (acuraciagb > acuraciaab):
-    if (acuraciagb > acuraciarf):
-        modeloEscolhido = gb
+if (acuraciamlp > acuraciagb):
+    if (acuraciamlp > acuraciaab):
+        if (acuraciamlp > acuraciarf):
+            modeloEscolhido = mlp
+        else:
+            modeloEscolhido = rf
     else:
-        modeloEscolhido = rf
+        if (acuraciaab > acuraciarf):
+            modeloEscolhido = ab
+        else:
+            modeloEscolhido = rf
 else:
-    if (acuraciaab > acuraciarf):
-        modeloEscolhido = ab
+    if (acuraciagb > acuraciaab):
+        if (acuraciagb > acuraciarf):
+            modeloEscolhido = gb
+        else:
+            modeloEscolhido = rf
     else:
-        modeloEscolhido = rf
+        if (acuraciaab > acuraciarf):
+            modeloEscolhido = ab
+        else:
+            modeloEscolhido = rf
 
 modeloEscolhido.fit (X, y)
 with open("./FeatureStore/modeloClassif.pickle", 'wb') as arq:

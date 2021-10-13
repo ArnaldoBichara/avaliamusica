@@ -17,3 +17,11 @@
 13/10/2021 10:39:31 << ClassifRedeNeuralMLPEscolhadeHiperparametros
 13/10/2021 10:50:42 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
 13/10/2021 10:51:14 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+13/10/2021 11:14:40 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+13/10/2021 11:33:08 {'mlp__weight_constraint': 1, 'mlp__optimizer': 'rmsprop', 'mlp__init': 'uniform', 'mlp__epochs': 100, 'mlp__dropout_rate': 0.1, 'mlp__batch_size': 20} Acur�cia: 0.8108288466930389
+13/10/2021 11:33:08 << ClassifRedeNeuralMLPEscolhadeHiperparametros
+13/10/2021 11:37:52 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+13/10/2021 12:01:22 {'mlp__weight_constraint': 1, 'mlp__optimizer': 'rmsprop', 'mlp__init': 'uniform', 'mlp__epochs': 100, 'mlp__dropout_rate': 0.1, 'mlp__batch_size': 20} Acur�cia: 0.8146929025650025
+13/10/2021 12:01:22 << ClassifRedeNeuralMLPEscolhadeHiperparametros
+segunda camada com 8 neurônios:
+{'mlp__batch_size': 20, 'mlp__dropout_rate': 0.1, 'mlp__epochs': 100, 'mlp__init': 'normal', 'mlp__optimizer': 'adam', 'mlp__weight_constraint': 1} acuracia: 0.8093202173709869

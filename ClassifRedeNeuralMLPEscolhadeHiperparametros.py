@@ -22,7 +22,7 @@ from keras.wrappers.scikit_learn import KerasClassifier
 from keras.constraints import maxnorm
 
 import tensorflow as tf
-tf.get_logger().setLevel('INFO') 
+tf.get_logger().setLevel('ERROR') 
 
 logging.basicConfig(filename='./Analises/EscolhadeHiperparametros.log', 
                     level=logging.INFO,
@@ -42,11 +42,11 @@ numDimEntrada = len(X.columns)
 
 # hiperparâmetros em teste
 grid = { 'mlp__optimizer': ['rmsprop', 'adam'],
-                'mlp__init': ['glorot_uniform', 'normal', 'uniform'],
-                'mlp__epochs': [100, 200],
-                'mlp__batch_size': [20, 32, 64],
-                'mlp__dropout_rate': [0.0, 0.1, 0.2, 0.5, 0.7],
-                'mlp__weight_constraint': [0, 1, 2, 3]} 
+                'mlp__init': ['normal', 'uniform'],
+                'mlp__epochs': [100],
+                'mlp__batch_size': [20, 32],
+                'mlp__dropout_rate': [0.1, 0.2],
+                'mlp__weight_constraint': [1, 2]} 
 
 def create_model(optimizer='rmsprop', init='glorot_uniform', weight_constraint=0, dropout_rate=0.0):
     # create model
@@ -68,10 +68,12 @@ clf = Pipeline([
 # cross validation tipo stratifiedKFold
 kfold = StratifiedKFold(n_splits=10, shuffle=True)
 
-clf_grid = GridSearchCV (estimator = clf, param_grid = grid
-                           , cv = kfold, verbose=2, n_jobs=-1)
+#clf_random = RandomizedSearchCV (estimator = clf, param_distributions = grid,
+#             n_iter = 100, cv = kfold, verbose=2, n_jobs=-1, random_state=1)
+clf_random = GridSearchCV (estimator = clf, param_grid = grid, 
+    cv = kfold, verbose=2, n_jobs=-1)
+search = clf_random.fit (X,y)
 #%%
-search = clf_grid.fit (X,y)
 print (search.best_params_, "acuracia:", search.best_score_)
 logging.info ("{} Acurácia: {}".format(search.best_params_, search.best_score_))
 
