@@ -55,7 +55,7 @@ def Predicao() -> dict:
       continue
     dados_predicao = audioFeaturesMusCand.drop(columns=['id_musica']).to_numpy()
     # fazendo classificação por conteúdo
-    label_predicao = modelo.predict(dados_predicao)
+    label_predicao = (modelo.predict(dados_predicao) > 0.5).astype(int)
     if (label_predicao[0]==[predicao_esperada]):
       encontrou = True
 #    else:
