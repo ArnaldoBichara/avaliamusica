@@ -15,7 +15,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import RepeatedStratifiedKFold
 from sklearn.model_selection._search import RandomizedSearchCV
 
-logging.basicConfig(filename='./Analises/processamentoClassificacao.log', 
+logging.basicConfig(filename='./Analises/EscolhadeHiperparametros.log', 
                     level=logging.INFO,
                     format='%(asctime)s %(message)s',
                     datefmt='%d/%m/%Y %H:%M:%S'
@@ -29,7 +29,8 @@ UserAFeatureSamples = pd.read_pickle ("./FeatureStore/UserAFeatureSamples.pickle
 X = UserAFeatureSamples.drop(columns=['classe'])
 y = np.array(UserAFeatureSamples['classe'])
 
-random_grid = {'max_depth': range (8,14),
+random_grid = {'n_estimators': [200, 300, 400, 500],
+                'max_depth': [8,10,12,14],
                'min_samples_split': [2,3,4],
                'max_leaf_nodes': range(90,114, 4),
                'min_samples_leaf': [1, 2],
@@ -45,7 +46,7 @@ random_grid = {'max_depth': range (8,14),
 # cross validation tipo stratifiedKFole, com 3 repetições e 10 splits
 cv = RepeatedStratifiedKFold(n_splits=10, n_repeats=3)
 clf = RandomForestClassifier()
-clf_random = RandomizedSearchCV (estimator = clf, param_distributions = random_grid, n_iter = 2000, cv = cv, verbose=2, n_jobs=-1)
+clf_random = RandomizedSearchCV (estimator = clf, param_distributions = random_grid, cv = cv, verbose=1, n_jobs=-1)
 search = clf_random.fit (X,y)
 print (search.best_params_)
 #%%

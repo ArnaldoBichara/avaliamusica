@@ -18,7 +18,7 @@ from sklearn.model_selection._search import RandomizedSearchCV
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.svm import SVC
 
-logging.basicConfig(filename='./Analises/processamentoClassificacao.log', 
+logging.basicConfig(filename='./Analises/EscolhadeHiperparametros.log', 
                     level=logging.INFO,
                     format='%(asctime)s %(message)s',
                     datefmt='%d/%m/%Y %H:%M:%S'
@@ -54,7 +54,7 @@ cv = RepeatedStratifiedKFold(n_splits=10, n_repeats=3)
 # print (search.best_params_, "acuracia:", search.best_score_)
 
 clf = AdaBoostClassifier()
-clf_random = RandomizedSearchCV (estimator = clf, param_distributions = random_grid, n_iter = 2000, cv = cv, verbose=2, n_jobs=-1, random_state=1)
+clf_random = RandomizedSearchCV (estimator = clf, param_distributions = random_grid, cv = cv, verbose=1, n_jobs=-1, random_state=1)
 search = clf_random.fit (X,y)
 print (search.best_params_, "acuracia:", search.best_score_)
 #%% Para uma condição n_estimator e learning_rate dada, vamos verifica como se comporta o max_depth das árvores

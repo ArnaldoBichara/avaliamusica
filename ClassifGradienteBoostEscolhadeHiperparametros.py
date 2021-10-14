@@ -19,7 +19,7 @@ from sklearn.model_selection import RepeatedStratifiedKFold
 from sklearn.model_selection._search import RandomizedSearchCV
 from sklearn.tree import DecisionTreeClassifier
 
-logging.basicConfig(filename='./Analises/processamentoClassificacao.log', 
+logging.basicConfig(filename='./Analises/EscolhadeHiperparametros.log', 
                     level=logging.INFO,
                     format='%(asctime)s %(message)s',
                     datefmt='%d/%m/%Y %H:%M:%S'

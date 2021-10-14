@@ -41,6 +41,12 @@ y = np.array(UserAFeatureSamples['classe'])
 numDimEntrada = len(X.columns)
 
 # hiperparâmetros em teste
+'''grid = { 'mlp__optimizer': ['rmsprop', 'adam', 'SGD', 'Adagrad'],
+                'mlp__init': ['uniform'],
+                'mlp__epochs': [100],
+                'mlp__batch_size': [20],
+                'mlp__dropout_rate': [0.1],
+                'mlp__weight_constraint': [1]} '''
 grid = { 'mlp__optimizer': ['rmsprop', 'adam'],
                 'mlp__init': ['normal', 'uniform'],
                 'mlp__epochs': [100],

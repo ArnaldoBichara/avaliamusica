@@ -28,6 +28,7 @@ from keras.constraints import maxnorm
 
 import tensorflow as tf
 from statistics import mean
+from sklearn.tree import DecisionTreeClassifier
 tf.get_logger().setLevel('ERROR') 
 
 
@@ -60,15 +61,19 @@ def create_model_MLP(optimizer='rmsprop', init='uniform', weight_constraint=1, d
     return model
 
 #%% definindo o modelo, com os hiperparametros previamente escolhidos
-rf = RandomForestClassifier(n_jobs=-1,
-                            max_depth=10,
-                            min_samples_split=3,
+rf = RandomForestClassifier(n_estimators=300,
+                            n_jobs=-1,
+                            max_depth=14,
+                            min_samples_split=2,
                             min_samples_leaf=2,
-                            max_leaf_nodes=110)
-ab = AdaBoostClassifier (n_estimators=300,
-                         learning_rate=0.1)    
+                            max_leaf_nodes=90)
+base_estimator = DecisionTreeClassifier(max_depth=2)
+ab = AdaBoostClassifier (n_estimators=400,
+                         learning_rate=0.01,
+                         base_estimator=base_estimator)    
 gb = GradientBoostingClassifier (n_estimators=400,
-                                learning_rate=0.08)  
+                                learning_rate=0.08,
+                                max_depth=1)  
 mlp = Pipeline([
                 ('standardize', StandardScaler()), # passa média para 0 e desvio para 1
                 ('mlp', KerasClassifier(build_fn=create_model_MLP, epochs=100, batch_size=20, verbose=0))
@@ -85,7 +90,7 @@ for i in range (5):
     acuracia = np.sum(y_predicao == y_teste)/len(y_teste)
     acuracias.append(acuracia)
 acuraciarf = mean(acuracias)
-print("acurácia RandomForest:", acuraciarf)
+print("acuracia RandomForest {:.3f}".format(acuraciarf))
 logging.info ("acuracia RandomForest {:.3f}".format(acuraciarf))
 
 acuracias=[]
@@ -95,7 +100,7 @@ for i in range (5):
     acuracia = np.sum(y_predicao == y_teste)/len(y_teste)
     acuracias.append(acuracia)
 acuraciaab = mean(acuracias)
-print("acurácia AdaBoost:", acuraciaab)
+print("acuracia AdaBoost {:.3f}".format(acuraciaab))
 logging.info ("acuracia AdaBoost {:.3f}".format(acuraciaab))
 
 acuracias=[]
@@ -105,7 +110,7 @@ for i in range (5):
     acuracia = np.sum(y_predicao == y_teste)/len(y_teste)
     acuracias.append(acuracia)
 acuraciagb = mean(acuracias)
-print("acurácia GradientBoost:", acuraciagb)
+print("acuracia GradientBoost {:.3f}".format(acuraciagb))
 logging.info ("acuracia GradientBoost {:.3f}".format(acuraciagb))
 
 acuracias=[]
@@ -118,7 +123,7 @@ for i in range (5):
     acuracia = np.sum(y_predicao == y_teste)/len(y_teste)
     acuracias.append(acuracia)
 acuraciamlp = mean(acuracias)
-print("acurácia Rede Neural MLP:", acuraciamlp)
+print("acuracia Rede Neural MLP {:.3f}".format(acuraciamlp))
 logging.info ("acuracia Rede Neural MLP {:.3f}".format(acuraciamlp))
 #
 # Treino do classificador com todos os dados

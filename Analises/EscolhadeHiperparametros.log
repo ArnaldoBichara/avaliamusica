@@ -24,4 +24,7 @@
 13/10/2021 12:01:22 {'mlp__weight_constraint': 1, 'mlp__optimizer': 'rmsprop', 'mlp__init': 'uniform', 'mlp__epochs': 100, 'mlp__dropout_rate': 0.1, 'mlp__batch_size': 20} Acur�cia: 0.8146929025650025
 13/10/2021 12:01:22 << ClassifRedeNeuralMLPEscolhadeHiperparametros
 segunda camada com 8 neurônios:
-{'mlp__batch_size': 20, 'mlp__dropout_rate': 0.1, 'mlp__epochs': 100, 'mlp__init': 'normal', 'mlp__optimizer': 'adam', 'mlp__weight_constraint': 1} acuracia: 0.8093202173709869
+{'mlp__batch_size': 20, 'mlp__dropout_rate': 0.1, 'mlp__epochs': 100, 'mlp__init': 'normal', 'mlp__optimizer': 'adam', 'mlp__weight_constraint': 1} acuracia: 0.809320217370986914/10/2021 10:05:54 
+<< Classif Analise Treinamento
+14/10/2021 11:00:48 
+<< Classif Analise Treinamento
