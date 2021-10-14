@@ -7,12 +7,11 @@
 # Importando packages
 import pandas as pd
 import numpy as np
-import pickle
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
-import json
 import logging
 import requests
+import os
 
 logging.basicConfig(filename='./Analises/preprocessamento2.log', 
                     level=logging.INFO,
@@ -34,7 +33,6 @@ playlists = sp.user_playlists(userA)
 
 while playlists:
     for i, playlist in enumerate (playlists['items']):
-#        print("%4d %s %s" % (i, playlist['uri'],  playlist['name']))
         if playlist['name']=='Curto':
             IdPlaylistCurto = playlist['id']
         if playlist['name']=='Não curto':
@@ -47,14 +45,14 @@ while playlists:
 # Obtendo as audio_samples das listas de playlists
 #
 def download_preview(id, url):
-    if (url is not None):
+    if url is not None:
         nome_arq = './preview/'+id
-        with requests.get(url, stream=True) as r:
-            r.raise_for_status()
-            with open(nome_arq, 'wb') as f:
-                for chunk in r.iter_content(chunk_size=8192):
-                    f.write(chunk)
-        return nome_arq    
+        if not os.path.exists(nome_arq):
+            with requests.get(url, stream=True) as r:
+                r.raise_for_status()
+                with open(nome_arq, 'wb') as f:
+                    for chunk in r.iter_content(chunk_size=8192):
+                        f.write(chunk)
 # obtem preview das Músicas da lista de items fornecida pelo Spotipy
 def downloadPreviews (playlistItems):
     for i, item in enumerate (playlistItems['items']):
