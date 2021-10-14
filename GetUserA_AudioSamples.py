@@ -53,12 +53,25 @@ def download_preview(id, url):
                 with open(nome_arq, 'wb') as f:
                     for chunk in r.iter_content(chunk_size=8192):
                         f.write(chunk)
+
+from pydub import AudioSegment
+from scipy.io import wavfile
+from tempfile import mktemp
+
+def montaEspectrograma (id):
+    nome_arq = './preview/'+id    
+    # converte mp3 para wav
+    mp3_audio = AudioSegment.from_file(nome_arq, format="mp3");
+    wname = mktemp('.wav')  # use temporary file    
+    mp3_audio.export(wname, format="wav")  # convert to wav
+    FS, data = wavfile.read(wname)  # read wav file                        
 # obtem preview das Músicas da lista de items fornecida pelo Spotipy
 def downloadPreviews (playlistItems):
     for i, item in enumerate (playlistItems['items']):
         idMusica = item['track']['id']
         previewMusica = item['track']['preview_url']
         download_preview(idMusica, previewMusica)
+        montaEspectrograma (idMusica)
 
 def getPreviewMusicas(user,playlist_id):
     # incluindo músicas da playlist
