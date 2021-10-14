@@ -6,10 +6,11 @@ Docker - container
     cd APIAvaliaMusica
     sudo docker build -t arnaldobichara/api_avaliamusica:latest .
     sudo docker push arnaldobichara/api_avaliamusica:latest
-    sudo docker run -d -p 5001:5001 arnaldobichara/api_avaliamusica
+
     
     docker stop arnaldobichara/api_avaliamusica
     docker pull arnaldobichara/api_avaliamusica:latest
+    docker run -d -p 5001:5001 arnaldobichara/api_avaliamusica
     docker ps
     docker logs -f id
     docker stop id
