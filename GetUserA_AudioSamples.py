@@ -2,7 +2,7 @@
 # Este componente lê e trata as playlists Curto e Não Curto do Usuário A,
 # obtendo diretamente do Spotify,
 # e salva as audio samples de cada música em arquivo.
-# monta os espectogramas e salva em arquivo, separado pela classe
+# monta os espectrogramas e salva em arquivo, separado pela classe
 ###################
 #%%
 # Importando packages
@@ -74,8 +74,8 @@ def scale_minmax(X, min=0.0, max=1.0):
 
 def montaEspectrograma (id, classe):
     # cria path se não existir
-    pathlib.Path(f'./espectogramas/{classe}').mkdir(parents=True, exist_ok=True)
-    nome_arq = f'./espectogramas/{classe}/{id}.png'
+    pathlib.Path(f'./espectrogramas/{classe}').mkdir(parents=True, exist_ok=True)
+    nome_arq = f'./espectrogramas/{classe}/{id}.png'
     # converte mp3 para espectograma
     if not os.path.exists(nome_arq):
         nome_mp3 = f'./amostras/{id}'
