@@ -82,10 +82,6 @@ def montaEspectrograma (id, classe):
         # save as PNG
         skimage.io.imsave(nome_arq, mels)
 
-         # plt.specgram(y, NFFT=2048, Fs=2, Fc=0, noverlap=128, sides='default', mode='default', scale='dB');
-        # plt.axis('off');
-        # plt.savefig(nome_arq)
-        # plt.clf()
     # obtem amostra das Músicas da lista de items fornecida pelo Spotipy
 def downloadAmostras (playlistItems, classe):
     for i, item in enumerate (playlistItems['items']):
