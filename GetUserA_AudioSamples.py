@@ -67,10 +67,6 @@ def download_amostra(id, url):
 # from pydub import AudioSegment
 # from scipy.io import wavfile
 # from tempfile import mktemp
-def scale_minmax(X, min=0.0, max=1.0):
-    X_std = (X - X.min()) / (X.max() - X.min())
-    X_scaled = X_std * (max - min) + min
-    return X_scaled
 
 def montaEspectrograma (id, classe):
     # cria path se não existir
@@ -81,16 +77,10 @@ def montaEspectrograma (id, classe):
         nome_mp3 = f'./amostras/{id}'
         #y, sr = librosa.load(nome_mp3, mono=True, duration=5)
         y, sr = librosa.load(nome_mp3)
-        #print (y.shape)
         mels = librosa.feature.melspectrogram(y=y, sr=sr, n_fft=2048, hop_length=512)
         mels = librosa.power_to_db(mels, ref=np.max)
-        mels = np.log(mels + 1e-9) # add small number to avoid log(0)
-        # min-max scale to fit inside 8-bit range
-        img = scale_minmax(mels, 0, 255).astype(np.uint8)
-        img = np.flip(img, axis=0) # put low frequencies at the bottom in image
-        img = 255-img # invert. make black==more energy
         # save as PNG
-        skimage.io.imsave(nome_arq, img)
+        skimage.io.imsave(nome_arq, mels)
 
          # plt.specgram(y, NFFT=2048, Fs=2, Fc=0, noverlap=128, sides='default', mode='default', scale='dB');
         # plt.axis('off');
