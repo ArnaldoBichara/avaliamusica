@@ -7,58 +7,22 @@ old/pickle
 FeatureStore/MusUsers.pickle
 datasets/
 __pycache__/
-
 PreProcColaboracao.py
-FeatureStore backup/AudioFeatures.pickle
-FeatureStore backup/DominioDasMusicas.pickle
-FeatureStore backup/DominioMusicasColab.pickle
-FeatureStore backup/MusUserACurte.pickle
-FeatureStore backup/MusUserANaoCurte.pickle
-FeatureStore backup/MusUsers.pickle
-FeatureStore backup/backup 30-ago/AudioFeatures.pickle
-FeatureStore backup/backup 30-ago/DominioDasMusicas.pickle
-FeatureStore backup/backup 30-ago/DominioMusicasColab.pickle
-FeatureStore backup/backup 30-ago/MusUserACurte.pickle
-FeatureStore backup/backup 30-ago/MusUserANaoCurte.pickle
-FeatureStore backup/backup 30-ago/MusUsers.pickle
+FeatureStore backup/
 FeatureStore/MusUsersColab.pickle
-FeatureStore backup/MusUsersColab.pickle
-FeatureStore backup/MusUsersColab100_500.pickle
-.venv/pyvenv.cfg
-.venv/Scripts/activate
-.venv/Scripts/activate.bat
-.venv/Scripts/Activate.ps1
-.venv/Scripts/deactivate.bat
-.venv/Scripts/python.exe
-.venv/Scripts/pythonw.exe
-.vscode/settings.json
-.vscode/launch.json
+.venv/
+.vscode/
 FeatureStore/MusUsersFiltradas100a500.pickle
 FeatureStore/MusUsersNoDominio.pickle
-FeatureStore backup/MusUsersFiltradas100a500.pickle
-FeatureStore backup/MusUsersNoDominio.pickle
 FeatureStore backup/
 FeatureStore/MusUsersFiltradas.pickle
 FeatureStore/DominioMusicasColab.pickle
 FeatureStore/MusUsersFiltradas.pickle
-FeatureStore/Jaccard/ResProcessaVizinhos50a150.txt
-FeatureStore/Jaccard/ResProcessaVizinhos151a250.txt
-FeatureStore/Jaccard/ResProcessaVizinhos251a350.txt
-FeatureStore/Jaccard/ResProcessaVizinhos351a500.txt
-FeatureStore/Jaccard/ResProcessaVizinhos501a800.txt
-FeatureStore/Jaccard/ResProcessaVizinhos801a1500.txt
-FeatureStore/Jaccard/ResProcessaVizinhos1501a5000.txt
-FeatureStore/Jaccard/ResProcessaVizinhos5000a30000.txt
-FeatureStore/sokalsneath/ResProcessaVizinhos50a150.txt
-FeatureStore/sokalsneath/ResProcessaVizinhos151a250.txt
-FeatureStore/sokalsneath/ResProcessaVizinhos251a350.txt
-FeatureStore/sokalsneath/ResProcessaVizinhos351a500.txt
-FeatureStore/sokalsneath/ResProcessaVizinhos501a800.txt
-FeatureStore/sokalsneath/ResProcessaVizinhos801a1500.txt
-FeatureStore/sokalsneath/ResProcessaVizinhos1501a30000.txt
-FeatureStore/sokalsneath/user aconsolidado.txt
+FeatureStore/Jaccard/
+FeatureStore/sokalsneath/
 FeatureStore/MusUsersFiltradas.pickle
 FeatureStore/ColabMusUsersEsparsa.pickle
 FeatureStore/ColabMusUserAEsparsa.pickle
 FeatureStore/ColabMusUserAbarraEsparsa.pickle
 preview/
+amostras/

@@ -1,7 +1,7 @@
 ###################
 # Este componente lê e trata as playlists Curto e Não Curto do Usuário A,
 # obtendo diretamente do Spotify,
-# e salva as audio samples de cada música, juntamente com a classe
+# e salva as audio samples de cada música em arquivo.
 ###################
 #%%
 # Importando packages
@@ -44,9 +44,9 @@ while playlists:
 
 # Obtendo as audio_samples das listas de playlists
 #
-def download_preview(id, url):
+def download_amostra(id, url):
     if url is not None:
-        nome_arq = './preview/'+id
+        nome_arq = './amostras/'+id
         if not os.path.exists(nome_arq):
             with requests.get(url, stream=True) as r:
                 r.raise_for_status()
@@ -54,72 +54,35 @@ def download_preview(id, url):
                     for chunk in r.iter_content(chunk_size=8192):
                         f.write(chunk)
 
-from pydub import AudioSegment
-from scipy.io import wavfile
-from tempfile import mktemp
+# from pydub import AudioSegment
+# from scipy.io import wavfile
+# from tempfile import mktemp
 
-def montaEspectrograma (id):
-    nome_arq = './preview/'+id    
+''' def montaEspectrograma (id):
+    nome_arq = './amostras/'+id    
     # converte mp3 para wav
     mp3_audio = AudioSegment.from_file(nome_arq, format="mp3");
     wname = mktemp('.wav')  # use temporary file    
     mp3_audio.export(wname, format="wav")  # convert to wav
-    FS, data = wavfile.read(wname)  # read wav file                        
-# obtem preview das Músicas da lista de items fornecida pelo Spotipy
-def downloadPreviews (playlistItems):
+    FS, data = wavfile.read(wname)  # read wav file   '''                      
+# obtem amostra das Músicas da lista de items fornecida pelo Spotipy
+def downloadAmostras (playlistItems):
     for i, item in enumerate (playlistItems['items']):
         idMusica = item['track']['id']
-        previewMusica = item['track']['preview_url']
-        download_preview(idMusica, previewMusica)
-        montaEspectrograma (idMusica)
+        amostraMusica = item['track']['preview_url']
+        download_amostra(idMusica, amostraMusica)
+        #montaEspectrograma (idMusica)
 
-def getPreviewMusicas(user,playlist_id):
+def getAmostrasMusicas(user,playlist_id):
     # incluindo músicas da playlist
     playlistItems = sp.user_playlist_tracks (user, playlist_id)
-    downloadPreviews (playlistItems)
+    downloadAmostras (playlistItems)
     while playlistItems['next']:
         playlistItems = sp.next(playlistItems)
-        downloadPreviews(playlistItems)
+        downloadAmostras(playlistItems)
 
-getPreviewMusicas(userA, IdPlaylistCurto)
-getPreviewMusicas(userA, IdPlaylistNaoCurto)
-
-# filtrando item vazio 
-ListMusFeaturesUserA = [i for i in ListMusFeaturesUserA if i is not None]
-ListMusFeaturesUserAbarra = [i for i in ListMusFeaturesUserAbarra if i is not None]
-
-# passando para dataFrame
-dfUserAMusFeatures = pd.DataFrame(ListMusFeaturesUserA)
-logging.info ("UserAMusFeatures shape %s", dfUserAMusFeatures.shape)
-
-dfUserAbarraMusFeatures = pd.DataFrame(ListMusFeaturesUserAbarra)
-logging.info ("UserAMusbarraFeatures shape %s", dfUserAbarraMusFeatures.shape)
-
-#%% Incluindo classe (0 - não curte / 1 - curte) e juntando dataframes
-dfUserAMusFeatures['classe']= 1;
-dfUserAbarraMusFeatures['classe'] = 0;
-#%%
-print (dfUserAMusFeatures.head())
-#%%
-print (dfUserAbarraMusFeatures.head())
-
-# removendo algumas colunas que não nos interessam
-dfUserAMusFeatures.drop(columns=['id','type','uri','track_href','analysis_url'],inplace=True)
-dfUserAbarraMusFeatures.drop(columns=['id','type','uri','track_href','analysis_url'],inplace=True)
-
-# removendo itens repetidos (diferentes interpretações de um artista\música)
-dfUserAMusFeatures.drop_duplicates(inplace=True, ignore_index=True)
-dfUserAbarraMusFeatures.drop_duplicates(inplace=True, ignore_index=True)    
-
-
-#%%
-logging.info ("UserAMusFeatures shape %s", dfUserAMusFeatures.shape)
-logging.info ("UserAbarraMusFeatures shape %s", dfUserAbarraMusFeatures.shape)
-
-#%%
-# salvar dataframe em .pickle
-dfUserAMusFeatures.to_pickle ("./FeatureStore/AudioFeaturesUserACurte.pickle")
-dfUserAbarraMusFeatures.to_pickle ("./FeatureStore/AudioFeaturesUserANaoCurte.pickle")
+getAmostrasMusicas(userA, IdPlaylistCurto)
+getAmostrasMusicas(userA, IdPlaylistNaoCurto)
 
 # %%
 logging.info('<< GetUserA_AudioSamples')
