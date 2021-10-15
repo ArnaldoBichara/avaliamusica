@@ -2,6 +2,7 @@
 # Este componente lê e trata as playlists Curto e Não Curto do Usuário A,
 # obtendo diretamente do Spotify,
 # e salva as audio samples de cada música em arquivo.
+# monta os espectogramas e salva em arquivo, separado pela classe
 ###################
 #%%
 # Importando packages
@@ -15,6 +16,11 @@ import os
 import pathlib
 import librosa
 from matplotlib import pyplot as plt
+import sys
+
+if not sys.warnoptions:
+    import warnings
+    warnings.simplefilter("ignore")
 
 logging.basicConfig(filename='./Analises/preprocessamento2.log', 
                     level=logging.INFO,
@@ -63,13 +69,13 @@ def download_amostra(id, url):
 
 def montaEspectrograma (id, classe):
     # cria path se não existir
-    p = pathlib.Path(f'./espectogramas/{classe}').mkdir(parents=True, exist_ok=True)
+    pathlib.Path(f'./espectogramas/{classe}').mkdir(parents=True, exist_ok=True)
     nome_arq = f'./espectogramas/{classe}/{id}.png'
     # converte mp3 para espectograma
     if not os.path.exists(nome_arq):
         nome_mp3 = f'./amostras/{id}'
         y, sr = librosa.load(nome_mp3, mono=True, duration=5)
-        print (y.shape)
+        #print (y.shape)
         plt.specgram(y, NFFT=2048, Fs=2, Fc=0, noverlap=128, sides='default', mode='default', scale='dB');
         plt.axis('off');
         plt.savefig(nome_arq)
