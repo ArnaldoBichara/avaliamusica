@@ -64,43 +64,59 @@ def download_amostra(id, url):
                 for chunk in r.iter_content(chunk_size=8192):
                     f.write(chunk)
         
-# from pydub import AudioSegment
-# from scipy.io import wavfile
-# from tempfile import mktemp
 
+
+
+# monta e retorna espectrograma como numpy array
 def montaEspectrograma (id, classe):
-    # cria path se não existir
-    pathlib.Path(f'./espectrogramas/{classe}').mkdir(parents=True, exist_ok=True)
-    nome_arq = f'./espectrogramas/{classe}/{id}.png'
-    # converte mp3 para espectograma
-    if not os.path.exists(nome_arq):
-        nome_mp3 = f'./amostras/{id}'
-        #y, sr = librosa.load(nome_mp3, mono=True, duration=5)
-        y, sr = librosa.load(nome_mp3)
-        mels = librosa.feature.melspectrogram(y=y, sr=sr, n_fft=2048, hop_length=512)
-        mels = librosa.power_to_db(mels, ref=np.max)
-        # save as PNG
-        skimage.io.imsave(nome_arq, mels)
-
-    # obtem amostra das Músicas da lista de items fornecida pelo Spotipy
-def downloadAmostras (playlistItems, classe):
+    # converte mp3 para espectrograma
+    arq_mp3 = f'./amostras/{id}'
+    #y, sr = librosa.load(nome_mp3, mono=True, duration=5)
+    y, sr = librosa.load(arq_mp3)
+    spect = librosa.feature.melspectrogram(y=y, sr=sr, n_fft=2048, hop_length=1024)
+    spect = librosa.power_to_db(spect, ref=np.max)
+    #skimage.io.imsave(nome_arq, mels)    # save as PNG
+    spect = spect.T
+    # Normaliza tamanho
+    spect = spect[:640, :]
+#    print (spect.shape)
+    return spect
+ 
+# obtem amostra das Músicas da lista de items fornecida pelo Spotipy
+def downloadAmostrasMontaEspectrogramas (X, y, playlistItems, classe):
     for i, item in enumerate (playlistItems['items']):
         idMusica = item['track']['id']
         amostraMusica = item['track']['preview_url']
         if amostraMusica is not None:
             download_amostra(idMusica, amostraMusica)
-            montaEspectrograma (idMusica, classe)
+            espectrograma = montaEspectrograma (idMusica, classe)
+            X = np.append(X, [espectrograma], axis=0)
+            y = np.append(y, [classe], axis=0)
+    return X, y
 
-def getAmostrasMusicas(user,playlist_id, classe):
+def getSpectMusicas(user,X, y, playlist_id, classe):
+    contador=0
+    dfSpect = pd.DataFrame(columns = ["espectrograma", "classe"])
     # incluindo músicas da playlist
     playlistItems = sp.user_playlist_tracks (user, playlist_id)
-    downloadAmostras (playlistItems, classe)
+    X, y = downloadAmostrasMontaEspectrogramas (X, y, playlistItems, classe)
+    print (y.shape)
     while playlistItems['next']:
         playlistItems = sp.next(playlistItems)
-        downloadAmostras(playlistItems, classe)
+        X, y = downloadAmostrasMontaEspectrogramas(X, y, playlistItems, classe)
+        print (y.shape)
+    return X, y
+ 
+X_spect = np.empty((0,640,128))
+y_arr   = np.empty((0))
 
-getAmostrasMusicas(userA, IdPlaylistCurto, 1)
-getAmostrasMusicas(userA, IdPlaylistNaoCurto, 0)
+X_spect, y_arr = getSpectMusicas(userA, X_spect, y_arr, IdPlaylistCurto, 1 )
+X_spect, y_arr = getSpectMusicas(userA, X_spect, y_arr, IdPlaylistNaoCurto, 0) 
+
+print (X_spect.shape)
+print (y_arr.shape)
+np.savez_compressed('./FeatureStore/AudioEspectrogramas', X_spect, y_arr)
+
 
 # %%
 logging.info('<< GetUserA_AudioSamples')
