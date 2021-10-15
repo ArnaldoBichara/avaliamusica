@@ -12,6 +12,9 @@ from spotipy.oauth2 import SpotifyOAuth
 import logging
 import requests
 import os
+import pathlib
+import librosa
+from matplotlib import pyplot as plt
 
 logging.basicConfig(filename='./Analises/preprocessamento2.log', 
                     level=logging.INFO,
@@ -45,44 +48,51 @@ while playlists:
 # Obtendo as audio_samples das listas de playlists
 #
 def download_amostra(id, url):
-    if url is not None:
-        nome_arq = './amostras/'+id
-        if not os.path.exists(nome_arq):
-            with requests.get(url, stream=True) as r:
-                r.raise_for_status()
-                with open(nome_arq, 'wb') as f:
-                    for chunk in r.iter_content(chunk_size=8192):
-                        f.write(chunk)
-
+    pathlib.Path(f'amostras').mkdir(parents=True, exist_ok=True)
+    nome_arq = f'./amostras/{id}'
+    if not os.path.exists(nome_arq):
+        with requests.get(url, stream=True) as r:
+            r.raise_for_status()
+            with open(nome_arq, 'wb') as f:
+                for chunk in r.iter_content(chunk_size=8192):
+                    f.write(chunk)
+        
 # from pydub import AudioSegment
 # from scipy.io import wavfile
 # from tempfile import mktemp
 
-''' def montaEspectrograma (id):
-    nome_arq = './amostras/'+id    
-    # converte mp3 para wav
-    mp3_audio = AudioSegment.from_file(nome_arq, format="mp3");
-    wname = mktemp('.wav')  # use temporary file    
-    mp3_audio.export(wname, format="wav")  # convert to wav
-    FS, data = wavfile.read(wname)  # read wav file   '''                      
-# obtem amostra das Músicas da lista de items fornecida pelo Spotipy
-def downloadAmostras (playlistItems):
+def montaEspectrograma (id, classe):
+    # cria path se não existir
+    p = pathlib.Path(f'./espectogramas/{classe}').mkdir(parents=True, exist_ok=True)
+    nome_arq = f'./espectogramas/{classe}/{id}.png'
+    # converte mp3 para espectograma
+    if not os.path.exists(nome_arq):
+        nome_mp3 = f'./amostras/{id}'
+        y, sr = librosa.load(nome_mp3, mono=True, duration=5)
+        print (y.shape)
+        plt.specgram(y, NFFT=2048, Fs=2, Fc=0, noverlap=128, sides='default', mode='default', scale='dB');
+        plt.axis('off');
+        plt.savefig(nome_arq)
+        plt.clf()
+    # obtem amostra das Músicas da lista de items fornecida pelo Spotipy
+def downloadAmostras (playlistItems, classe):
     for i, item in enumerate (playlistItems['items']):
         idMusica = item['track']['id']
         amostraMusica = item['track']['preview_url']
-        download_amostra(idMusica, amostraMusica)
-        #montaEspectrograma (idMusica)
+        if amostraMusica is not None:
+            download_amostra(idMusica, amostraMusica)
+            montaEspectrograma (idMusica, classe)
 
-def getAmostrasMusicas(user,playlist_id):
+def getAmostrasMusicas(user,playlist_id, classe):
     # incluindo músicas da playlist
     playlistItems = sp.user_playlist_tracks (user, playlist_id)
-    downloadAmostras (playlistItems)
+    downloadAmostras (playlistItems, classe)
     while playlistItems['next']:
         playlistItems = sp.next(playlistItems)
-        downloadAmostras(playlistItems)
+        downloadAmostras(playlistItems, classe)
 
-getAmostrasMusicas(userA, IdPlaylistCurto)
-getAmostrasMusicas(userA, IdPlaylistNaoCurto)
+getAmostrasMusicas(userA, IdPlaylistCurto, 1)
+getAmostrasMusicas(userA, IdPlaylistNaoCurto, 0)
 
 # %%
 logging.info('<< GetUserA_AudioSamples')
