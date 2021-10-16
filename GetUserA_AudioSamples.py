@@ -76,6 +76,7 @@ def getAmostrasMusicas(user,playlist_id, classe):
     downloadAmostras (playlistItems, classe)
     while playlistItems['next']:
         playlistItems = sp.next(playlistItems)
+        downloadAmostras (playlistItems, classe)
  
 getAmostrasMusicas(userA, IdPlaylistCurto, classe=1 )
 getAmostrasMusicas(userA, IdPlaylistNaoCurto, classe=0) 
