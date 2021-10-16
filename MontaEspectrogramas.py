@@ -64,8 +64,7 @@ X_spect, y_arr = getSpectMusicas (X_spect, y_arr, 1)
  
 print (X_spect.shape)
 print (y_arr.shape)
-np.savez('./FeatureStore/AudioEspectrogramas', X_spect, y_arr)
-
+np.savez("AudioEspectrogramas", X_spect, y_arr)
 
 # %%
 logging.info('<< MontaEspectrogramas')
