@@ -8,7 +8,9 @@ import pandas as pd
 import numpy as np
 import pickle
 import logging
-from matplotlib import pyplot 
+from matplotlib import pyplot
+from tensorflow.python.keras.optimizer_v2 import rmsprop
+from tensorflow.python.keras.optimizer_v2.adam import Adam 
 from utils import calcula_cross_val_scores
 
 from sklearn.model_selection._search import RandomizedSearchCV, GridSearchCV
@@ -47,12 +49,17 @@ numDimEntrada = len(X.columns)
                 'mlp__batch_size': [20],
                 'mlp__dropout_rate': [0.1],
                 'mlp__weight_constraint': [1]} '''
-grid = { 'mlp__optimizer': ['rmsprop', 'adam'],
-                'mlp__init': ['normal', 'uniform'],
-                'mlp__epochs': [100],
-                'mlp__batch_size': [20, 32],
-                'mlp__dropout_rate': [0.1, 0.2],
-                'mlp__weight_constraint': [1, 2]} 
+opt1 = rmsprop.RMSprop(lr=0.001) 
+opt2 = rmsprop.RMSprop(lr=0.01)    
+opt3 = Adam(lr=0.001)            
+opt4 = Adam(lr=0.01)            
+
+grid ={ 'mlp__optimizer': [opt1, opt2, opt3, opt4],
+        'mlp__init': ['glorot_uniform', 'normal', 'uniform'],
+        'mlp__epochs': [100,200],
+        'mlp__batch_size': [20, 32],
+        'mlp__dropout_rate': [0.1, 0.2],
+        'mlp__weight_constraint': [1, 2]} 
 
 def create_model(optimizer='rmsprop', init='glorot_uniform', weight_constraint=0, dropout_rate=0.0):
     # create model
