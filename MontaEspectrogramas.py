@@ -64,7 +64,7 @@ X_spect, y_arr = getSpectMusicas (X_spect, y_arr, 1)
  
 print (X_spect.shape)
 print (y_arr.shape)
-np.savez_compressed('./FeatureStore/AudioEspectrogramas', X_spect, y_arr)
+np.savez('./FeatureStore/AudioEspectrogramas', X_spect, y_arr)
 
 
 # %%
