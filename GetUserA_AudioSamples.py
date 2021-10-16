@@ -13,14 +13,13 @@ import logging
 import requests
 import os
 import pathlib
-import librosa
 from matplotlib import pyplot as plt
 import sys
 
 if not sys.warnoptions:
     import warnings
     warnings.simplefilter("ignore")
-import skimage.io
+
 
 logging.basicConfig(filename='./Analises/preprocessamento2.log', 
                     level=logging.INFO,
@@ -78,8 +77,8 @@ def getAmostrasMusicas(user,playlist_id, classe):
     while playlistItems['next']:
         playlistItems = sp.next(playlistItems)
  
-getAmostrasMusicas(userA, IdPlaylistCurto, 1 )
-getAmostrasMusicas(userA, IdPlaylistNaoCurto, 0) 
+getAmostrasMusicas(userA, IdPlaylistCurto, classe=1 )
+getAmostrasMusicas(userA, IdPlaylistNaoCurto, classe=0) 
 
 # %%
 logging.info('<< GetUserA_AudioSamples')
