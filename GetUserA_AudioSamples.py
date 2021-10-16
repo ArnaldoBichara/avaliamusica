@@ -53,9 +53,9 @@ while playlists:
 
 # Obtendo as audio_samples das listas de playlists
 #
-def download_amostra(id, url):
-    pathlib.Path(f'amostras').mkdir(parents=True, exist_ok=True)
-    nome_arq = f'./amostras/{id}'
+def download_amostra(id, url, classe):
+    pathlib.Path(f'./amostras/{classe}').mkdir(parents=True, exist_ok=True)
+    nome_arq = f'./amostras/{classe}/{id}'
     if not os.path.exists(nome_arq):
         with requests.get(url, stream=True) as r:
             r.raise_for_status()
@@ -69,11 +69,9 @@ def downloadAmostras (playlistItems, classe):
         idMusica = item['track']['id']
         amostraMusica = item['track']['preview_url']
         if amostraMusica is not None:
-            download_amostra(idMusica, amostraMusica)
+            download_amostra(idMusica, amostraMusica, classe)
 
 def getAmostrasMusicas(user,playlist_id, classe):
-    contador=0
-    dfSpect = pd.DataFrame(columns = ["espectrograma", "classe"])
     # incluindo músicas da playlist
     playlistItems = sp.user_playlist_tracks (user, playlist_id)
     downloadAmostras (playlistItems, classe)
