@@ -50,6 +50,7 @@ y_arr   = np.empty((0))
 
 def getSpectMusicas(X, y, classe):
     contador=0
+    dir = 
     # incluindo músicas da playlist
     playlistItems = sp.user_playlist_tracks (user, playlist_id)
     for i, item in enumerate (playlistItems['items']):
