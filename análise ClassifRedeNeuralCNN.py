@@ -14,7 +14,6 @@ if not sys.warnoptions:
     import warnings
     warnings.simplefilter("ignore")
 import os
-from os.path import isfile
 import keras
 from keras.models import Sequential, Model
 from keras.layers import Input, Dense, Bidirectional, LSTM, Dropout, Activation, GRU
@@ -44,16 +43,15 @@ npzfile = np.load('./FeatureStore/AudioEspectrogramas.npz')
 X = npzfile['arr_0']
 y = npzfile['arr_1']
 
-
 #%% vamos ver um dos espectrogramas
-espectrograma = X[30]
+""" espectrograma = X[30]
 classe = y[30]
 print ("Classe: ", ("Não Curte" if classe == 0 else "Curte"))
 plt.figure(figsize=(10, 5))
 librosa.display.specshow(espectrograma.T, y_axis='mel', x_axis='time')
 plt.colorbar(format='%+2.0f dB')
 plt.title('Teste Melspectogram')
-plt.tight_layout()
+plt.tight_layout() """
 
 #%% inicialmente vamos dividir em treino, validação e teste
 # !!! depois acertar isso !!!!
@@ -62,17 +60,14 @@ X_train, X_valid, y_train, y_valid = train_test_split(X_train, y_train, random_s
 
 # %%
 num_classes = 2
-n_features = X_train.shape[2]
-n_time = X_train.shape[1]
+n_features = X_train.shape[2] # n_freq
+n_time = X_train.shape[1]     # n_frames
 
-nb_filters1=16 
-nb_filters2=32 
-nb_filters3=64
-nb_filters4=64
-nb_filters5=64
-kernel_size = (3,1)
-pool_size_1= (2,2) 
-pool_size_2= (4,4)
+n_filtros1=16 # extrai 16 features em paralelo
+n_filtros2=32 
+n_filtros3=64
+n_filtros4=64
+n_filtros5=64
 pool_size_3 = (4,2)
 
 dropout_prob = 0.20
@@ -86,60 +81,77 @@ L2_regularization = 0.001
 #%%
 def build_modelo_convolucional(model_input):
     print('Building modelo...')
-    layer = model_input
 
+    print ('model_input shape: ', model_input.shape )
     #blocos convolucionais
-    conv_1 = Conv2D(name='conv_1', filters = nb_filters1, kernel_size = kernel_size, strides=1,
-                      padding= 'valid', activation='relu')(layer)
-    pool_1 = MaxPooling2D(pool_size_1)(conv_1)
+    conv_1 = Conv2D(name='conv_1', filters = 16, kernel_size = (3,1), strides=1,
+                      padding= 'valid', activation='relu')(model_input)
+    print("conv_1 shape: ", conv_1.shape)
+    pool_1 = MaxPooling2D((2,2))(conv_1)
 
-    conv_2 = Conv2D(name='conv_2', filters = nb_filters2, kernel_size = kernel_size, strides=1,
+    conv_2 = Conv2D(name='conv_2', filters = 32, kernel_size = (3,1), strides=1,
                       padding= 'valid', activation='relu')(pool_1)
-    pool_2 = MaxPooling2D(pool_size_1)(conv_2)
+    print("conv_2 shape: ", conv_2.shape)
+    pool_2 = MaxPooling2D((2,2))(conv_2)
 
-    conv_3 = Conv2D(name='conv_3', filters = nb_filters3, kernel_size = kernel_size, strides=1,
+    conv_3 = Conv2D(name='conv_3', filters = 64, kernel_size = (3,1), strides=1,
                       padding= 'valid', activation='relu')(pool_2)
-    pool_3 = MaxPooling2D(pool_size_1)(conv_3)
+    print("conv_3 shape: ", conv_3.shape)
+    pool_3 = MaxPooling2D((2,2))(conv_3)
         
-    conv_4 = Conv2D(name='conv_4', filters = nb_filters4, kernel_size = kernel_size, strides=1,
+    conv_4 = Conv2D(name='conv_4', filters = 64, kernel_size = (3,1), strides=1,
                       padding= 'valid', activation='relu')(pool_3)
-    pool_4 = MaxPooling2D(pool_size_2)(conv_4)
+    print("conv_4 shape: ", conv_4.shape)
+    pool_4 = MaxPooling2D((4,4))(conv_4)
     
-    conv_5 = Conv2D(name='conv_5', filters = nb_filters5, kernel_size = kernel_size, strides=1,
+    conv_5 = Conv2D(name='conv_5', filters = 64, kernel_size = (3,1), strides=1,
                       padding= 'valid', activation='relu')(pool_4)
-    pool_5 = MaxPooling2D(pool_size_2)(conv_5)
+    print("conv_5 shape: ", conv_5.shape)
+    pool_5 = MaxPooling2D((4,4))(conv_5)
     
     flatten1 = Flatten()(pool_5)
+    print("flatten1 shape: ",flatten1.shape)
+
+    ### Recurrent Block
+    
+    # Pooling layer
+    pool_lstm1 = MaxPooling2D((4,2), name = 'pool_lstm')(model_input)
+   # Embedding layer
+    squeezed = Lambda(lambda x: K.squeeze(x, axis= -1))(pool_lstm1)    
+   # Bidirectional GRU
+    lstm = Bidirectional(GRU(lstm_count))(squeezed)  #default merge mode is concat    
+
+    # Concat Output
+    concat = concatenate([flatten1, lstm], axis=-1, name ='concat')
 
     ## Output
-    model_output = Dense(units=num_classes,  name='preds', activation = 'sigmoid')(flatten1)
+    model_output = Dense(num_classes,  name='preds', activation = 'softmax')(flatten1)
     
     model = Model(model_input, model_output)
     
 #     opt = Adam(lr=0.001)
-    opt = RMSprop(lr=0.0005)  # Optimizer
     model.compile(
             loss='categorical_crossentropy',
-            optimizer=opt,
+            optimizer=RMSprop(lr=0.0005), 
             metrics=['accuracy']
         )
+    print(model.summary())    
     return model
 
 def treina_modelo(x_train, y_train, x_val, y_val):
     
-    n_frequency = 128
-    n_frames = 640
-    
     #expande dimensões para uso por conv2d
     x_train = np.expand_dims(x_train, axis = -1)
     x_val = np.expand_dims(x_val, axis = -1)
-    
+
+    n_frequency = 128
+    n_frames = 640    
     input_shape = (n_frames, n_frequency, 1)
     model_input = Input(input_shape, name='input')
     
     model = build_modelo_convolucional(model_input)
     
-    checkpoint_callback = ModelCheckpoint('./models/parallel/weights.best.h5', monitor='val_acc', verbose=1,
+    checkpoint_callback = ModelCheckpoint('./FeatureStore/weights.best.h5', monitor='val_acc', verbose=1,
                                           save_best_only=True, mode='max')
     reducelr_callback = ReduceLROnPlateau(
                 monitor='val_acc', factor=0.5, patience=10, min_delta=0.01,
@@ -150,7 +162,7 @@ def treina_modelo(x_train, y_train, x_val, y_val):
     # Fit the model and get training history.
     print('Executando Treinamento...')
     history = model.fit(x_train, y_train, batch_size=BATCH_SIZE, epochs=EPOCH_COUNT,
-                        validation_data=(x_val, y_val), verbose=1, callbacks=callbacks_list)
+                        validation_data=(x_val, y_val), verbose=2, callbacks=callbacks_list)
 
     return model, history
 

@@ -8,9 +8,7 @@ import pandas as pd
 import numpy as np
 import pickle
 import logging
-from matplotlib import pyplot
-from tensorflow.python.keras.optimizer_v2 import rmsprop
-from tensorflow.python.keras.optimizer_v2.adam import Adam 
+from matplotlib import pyplot 
 from utils import calcula_cross_val_scores
 
 from sklearn.model_selection._search import RandomizedSearchCV, GridSearchCV
@@ -24,6 +22,10 @@ from keras.wrappers.scikit_learn import KerasClassifier
 from keras.constraints import maxnorm
 
 import tensorflow as tf
+from tensorflow.python.keras.regularizers import l2
+from tensorflow.python.keras.optimizer_v2.adam import Adam
+from tensorflow.python.keras.optimizers import rmsprop
+from tensorflow.python.keras.optimizer_v2.rmsprop import RMSprop
 tf.get_logger().setLevel('ERROR') 
 
 logging.basicConfig(filename='./Analises/EscolhadeHiperparametros.log', 
@@ -49,26 +51,27 @@ numDimEntrada = len(X.columns)
                 'mlp__batch_size': [20],
                 'mlp__dropout_rate': [0.1],
                 'mlp__weight_constraint': [1]} '''
-opt1 = rmsprop.RMSprop(lr=0.001) 
-opt2 = rmsprop.RMSprop(lr=0.01)    
-opt3 = Adam(lr=0.001)            
-opt4 = Adam(lr=0.01)            
-
-grid ={ 'mlp__optimizer': [opt1, opt2, opt3, opt4],
-        'mlp__init': ['glorot_uniform', 'normal', 'uniform'],
-        'mlp__epochs': [100,200],
-        'mlp__batch_size': [20, 32],
-        'mlp__dropout_rate': [0.1, 0.2],
-        'mlp__weight_constraint': [1, 2]} 
+""" grid = { 'mlp__optimizer': ['rmsprop', 'adam'],
+                'mlp__init': ['normal', 'uniform'],
+                'mlp__epochs': [100],
+                'mlp__batch_size': [20, 32],
+                'mlp__dropout_rate': [0.1, 0.2],
+                'mlp__weight_constraint': [1, 2]}  """
+grid = { 'mlp__optimizer': ['adam', 'rmsprop'],
+                'mlp__init': ['uniform'],
+                'mlp__epochs': [100],
+                'mlp__batch_size': [20],
+                'mlp__dropout_rate': [0.1],
+                'mlp__weight_constraint': [1]}                 
 
 def create_model(optimizer='rmsprop', init='glorot_uniform', weight_constraint=0, dropout_rate=0.0):
     # create model
     model = Sequential()
-    model.add(Dense(12, input_dim=numDimEntrada, activation='relu', kernel_initializer=init, kernel_constraint=maxnorm(weight_constraint)))
+    model.add(Dense(12, input_dim=numDimEntrada, activation='relu', kernel_initializer=init, kernel_constraint=maxnorm(weight_constraint), kernel_regularizer=l2(0.001)))
     model.add(Dropout(dropout_rate))
-    model.add(Dense(9,  activation='relu', kernel_initializer=init))
+    model.add(Dense(9,  activation='relu', kernel_initializer=init, kernel_regularizer=l2(0.001)))
     model.add(Dropout(dropout_rate))
-    model.add(Dense(1, activation='sigmoid', kernel_initializer=init))
+    model.add(Dense(1, activation='sigmoid', kernel_initializer=init, kernel_regularizer=l2(0.001)))
 	# Compile model
     model.compile(loss='binary_crossentropy', optimizer=optimizer, metrics=['accuracy'])
     return model
