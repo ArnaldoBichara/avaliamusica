@@ -50,7 +50,7 @@ X = npzfile['arr_0']
 y = npzfile['arr_1']
 
 #%% vamos ver um dos espectrogramas
-espectrograma = X[30]
+""" espectrograma = X[30]
 classe = np.argmax(y[30])
 print (reverse_map[classe])
 plt.figure(figsize=(10, 5))
@@ -58,7 +58,7 @@ librosa.display.specshow(espectrograma.T, y_axis='mel', x_axis='time')
 plt.colorbar(format='%+2.0f dB')
 plt.title('Teste Melspectogram')
 plt.tight_layout()
-
+ """
 #%% inicialmente vamos dividir em treino, validação e teste
 # !!! depois acertar isso !!!!
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0, test_size=0.20)
@@ -66,8 +66,8 @@ X_train, X_valid, y_train, y_valid = train_test_split(X_train, y_train, random_s
 
 # %%
 num_classes = 2 # classes: não curte, curte
-n_features = X_train.shape[2] # n_freq
-n_time = X_train.shape[1]     # n_frames
+n_features = X_train.shape[1] # n_freq
+n_time = X_train.shape[2]     # n_frames
 
 n_filtros1=16 # extrai 16 features em paralelo
 n_filtros2=32 
@@ -158,9 +158,9 @@ def treina_modelo(x_train, y_train, x_val, y_val):
     x_train = np.expand_dims(x_train, axis = -1)
     x_val = np.expand_dims(x_val, axis = -1)
 
-    n_frequency = 128
-    n_frames = 640    
-    input_shape = (n_frames, n_frequency, 1)
+    n_frequency = 640
+    n_frames = 128    
+    input_shape = (n_frequency, n_frames,  1)
     model_input = Input(input_shape, name='input')
     
     model = build_modelo_convolucional(model_input)
