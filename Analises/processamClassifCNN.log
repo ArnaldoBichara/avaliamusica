@@ -1,0 +1,40 @@
+18/10/2021 19:03:26 Can save best model only with val_acc available, skipping.
+18/10/2021 19:03:26 Reduce LR on plateau conditioned on metric `val_acc` which is not available. Available metrics are: loss,accuracy,val_loss,val_accuracy,lr
+18/10/2021 19:03:45 Can save best model only with val_acc available, skipping.
+18/10/2021 19:03:45 Reduce LR on plateau conditioned on metric `val_acc` which is not available. Available metrics are: loss,accuracy,val_loss,val_accuracy,lr
+18/10/2021 19:04:03 Can save best model only with val_acc available, skipping.
+18/10/2021 19:04:03 Reduce LR on plateau conditioned on metric `val_acc` which is not available. Available metrics are: loss,accuracy,val_loss,val_accuracy,lr
+18/10/2021 19:04:21 Can save best model only with val_acc available, skipping.
+18/10/2021 19:04:21 Reduce LR on plateau conditioned on metric `val_acc` which is not available. Available metrics are: loss,accuracy,val_loss,val_accuracy,lr
+18/10/2021 19:04:39 Can save best model only with val_acc available, skipping.
+18/10/2021 19:04:39 Reduce LR on plateau conditioned on metric `val_acc` which is not available. Available metrics are: loss,accuracy,val_loss,val_accuracy,lr
+18/10/2021 19:04:57 Can save best model only with val_acc available, skipping.
+18/10/2021 19:04:57 Reduce LR on plateau conditioned on metric `val_acc` which is not available. Available metrics are: loss,accuracy,val_loss,val_accuracy,lr
+18/10/2021 19:05:15 Can save best model only with val_acc available, skipping.
+18/10/2021 19:05:15 Reduce LR on plateau conditioned on metric `val_acc` which is not available. Available metrics are: loss,accuracy,val_loss,val_accuracy,lr
+18/10/2021 19:05:32 Can save best model only with val_acc available, skipping.
+18/10/2021 19:05:32 Reduce LR on plateau conditioned on metric `val_acc` which is not available. Available metrics are: loss,accuracy,val_loss,val_accuracy,lr
+18/10/2021 19:05:48 Can save best model only with val_acc available, skipping.
+18/10/2021 19:05:48 Reduce LR on plateau conditioned on metric `val_acc` which is not available. Available metrics are: loss,accuracy,val_loss,val_accuracy,lr
+18/10/2021 19:06:05 Can save best model only with val_acc available, skipping.
+18/10/2021 19:06:05 Reduce LR on plateau conditioned on metric `val_acc` which is not available. Available metrics are: loss,accuracy,val_loss,val_accuracy,lr
+18/10/2021 19:06:21 Can save best model only with val_acc available, skipping.
+18/10/2021 19:06:21 Reduce LR on plateau conditioned on metric `val_acc` which is not available. Available metrics are: loss,accuracy,val_loss,val_accuracy,lr
+18/10/2021 19:06:38 Can save best model only with val_acc available, skipping.
+18/10/2021 19:06:38 Reduce LR on plateau conditioned on metric `val_acc` which is not available. Available metrics are: loss,accuracy,val_loss,val_accuracy,lr
+18/10/2021 19:06:58 Can save best model only with val_acc available, skipping.
+18/10/2021 19:06:58 Reduce LR on plateau conditioned on metric `val_acc` which is not available. Available metrics are: loss,accuracy,val_loss,val_accuracy,lr
+18/10/2021 19:07:16 Can save best model only with val_acc available, skipping.
+18/10/2021 19:07:16 Reduce LR on plateau conditioned on metric `val_acc` which is not available. Available metrics are: loss,accuracy,val_loss,val_accuracy,lr
+18/10/2021 19:07:33 Can save best model only with val_acc available, skipping.
+18/10/2021 19:07:33 Reduce LR on plateau conditioned on metric `val_acc` which is not available. Available metrics are: loss,accuracy,val_loss,val_accuracy,lr
+18/10/2021 19:07:49 Can save best model only with val_acc available, skipping.
+18/10/2021 19:07:49 Reduce LR on plateau conditioned on metric `val_acc` which is not available. Available metrics are: loss,accuracy,val_loss,val_accuracy,lr
+18/10/2021 19:08:06 Can save best model only with val_acc available, skipping.
+18/10/2021 19:08:06 Reduce LR on plateau conditioned on metric `val_acc` which is not available. Available metrics are: loss,accuracy,val_loss,val_accuracy,lr
+18/10/2021 19:08:25 Can save best model only with val_acc available, skipping.
+18/10/2021 19:08:25 Reduce LR on plateau conditioned on metric `val_acc` which is not available. Available metrics are: loss,accuracy,val_loss,val_accuracy,lr
+18/10/2021 19:08:41 Can save best model only with val_acc available, skipping.
+18/10/2021 19:08:41 Reduce LR on plateau conditioned on metric `val_acc` which is not available. Available metrics are: loss,accuracy,val_loss,val_accuracy,lr
+18/10/2021 19:08:59 Can save best model only with val_acc available, skipping.
+18/10/2021 19:08:59 Reduce LR on plateau conditioned on metric `val_acc` which is not available. Available metrics are: loss,accuracy,val_loss,val_accuracy,lr

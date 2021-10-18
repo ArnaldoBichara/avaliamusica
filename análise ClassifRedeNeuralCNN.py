@@ -41,7 +41,7 @@ dict_classes = {'Não Curte':0, 'Curte': 1  }
 
 
 reverse_map = {v: k for k, v in dict_classes.items()}
-print(reverse_map)
+#print(reverse_map)
 #%%
 # X - espectrogramas
 # y - classe
@@ -86,42 +86,42 @@ EPOCH_COUNT = 50
 L2_regularization = 0.001
 #%%
 def build_modelo_convolucional(model_input):
-    print('Building modelo...')
+    #print('Building modelo...')
 
-    print ('model_input shape: ', model_input.shape )
+    #print ('model_input shape: ', model_input.shape )
     #blocos convolucionais
     conv_1 = Conv2D(name='conv_1', filters = 16, kernel_size = (3,1), strides=1,
                       padding= 'valid', activation='relu')(model_input)
-    print("conv_1 shape: ", conv_1.shape)
+    #print("conv_1 shape: ", conv_1.shape)
     pool_1 = MaxPooling2D((2,2))(conv_1)
-    print("pool_1 shape: ", pool_1.shape)
+    #print("pool_1 shape: ", pool_1.shape)
 
     conv_2 = Conv2D(name='conv_2', filters = 32, kernel_size = (3,1), strides=1,
                       padding= 'valid', activation='relu')(pool_1)
-    print("conv_2 shape: ", conv_2.shape)
+    #print("conv_2 shape: ", conv_2.shape)
     pool_2 = MaxPooling2D((2,2))(conv_2)
-    print("pool_2 shape: ", pool_2.shape)
+    #print("pool_2 shape: ", pool_2.shape)
 
     conv_3 = Conv2D(name='conv_3', filters = 64, kernel_size = (3,1), strides=1,
                       padding= 'valid', activation='relu')(pool_2)
-    print("conv_3 shape: ", conv_3.shape)
+    #print("conv_3 shape: ", conv_3.shape)
     pool_3 = MaxPooling2D((2,2))(conv_3)
-    print("pool_3 shape: ", pool_3.shape)
+    #print("pool_3 shape: ", pool_3.shape)
         
     conv_4 = Conv2D(name='conv_4', filters = 64, kernel_size = (3,1), strides=1,
                       padding= 'valid', activation='relu')(pool_3)
-    print("conv_4 shape: ", conv_4.shape)
+    #print("conv_4 shape: ", conv_4.shape)
     pool_4 = MaxPooling2D((4,4))(conv_4)
-    print("pool_4 shape: ", pool_4.shape)
+    #print("pool_4 shape: ", pool_4.shape)
     
     conv_5 = Conv2D(name='conv_5', filters = 64, kernel_size = (3,1), strides=1,
                       padding= 'valid', activation='relu')(pool_4)
-    print("conv_5 shape: ", conv_5.shape)
+    #print("conv_5 shape: ", conv_5.shape)
     pool_5 = MaxPooling2D((4,4))(conv_5)
-    print("pool_5 shape: ", pool_5.shape)
+    #print("pool_5 shape: ", pool_5.shape)
 
     flatten1 = Flatten()(pool_5)
-    print("flatten1 shape: ",flatten1.shape)
+    #print("flatten1 shape: ",flatten1.shape)
 
     """     ### Recurrent Block
     
@@ -165,10 +165,10 @@ def treina_modelo(x_train, y_train, x_val, y_val):
     
     model = build_modelo_convolucional(model_input)
     
-    checkpoint_callback = ModelCheckpoint('./FeatureStore/weights.best.h5', monitor='val_acc', verbose=1,
+    checkpoint_callback = ModelCheckpoint('./FeatureStore/weights.best.h5', monitor='val_accuracy', verbose=1,
                                           save_best_only=True, mode='max')
     reducelr_callback = ReduceLROnPlateau(
-                monitor='val_acc', factor=0.5, patience=10, min_delta=0.01,
+                monitor='val_accuracy', factor=0.5, patience=10, min_delta=0.01,
                 verbose=1
             )
     callbacks_list = [checkpoint_callback, reducelr_callback]
@@ -186,7 +186,7 @@ def show_summary_stats(history):
 
     # Summarize history for accuracy
     plt.plot(history.history['acc'])
-    plt.plot(history.history['val_acc'])
+    plt.plot(history.history['val_accuracy'])
     plt.title('model accuracy')
     plt.ylabel('accuracy')
     plt.xlabel('epoch')
