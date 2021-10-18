@@ -139,14 +139,16 @@ def build_modelo_convolucional(model_input):
     concat = concatenate([flatten1, lstm], axis=-1, name ='concat') """
 
     ## Output
-    model_output = Dense(num_classes,  name='preds', activation = 'softmax')(flatten1)
+    dense        = Dense(64,  name='preds', activation = 'relu')(flatten1)
+    model_output = Dense(2,  name='out', activation = 'sigmoid')(dense)
     
     model = Model(model_input, model_output)
     
-#     opt = Adam(lr=0.001)
+    opt = Adam(lr=0.001)
+#   opt= RMSprop(lr=0.0005)
     model.compile(
             loss='categorical_crossentropy',
-            optimizer=RMSprop(lr=0.0005), 
+            optimizer=opt, 
             metrics=['accuracy']
         )
     print(model.summary())    
