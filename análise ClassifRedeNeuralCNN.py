@@ -37,6 +37,12 @@ logging.basicConfig(filename='./Analises/processamClassifCNN.log',
                     datefmt='%d/%m/%Y %H:%M:%S'
                     )
 #%%
+dict_classes = {'Não Curte':0, 'Curte': 1  }
+
+
+reverse_map = {v: k for k, v in dict_classes.items()}
+print(reverse_map)
+#%%
 # X - espectrogramas
 # y - classe
 npzfile = np.load('./FeatureStore/AudioEspectrogramas.npz')
@@ -44,14 +50,14 @@ X = npzfile['arr_0']
 y = npzfile['arr_1']
 
 #%% vamos ver um dos espectrogramas
-""" espectrograma = X[30]
-classe = y[30]
-print ("Classe: ", ("Não Curte" if classe == 0 else "Curte"))
+espectrograma = X[30]
+classe = np.argmax(y[30])
+print (reverse_map[classe])
 plt.figure(figsize=(10, 5))
 librosa.display.specshow(espectrograma.T, y_axis='mel', x_axis='time')
 plt.colorbar(format='%+2.0f dB')
 plt.title('Teste Melspectogram')
-plt.tight_layout() """
+plt.tight_layout()
 
 #%% inicialmente vamos dividir em treino, validação e teste
 # !!! depois acertar isso !!!!
@@ -59,7 +65,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0, test_s
 X_train, X_valid, y_train, y_valid = train_test_split(X_train, y_train, random_state=0, test_size=0.25)
 
 # %%
-num_classes = 1
+num_classes = 2 # classes: não curte, curte
 n_features = X_train.shape[2] # n_freq
 n_time = X_train.shape[1]     # n_frames
 

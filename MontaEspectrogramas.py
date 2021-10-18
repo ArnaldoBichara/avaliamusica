@@ -45,8 +45,8 @@ def montaEspectrograma (id, classe):
  
 # obtem amostra das Músicas da lista de items fornecida pelo Spotipy
 
-X_spect = np.empty((0,640,128))
-y_arr   = np.empty((0,2)) # primeira dimensão: elementos, seg dimensão: mapa de classes [não curto, curto]
+X_spect = np.empty((0,640,128)) # primeiraa dimensão: elementos, seg dimensao: array  de frequências, ter dimensao: array de frames
+y_arr   = np.empty((0,2)) # primeira dimensão: elementos, seg dimensão: array de classes [não curto, curto]
 
 def getSpectMusicas(X, y, classe):
     contador=0
