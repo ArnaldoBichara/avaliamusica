@@ -46,7 +46,7 @@ def montaEspectrograma (id, classe):
 # obtem amostra das Músicas da lista de items fornecida pelo Spotipy
 
 X_spect = np.empty((0,640,128))
-y_arr   = np.empty((0))
+y_arr   = np.empty((0,2)) # primeira dimensão: elementos, seg dimensão: mapa de classes [não curto, curto]
 
 def getSpectMusicas(X, y, classe):
     contador=0
@@ -54,13 +54,16 @@ def getSpectMusicas(X, y, classe):
         contador +=1
         espectrograma = montaEspectrograma (idMusica, classe)
         X = np.append(X, [espectrograma], axis=0)
-        y = np.append(y, [classe], axis=0)
+        if (classe==0):
+            y = np.append(y, [[1,0]], axis=0) 
+        else:
+            y = np.append(y, [[0,1]], axis=0)
         if contador % 10 == 0:
             print ("processando: ", contador)
     return X, y
 
-X_spect, y_arr = getSpectMusicas (X_spect, y_arr, 0)
-X_spect, y_arr = getSpectMusicas (X_spect, y_arr, 1)
+X_spect, y_arr = getSpectMusicas (X_spect, y_arr, 0) # músicas Não Curto
+X_spect, y_arr = getSpectMusicas (X_spect, y_arr, 1) # músicas Curto
  
 print (X_spect.shape)
 print (y_arr.shape)
