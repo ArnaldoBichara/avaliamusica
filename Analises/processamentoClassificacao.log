@@ -1,8 +1,0 @@
-14/10/2021 11:08:21 
->> ClassifTreinamento
-14/10/2021 11:08:29 acuracia RandomForest 0.782
-14/10/2021 11:08:36 acuracia AdaBoost 0.780
-14/10/2021 11:08:37 acuracia GradientBoost 0.792
-14/10/2021 11:09:38 acuracia Rede Neural MLP 0.789
-14/10/2021 11:09:39 
-<< ClassifTreinamento
