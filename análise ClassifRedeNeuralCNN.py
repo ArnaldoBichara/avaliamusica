@@ -123,7 +123,7 @@ def build_modelo_convolucional(model_input):
     flatten1 = Flatten()(pool_5)
     print("flatten1 shape: ",flatten1.shape)
 
-    ### Recurrent Block
+    """     ### Recurrent Block
     
     # Pooling layer
     pool_lstm1 = MaxPooling2D((4,2), name = 'pool_lstm')(model_input)
@@ -136,7 +136,7 @@ def build_modelo_convolucional(model_input):
     print("lstm shape: ", lstm.shape)
 
     # Concat Output
-    concat = concatenate([flatten1, lstm], axis=-1, name ='concat')
+    concat = concatenate([flatten1, lstm], axis=-1, name ='concat') """
 
     ## Output
     model_output = Dense(num_classes,  name='preds', activation = 'softmax')(flatten1)
