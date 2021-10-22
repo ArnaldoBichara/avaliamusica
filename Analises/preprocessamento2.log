@@ -1301,3 +1301,26 @@
 18/10/2021 17:18:48 >> MontaEspectrogramas
 18/10/2021 17:21:42 >> MontaEspectrogramas
 18/10/2021 17:52:03 << MontaEspectrogramas
+22/10/2021 11:51:07 >> MontaEspectrogramas
+22/10/2021 11:52:35 >> MontaEspectrogramas
+22/10/2021 11:53:20 >> MontaEspectrogramas
+22/10/2021 12:20:15 << MontaEspectrogramas
+22/10/2021 12:32:22 >> MontaEspectrogramas
+22/10/2021 12:32:52 >> MontaEspectrogramas
+22/10/2021 12:33:25 >> MontaEspectrogramas
+22/10/2021 13:01:11 << MontaEspectrogramas
+22/10/2021 15:29:05 >> FiltraAudioFeatures
+22/10/2021 15:29:05 NumExpr defaulting to 6 threads.
+22/10/2021 15:29:05 AudioFeatures com duration_ms > 30 seg = (0, 13)
+22/10/2021 15:29:05 UserAAudioFeatures com duration_ms > 30 seg = (744, 14)
+22/10/2021 15:29:05 UserAbarraAudioFeatures com duration_ms > 30 seg = (551, 14)
+22/10/2021 15:29:05 AudioFeatures (0, 13)
+22/10/2021 15:29:05 AudioFeaturesUserA (744, 14)
+22/10/2021 15:29:05 AudioFeaturesUserAbarra (551, 14)
+22/10/2021 15:29:05 AudioFeatures antes de filtro = (0, 13)
+22/10/2021 15:29:05 AudioFeatures com speechiness < 0,6 = (0, 13)
+22/10/2021 15:29:05 AudioFeatures sem loudness = (0, 13)
+22/10/2021 15:29:05 AudioFeaturesUserA sem loudness = (744, 13)
+22/10/2021 15:29:05 AudioFeaturesUserAbarra sem loudness = (551, 13)
+22/10/2021 15:29:06 dfUserAFeatureSamples shape=(1295, 13)
+22/10/2021 15:29:06 << FiltraAudioFeatures

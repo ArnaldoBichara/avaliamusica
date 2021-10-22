@@ -29,6 +29,9 @@ from keras import regularizers
 import librosa
 import librosa.display
 from sklearn.model_selection import train_test_split
+from tensorflow.python.keras.regularizers import l2
+from keras.constraints import maxnorm
+from tensorflow.python.keras.layers.normalization_v2 import BatchNormalization
 
 #%%
 logging.basicConfig(filename='./Analises/processamClassifCNN.log', 
@@ -45,23 +48,12 @@ reverse_map = {v: k for k, v in dict_classes.items()}
 #%%
 # X - espectrogramas
 # y - classe
-npzfile = np.load('./FeatureStore/AudioEspectrogramas.npz')
-X = npzfile['arr_0']
-y = npzfile['arr_1']
+npzfile = np.load('./FeatureStore/AudioEspectrogramasTreinoBin.npz')
+X_train = npzfile['arr_0']
+y_train = npzfile['arr_1']
 
-#%% vamos ver um dos espectrogramas
-""" espectrograma = X[30]
-classe = np.argmax(y[30])
-print (reverse_map[classe])
-plt.figure(figsize=(10, 5))
-librosa.display.specshow(espectrograma.T, y_axis='mel', x_axis='time')
-plt.colorbar(format='%+2.0f dB')
-plt.title('Teste Melspectogram')
-plt.tight_layout()
- """
+
 #%% inicialmente vamos dividir em treino, validação e teste
-# !!! depois acertar isso !!!!
-X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0, test_size=0.20)
 X_train, X_valid, y_train, y_valid = train_test_split(X_train, y_train, random_state=0, test_size=0.25)
 
 # %%
@@ -69,59 +61,51 @@ num_classes = 2 # classes: não curte, curte
 n_features = X_train.shape[1] # n_freq
 n_time = X_train.shape[2]     # n_frames
 
-n_filtros1=16 # extrai 16 features em paralelo
-n_filtros2=32 
-n_filtros3=64
-n_filtros4=64
-n_filtros5=64
-pool_size_3 = (4,2)
-
-dropout_prob = 0.20
-dense_size1 = 128
 lstm_count = 64
 num_units = 120
 
-BATCH_SIZE = 64
-EPOCH_COUNT = 50
-L2_regularization = 0.001
 #%%
-def build_modelo_convolucional(model_input):
+def build_modelo_convolucional():
     #print('Building modelo...')
 
-    #print ('model_input shape: ', model_input.shape )
     #blocos convolucionais
-    conv_1 = Conv2D(name='conv_1', filters = 16, kernel_size = (3,1), strides=1,
-                      padding= 'valid', activation='relu')(model_input)
-    #print("conv_1 shape: ", conv_1.shape)
-    pool_1 = MaxPooling2D((2,2))(conv_1)
-    #print("pool_1 shape: ", pool_1.shape)
+    n_frequency = 640
+    n_frames = 128    
+    model = Sequential()
+    model.add (Conv2D(16, kernel_size = (3,2), strides=1, padding= 'same', activation='relu', input_shape=(n_frequency, n_frames,1)))
+    #model.add(BatchNormalization())
+    #model.add (Conv2D(16,kernel_size =(5,1),strides=2,padding='same',activation='relu')) # faz papel de model.add(MaxPooling2D((2,2)))
+    model.add(MaxPooling2D((2,2)))
+    #model.add(BatchNormalization())
+    model.add (Dropout(0.05))
 
-    conv_2 = Conv2D(name='conv_2', filters = 32, kernel_size = (3,1), strides=1,
-                      padding= 'valid', activation='relu')(pool_1)
-    #print("conv_2 shape: ", conv_2.shape)
-    pool_2 = MaxPooling2D((2,2))(conv_2)
-    #print("pool_2 shape: ", pool_2.shape)
+    model.add (Conv2D(32, kernel_size=(3,2), strides=1, padding='same', activation='relu'))
+    #model.add(BatchNormalization())
+    #model.add (Conv2D(32,kernel_size =(5,1),strides=2,padding='same',activation='relu')) # faz papel de model.add(MaxPooling2D((2,2)))
+    model.add(MaxPooling2D((2,2)))
+    #model.add(BatchNormalization())
+    model.add (Dropout(0.05))
 
-    conv_3 = Conv2D(name='conv_3', filters = 64, kernel_size = (3,1), strides=1,
-                      padding= 'valid', activation='relu')(pool_2)
-    #print("conv_3 shape: ", conv_3.shape)
-    pool_3 = MaxPooling2D((2,2))(conv_3)
-    #print("pool_3 shape: ", pool_3.shape)
-        
-    conv_4 = Conv2D(name='conv_4', filters = 64, kernel_size = (3,1), strides=1,
-                      padding= 'valid', activation='relu')(pool_3)
-    #print("conv_4 shape: ", conv_4.shape)
-    pool_4 = MaxPooling2D((4,4))(conv_4)
-    #print("pool_4 shape: ", pool_4.shape)
-    
-    conv_5 = Conv2D(name='conv_5', filters = 64, kernel_size = (3,1), strides=1,
-                      padding= 'valid', activation='relu')(pool_4)
-    #print("conv_5 shape: ", conv_5.shape)
-    pool_5 = MaxPooling2D((4,4))(conv_5)
-    #print("pool_5 shape: ", pool_5.shape)
+    model.add (Conv2D(32, kernel_size=(3,2), strides=1, padding='same', activation='relu'))
+    #model.add(BatchNormalization())
+    #model.add (Conv2D(32,kernel_size =(5,1),strides=2,padding='same',activation='relu')) # faz papel de model.add(MaxPooling2D((2,2)))
+    model.add(MaxPooling2D((2,2)))
+    #model.add(BatchNormalization())
+    model.add (Dropout(0.05))
 
-    flatten1 = Flatten()(pool_5)
-    #print("flatten1 shape: ",flatten1.shape)
+    model.add (Conv2D(32, kernel_size=(3,2), strides=1, padding='same', activation='relu'))
+    #model.add(BatchNormalization())
+    model.add (MaxPooling2D((4,4)))
+    #model.add(BatchNormalization())
+    model.add (Dropout(0.05))
+
+    model.add (Conv2D(64, kernel_size=(3,2), strides=1, padding='same', activation='relu'))
+    #model.add(BatchNormalization())
+    model.add (MaxPooling2D((4,4)))
+    #model.add(BatchNormalization())
+    model.add (Dropout(0.05))
+
+    model.add (Flatten())
 
     """     ### Recurrent Block
     
@@ -138,16 +122,24 @@ def build_modelo_convolucional(model_input):
     # Concat Output
     concat = concatenate([flatten1, lstm], axis=-1, name ='concat') """
 
-    ## Output
-    dense        = Dense(64,  name='preds', activation = 'relu')(flatten1)
-    model_output = Dense(2,  name='out', activation = 'sigmoid')(dense)
-    
-    model = Model(model_input, model_output)
-    
+    ## MLP
+    model.add (Dense(256,  activation='relu',
+                kernel_initializer='uniform', 
+                kernel_regularizer=l2(0.001)))
+    model.add(BatchNormalization())
+    model.add (Dropout(0.3))
+    # model.add (Dense(75,  name='dense2', activation='relu',
+    #             kernel_initializer='uniform', 
+    #             kernel_regularizer=l2(0.001)))
+    # model.add (Dropout(0.1))
+    model.add (Dense(1, activation='sigmoid', 
+                kernel_initializer='uniform', 
+                kernel_regularizer=l2(0.001)))
+  
     opt = Adam(lr=0.001)
-#   opt= RMSprop(lr=0.0005)
+#    opt= RMSprop(lr=0.001)
     model.compile(
-            loss='categorical_crossentropy',
+            loss='binary_crossentropy',
             optimizer=opt, 
             metrics=['accuracy']
         )
@@ -159,25 +151,20 @@ def treina_modelo(x_train, y_train, x_val, y_val):
     #expande dimensões para uso por conv2d
     x_train = np.expand_dims(x_train, axis = -1)
     x_val = np.expand_dims(x_val, axis = -1)
-
-    n_frequency = 640
-    n_frames = 128    
-    input_shape = (n_frequency, n_frames,  1)
-    model_input = Input(input_shape, name='input')
     
-    model = build_modelo_convolucional(model_input)
+    model = build_modelo_convolucional()
     
     checkpoint_callback = ModelCheckpoint('./FeatureStore/weights.best.h5', monitor='val_accuracy', verbose=1,
                                           save_best_only=True, mode='max')
     reducelr_callback = ReduceLROnPlateau(
-                monitor='val_accuracy', factor=0.5, patience=10, min_delta=0.01,
+                monitor='val_accuracy', factor=0.5, patience=7, min_delta=0.01,
                 verbose=1
             )
     callbacks_list = [checkpoint_callback, reducelr_callback]
 
     # Fit the model and get training history.
     print('Executando Treinamento...')
-    history = model.fit(x_train, y_train, batch_size=BATCH_SIZE, epochs=EPOCH_COUNT,
+    history = model.fit(x_train, y_train, batch_size=20, epochs=50,
                         validation_data=(x_val, y_val), verbose=2, callbacks=callbacks_list)
 
     return model, history
@@ -205,4 +192,3 @@ def show_summary_stats(history):
     plt.show()
 #%%
 model, history  = treina_modelo(X_train, y_train, X_valid, y_valid)
-# %%

@@ -13,6 +13,7 @@ import seaborn as sea
 import matplotlib.pyplot as plt
 import logging
 from time import gmtime, strftime
+from sklearn.model_selection._split import train_test_split
 
 logging.basicConfig(filename='./Analises/preprocessamento2.log', 
                     level=logging.INFO,
@@ -81,9 +82,18 @@ dfUserAFeatureSamples = dfUserAFeatureSamples.sample(frac=1)
 # removendo linhas que tenham algo com NaN
 dfUserAFeatureSamples=dfUserAFeatureSamples.dropna()
 logging.info("dfUserAFeatureSamples shape=%s", dfUserAFeatureSamples.shape)
+
+# separando entre treinamento e testes
+X = dfUserAFeatureSamples.drop(columns=['classe'])
+y = np.array(dfUserAFeatureSamples['classe'])
+X_treino, X_teste, y_treino, y_teste = train_test_split(X, y, random_state=0, test_size=0.25)
+
 # salvando filtrado
 dfAudioFeatures.to_pickle('./FeatureStore/DominioAudioFeatures.pickle')
-dfUserAFeatureSamples.to_pickle('./FeatureStore/UserAFeatureSamples.pickle')
+dfUserAFeatureSamples.to_pickle('./FeatureStore/AudioFeaturesUserA.pickle')
+np.savez_compressed("./FeatureStore/AudioFeaturesUserATreino", X_treino, y_treino)
+np.savez_compressed("./FeatureStore/AudioFeaturesUserATeste", X_teste, y_teste)
+
 
 logging.info('<< FiltraAudioFeatures')
 # %%

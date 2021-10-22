@@ -26,14 +26,9 @@ logging.basicConfig(filename='./Analises/EscolhadeHiperparametros.log',
                     )
 
 #lendo dataset
-UserAFeatureSamples = pd.read_pickle ("./FeatureStore/UserAFeatureSamples.pickle")
-#
-# X - features
-# y - classe
-X = UserAFeatureSamples.drop(columns=['classe'])
-y = np.array(UserAFeatureSamples['classe'])
-
-
+npzfile = np.load('./FeatureStore/AudioFeaturesUserATreino.npz')
+X = npzfile['arr_0']
+y = npzfile['arr_1']
 
 # hiperparâmetros em teste
 random_grid = {'n_estimators': [300, 400,500,600],

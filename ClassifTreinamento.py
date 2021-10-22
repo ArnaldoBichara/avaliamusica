@@ -30,6 +30,8 @@ import tensorflow as tf
 from statistics import mean
 from sklearn.tree import DecisionTreeClassifier
 from tensorflow.python.keras.regularizers import l2
+from tensorflow.python.keras.optimizer_v2.adam import Adam
+from tensorflow.python.keras.optimizer_v2.rmsprop import RMSprop
 tf.get_logger().setLevel('ERROR') 
 
 
@@ -40,23 +42,25 @@ logging.basicConfig(filename='./Analises/processamentoClassificacao.log',
                     )
 logging.info('\n>> ClassifTreinamento')
 
-#lendo dataset
-UserAFeatureSamples = pd.read_pickle ("./FeatureStore/UserAFeatureSamples.pickle")
+#lendo datasets
+npzTreino = np.load('./FeatureStore/AudioFeaturesUserATreino.npz')
+X_trein= npzTreino['arr_0']
+y_trein = npzTreino['arr_1']
+npzTeste = np.load('./FeatureStore/AudioFeaturesUserATeste.npz')
+X_teste= npzTeste['arr_0']
+y_teste = npzTeste['arr_1']
 
-# X - features
-# y - classe
-X = UserAFeatureSamples.drop(columns=['classe'])
-y = np.array(UserAFeatureSamples['classe'])
-numDimEntrada = len(X.columns)
+numDimEntrada = len(X_trein.columns)
 
 def create_model_MLP(optimizer='rmsprop', init='uniform', weight_constraint=1, dropout_rate=0.1):
     # create model
     model = Sequential()
     model.add(Dense(12, input_dim=numDimEntrada, activation='relu', kernel_initializer=init, kernel_constraint=maxnorm(weight_constraint), kernel_regularizer=l2(0.001)))
+    #model.add(Dense(12, input_dim=numDimEntrada, activation='relu', kernel_initializer=init, kernel_regularizer=l2(0.001)))
     model.add(Dropout(dropout_rate))
-    model.add(Dense(9,  activation='relu', kernel_initializer=init, kernel_regularizer=l2(0.001)))
+    model.add(Dense(9,  activation='relu', kernel_initializer=init, kernel_constraint=maxnorm(weight_constraint), kernel_regularizer=l2(0.001)))
     model.add(Dropout(dropout_rate))
-    model.add(Dense(1, activation='sigmoid', kernel_initializer=init, kernel_regularizer=l2(0.001)))
+    model.add(Dense(1, activation='sigmoid', kernel_initializer=init, kernel_constraint=maxnorm(weight_constraint), kernel_regularizer=l2(0.001)))
 	# Compile model
     model.compile(loss='binary_crossentropy', optimizer=optimizer, metrics=['accuracy'])
     return model
@@ -80,8 +84,6 @@ mlp = Pipeline([
                 ('mlp', KerasClassifier(build_fn=create_model_MLP, epochs=100, batch_size=20, verbose=0))
             ])                                                       
 
-X_trein, X_teste, y_trein, y_teste = train_test_split(X, y, random_state=0, test_size=0.30)
-#
 # Cálculo de acurácia:
 #
 acuracias=[]

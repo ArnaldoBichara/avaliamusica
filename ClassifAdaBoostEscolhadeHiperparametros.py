@@ -25,12 +25,9 @@ logging.basicConfig(filename='./Analises/EscolhadeHiperparametros.log',
                     )
 
 #lendo dataset
-UserAFeatureSamples = pd.read_pickle ("./FeatureStore/UserAFeatureSamples.pickle")
-#
-# X - features
-# y - classe
-X = UserAFeatureSamples.drop(columns=['classe'])
-y = np.array(UserAFeatureSamples['classe'])
+npzfile = np.load('./FeatureStore/AudioFeaturesUserATreino.npz')
+X = npzfile['arr_0']
+y = npzfile['arr_1']
 
 dt1 = DecisionTreeClassifier(max_depth=1)
 dt2 = DecisionTreeClassifier(max_depth=2)
