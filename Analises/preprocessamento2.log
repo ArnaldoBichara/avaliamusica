@@ -1324,3 +1324,33 @@
 22/10/2021 15:29:05 AudioFeaturesUserAbarra sem loudness = (551, 13)
 22/10/2021 15:29:06 dfUserAFeatureSamples shape=(1295, 13)
 22/10/2021 15:29:06 << FiltraAudioFeatures
+22/10/2021 16:19:20 >> FiltraAudioFeatures
+22/10/2021 16:19:21 NumExpr defaulting to 6 threads.
+22/10/2021 16:19:21 AudioFeatures com duration_ms > 30 seg = (0, 13)
+22/10/2021 16:19:21 UserAAudioFeatures com duration_ms > 30 seg = (744, 14)
+22/10/2021 16:19:21 UserAbarraAudioFeatures com duration_ms > 30 seg = (551, 14)
+22/10/2021 16:19:21 AudioFeatures (0, 13)
+22/10/2021 16:19:21 AudioFeaturesUserA (744, 14)
+22/10/2021 16:19:21 AudioFeaturesUserAbarra (551, 14)
+22/10/2021 16:19:21 AudioFeatures antes de filtro = (0, 13)
+22/10/2021 16:19:21 AudioFeatures com speechiness < 0,6 = (0, 13)
+22/10/2021 16:19:21 AudioFeatures sem loudness = (0, 13)
+22/10/2021 16:19:21 AudioFeaturesUserA sem loudness = (744, 13)
+22/10/2021 16:19:21 AudioFeaturesUserAbarra sem loudness = (551, 13)
+22/10/2021 16:19:21 dfUserAFeatureSamples shape=(1295, 13)
+22/10/2021 16:19:21 << FiltraAudioFeatures
+22/10/2021 16:20:19 >> FiltraAudioFeatures
+22/10/2021 16:20:19 NumExpr defaulting to 6 threads.
+22/10/2021 16:20:19 AudioFeatures com duration_ms > 30 seg = (0, 13)
+22/10/2021 16:20:19 UserAAudioFeatures com duration_ms > 30 seg = (744, 14)
+22/10/2021 16:20:19 UserAbarraAudioFeatures com duration_ms > 30 seg = (551, 14)
+22/10/2021 16:20:19 AudioFeatures (0, 13)
+22/10/2021 16:20:19 AudioFeaturesUserA (744, 14)
+22/10/2021 16:20:19 AudioFeaturesUserAbarra (551, 14)
+22/10/2021 16:20:19 AudioFeatures antes de filtro = (0, 13)
+22/10/2021 16:20:19 AudioFeatures com speechiness < 0,6 = (0, 13)
+22/10/2021 16:20:19 AudioFeatures sem loudness = (0, 13)
+22/10/2021 16:20:19 AudioFeaturesUserA sem loudness = (744, 13)
+22/10/2021 16:20:19 AudioFeaturesUserAbarra sem loudness = (551, 13)
+22/10/2021 16:20:19 dfUserAFeatureSamples shape=(1295, 13)
+22/10/2021 16:20:19 << FiltraAudioFeatures

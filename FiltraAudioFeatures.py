@@ -90,7 +90,6 @@ X_treino, X_teste, y_treino, y_teste = train_test_split(X, y, random_state=0, te
 
 # salvando filtrado
 dfAudioFeatures.to_pickle('./FeatureStore/DominioAudioFeatures.pickle')
-dfUserAFeatureSamples.to_pickle('./FeatureStore/AudioFeaturesUserA.pickle')
 np.savez_compressed("./FeatureStore/AudioFeaturesUserATreino", X_treino, y_treino)
 np.savez_compressed("./FeatureStore/AudioFeaturesUserATeste", X_teste, y_teste)
 
