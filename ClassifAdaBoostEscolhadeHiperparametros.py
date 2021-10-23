@@ -31,12 +31,13 @@ y = npzfile['arr_1']
 
 dt1 = DecisionTreeClassifier(max_depth=1)
 dt2 = DecisionTreeClassifier(max_depth=2)
+dt3 = DecisionTreeClassifier(max_depth=None)
 svc = SVC( probability= True, kernel='linear')
 
 # hiperparâmetros em teste
 random_grid = {'n_estimators': [200, 300, 400],
             'learning_rate': [0.01, 0.03, 0.05, 0.06, 0.1],
-            'base_estimator': [dt1, dt2] }
+            'base_estimator': [dt1, dt2, dt3] }
 random_grid2 = {'n_estimators': [50],
                 'learning_rate': [0.01, 0.05, 0.1, 0.5, 1.0],
                 'base_estimator': [svc] }            
