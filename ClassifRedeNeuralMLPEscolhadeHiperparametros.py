@@ -57,11 +57,12 @@ y = npzfile['arr_1']
                 'mlp__weight_constraint': [1, 2]}  """
 grid = { 'mlp__optimizer': ['adam', 'rmsprop'],
                 'mlp__init': ['uniform'],
-                'mlp__epochs': [100],
+                'mlp__epochs': [100,200],
                 'mlp__batch_size': [20, 32],
-                'mlp__dropout_rate': [0.1, 0.2, 0.3]}                 
+                'mlp__dropout_rate': [0.1, 0.2, 0.3, 0.4]}                 
 
-def create_model(optimizer='rmsprop', init='glorot_uniform', weight_constraint=0, dropout_rate=0.0, kr = l2(0.001)):
+def create_model(optimizer='rmsprop', init='glorot_uniform', 
+        weight_constraint=0, dropout_rate=0.0, kr = None):
     # create model
     model = Sequential()
     model.add(Dense(12, input_dim=12, activation='relu', 
@@ -69,14 +70,15 @@ def create_model(optimizer='rmsprop', init='glorot_uniform', weight_constraint=0
             kernel_regularizer=kr))
     model.add(BatchNormalization())
     model.add(Dropout(dropout_rate))
-    model.add(Dense(9,  activation='relu', kernel_initializer=init,
-            kernel_regularizer=kr))
-    model.add(BatchNormalization())
-    model.add(Dropout(dropout_rate))
+    # model.add(Dense(9,  activation='relu', kernel_initializer=init,
+    #         kernel_regularizer=kr))
+    # model.add(BatchNormalization())
+    # model.add(Dropout(dropout_rate))
     model.add(Dense(1, activation='sigmoid', kernel_initializer=init,
             kernel_regularizer=kr))
 	# Compile model
-    model.compile(loss='binary_crossentropy', optimizer=optimizer, metrics=['accuracy'])
+    model.compile(loss='binary_crossentropy', optimizer=optimizer, 
+            metrics=['accuracy'])
     return model
 
 clf = Pipeline([
@@ -90,7 +92,7 @@ kfold = StratifiedKFold(n_splits=10, shuffle=True)
 #clf_random = RandomizedSearchCV (estimator = clf, param_distributions = grid,
 #             n_iter = 100, cv = kfold, verbose=2, n_jobs=-1, random_state=1)
 clf_random = GridSearchCV (estimator = clf, param_grid = grid, 
-    cv = kfold, verbose=2, n_jobs=-1)
+    cv = kfold, verbose=1, n_jobs=-1)
 search = clf_random.fit (X,y)
 #%%
 print (search.best_params_, "acuracia:", search.best_score_)

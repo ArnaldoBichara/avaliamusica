@@ -54,8 +54,8 @@ y_teste = npzTeste['arr_1']
 X = np.append (X_trein, X_teste, axis=0)
 y = np.append (y_trein, y_teste, axis=0 )
 
-def create_model_MLP(optimizer='adam', init='uniform', 
-    weight_constraint=0, dropout_rate=0.1, kr = l2(0.001)):
+def create_model_MLP(optimizer='rmsprop', init='uniform', 
+    weight_constraint=0, dropout_rate=0.1, kr = None):
     # create model
     model = Sequential()
     model.add(Dense(12, input_dim=12, activation='relu', 
@@ -63,10 +63,10 @@ def create_model_MLP(optimizer='adam', init='uniform',
             kernel_regularizer=kr))
     model.add(BatchNormalization())
     model.add(Dropout(dropout_rate))
-    model.add(Dense(9,  activation='relu', kernel_initializer=init,
-            kernel_regularizer=kr))
-    model.add(BatchNormalization())
-    model.add(Dropout(dropout_rate))
+    # model.add(Dense(9,  activation='relu', kernel_initializer=init,
+    #         kernel_regularizer=kr))
+    # model.add(BatchNormalization())
+    # model.add(Dropout(dropout_rate))
     model.add(Dense(1, activation='sigmoid', kernel_initializer=init,
             kernel_regularizer=kr))
 	# Compile model
@@ -89,7 +89,7 @@ gb = GradientBoostingClassifier (n_estimators=400,
                                 max_depth=1)  
 mlp = Pipeline([
                 ('standardize', StandardScaler()), # passa média para 0 e desvio para 1
-                ('mlp', KerasClassifier(build_fn=create_model_MLP, epochs=100, batch_size=32, verbose=0))
+                ('mlp', KerasClassifier(build_fn=create_model_MLP, epochs=100, batch_size=20, verbose=0))
             ])                                                       
 
 # Cálculo de acurácia:

@@ -182,3 +182,11 @@ joblib.externals.loky.process_executor.TerminatedWorkerError: A worker process m
 24/10/2021 10:09:32 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
 24/10/2021 10:11:53 {'mlp__batch_size': 32, 'mlp__dropout_rate': 0.1, 'mlp__epochs': 100, 'mlp__init': 'uniform', 'mlp__optimizer': 'adam'} Acurácia: 0.8156322240829468
 24/10/2021 10:11:53 << ClassifRedeNeuralMLPEscolhadeHiperparametros
+24/10/2021 10:45:19 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+24/10/2021 10:47:42 {'mlp__batch_size': 32, 'mlp__dropout_rate': 0.3, 'mlp__epochs': 100, 'mlp__init': 'uniform', 'mlp__optimizer': 'rmsprop'} Acurácia: 0.8167157471179962
+24/10/2021 10:47:42 << ClassifRedeNeuralMLPEscolhadeHiperparametros
+24/10/2021 10:48:08 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+24/10/2021 10:48:30 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+24/10/2021 10:49:49 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+24/10/2021 10:55:57 {'mlp__batch_size': 20, 'mlp__dropout_rate': 0.1, 'mlp__epochs': 100, 'mlp__init': 'uniform', 'mlp__optimizer': 'rmsprop'} Acurácia: 0.8249421298503876
+24/10/2021 10:55:57 << ClassifRedeNeuralMLPEscolhadeHiperparametros
