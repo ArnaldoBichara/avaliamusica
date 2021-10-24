@@ -26,6 +26,7 @@ from tensorflow.python.keras.regularizers import l2
 from tensorflow.python.keras.optimizer_v2.adam import Adam
 from tensorflow.python.keras.optimizers import rmsprop
 from tensorflow.python.keras.optimizer_v2.rmsprop import RMSprop
+from tensorflow.python.keras.layers.normalization import BatchNormalization
 tf.get_logger().setLevel('ERROR') 
 
 logging.basicConfig(filename='./Analises/EscolhadeHiperparametros.log', 
@@ -40,7 +41,6 @@ logging.info(">> ClassifRedeNeuralMLPEscolhadeHiperparametros")
 npzfile = np.load('./FeatureStore/AudioFeaturesUserATreino.npz')
 X = npzfile['arr_0']
 y = npzfile['arr_1']
-numDimEntrada = len(X.columns)
 
 # hiperparâmetros em teste
 '''grid = { 'mlp__optimizer': ['rmsprop', 'adam', 'SGD', 'Adagrad'],
@@ -58,18 +58,23 @@ numDimEntrada = len(X.columns)
 grid = { 'mlp__optimizer': ['adam', 'rmsprop'],
                 'mlp__init': ['uniform'],
                 'mlp__epochs': [100],
-                'mlp__batch_size': [20],
-                'mlp__dropout_rate': [0.1],
-                'mlp__weight_constraint': [1]}                 
+                'mlp__batch_size': [20, 32],
+                'mlp__dropout_rate': [0.1, 0.2, 0.3]}                 
 
-def create_model(optimizer='rmsprop', init='glorot_uniform', weight_constraint=0, dropout_rate=0.0):
+def create_model(optimizer='rmsprop', init='glorot_uniform', weight_constraint=0, dropout_rate=0.0, kr = l2(0.001)):
     # create model
     model = Sequential()
-    model.add(Dense(12, input_dim=numDimEntrada, activation='relu', kernel_initializer=init, kernel_constraint=maxnorm(weight_constraint), kernel_regularizer=l2(0.001)))
+    model.add(Dense(12, input_dim=12, activation='relu', 
+            kernel_initializer=init, 
+            kernel_regularizer=kr))
+    model.add(BatchNormalization())
     model.add(Dropout(dropout_rate))
-    model.add(Dense(9,  activation='relu', kernel_initializer=init, kernel_regularizer=l2(0.001)))
+    model.add(Dense(9,  activation='relu', kernel_initializer=init,
+            kernel_regularizer=kr))
+    model.add(BatchNormalization())
     model.add(Dropout(dropout_rate))
-    model.add(Dense(1, activation='sigmoid', kernel_initializer=init, kernel_regularizer=l2(0.001)))
+    model.add(Dense(1, activation='sigmoid', kernel_initializer=init,
+            kernel_regularizer=kr))
 	# Compile model
     model.compile(loss='binary_crossentropy', optimizer=optimizer, metrics=['accuracy'])
     return model

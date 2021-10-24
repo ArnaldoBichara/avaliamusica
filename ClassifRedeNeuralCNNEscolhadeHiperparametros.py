@@ -46,7 +46,7 @@ npzfile = np.load('./FeatureStore/AudioEspectrogramasTreinoBin.npz')
 X_train = npzfile['arr_0']
 y_train = npzfile['arr_1']
 
-#%% inicialmente vamos dividir em treino, validação e teste
+#%% inicialmente vamos dividir em treino e validação
 X_train, X_valid, y_train, y_valid = train_test_split(X_train, y_train, random_state=0, test_size=0.25)
 
 def build_modelo_convolucional():
@@ -110,10 +110,10 @@ def build_modelo_convolucional():
                 #,kernel_regularizer=l2(0.001)))
     model.add(BatchNormalization())
     model.add (Dropout(0.1))
-    # model.add (Dense(75,  name='dense2', activation='relu',
-    #             kernel_initializer='uniform', 
+    #model.add (Dense(75,  name='dense2', activation='relu',
+    #             kernel_initializer='uniform')) 
     #             kernel_regularizer=l2(0.001)))
-    # model.add(BatchNormalization())
+    #model.add(BatchNormalization())
     #model.add (Dropout(0.1))
     model.add (Dense(1, activation='sigmoid', 
                 kernel_initializer='uniform'))

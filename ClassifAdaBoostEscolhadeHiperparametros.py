@@ -13,7 +13,7 @@ from matplotlib import pyplot
 from utils import calcula_cross_val_scores
 
 from sklearn.ensemble import AdaBoostClassifier
-from sklearn.model_selection import RepeatedStratifiedKFold
+from sklearn.model_selection import GridSearchCV, RepeatedStratifiedKFold, StratifiedKFold
 from sklearn.model_selection._search import RandomizedSearchCV
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.svm import SVC
@@ -35,16 +35,17 @@ dt3 = DecisionTreeClassifier(max_depth=None)
 svc = SVC( probability= True, kernel='linear')
 
 # hiperparâmetros em teste
-random_grid = {'n_estimators': [200, 300, 400],
-            'learning_rate': [0.01, 0.03, 0.05, 0.06, 0.1],
+grid = {'n_estimators': [200, 300, 400],
+            'learning_rate': [0.01, 0.05, 0.06, 0.08, 0.1],
             'base_estimator': [dt1, dt2, dt3] }
-random_grid2 = {'n_estimators': [50],
+grid2 = {'n_estimators': [50],
                 'learning_rate': [0.01, 0.05, 0.1, 0.5, 1.0],
                 'base_estimator': [svc] }            
 
 #%%
-# cross validation tipo stratifiedKFole, com 3 repetições e 10 splits
+# cross validation tipo stratifiedKFole
 cv = RepeatedStratifiedKFold(n_splits=10, n_repeats=3)
+cv = StratifiedKFold(n_splits=10)
 
 # clf = AdaBoostClassifier()
 # clf_random = RandomizedSearchCV (estimator = clf, param_distributions = random_grid2, cv = cv, verbose=2, n_jobs=-1)
@@ -52,7 +53,7 @@ cv = RepeatedStratifiedKFold(n_splits=10, n_repeats=3)
 # print (search.best_params_, "acuracia:", search.best_score_)
 
 clf = AdaBoostClassifier()
-clf_random = RandomizedSearchCV (estimator = clf, param_distributions = random_grid, cv = cv, verbose=1, n_jobs=-1, random_state=1)
+clf_random = GridSearchCV (estimator = clf, param_grid = grid, cv = cv, verbose=1, n_jobs=-1)
 search = clf_random.fit (X,y)
 print (search.best_params_, "acuracia:", search.best_score_)
 #%% Para uma condição n_estimator e learning_rate dada, vamos verifica como se comporta o max_depth das árvores

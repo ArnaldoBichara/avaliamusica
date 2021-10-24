@@ -32,6 +32,7 @@ from sklearn.tree import DecisionTreeClassifier
 from tensorflow.python.keras.regularizers import l2
 from tensorflow.python.keras.optimizer_v2.adam import Adam
 from tensorflow.python.keras.optimizer_v2.rmsprop import RMSprop
+from tensorflow.python.keras.layers.normalization import BatchNormalization
 tf.get_logger().setLevel('ERROR') 
 
 
@@ -50,38 +51,45 @@ npzTeste = np.load('./FeatureStore/AudioFeaturesUserATeste.npz')
 X_teste= npzTeste['arr_0']
 y_teste = npzTeste['arr_1']
 
-numDimEntrada = len(X_trein.columns)
+X = np.append (X_trein, X_teste, axis=0)
+y = np.append (y_trein, y_teste, axis=0 )
 
-def create_model_MLP(optimizer='rmsprop', init='uniform', weight_constraint=1, dropout_rate=0.1):
+def create_model_MLP(optimizer='adam', init='uniform', 
+    weight_constraint=0, dropout_rate=0.1, kr = l2(0.001)):
     # create model
     model = Sequential()
-    model.add(Dense(12, input_dim=numDimEntrada, activation='relu', kernel_initializer=init, kernel_constraint=maxnorm(weight_constraint), kernel_regularizer=l2(0.001)))
-    #model.add(Dense(12, input_dim=numDimEntrada, activation='relu', kernel_initializer=init, kernel_regularizer=l2(0.001)))
+    model.add(Dense(12, input_dim=12, activation='relu', 
+            kernel_initializer=init, 
+            kernel_regularizer=kr))
+    model.add(BatchNormalization())
     model.add(Dropout(dropout_rate))
-    model.add(Dense(9,  activation='relu', kernel_initializer=init, kernel_constraint=maxnorm(weight_constraint), kernel_regularizer=l2(0.001)))
+    model.add(Dense(9,  activation='relu', kernel_initializer=init,
+            kernel_regularizer=kr))
+    model.add(BatchNormalization())
     model.add(Dropout(dropout_rate))
-    model.add(Dense(1, activation='sigmoid', kernel_initializer=init, kernel_constraint=maxnorm(weight_constraint), kernel_regularizer=l2(0.001)))
+    model.add(Dense(1, activation='sigmoid', kernel_initializer=init,
+            kernel_regularizer=kr))
 	# Compile model
     model.compile(loss='binary_crossentropy', optimizer=optimizer, metrics=['accuracy'])
     return model
 
 #%% definindo o modelo, com os hiperparametros previamente escolhidos
-rf = RandomForestClassifier(n_estimators=300,
+rf = RandomForestClassifier(n_estimators=400,
                             n_jobs=-1,
-                            max_depth=14,
-                            min_samples_split=2,
-                            min_samples_leaf=2,
-                            max_leaf_nodes=90)
-base_estimator = DecisionTreeClassifier(max_depth=2)
+                            max_depth=10,
+                            min_samples_split=4,
+                            min_samples_leaf=1,
+                            max_leaf_nodes=94)
+base_estimator = DecisionTreeClassifier(max_depth=1)
 ab = AdaBoostClassifier (n_estimators=400,
-                         learning_rate=0.01,
+                         learning_rate=0.06,
                          base_estimator=base_estimator)    
 gb = GradientBoostingClassifier (n_estimators=400,
                                 learning_rate=0.08,
                                 max_depth=1)  
 mlp = Pipeline([
                 ('standardize', StandardScaler()), # passa média para 0 e desvio para 1
-                ('mlp', KerasClassifier(build_fn=create_model_MLP, epochs=100, batch_size=20, verbose=0))
+                ('mlp', KerasClassifier(build_fn=create_model_MLP, epochs=100, batch_size=32, verbose=0))
             ])                                                       
 
 # Cálculo de acurácia:
@@ -154,8 +162,9 @@ else:
         else:
             modeloEscolhido = rf
 
+# montando o modelo com todos os dados
 modeloEscolhido.fit (X, y)
 with open("./FeatureStore/modeloClassif.pickle", 'wb') as arq:
-    pickle.dump (rf, arq)
+    pickle.dump (modeloEscolhido, arq)
 
 logging.info('\n<< ClassifTreinamento')
