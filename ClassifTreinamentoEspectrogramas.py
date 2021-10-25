@@ -45,6 +45,9 @@ from sklearn.tree import DecisionTreeClassifier
 from tensorflow.python.keras.regularizers import l2
 from tensorflow.python.keras.optimizer_v2.adam import Adam
 from tensorflow.python.keras.optimizer_v2.rmsprop import RMSprop
+from tensorflow.python.keras.callbacks import EarlyStopping
+from sklearn.metrics._classification import accuracy_score
+from tensorflow.python.keras.models import load_model
 tf.get_logger().setLevel('ERROR') 
 
 
@@ -53,7 +56,7 @@ logging.basicConfig(filename='./Analises/processamentoClassificacao.log',
                     format='%(asctime)s %(message)s',
                     datefmt='%d/%m/%Y %H:%M:%S'
                     )
-logging.info('\n>> ClassifTreinamentoEspectro')
+logging.info('\n>> ClassifTreinamentoEspectrograma')
 
 #lendo datasets
 npzTreino = np.load('./FeatureStore/AudioEspectrogramasTreinoBin.npz')
@@ -77,23 +80,23 @@ def build_modelo_CNN():
     n_frequency = 640
     n_frames = 128    
     model = Sequential()
-    model.add (Conv2D(16, kernel_size = (3,2), strides=1, padding= 'same', activation='relu', input_shape=(n_frequency, n_frames,1)))
+    model.add (Conv2D(16, kernel_size = (3,3), strides=1, padding= 'same', activation='relu', input_shape=(n_frequency, n_frames,1)))
     model.add(MaxPooling2D((2,2)))
     model.add (Dropout(0.05))
 
-    model.add (Conv2D(32, kernel_size=(3,2), strides=1, padding='same', activation='relu'))
+    model.add (Conv2D(32, kernel_size=(3,3), strides=1, padding='same', activation='relu'))
     model.add(MaxPooling2D((2,2)))
     model.add (Dropout(0.05))
 
-    model.add (Conv2D(48, kernel_size=(3,2), strides=1, padding='same', activation='relu'))
+    model.add (Conv2D(48, kernel_size=(3,3), strides=1, padding='same', activation='relu'))
     model.add(MaxPooling2D((2,2)))
     model.add (Dropout(0.05))
 
-    model.add (Conv2D(64, kernel_size=(3,2), strides=1, padding='same', activation='relu'))
+    model.add (Conv2D(64, kernel_size=(3,3), strides=1, padding='same', activation='relu'))
     model.add (MaxPooling2D((4,4)))
     model.add (Dropout(0.05))
 
-    model.add (Conv2D(64, kernel_size=(3,2), strides=1, padding='same', activation='relu'))
+    model.add (Conv2D(64, kernel_size=(3,3), strides=1, padding='same', activation='relu'))
     model.add (MaxPooling2D((4,4)))
     model.add (Dropout(0.05))
 
@@ -107,7 +110,7 @@ def build_modelo_CNN():
     model.add (Dense(1, activation='sigmoid', 
                 kernel_initializer='uniform'))
   
-    opt = Adam(lr=0.0005)
+    opt = Adam(lr=0.001)
     model.compile(
             loss='binary_crossentropy',
             optimizer=opt, 
@@ -118,20 +121,28 @@ def build_modelo_CNN():
 
 #%% definindo o modelo, com os hiperparametros previamente escolhidos
 cnn = build_modelo_CNN()
-checkpoint_callback = ModelCheckpoint('./FeatureStore/modeloClassifCNN.pickle', monitor='val_accuracy', verbose=1,
+checkpoint = ModelCheckpoint('./FeatureStore/melhorModeloCNN', monitor='val_accuracy', verbose=1,
                                           save_best_only=True, mode='max')
-reducelr_callback = ReduceLROnPlateau(monitor='val_accuracy', factor=0.5, patience=10, min_delta=0.01,verbose=1)
-callbacks_list = [checkpoint_callback, reducelr_callback]
+early_stop = EarlyStopping(monitor='val_accuracy', patience=20)
+reducelr = ReduceLROnPlateau(monitor='val_accuracy', factor=0.5, patience=8, min_delta=0.01,verbose=1)
+callbacks_list = [reducelr, checkpoint, early_stop]
 
-history = cnn.fit(X_trein, y_trein, batch_size=20, epochs=60,validation_data=(X_val, y_val), 
+history = cnn.fit(X_trein, y_trein, batch_size=20, epochs=100,validation_data=(X_val, y_val), 
                     verbose=2, callbacks=callbacks_list)
 
 # Cálculo de acurácia:
 #
+# y_predicao = cnn.predict (X_teste)
+# y_predicao = [round(y[0]) for y in y_predicao]
+# acuracia = accuracy_score (y_teste, y_predicao)
+# print("acuracia CNN {:.3f}".format(acuracia))
+
+cnn = load_model ('./FeatureStore/melhorModeloCNN')
 y_predicao = cnn.predict (X_teste)
 y_predicao = [round(y[0]) for y in y_predicao]
-acuracia = np.sum(y_predicao == y_teste)/len(y_teste)
+acuracia = accuracy_score (y_teste, y_predicao)
 print("acuracia CNN {:.3f}".format(acuracia))
+
 logging.info ("acuracia CNN {:.3f}".format(acuracia))
 
-logging.info('\n<< ClassifTreinamentoEspectro')
+logging.info('\n<< ClassifTreinamentoEspectrograma')

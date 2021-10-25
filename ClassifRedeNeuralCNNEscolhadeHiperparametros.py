@@ -32,6 +32,7 @@ from sklearn.model_selection import train_test_split
 from tensorflow.python.keras.regularizers import l2
 from keras.constraints import maxnorm
 from tensorflow.python.keras.layers.normalization_v2 import BatchNormalization
+from tensorflow.python.keras.callbacks import EarlyStopping
 
 #%%
 logging.basicConfig(filename='./Analises/processamClassifCNN.log', 
@@ -54,34 +55,34 @@ def build_modelo_convolucional():
     n_frequency = 640
     n_frames = 128    
     model = Sequential()
-    model.add (Conv2D(16, kernel_size = (3,2), strides=1, padding= 'same', activation='relu', input_shape=(n_frequency, n_frames,1)))
+    model.add (Conv2D(16, kernel_size = (3,4), strides=1, padding= 'same', activation='relu', input_shape=(n_frequency, n_frames,1)))
     #model.add(BatchNormalization())
     #model.add (Conv2D(16,kernel_size =(5,1),strides=2,padding='same',activation='relu')) # faz papel de model.add(MaxPooling2D((2,2)))
     model.add(MaxPooling2D((2,2)))
     #model.add(BatchNormalization())
     model.add (Dropout(0.05))
 
-    model.add (Conv2D(32, kernel_size=(3,2), strides=1, padding='same', activation='relu'))
+    model.add (Conv2D(32, kernel_size=(3,4), strides=1, padding='same', activation='relu'))
     #model.add(BatchNormalization())
     #model.add (Conv2D(32,kernel_size =(5,1),strides=2,padding='same',activation='relu')) # faz papel de model.add(MaxPooling2D((2,2)))
     model.add(MaxPooling2D((2,2)))
     #model.add(BatchNormalization())
     model.add (Dropout(0.05))
 
-    model.add (Conv2D(48, kernel_size=(3,2), strides=1, padding='same', activation='relu'))
+    model.add (Conv2D(48, kernel_size=(3,4), strides=1, padding='same', activation='relu'))
     #model.add(BatchNormalization())
     #model.add (Conv2D(32,kernel_size =(5,1),strides=2,padding='same',activation='relu')) # faz papel de model.add(MaxPooling2D((2,2)))
     model.add(MaxPooling2D((2,2)))
     #model.add(BatchNormalization())
     model.add (Dropout(0.05))
 
-    model.add (Conv2D(64, kernel_size=(3,2), strides=1, padding='same', activation='relu'))
+    model.add (Conv2D(64, kernel_size=(3,4), strides=1, padding='same', activation='relu'))
     #model.add(BatchNormalization())
     model.add (MaxPooling2D((4,4)))
     #model.add(BatchNormalization())
     model.add (Dropout(0.05))
 
-    model.add (Conv2D(64, kernel_size=(3,2), strides=1, padding='same', activation='relu'))
+    model.add (Conv2D(64, kernel_size=(3,4), strides=1, padding='same', activation='relu'))
     #model.add(BatchNormalization())
     model.add (MaxPooling2D((4,4)))
     #model.add(BatchNormalization())
@@ -119,7 +120,7 @@ def build_modelo_convolucional():
                 kernel_initializer='uniform'))
 #                kernel_regularizer=l2(0.001)))
   
-    opt = Adam(lr=0.0005)
+    opt = Adam(lr=0.001)
 #    opt= RMSprop(lr=0.0005)
     model.compile(
             loss='binary_crossentropy',
@@ -137,10 +138,11 @@ def treina_modelo(x_train, y_train, x_val, y_val):
     
     model = build_modelo_convolucional()
     
-    checkpoint_callback = ModelCheckpoint('./FeatureStore/weights.best.h5', monitor='val_accuracy', verbose=1,
+    early_stop = EarlyStopping(monitor='val_accuracy', patience=15)
+    checkpoint = ModelCheckpoint('./FeatureStore/melhorModeloCNN', monitor='val_accuracy', verbose=1,
                                           save_best_only=True, mode='max')
-    reducelr_callback = ReduceLROnPlateau(monitor='val_accuracy', factor=0.5, patience=10, min_delta=0.01,verbose=1)
-    callbacks_list = [checkpoint_callback, reducelr_callback]
+    reducelr = ReduceLROnPlateau(monitor='val_accuracy', factor=0.5, patience=8, min_delta=0.01,verbose=1)
+    callbacks_list = [checkpoint, reducelr, early_stop]
 
     # Fit the model and get training history.
     print('Executando Treinamento...')
