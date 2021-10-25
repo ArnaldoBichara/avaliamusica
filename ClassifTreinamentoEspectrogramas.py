@@ -46,7 +46,7 @@ from tensorflow.python.keras.regularizers import l2
 from tensorflow.python.keras.optimizer_v2.adam import Adam
 from tensorflow.python.keras.optimizer_v2.rmsprop import RMSprop
 from tensorflow.python.keras.callbacks import EarlyStopping
-from sklearn.metrics._classification import accuracy_score
+from sklearn.metrics._classification import accuracy_score, classification_report
 from tensorflow.python.keras.models import load_model
 tf.get_logger().setLevel('ERROR') 
 
@@ -63,7 +63,7 @@ npzTreino = np.load('./FeatureStore/AudioEspectrogramasTreinoBin.npz')
 X_trein= npzTreino['arr_0']
 y_trein = npzTreino['arr_1']
 
-#%% dividindo treinamento em treino e validação
+# dividindo treinamento em treino e validação
 X_trein, X_val, y_trein, y_val = train_test_split(X_trein, y_trein, random_state=0, test_size=0.25)
 
 npzTeste = np.load('./FeatureStore/AudioEspectrogramasTesteBin.npz')
@@ -119,7 +119,7 @@ def build_modelo_CNN():
     print(model.summary())    
     return model
 
-#%% definindo o modelo, com os hiperparametros previamente escolhidos
+# definindo o modelo, com os hiperparametros previamente escolhidos
 cnn = build_modelo_CNN()
 checkpoint = ModelCheckpoint('./FeatureStore/melhorModeloCNN', monitor='val_accuracy', verbose=1,
                                           save_best_only=True, mode='max')
@@ -128,7 +128,7 @@ reducelr = ReduceLROnPlateau(monitor='val_accuracy', factor=0.5, patience=8, min
 callbacks_list = [reducelr, checkpoint, early_stop]
 
 history = cnn.fit(X_trein, y_trein, batch_size=20, epochs=100,validation_data=(X_val, y_val), 
-                    verbose=2, callbacks=callbacks_list)
+                    verbose=1, callbacks=callbacks_list)
 
 # Cálculo de acurácia:
 #
@@ -139,10 +139,15 @@ history = cnn.fit(X_trein, y_trein, batch_size=20, epochs=100,validation_data=(X
 
 cnn = load_model ('./FeatureStore/melhorModeloCNN')
 y_predicao = cnn.predict (X_teste)
+#%%
 y_predicao = [round(y[0]) for y in y_predicao]
 acuracia = accuracy_score (y_teste, y_predicao)
-print("acuracia CNN {:.3f}".format(acuracia))
+report = classification_report (y_teste, y_predicao, target_names=["Nao Curte", "Curte"])
+print("acuracia CNN base de teste {:.3f}".format(acuracia))
+print("Resultados CNN base de teste:")
+print(report)
 
 logging.info ("acuracia CNN {:.3f}".format(acuracia))
+logging.info ("report CNN:\n {}".format(report))
 
 logging.info('\n<< ClassifTreinamentoEspectrograma')

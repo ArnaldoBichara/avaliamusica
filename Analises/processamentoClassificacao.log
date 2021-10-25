@@ -297,3 +297,42 @@
 25/10/2021 16:27:44 acuracia CNN 0.806
 25/10/2021 16:27:44 
 << ClassifTreinamentoEspectro
+25/10/2021 16:42:23 
+>> ClassifTreinamentoEspectrograma
+25/10/2021 16:55:40 acuracia CNN 0.739
+25/10/2021 16:55:40 
+<< ClassifTreinamentoEspectrograma
+25/10/2021 16:56:31 
+>> ClassifTreinamentoEspectrograma
+25/10/2021 16:58:42 
+>> ClassifTreinamentoEspectrograma
+25/10/2021 17:05:28 
+>> ClassifTreinamentoEspectrograma
+25/10/2021 17:09:45 
+>> ClassifTreinamentoEspectrograma
+25/10/2021 17:10:17 acuracia CNN 0.619
+25/10/2021 17:10:17 report CNN:               precision    recall  f1-score   support
+
+    nãocurte       0.00      0.00      0.00       137
+       curte       0.62      1.00      0.77       223
+
+    accuracy                           0.62       360
+   macro avg       0.31      0.50      0.38       360
+weighted avg       0.38      0.62      0.47       360
+
+25/10/2021 17:10:17 
+<< ClassifTreinamentoEspectrograma
+25/10/2021 17:13:11 
+>> ClassifTreinamentoEspectrograma
+25/10/2021 17:27:45 acuracia CNN 0.803
+25/10/2021 17:27:45 report CNN:               precision    recall  f1-score   support
+
+   Não Curte       0.75      0.72      0.73       137
+       Curte       0.83      0.86      0.84       223
+
+    accuracy                           0.80       360
+   macro avg       0.79      0.79      0.79       360
+weighted avg       0.80      0.80      0.80       360
+
+25/10/2021 17:27:45 
+<< ClassifTreinamentoEspectrograma
