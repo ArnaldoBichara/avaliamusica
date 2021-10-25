@@ -159,3 +159,114 @@
 24/10/2021 10:58:50 acuracia Rede Neural MLP 0.773
 24/10/2021 10:58:51 
 << ClassifTreinamento
+24/10/2021 19:42:59 
+>> ClassifTreinamento
+24/10/2021 19:43:02 acuracia RandomForest 0.791
+24/10/2021 19:43:06 acuracia AdaBoost 0.796
+24/10/2021 19:43:08 acuracia GradientBoost 0.799
+24/10/2021 19:43:23 acuracia Rede Neural MLP 0.767
+24/10/2021 19:43:24 
+<< ClassifTreinamento
+24/10/2021 19:45:59 
+>> ClassifTreinamento
+24/10/2021 19:46:02 acuracia RandomForest 0.790
+24/10/2021 19:46:05 acuracia AdaBoost 0.796
+24/10/2021 19:46:07 acuracia GradientBoost 0.799
+24/10/2021 19:46:22 acuracia Rede Neural MLP 0.766
+24/10/2021 19:46:23 
+<< ClassifTreinamento
+24/10/2021 19:46:45 
+>> ClassifTreinamento
+24/10/2021 19:46:48 acuracia RandomForest 0.786
+24/10/2021 19:46:52 acuracia AdaBoost 0.796
+24/10/2021 19:46:53 acuracia GradientBoost 0.799
+24/10/2021 19:47:12 acuracia Rede Neural MLP 0.761
+24/10/2021 19:47:13 
+<< ClassifTreinamento
+24/10/2021 19:48:23 
+>> ClassifTreinamento
+24/10/2021 19:48:26 acuracia RandomForest 0.790
+24/10/2021 19:48:30 acuracia AdaBoost 0.796
+24/10/2021 19:48:31 acuracia GradientBoost 0.799
+24/10/2021 19:49:01 acuracia Rede Neural MLP 0.754
+24/10/2021 19:49:01 
+<< ClassifTreinamento
+24/10/2021 19:50:37 
+>> ClassifTreinamento
+24/10/2021 19:50:40 acuracia RandomForest 0.788
+24/10/2021 19:50:43 acuracia AdaBoost 0.796
+24/10/2021 19:50:45 acuracia GradientBoost 0.799
+24/10/2021 19:51:22 acuracia Rede Neural MLP 0.763
+24/10/2021 19:51:23 
+<< ClassifTreinamento
+24/10/2021 19:52:14 
+>> ClassifTreinamento
+24/10/2021 19:52:17 acuracia RandomForest 0.790
+24/10/2021 19:52:20 acuracia AdaBoost 0.796
+24/10/2021 19:52:22 acuracia GradientBoost 0.799
+24/10/2021 19:52:38 acuracia Rede Neural MLP 0.783
+24/10/2021 19:52:38 
+<< ClassifTreinamento
+24/10/2021 20:08:42 
+>> ClassifTreinamento
+24/10/2021 20:08:44 acuracia RandomForest 0.790
+24/10/2021 20:08:48 acuracia AdaBoost 0.796
+24/10/2021 20:08:50 acuracia GradientBoost 0.799
+24/10/2021 20:09:09 acuracia Rede Neural MLP 0.775
+24/10/2021 20:09:09 
+<< ClassifTreinamento
+24/10/2021 20:11:25 
+>> ClassifTreinamento
+24/10/2021 20:11:27 acuracia RandomForest 0.791
+24/10/2021 20:11:31 acuracia AdaBoost 0.796
+24/10/2021 20:11:33 acuracia GradientBoost 0.799
+24/10/2021 20:11:48 acuracia Rede Neural MLP 0.772
+24/10/2021 20:11:49 
+<< ClassifTreinamento
+24/10/2021 20:14:11 
+>> ClassifTreinamento
+24/10/2021 20:14:14 acuracia RandomForest 0.790
+24/10/2021 20:14:18 acuracia AdaBoost 0.796
+24/10/2021 20:14:19 acuracia GradientBoost 0.799
+24/10/2021 20:14:38 acuracia Rede Neural MLP 0.772
+24/10/2021 20:14:39 
+<< ClassifTreinamento
+24/10/2021 20:22:12 
+>> ClassifTreinamento
+24/10/2021 20:22:15 acuracia RandomForest 0.788
+24/10/2021 20:22:19 acuracia AdaBoost 0.796
+24/10/2021 20:22:21 acuracia GradientBoost 0.799
+24/10/2021 20:27:55 
+>> ClassifTreinamento
+24/10/2021 20:27:58 acuracia RandomForest 0.790
+24/10/2021 20:28:02 acuracia AdaBoost 0.796
+24/10/2021 20:28:04 acuracia GradientBoost 0.799
+24/10/2021 20:29:11 
+>> ClassifTreinamento
+24/10/2021 20:29:14 acuracia RandomForest 0.792
+24/10/2021 20:29:17 acuracia AdaBoost 0.796
+24/10/2021 20:29:19 acuracia GradientBoost 0.799
+25/10/2021 09:52:47 
+>> ClassifTreinamento
+25/10/2021 09:52:50 acuracia RandomForest 0.793
+25/10/2021 09:52:54 acuracia AdaBoost 0.796
+25/10/2021 09:52:56 acuracia GradientBoost 0.799
+25/10/2021 09:53:13 acuracia Rede Neural MLP 0.771
+25/10/2021 09:53:13 
+<< ClassifTreinamento
+25/10/2021 09:56:42 
+>> ClassifTreinamento
+25/10/2021 09:56:45 acuracia RandomForest 0.789
+25/10/2021 09:56:48 acuracia AdaBoost 0.796
+25/10/2021 09:56:50 acuracia GradientBoost 0.799
+25/10/2021 09:57:06 acuracia Rede Neural MLP 0.791
+25/10/2021 09:57:07 
+<< ClassifTreinamento
+25/10/2021 09:57:56 
+>> ClassifTreinamento
+25/10/2021 09:57:59 acuracia RandomForest 0.788
+25/10/2021 09:58:02 acuracia AdaBoost 0.796
+25/10/2021 09:58:04 acuracia GradientBoost 0.799
+25/10/2021 09:58:21 acuracia Rede Neural MLP 0.779
+25/10/2021 09:58:21 
+<< ClassifTreinamento

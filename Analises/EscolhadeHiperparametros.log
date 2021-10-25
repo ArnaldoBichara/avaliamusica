@@ -190,3 +190,212 @@ joblib.externals.loky.process_executor.TerminatedWorkerError: A worker process m
 24/10/2021 10:49:49 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
 24/10/2021 10:55:57 {'mlp__batch_size': 20, 'mlp__dropout_rate': 0.1, 'mlp__epochs': 100, 'mlp__init': 'uniform', 'mlp__optimizer': 'rmsprop'} Acurácia: 0.8249421298503876
 24/10/2021 10:55:57 << ClassifRedeNeuralMLPEscolhadeHiperparametros
+24/10/2021 11:00:14 exception calling callback for <Future at 0x2b135a085b0 state=finished raised TerminatedWorkerError>
+Traceback (most recent call last):
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\externals\loky\_base.py", line 625, in _invoke_callbacks
+    callback(self)
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\parallel.py", line 359, in __call__
+    self.parallel.dispatch_next()
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\parallel.py", line 792, in dispatch_next
+    if not self.dispatch_one_batch(self._original_iterator):
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\parallel.py", line 859, in dispatch_one_batch
+    self._dispatch(tasks)
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\parallel.py", line 777, in _dispatch
+    job = self._backend.apply_async(batch, callback=cb)
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\_parallel_backends.py", line 531, in apply_async
+    future = self._workers.submit(SafeFunction(func))
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\externals\loky\reusable_executor.py", line 177, in submit
+    return super(_ReusablePoolExecutor, self).submit(
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\externals\loky\process_executor.py", line 1102, in submit
+    raise self._flags.broken
+joblib.externals.loky.process_executor.TerminatedWorkerError: A worker process managed by the executor was unexpectedly terminated. This could be caused by a segmentation fault while calling the function or by an excessive memory usage causing the Operating System to kill the worker.
+
+24/10/2021 19:54:39 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+24/10/2021 19:56:37 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+24/10/2021 19:57:00 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+24/10/2021 19:59:02 exception calling callback for <Future at 0x27ebed63f70 state=finished raised TerminatedWorkerError>
+Traceback (most recent call last):
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\externals\loky\_base.py", line 625, in _invoke_callbacks
+    callback(self)
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\parallel.py", line 359, in __call__
+    self.parallel.dispatch_next()
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\parallel.py", line 792, in dispatch_next
+    if not self.dispatch_one_batch(self._original_iterator):
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\parallel.py", line 859, in dispatch_one_batch
+    self._dispatch(tasks)
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\parallel.py", line 777, in _dispatch
+    job = self._backend.apply_async(batch, callback=cb)
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\_parallel_backends.py", line 531, in apply_async
+    future = self._workers.submit(SafeFunction(func))
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\externals\loky\reusable_executor.py", line 177, in submit
+    return super(_ReusablePoolExecutor, self).submit(
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\externals\loky\process_executor.py", line 1102, in submit
+    raise self._flags.broken
+joblib.externals.loky.process_executor.TerminatedWorkerError: A worker process managed by the executor was unexpectedly terminated. This could be caused by a segmentation fault while calling the function or by an excessive memory usage causing the Operating System to kill the worker.
+
+24/10/2021 19:59:10 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+24/10/2021 20:00:30 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+24/10/2021 20:02:14 {'mlp__batch_size': 20, 'mlp__dropout_rate': 0.5, 'mlp__epochs': 100, 'mlp__init': 'uniform', 'mlp__optimizer': 'adam'} Acurácia: 0.8146433711051941
+24/10/2021 20:02:14 << ClassifRedeNeuralMLPEscolhadeHiperparametros
+24/10/2021 20:03:10 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+24/10/2021 20:04:32 {'mlp__batch_size': 20, 'mlp__dropout_rate': 0.4, 'mlp__epochs': 100, 'mlp__init': 'uniform', 'mlp__optimizer': 'adam'} Acurácia: 0.819776976108551
+24/10/2021 20:04:32 << ClassifRedeNeuralMLPEscolhadeHiperparametros
+24/10/2021 20:05:44 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+24/10/2021 20:06:58 {'mlp__batch_size': 20, 'mlp__dropout_rate': 0.6, 'mlp__epochs': 100, 'mlp__init': 'uniform', 'mlp__optimizer': 'adam'} Acurácia: 0.819819051027298
+24/10/2021 20:06:58 << ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 07:53:13 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 08:05:35 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 08:14:44 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 08:15:30 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 08:15:48 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 08:17:11 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 08:18:16 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 08:19:50 exception calling callback for <Future at 0x24db9626280 state=finished raised TerminatedWorkerError>
+Traceback (most recent call last):
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\externals\loky\_base.py", line 625, in _invoke_callbacks
+    callback(self)
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\parallel.py", line 359, in __call__
+    self.parallel.dispatch_next()
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\parallel.py", line 792, in dispatch_next
+    if not self.dispatch_one_batch(self._original_iterator):
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\parallel.py", line 859, in dispatch_one_batch
+    self._dispatch(tasks)
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\parallel.py", line 777, in _dispatch
+    job = self._backend.apply_async(batch, callback=cb)
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\_parallel_backends.py", line 531, in apply_async
+    future = self._workers.submit(SafeFunction(func))
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\externals\loky\reusable_executor.py", line 177, in submit
+    return super(_ReusablePoolExecutor, self).submit(
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\externals\loky\process_executor.py", line 1102, in submit
+    raise self._flags.broken
+joblib.externals.loky.process_executor.TerminatedWorkerError: A worker process managed by the executor was unexpectedly terminated. This could be caused by a segmentation fault while calling the function or by an excessive memory usage causing the Operating System to kill the worker.
+
+25/10/2021 08:37:28 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 08:37:49 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 08:38:29 {'mlp__batch_size': 20, 'mlp__dropout_rate': 0.4, 'mlp__epochs': 100, 'mlp__init': 'uniform', 'mlp__optimizer': 'adam'} Acurácia: 0.8135914087295533
+25/10/2021 08:38:29 << ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 08:41:52 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 08:42:08 exception calling callback for <Future at 0x1df2558abb0 state=finished raised TerminatedWorkerError>
+Traceback (most recent call last):
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\externals\loky\_base.py", line 625, in _invoke_callbacks
+    callback(self)
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\parallel.py", line 359, in __call__
+    self.parallel.dispatch_next()
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\parallel.py", line 792, in dispatch_next
+    if not self.dispatch_one_batch(self._original_iterator):
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\parallel.py", line 859, in dispatch_one_batch
+    self._dispatch(tasks)
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\parallel.py", line 777, in _dispatch
+    job = self._backend.apply_async(batch, callback=cb)
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\_parallel_backends.py", line 531, in apply_async
+    future = self._workers.submit(SafeFunction(func))
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\externals\loky\reusable_executor.py", line 177, in submit
+    return super(_ReusablePoolExecutor, self).submit(
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\externals\loky\process_executor.py", line 1102, in submit
+    raise self._flags.broken
+joblib.externals.loky.process_executor.TerminatedWorkerError: A worker process managed by the executor was unexpectedly terminated. This could be caused by a segmentation fault while calling the function or by an excessive memory usage causing the Operating System to kill the worker.
+
+25/10/2021 08:49:40 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 08:52:55 {'mlp__batch_size': 20, 'mlp__dropout_rate': 0.6, 'mlp__epochs': 200, 'mlp__init': 'uniform', 'mlp__optimizer': 'adam'} Acurácia: 0.819776976108551
+25/10/2021 08:52:55 << ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 08:54:49 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 08:55:41 exception calling callback for <Future at 0x15854fb9190 state=finished raised TerminatedWorkerError>
+Traceback (most recent call last):
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\externals\loky\_base.py", line 625, in _invoke_callbacks
+    callback(self)
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\parallel.py", line 359, in __call__
+    self.parallel.dispatch_next()
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\parallel.py", line 792, in dispatch_next
+    if not self.dispatch_one_batch(self._original_iterator):
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\parallel.py", line 859, in dispatch_one_batch
+    self._dispatch(tasks)
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\parallel.py", line 777, in _dispatch
+    job = self._backend.apply_async(batch, callback=cb)
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\_parallel_backends.py", line 531, in apply_async
+    future = self._workers.submit(SafeFunction(func))
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\externals\loky\reusable_executor.py", line 177, in submit
+    return super(_ReusablePoolExecutor, self).submit(
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\externals\loky\process_executor.py", line 1102, in submit
+    raise self._flags.broken
+joblib.externals.loky.process_executor.TerminatedWorkerError: A worker process managed by the executor was unexpectedly terminated. This could be caused by a segmentation fault while calling the function or by an excessive memory usage causing the Operating System to kill the worker.
+
+25/10/2021 08:56:23 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:02:22 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:03:08 {'mlp__batch_size': 20, 'mlp__dropout_rate': 0.5, 'mlp__epochs': 200, 'mlp__init': 'uniform', 'mlp__optimizer': 'adam'} Acurácia: 0.8166736721992492
+25/10/2021 09:03:08 << ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:03:45 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:04:29 {'mlp__batch_size': 20, 'mlp__dropout_rate': 0.7, 'mlp__epochs': 200, 'mlp__init': 'uniform', 'mlp__optimizer': 'adam'} Acurácia: 0.8239112019538879
+25/10/2021 09:04:29 << ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:05:44 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:06:35 {'mlp__batch_size': 20, 'mlp__dropout_rate': 0.5, 'mlp__epochs': 200, 'mlp__init': 'uniform', 'mlp__optimizer': 'adam'} Acurácia: 0.8218598663806915
+25/10/2021 09:06:35 << ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:07:45 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:08:28 {'mlp__batch_size': 20, 'mlp__dropout_rate': 0.7, 'mlp__epochs': 400, 'mlp__init': 'uniform', 'mlp__optimizer': 'adam'} Acurácia: 0.820786863565445
+25/10/2021 09:08:28 << ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:09:38 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:10:18 {'mlp__batch_size': 20, 'mlp__dropout_rate': 0.6, 'mlp__epochs': 400, 'mlp__init': 'uniform', 'mlp__optimizer': 'adam'} Acurácia: 0.8187881231307983
+25/10/2021 09:10:18 << ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:12:13 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:12:58 {'mlp__batch_size': 20, 'mlp__dropout_rate': 0.5, 'mlp__epochs': 400, 'mlp__init': 'uniform', 'mlp__optimizer': 'adam'} Acurácia: 0.8280349135398865
+25/10/2021 09:12:58 << ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:13:31 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:14:15 {'mlp__batch_size': 20, 'mlp__dropout_rate': 0.7, 'mlp__epochs': 400, 'mlp__init': 'uniform', 'mlp__optimizer': 'adam'} Acurácia: 0.8197980105876923
+25/10/2021 09:14:15 << ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:16:08 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:16:52 {'mlp__batch_size': 20, 'mlp__dropout_rate': 0.5, 'mlp__epochs': 400, 'mlp__init': 'uniform', 'mlp__optimizer': 'adam'} Acurácia: 0.8249316155910492
+25/10/2021 09:16:52 << ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:17:56 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:18:28 {'mlp__batch_size': 20, 'mlp__dropout_rate': 0.5, 'mlp__epochs': 600, 'mlp__init': 'uniform', 'mlp__optimizer': 'adam'} Acurácia: 0.8166631519794464
+25/10/2021 09:18:28 << ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:18:58 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:19:29 {'mlp__batch_size': 20, 'mlp__dropout_rate': 0.5, 'mlp__epochs': 600, 'mlp__init': 'uniform', 'mlp__optimizer': 'adam'} Acurácia: 0.8228487193584442
+25/10/2021 09:19:29 << ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:20:30 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:21:16 {'mlp__batch_size': 20, 'mlp__dropout_rate': 0.5, 'mlp__epochs': 600, 'mlp__init': 'uniform', 'mlp__optimizer': 'adam'} Acurácia: 0.8166841924190521
+25/10/2021 09:21:16 << ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:22:09 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:22:59 {'mlp__batch_size': 20, 'mlp__dropout_rate': 0.5, 'mlp__epochs': 600, 'mlp__init': 'uniform', 'mlp__optimizer': 'adam'} Acurácia: 0.8187144875526429
+25/10/2021 09:22:59 << ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:23:22 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:24:09 {'mlp__batch_size': 20, 'mlp__dropout_rate': 0.7, 'mlp__epochs': 600, 'mlp__init': 'uniform', 'mlp__optimizer': 'adam'} Acurácia: 0.813644003868103
+25/10/2021 09:24:09 << ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:25:30 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:26:30 {'mlp__batch_size': 20, 'mlp__dropout_rate': 0.7, 'mlp__epochs': 600, 'mlp__init': 'uniform', 'mlp__optimizer': 'adam'} Acurácia: 0.8270355463027954
+25/10/2021 09:26:30 << ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:27:45 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:29:55 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:30:59 {'mlp__batch_size': 20, 'mlp__dropout_rate': 0.5, 'mlp__epochs': 600, 'mlp__init': 'uniform', 'mlp__optimizer': 'adam'} Acurácia: 0.8187144875526429
+25/10/2021 09:30:59 << ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:31:22 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:32:26 {'mlp__batch_size': 20, 'mlp__dropout_rate': 0.7, 'mlp__epochs': 600, 'mlp__init': 'uniform', 'mlp__optimizer': 'adam'} Acurácia: 0.8135808885097504
+25/10/2021 09:32:26 << ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:34:39 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:35:33 {'mlp__batch_size': 20, 'mlp__dropout_rate': 0.7, 'mlp__epochs': 600, 'mlp__init': 'uniform', 'mlp__optimizer': 'adam'} Acurácia: 0.8208184182643891
+25/10/2021 09:35:33 << ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:37:35 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:39:20 {'mlp__batch_size': 20, 'mlp__dropout_rate': 0.6, 'mlp__epochs': 600, 'mlp__init': 'uniform', 'mlp__optimizer': 'adam'} Acurácia: 0.8331790387630462
+25/10/2021 09:39:20 << ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:40:30 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:41:14 {'mlp__batch_size': 20, 'mlp__dropout_rate': 0.6, 'mlp__epochs': 600, 'mlp__init': 'uniform', 'mlp__optimizer': 'adam'} Acurácia: 0.8187460482120514
+25/10/2021 09:41:14 << ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:41:56 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:42:50 {'mlp__batch_size': 20, 'mlp__dropout_rate': 0.7, 'mlp__epochs': 600, 'mlp__init': 'uniform', 'mlp__optimizer': 'adam'} Acurácia: 0.8197980105876923
+25/10/2021 09:42:50 << ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:43:39 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:44:31 {'mlp__batch_size': 20, 'mlp__dropout_rate': 0.6, 'mlp__epochs': 600, 'mlp__init': 'uniform', 'mlp__optimizer': 'adam'} Acurácia: 0.8238586068153382
+25/10/2021 09:44:31 << ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:45:05 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:45:54 {'mlp__batch_size': 20, 'mlp__dropout_rate': 0.7, 'mlp__epochs': 600, 'mlp__init': 'uniform', 'mlp__optimizer': 'adam'} Acurácia: 0.8229328751564026
+25/10/2021 09:45:54 << ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:46:24 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:47:02 {'mlp__batch_size': 20, 'mlp__dropout_rate': 0.5, 'mlp__epochs': 600, 'mlp__init': 'uniform', 'mlp__optimizer': 'adam'} Acurácia: 0.8176519989967346
+25/10/2021 09:47:02 << ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:47:45 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:48:31 {'mlp__batch_size': 20, 'mlp__dropout_rate': 0.7, 'mlp__epochs': 600, 'mlp__init': 'uniform', 'mlp__optimizer': 'adam'} Acurácia: 0.8270250260829926
+25/10/2021 09:48:31 << ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:49:08 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:50:07 {'mlp__batch_size': 20, 'mlp__dropout_rate': 0.6, 'mlp__epochs': 600, 'mlp__init': 'uniform', 'mlp__optimizer': 'adam'} Acurácia: 0.822901314496994
+25/10/2021 09:50:07 << ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:55:24 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+25/10/2021 09:56:26 {'mlp__batch_size': 20, 'mlp__dropout_rate': 0.7, 'mlp__epochs': 600, 'mlp__init': 'uniform', 'mlp__optimizer': 'adam'} Acurácia: 0.8156637787818909
+25/10/2021 09:56:26 << ClassifRedeNeuralMLPEscolhadeHiperparametros

@@ -20,6 +20,7 @@ from sklearn.model_selection import train_test_split
 
 from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import Pipeline
+from sklearn.metrics import accuracy_score
 
 from keras.models import Sequential
 from keras.layers import Dense, Dropout
@@ -33,6 +34,7 @@ from tensorflow.python.keras.regularizers import l2
 from tensorflow.python.keras.optimizer_v2.adam import Adam
 from tensorflow.python.keras.optimizer_v2.rmsprop import RMSprop
 from tensorflow.python.keras.layers.normalization import BatchNormalization
+from tensorflow.python.keras.callbacks import EarlyStopping, ReduceLROnPlateau
 tf.get_logger().setLevel('ERROR') 
 
 
@@ -55,18 +57,22 @@ X = np.append (X_trein, X_teste, axis=0)
 y = np.append (y_trein, y_teste, axis=0 )
 
 def create_model_MLP(optimizer='rmsprop', init='uniform', 
-    weight_constraint=0, dropout_rate=0.1, kr = None):
+    weight_constraint=0, dropout_rate=0.7, kr = None):
     # create model
     model = Sequential()
-    model.add(Dense(12, input_dim=12, activation='relu', 
+    model.add(Dense(256, input_dim=12, activation='relu', 
             kernel_initializer=init, 
             kernel_regularizer=kr))
     model.add(BatchNormalization())
     model.add(Dropout(dropout_rate))
-    # model.add(Dense(9,  activation='relu', kernel_initializer=init,
-    #         kernel_regularizer=kr))
-    # model.add(BatchNormalization())
-    # model.add(Dropout(dropout_rate))
+    model.add(Dense(64,  activation='relu', kernel_initializer=init,
+            kernel_regularizer=kr))
+    model.add(BatchNormalization())
+    model.add(Dropout(dropout_rate))
+    model.add(Dense(32,  activation='relu', kernel_initializer=init,
+             kernel_regularizer=kr))
+    model.add(BatchNormalization())
+    model.add(Dropout(dropout_rate))
     model.add(Dense(1, activation='sigmoid', kernel_initializer=init,
             kernel_regularizer=kr))
 	# Compile model
@@ -87,9 +93,14 @@ ab = AdaBoostClassifier (n_estimators=400,
 gb = GradientBoostingClassifier (n_estimators=400,
                                 learning_rate=0.08,
                                 max_depth=1)  
+
+mlp_early_stop = EarlyStopping(monitor='accuracy', patience=12)
+#checkpoint=ModelCheckpoint('./FeatureStore/melhorModeloMLP', monitor='val_accuracy', save_best_only=True, mode='max', period=1)
+mlp_reducelr = ReduceLROnPlateau(monitor='accuracy', factor=0.5, patience=8, min_delta=0.01,verbose=0)
+mlp_keras_fit_params= {'mlp__callbacks': [mlp_reducelr, mlp_early_stop]}
 mlp = Pipeline([
                 ('standardize', StandardScaler()), # passa média para 0 e desvio para 1
-                ('mlp', KerasClassifier(build_fn=create_model_MLP, epochs=100, batch_size=20, verbose=0))
+                ('mlp', KerasClassifier(build_fn=create_model_MLP, epochs=600, batch_size=20, verbose=0))
             ])                                                       
 
 # Cálculo de acurácia:
@@ -98,7 +109,7 @@ acuracias=[]
 for i in range (5):
     rf.fit (X_trein, y_trein)
     y_predicao = rf.predict (X_teste)
-    acuracia = np.sum(y_predicao == y_teste)/len(y_teste)
+    acuracia = accuracy_score (y_teste, y_predicao)
     acuracias.append(acuracia)
 acuraciarf = mean(acuracias)
 print("acuracia RandomForest {:.3f}".format(acuraciarf))
@@ -108,7 +119,7 @@ acuracias=[]
 for i in range (5):
     ab.fit (X_trein, y_trein)
     y_predicao = ab.predict (X_teste)
-    acuracia = np.sum(y_predicao == y_teste)/len(y_teste)
+    acuracia = accuracy_score (y_teste, y_predicao)
     acuracias.append(acuracia)
 acuraciaab = mean(acuracias)
 print("acuracia AdaBoost {:.3f}".format(acuraciaab))
@@ -118,7 +129,8 @@ acuracias=[]
 for i in range (5):
     gb.fit (X_trein, y_trein)
     y_predicao = gb.predict (X_teste)
-    acuracia = np.sum(y_predicao == y_teste)/len(y_teste)
+    acuracia = accuracy_score (y_teste, y_predicao)
+    #acuracia = np.sum(y_predicao == y_teste)/len(y_teste)
     acuracias.append(acuracia)
 acuraciagb = mean(acuracias)
 print("acuracia GradientBoost {:.3f}".format(acuraciagb))
@@ -126,12 +138,12 @@ logging.info ("acuracia GradientBoost {:.3f}".format(acuraciagb))
 
 acuracias=[]
 for i in range (5):
-    mlp.fit (X_trein, y_trein)
+    mlp.fit (X_trein, y_trein, mlp__callbacks=mlp_keras_fit_params)
     y_predicao = mlp.predict (X_teste)
     # os valores de y_predicao são entre 0 e 1 (probabilidade). 
     # Então temos de arredondá-los
     y_predicao = [round(y[0]) for y in y_predicao]
-    acuracia = np.sum(y_predicao == y_teste)/len(y_teste)
+    acuracia = accuracy_score (y_teste, y_predicao)
     acuracias.append(acuracia)
 acuraciamlp = mean(acuracias)
 print("acuracia Rede Neural MLP {:.3f}".format(acuraciamlp))

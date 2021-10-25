@@ -27,6 +27,7 @@ from tensorflow.python.keras.optimizer_v2.adam import Adam
 from tensorflow.python.keras.optimizers import rmsprop
 from tensorflow.python.keras.optimizer_v2.rmsprop import RMSprop
 from tensorflow.python.keras.layers.normalization import BatchNormalization
+from tensorflow.python.keras.callbacks import EarlyStopping, ModelCheckpoint, ReduceLROnPlateau
 tf.get_logger().setLevel('ERROR') 
 
 logging.basicConfig(filename='./Analises/EscolhadeHiperparametros.log', 
@@ -55,25 +56,29 @@ y = npzfile['arr_1']
                 'mlp__batch_size': [20, 32],
                 'mlp__dropout_rate': [0.1, 0.2],
                 'mlp__weight_constraint': [1, 2]}  """
-grid = { 'mlp__optimizer': ['adam', 'rmsprop'],
+grid = { 'mlp__optimizer': ['adam'],
                 'mlp__init': ['uniform'],
-                'mlp__epochs': [100,200],
-                'mlp__batch_size': [20, 32],
-                'mlp__dropout_rate': [0.1, 0.2, 0.3, 0.4]}                 
+                'mlp__epochs': [600],
+                'mlp__batch_size': [20],
+                'mlp__dropout_rate': [0.4, 0.5, 0.6, 0.7]}                 
 
 def create_model(optimizer='rmsprop', init='glorot_uniform', 
         weight_constraint=0, dropout_rate=0.0, kr = None):
     # create model
     model = Sequential()
-    model.add(Dense(12, input_dim=12, activation='relu', 
+    model.add(Dense(256, input_dim=12, activation='relu', 
             kernel_initializer=init, 
             kernel_regularizer=kr))
     model.add(BatchNormalization())
     model.add(Dropout(dropout_rate))
-    # model.add(Dense(9,  activation='relu', kernel_initializer=init,
-    #         kernel_regularizer=kr))
-    # model.add(BatchNormalization())
-    # model.add(Dropout(dropout_rate))
+    model.add(Dense(64,  activation='relu', kernel_initializer=init,
+            kernel_regularizer=kr))
+    model.add(BatchNormalization())
+    model.add(Dropout(dropout_rate))
+    model.add(Dense(32,  activation='relu', kernel_initializer=init,
+             kernel_regularizer=kr))
+    model.add(BatchNormalization())
+    model.add(Dropout(dropout_rate))
     model.add(Dense(1, activation='sigmoid', kernel_initializer=init,
             kernel_regularizer=kr))
 	# Compile model
@@ -81,7 +86,11 @@ def create_model(optimizer='rmsprop', init='glorot_uniform',
             metrics=['accuracy'])
     return model
 
-clf = Pipeline([
+early_stop = EarlyStopping(monitor='accuracy', patience=12)
+#checkpoint=ModelCheckpoint('./FeatureStore/melhorModeloMLP', monitor='val_accuracy', save_best_only=True, mode='max', period=1)
+reducelr = ReduceLROnPlateau(monitor='accuracy', factor=0.5, patience=8, min_delta=0.01,verbose=0)
+keras_fit_params= {'mlp__callbacks': [reducelr, early_stop]}
+pipeline = Pipeline([
                 ('standardize', StandardScaler()), # passa média para 0 e desvio para 1
                 ('mlp', KerasClassifier(build_fn=create_model, verbose=0))
             ])
@@ -91,9 +100,8 @@ kfold = StratifiedKFold(n_splits=10, shuffle=True)
 
 #clf_random = RandomizedSearchCV (estimator = clf, param_distributions = grid,
 #             n_iter = 100, cv = kfold, verbose=2, n_jobs=-1, random_state=1)
-clf_random = GridSearchCV (estimator = clf, param_grid = grid, 
-    cv = kfold, verbose=1, n_jobs=-1)
-search = clf_random.fit (X,y)
+clf = GridSearchCV (estimator=pipeline, param_grid = grid, cv = kfold, verbose=2, n_jobs=-1)
+search = clf.fit (X, y, mlp__callbacks=keras_fit_params)
 #%%
 print (search.best_params_, "acuracia:", search.best_score_)
 logging.info ("{} Acurácia: {}".format(search.best_params_, search.best_score_))
