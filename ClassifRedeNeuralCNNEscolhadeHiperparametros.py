@@ -55,6 +55,7 @@ def build_modelo_convolucional():
     n_frequency = 640
     n_frames = 128    
     model = Sequential()
+    model_input = Input(n_frames, n_frequency, 1, name='input')
     model.add (Conv2D(16, kernel_size = (3,4), strides=1, padding= 'same', activation='relu', input_shape=(n_frequency, n_frames,1)))
     #model.add(BatchNormalization())
     #model.add (Conv2D(16,kernel_size =(5,1),strides=2,padding='same',activation='relu')) # faz papel de model.add(MaxPooling2D((2,2)))
