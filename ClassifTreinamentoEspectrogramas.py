@@ -79,8 +79,11 @@ def build_modelo_CNN():
     #blocos convolucionais
     n_frequency = 640
     n_frames = 128    
+    input_shape = (n_frequency, n_frames, 1)
+    model_input = Input(input_shape, name='input') 
+
     model = Sequential()
-    model.add (Conv2D(16, kernel_size = (3,3), strides=1, padding= 'same', activation='relu', input_shape=(n_frequency, n_frames,1)))
+    model.add (Conv2D(16, kernel_size = (3,3), strides=1, padding= 'same', activation='relu', input_shape=input_shape))
     model.add(MaxPooling2D((2,2)))
     model.add (Dropout(0.05))
 

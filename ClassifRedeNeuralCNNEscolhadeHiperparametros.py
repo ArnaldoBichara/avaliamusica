@@ -55,7 +55,7 @@ def build_modelo_convolucional():
     n_frequency = 640
     n_frames = 128    
     model = Sequential()
-    model_input = Input(n_frames, n_frequency, 1, name='input')
+    #model_input = Input(n_frames, n_frequency, 1, name='input')
     model.add (Conv2D(16, kernel_size = (3,4), strides=1, padding= 'same', activation='relu', input_shape=(n_frequency, n_frames,1)))
     #model.add(BatchNormalization())
     #model.add (Conv2D(16,kernel_size =(5,1),strides=2,padding='same',activation='relu')) # faz papel de model.add(MaxPooling2D((2,2)))
@@ -91,21 +91,6 @@ def build_modelo_convolucional():
 
     model.add (Flatten())
 
-    """     ### Recurrent Block
-    
-    # Pooling layer
-    pool_lstm1 = MaxPooling2D((4,2), name = 'pool_lstm')(model_input)
-    print("pool_lstm1 shape: ", pool_lstm1.shape)
-   # Embedding layer
-    squeezed = Lambda(lambda x: K.squeeze(x, axis= -1))(pool_lstm1)   
-    print("squeezed shape: ", squeezed.shape) 
-   # Bidirectional GRU
-    lstm = Bidirectional(GRU(lstm_count))(squeezed)  #default merge mode is concat    
-    print("lstm shape: ", lstm.shape)
-
-    # Concat Output
-    concat = concatenate([flatten1, lstm], axis=-1, name ='concat') """
-
     ## MLP
     model.add (Dense(256,  activation='relu',
                 kernel_initializer='uniform'))
@@ -139,7 +124,7 @@ def treina_modelo(x_train, y_train, x_val, y_val):
     
     model = build_modelo_convolucional()
     
-    early_stop = EarlyStopping(monitor='val_accuracy', patience=15)
+    early_stop = EarlyStopping(monitor='val_accuracy', patience=25)
     checkpoint = ModelCheckpoint('./FeatureStore/melhorModeloCNN', monitor='val_accuracy', verbose=1,
                                           save_best_only=True, mode='max')
     reducelr = ReduceLROnPlateau(monitor='val_accuracy', factor=0.5, patience=8, min_delta=0.01,verbose=1)

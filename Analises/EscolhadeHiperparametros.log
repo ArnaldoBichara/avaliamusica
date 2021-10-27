@@ -399,3 +399,61 @@ joblib.externals.loky.process_executor.TerminatedWorkerError: A worker process m
 25/10/2021 09:55:24 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
 25/10/2021 09:56:26 {'mlp__batch_size': 20, 'mlp__dropout_rate': 0.7, 'mlp__epochs': 600, 'mlp__init': 'uniform', 'mlp__optimizer': 'adam'} Acurácia: 0.8156637787818909
 25/10/2021 09:56:26 << ClassifRedeNeuralMLPEscolhadeHiperparametros
+26/10/2021 14:06:31 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+26/10/2021 14:06:38 exception calling callback for <Future at 0x19a771ef8b0 state=finished raised TerminatedWorkerError>
+Traceback (most recent call last):
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\externals\loky\_base.py", line 625, in _invoke_callbacks
+    callback(self)
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\parallel.py", line 359, in __call__
+    self.parallel.dispatch_next()
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\parallel.py", line 794, in dispatch_next
+    if not self.dispatch_one_batch(self._original_iterator):
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\parallel.py", line 861, in dispatch_one_batch
+    self._dispatch(tasks)
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\parallel.py", line 779, in _dispatch
+    job = self._backend.apply_async(batch, callback=cb)
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\_parallel_backends.py", line 531, in apply_async
+    future = self._workers.submit(SafeFunction(func))
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\externals\loky\reusable_executor.py", line 177, in submit
+    return super(_ReusablePoolExecutor, self).submit(
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\externals\loky\process_executor.py", line 1115, in submit
+    raise self._flags.broken
+joblib.externals.loky.process_executor.TerminatedWorkerError: A worker process managed by the executor was unexpectedly terminated. This could be caused by a segmentation fault while calling the function or by an excessive memory usage causing the Operating System to kill the worker.
+
+26/10/2021 14:06:38 exception calling callback for <Future at 0x19a771b5ac0 state=finished raised TerminatedWorkerError>
+Traceback (most recent call last):
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\externals\loky\_base.py", line 625, in _invoke_callbacks
+    callback(self)
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\parallel.py", line 359, in __call__
+    self.parallel.dispatch_next()
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\parallel.py", line 794, in dispatch_next
+    if not self.dispatch_one_batch(self._original_iterator):
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\parallel.py", line 861, in dispatch_one_batch
+    self._dispatch(tasks)
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\parallel.py", line 779, in _dispatch
+    job = self._backend.apply_async(batch, callback=cb)
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\_parallel_backends.py", line 531, in apply_async
+    future = self._workers.submit(SafeFunction(func))
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\externals\loky\reusable_executor.py", line 177, in submit
+    return super(_ReusablePoolExecutor, self).submit(
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\externals\loky\process_executor.py", line 1115, in submit
+    raise self._flags.broken
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\externals\loky\_base.py", line 625, in _invoke_callbacks
+    callback(self)
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\parallel.py", line 359, in __call__
+    self.parallel.dispatch_next()
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\parallel.py", line 794, in dispatch_next
+    if not self.dispatch_one_batch(self._original_iterator):
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\parallel.py", line 861, in dispatch_one_batch
+    self._dispatch(tasks)
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\parallel.py", line 779, in _dispatch
+    job = self._backend.apply_async(batch, callback=cb)
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\_parallel_backends.py", line 531, in apply_async
+    future = self._workers.submit(SafeFunction(func))
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\externals\loky\reusable_executor.py", line 177, in submit
+    return super(_ReusablePoolExecutor, self).submit(
+  File "C:\Users\abalm\anaconda3\lib\site-packages\joblib\externals\loky\process_executor.py", line 1115, in submit
+    raise self._flags.broken
+joblib.externals.loky.process_executor.TerminatedWorkerError: A worker process managed by the executor was unexpectedly terminated. This could be caused by a segmentation fault while calling the function or by an excessive memory usage causing the Operating System to kill the worker.
+
+26/10/2021 14:36:41 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
