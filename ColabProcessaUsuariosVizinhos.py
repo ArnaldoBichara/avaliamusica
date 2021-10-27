@@ -24,7 +24,7 @@ logging.info("ColabMusUsersEsparsa shape %s", dfMusUsersColab.shape)
 MusUserAColab      =  pd.read_pickle ("./FeatureStore/ColabMusUserAEsparsa.pickle")
 MusUserAbarraColab =  pd.read_pickle ("./FeatureStore/ColabMusUserAbarraEsparsa.pickle")
 
-
+#%%
 
 k = 20
 metrica ='jaccard'
@@ -35,6 +35,7 @@ serMusColab = dfMusUsersColab.drop(columns=['user'])
 neigh = NearestNeighbors(n_neighbors=k, metric=metrica)
 neigh.fit(serMusColab)
 
+#%%
 # achando k vizinhos mais próximos de user A e atualizando ColabVizinhosUserA.pickle com novos vizinhos
 distancias, indices = neigh.kneighbors([MusUserAColab])
 

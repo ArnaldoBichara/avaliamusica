@@ -1,119 +1,123 @@
-03/09/2021 14:00:18 >> GetMusUsers
-03/09/2021 14:00:51 MusUsers shape inicial: (12891550, 4)
-03/09/2021 14:00:55 NumExpr defaulting to 4 threads.
-03/09/2021 14:01:45 MusUsers, removidas mus em branco, criada interpretacao e removidas linhas duplicadas (11341422, 2)
-03/09/2021 14:01:53 << GetMusUsers
-03/09/2021 14:01:57 >> GetMusUsrA
-03/09/2021 14:02:02 NumExpr defaulting to 4 threads.
-03/09/2021 14:02:02 MusUserACurte Inicial: (746, 2)
-03/09/2021 14:02:02 MusCurteUserA removidos duplicados: (746, 2)
-03/09/2021 14:02:02 MusUserANaoCurte Inicial: (555, 2)
-03/09/2021 14:02:02 MusUserANaoCurte removidos duplicados: (555, 2)
-03/09/2021 14:02:02 MusUserACurte.head                 id_musica                                      interpretacao
+27/10/2021 17:14:05 >> GetMusUsers
+27/10/2021 17:14:25 MusUsers shape inicial: (12891550, 4)
+27/10/2021 17:14:27 NumExpr defaulting to 6 threads.
+27/10/2021 17:14:54 MusUsers, removidas mus em branco, criada interpretacao e removidas linhas duplicadas (11341422, 2)
+27/10/2021 17:14:59 << GetMusUsers
+27/10/2021 17:15:02 >> GetMusUsrA
+27/10/2021 17:15:06 NumExpr defaulting to 6 threads.
+27/10/2021 17:15:06 MusUserACurte Inicial: (596, 2)
+27/10/2021 17:15:06 MusCurteUserA removidos duplicados: (596, 2)
+27/10/2021 17:15:06 MusUserANaoCurte Inicial: (555, 2)
+27/10/2021 17:15:06 MusUserANaoCurte removidos duplicados: (555, 2)
+27/10/2021 17:15:06 MusUserACurte.head                 id_musica                                      interpretacao
 0  7JSR685hpFDqvTSNHeSKjL                     DEATH CAB FOR CUTIE:>60 & PUNK
 1  1VK5JYdgrJZENDl1taa2cS  LINDSEY STIRLING:>7 YEARS (ACOUSTIC) - RECORDE...
-2  7L5dzeyAk7BmiBUrIBUQR8                         RUBEN GALLOWAY:>ACCEPTANCE
-3  4RlXrkIQWhzxSaqA6YmVhH                        14 BIS:>ADORÁVEIS CRIATURAS
-4  2WNH6N24uph03Ilnoy7HgI                  ENYA:>AFER VENTUS - 2009 REMASTER
-03/09/2021 14:02:02 << GetMusUsrA
-03/09/2021 14:02:04 >> GetFeaturesEDominio
-03/09/2021 14:02:07 GetFeaturesEDominio: spotify600k_tracks shape = (586672, 16)
-03/09/2021 14:02:09 NumExpr defaulting to 4 threads.
-03/09/2021 14:02:10 Dominio antes de remover duplicates =(587973, 2)
-03/09/2021 14:02:10 Dominio apos remover duplicates =(521349, 2)
-03/09/2021 14:02:13 GetFeaturesEDominio: dominio shape = (521348, 2)
-03/09/2021 14:02:13 GetFeaturesEDominio: AudioFeatures shape = (586672, 13)
-03/09/2021 14:02:13 << GetFeaturesEDominio
-03/09/2021 14:02:18 >> FiltraMusUsersNoDominio
-03/09/2021 14:02:21 MusUsers, antes do filtro (11341422, 2)
-03/09/2021 14:09:49 Indice fora dos limites 521348
-03/09/2021 14:09:49 Indice fora dos limites 521348
-03/09/2021 14:13:04 Indice fora dos limites 521348
-03/09/2021 14:15:05 Indice fora dos limites 521348
-03/09/2021 14:15:05 Indice fora dos limites 521348
-03/09/2021 14:15:05 Indice fora dos limites 521348
-03/09/2021 14:15:05 Indice fora dos limites 521348
-03/09/2021 14:15:05 Indice fora dos limites 521348
-03/09/2021 14:15:05 Indice fora dos limites 521348
-03/09/2021 14:15:05 Indice fora dos limites 521348
-03/09/2021 14:15:05 Indice fora dos limites 521348
-03/09/2021 14:17:50 Indice fora dos limites 521348
-03/09/2021 14:21:15 Indice fora dos limites 521348
-03/09/2021 14:21:15 Indice fora dos limites 521348
-03/09/2021 14:21:15 Indice fora dos limites 521348
-03/09/2021 14:21:15 Indice fora dos limites 521348
-03/09/2021 14:21:25 Indice fora dos limites 521348
-03/09/2021 14:23:53 Indice fora dos limites 521348
-03/09/2021 14:32:34 Indice fora dos limites 521348
-03/09/2021 14:32:35 Indice fora dos limites 521348
-03/09/2021 14:37:46 Indice fora dos limites 521348
-03/09/2021 14:38:40 Indice fora dos limites 521348
-03/09/2021 14:38:53 Indice fora dos limites 521348
-03/09/2021 14:43:12 Indice fora dos limites 521348
-03/09/2021 14:43:12 Indice fora dos limites 521348
-03/09/2021 14:43:50 Indice fora dos limites 521348
-03/09/2021 14:45:47 Indice fora dos limites 521348
-03/09/2021 14:45:47 Indice fora dos limites 521348
-03/09/2021 14:45:47 Indice fora dos limites 521348
-03/09/2021 14:45:47 Indice fora dos limites 521348
-03/09/2021 14:49:49 Indice fora dos limites 521348
-03/09/2021 14:50:50 Indice fora dos limites 521348
-03/09/2021 14:50:50 Indice fora dos limites 521348
-03/09/2021 14:50:50 Indice fora dos limites 521348
-03/09/2021 14:50:50 Indice fora dos limites 521348
-03/09/2021 14:50:50 Indice fora dos limites 521348
-03/09/2021 14:50:50 Indice fora dos limites 521348
-03/09/2021 14:51:06 Indice fora dos limites 521348
-03/09/2021 14:51:06 Indice fora dos limites 521348
-03/09/2021 14:55:01 Indice fora dos limites 521348
-03/09/2021 14:55:01 Indice fora dos limites 521348
-03/09/2021 14:58:36 Indice fora dos limites 521348
-03/09/2021 14:58:47 Indice fora dos limites 521348
-03/09/2021 15:04:32 Indice fora dos limites 521348
-03/09/2021 15:07:11 Indice fora dos limites 521348
-03/09/2021 15:07:11 Indice fora dos limites 521348
-03/09/2021 15:07:56 MusUsers, depois do filtro (3093758, 3)
-03/09/2021 15:07:59 << FiltraMusUsersNoDominio
-03/09/2021 15:08:10 >> Analisa MusUsers
-03/09/2021 15:08:12 NumExpr defaulting to 4 threads.
-03/09/2021 15:08:17 dfMusUsers describe                                   userid  ...               id_musica
-count                            3093758  ...                 3093758
-unique                             15394  ...                  137798
-top     7ee2b92c5bcf6133b8132363e5bda960  ...  6GyFP1nfCDB8lbD2bG0Hq9
-freq                                8197  ...                    1890
-
-[4 rows x 3 columns]
-03/09/2021 15:08:18 contagem de users               nrows
-count  15394.000000
-mean     200.971677
-std      307.564530
-min        1.000000
-25%       33.000000
-50%      108.000000
-75%      253.000000
-max     8197.000000
-03/09/2021 15:08:21 << Analisa MusUsers
-11/09/2021 16:59:42 >> GetFeaturesEDominio
-11/09/2021 16:59:45 GetFeaturesEDominio: spotify600k_tracks shape = (586672, 16)
-11/09/2021 16:59:47 NumExpr defaulting to 4 threads.
-11/09/2021 16:59:49 Dominio antes de remover duplicates =(522037, 2)
-11/09/2021 16:59:50 Dominio apos remover duplicates =(521348, 2)
-11/09/2021 16:59:51 GetFeaturesEDominio: dominio shape = (521348, 2)
-11/09/2021 16:59:51 GetFeaturesEDominio: AudioFeatures shape = (520736, 14)
-11/09/2021 16:59:52 << GetFeaturesEDominio
-14/09/2021 12:33:48 >> GetFeaturesEDominio
-14/09/2021 12:33:51 GetFeaturesEDominio: spotify600k_tracks shape = (586672, 16)
-14/09/2021 12:33:53 NumExpr defaulting to 4 threads.
-14/09/2021 12:33:54 Dominio antes de remover duplicates =(522037, 2)
-14/09/2021 12:33:55 Dominio apos remover duplicates =(521348, 2)
-14/09/2021 12:33:57 GetFeaturesEDominio: dominio shape = (521348, 2)
-14/09/2021 12:33:57 GetFeaturesEDominio: AudioFeatures shape = (520736, 14)
-14/09/2021 12:33:58 << GetFeaturesEDominio
-14/09/2021 12:42:17 >> GetFeaturesEDominio
-14/09/2021 12:42:20 GetFeaturesEDominio: spotify600k_tracks shape = (586672, 16)
-14/09/2021 12:42:21 NumExpr defaulting to 4 threads.
-14/09/2021 12:42:24 Dominio antes de remover duplicates =(522037, 2)
-14/09/2021 12:42:24 Dominio apos remover duplicates =(521348, 2)
-14/09/2021 12:42:26 GetFeaturesEDominio: dominio shape = (521348, 2)
-14/09/2021 12:42:26 GetFeaturesEDominio: AudioFeatures shape = (520736, 14)
-14/09/2021 12:42:28 << GetFeaturesEDominio
+2  4RlXrkIQWhzxSaqA6YmVhH                        14 BIS:>ADORÁVEIS CRIATURAS
+3  2WNH6N24uph03Ilnoy7HgI                  ENYA:>AFER VENTUS - 2009 REMASTER
+4  1BIDHSkkst8nckyBaHVP6A                        ELIS REGINA:>ÁGUAS DE MARÇO
+27/10/2021 17:15:06 << GetMusUsrA
+27/10/2021 17:15:08 >> GetFeaturesEDominio
+27/10/2021 17:15:10 GetFeaturesEDominio: spotify600k_tracks shape = (586672, 16)
+27/10/2021 17:15:11 NumExpr defaulting to 6 threads.
+27/10/2021 17:15:12 Dominio antes de remover duplicates =(521887, 2)
+27/10/2021 17:15:13 Dominio apos remover duplicates =(521282, 2)
+27/10/2021 17:15:13 GetFeaturesEDominio: dominio shape = (521282, 2)
+27/10/2021 17:15:13 GetFeaturesEDominio: AudioFeatures shape = (520736, 14)
+27/10/2021 17:15:15 << GetFeaturesEDominio
+27/10/2021 17:15:17 >> GetMusUsers
+27/10/2021 17:15:34 MusUsers shape inicial: (12891550, 4)
+27/10/2021 17:15:36 NumExpr defaulting to 6 threads.
+27/10/2021 17:16:02 MusUsers, removidas mus em branco, criada interpretacao e removidas linhas duplicadas (11341422, 2)
+27/10/2021 17:16:08 << GetMusUsers
+27/10/2021 17:16:11 >> GetMusUsrA
+27/10/2021 17:16:16 NumExpr defaulting to 6 threads.
+27/10/2021 17:16:16 MusUserACurte Inicial: (596, 2)
+27/10/2021 17:16:16 MusCurteUserA removidos duplicados: (596, 2)
+27/10/2021 17:16:16 MusUserANaoCurte Inicial: (555, 2)
+27/10/2021 17:16:16 MusUserANaoCurte removidos duplicados: (555, 2)
+27/10/2021 17:16:16 MusUserACurte.head                 id_musica                                      interpretacao
+0  7JSR685hpFDqvTSNHeSKjL                     DEATH CAB FOR CUTIE:>60 & PUNK
+1  1VK5JYdgrJZENDl1taa2cS  LINDSEY STIRLING:>7 YEARS (ACOUSTIC) - RECORDE...
+2  4RlXrkIQWhzxSaqA6YmVhH                        14 BIS:>ADORÁVEIS CRIATURAS
+3  2WNH6N24uph03Ilnoy7HgI                  ENYA:>AFER VENTUS - 2009 REMASTER
+4  1BIDHSkkst8nckyBaHVP6A                        ELIS REGINA:>ÁGUAS DE MARÇO
+27/10/2021 17:16:16 << GetMusUsrA
+27/10/2021 17:16:18 >> GetFeaturesEDominio
+27/10/2021 17:16:20 GetFeaturesEDominio: spotify600k_tracks shape = (586672, 16)
+27/10/2021 17:16:21 NumExpr defaulting to 6 threads.
+27/10/2021 17:16:22 Dominio antes de remover duplicates =(521887, 2)
+27/10/2021 17:16:22 Dominio apos remover duplicates =(521282, 2)
+27/10/2021 17:16:23 GetFeaturesEDominio: dominio shape = (521282, 2)
+27/10/2021 17:16:23 GetFeaturesEDominio: AudioFeatures shape = (520736, 14)
+27/10/2021 17:16:25 << GetFeaturesEDominio
+27/10/2021 17:17:40 >> BuscaMusUsersNoDominio
+27/10/2021 17:17:45 MusUsers, antes do filtro (11341422, 2)
+27/10/2021 17:23:26 Indice fora dos limites 521282
+27/10/2021 17:23:26 Indice fora dos limites 521282
+27/10/2021 17:31:28 >> BuscaMusUsersNoDominio
+27/10/2021 17:31:32 MusUsers, antes do filtro (11341422, 2)
+27/10/2021 17:37:21 Indice fora dos limites 521282
+27/10/2021 17:37:21 Indice fora dos limites 521282
+27/10/2021 17:39:38 Indice fora dos limites 521282
+27/10/2021 17:41:02 Indice fora dos limites 521282
+27/10/2021 17:41:02 Indice fora dos limites 521282
+27/10/2021 17:41:02 Indice fora dos limites 521282
+27/10/2021 17:41:02 Indice fora dos limites 521282
+27/10/2021 17:41:02 Indice fora dos limites 521282
+27/10/2021 17:41:02 Indice fora dos limites 521282
+27/10/2021 17:41:02 Indice fora dos limites 521282
+27/10/2021 17:41:02 Indice fora dos limites 521282
+27/10/2021 17:42:54 Indice fora dos limites 521282
+27/10/2021 17:45:27 Indice fora dos limites 521282
+27/10/2021 17:45:27 Indice fora dos limites 521282
+27/10/2021 17:45:27 Indice fora dos limites 521282
+27/10/2021 17:45:27 Indice fora dos limites 521282
+27/10/2021 17:45:35 Indice fora dos limites 521282
+27/10/2021 17:47:22 Indice fora dos limites 521282
+27/10/2021 17:53:44 Indice fora dos limites 521282
+27/10/2021 17:53:44 Indice fora dos limites 521282
+27/10/2021 17:57:32 Indice fora dos limites 521282
+27/10/2021 17:58:11 Indice fora dos limites 521282
+27/10/2021 17:58:20 Indice fora dos limites 521282
+27/10/2021 18:01:43 Indice fora dos limites 521282
+27/10/2021 18:01:43 Indice fora dos limites 521282
+27/10/2021 18:02:08 Indice fora dos limites 521282
+27/10/2021 18:03:27 Indice fora dos limites 521282
+27/10/2021 18:03:27 Indice fora dos limites 521282
+27/10/2021 18:03:27 Indice fora dos limites 521282
+27/10/2021 18:03:27 Indice fora dos limites 521282
+27/10/2021 18:06:26 Indice fora dos limites 521282
+27/10/2021 18:07:09 Indice fora dos limites 521282
+27/10/2021 18:07:09 Indice fora dos limites 521282
+27/10/2021 18:07:09 Indice fora dos limites 521282
+27/10/2021 18:07:09 Indice fora dos limites 521282
+27/10/2021 18:07:09 Indice fora dos limites 521282
+27/10/2021 18:07:09 Indice fora dos limites 521282
+27/10/2021 18:07:20 Indice fora dos limites 521282
+27/10/2021 18:07:20 Indice fora dos limites 521282
+27/10/2021 18:10:01 Indice fora dos limites 521282
+27/10/2021 18:10:01 Indice fora dos limites 521282
+27/10/2021 18:12:34 Indice fora dos limites 521282
+27/10/2021 18:12:42 Indice fora dos limites 521282
+27/10/2021 18:16:48 Indice fora dos limites 521282
+27/10/2021 18:18:43 Indice fora dos limites 521282
+27/10/2021 18:18:43 Indice fora dos limites 521282
+27/10/2021 18:19:15 MusUsers, depois do filtro (3093648, 3)
+27/10/2021 18:19:18 << BuscaMusUsersNoDominio
+27/10/2021 18:20:54 >> Analisa MusUsers
+27/10/2021 18:21:00 NumExpr defaulting to 6 threads.
+27/10/2021 18:21:10 dfMusUsers describe                                   userid       interpretacao
+count                           11341422            11339611
+unique                             15918             2696487
+top     4398de6902abde3351347b048fcdc287  M83:>MIDNIGHT CITY
+freq                              247092                1890
+27/10/2021 18:21:12 contagem de users                nrows
+count   15918.000000
+mean      712.490388
+std      2468.525370
+min         1.000000
+25%        88.000000
+50%       334.000000
+75%       792.000000
+max    247092.000000
+27/10/2021 18:21:15 << Analisa MusUsers

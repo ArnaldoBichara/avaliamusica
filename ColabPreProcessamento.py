@@ -15,12 +15,14 @@ import sys
 # minplay
 # maxplay
 
-if (len(sys.argv)<2):
-  print ('argumentos obrigatorios: minplay e maxplay')
-  quit()
-faixa_minima = int(sys.argv[1])
-faixa_maxima = int(sys.argv[2])
-#%%
+if len(sys.argv)==3:
+        faixa_minima = int(sys.argv[1])
+        faixa_maxima = int(sys.argv[2])
+else:      
+        faixa_minima = 50
+        faixa_maxima = 120
+
+
 logging.basicConfig(filename='./Analises/processamentoColab.log', 
                     level=logging.INFO,
                     format='%(asctime)s %(message)s',
@@ -43,7 +45,7 @@ dfCountPerUser = dfCountPerUser.groupby('userid')['nrows'].sum().reset_index()
 logging.info ('filtrando users com playlist entre %s e %s', faixa_minima, faixa_maxima)
 dfCountPerUser = dfCountPerUser[dfCountPerUser['nrows']>faixa_minima]
 dfCountPerUser = dfCountPerUser[dfCountPerUser['nrows']<faixa_maxima]
-
+#%%
 listaUsersAManter = list(dfCountPerUser['userid'])
 
 # filtrando músicas apenas dos users definidos na lista de users
@@ -51,14 +53,14 @@ dfMusUsers = dfMusUsers[dfMusUsers['userid'].isin(listaUsersAManter)]
 dfMusUsers = dfMusUsers.reset_index(level=0, drop=True)
 
 ###
-# Fase de montagem da matrix esparsa Users x Dpmínio das Músicas 
+# Fase de montagem da matrix esparsa Users x Domínio das Músicas 
 ###
  
 listaUserIds = dfMusUsers['userid'].drop_duplicates().to_list()
 listaDominioDeMusicas = pd.read_pickle ("./FeatureStore/DominioMusicasColab.pickle").to_list()
 
 logging.info('listaUsers %s', len(listaUserIds))
-
+#%%
 # rotina que monsta lista True, False da lista de músicas para um dado user
 def MontalistaMusUserColabPorLista (listaMusUser):
         tamListaDominio = len (listaDominioDeMusicas)
