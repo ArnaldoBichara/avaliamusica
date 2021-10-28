@@ -36,6 +36,8 @@ from tensorflow.python.keras.optimizer_v2.rmsprop import RMSprop
 from tensorflow.python.keras.layers.normalization import BatchNormalization
 from tensorflow.python.keras.callbacks import EarlyStopping, ModelCheckpoint, ReduceLROnPlateau
 from tensorflow.python.keras.models import load_model
+import joblib
+import os
 tf.get_logger().setLevel('ERROR') 
 
 
@@ -57,20 +59,20 @@ y_teste = npzTeste['arr_1']
 X = np.append (X_trein, X_teste, axis=0)
 y = np.append (y_trein, y_teste, axis=0 )
 
-def create_model_MLP(optimizer='adam', init='normal', 
-    weight_constraint=0, dropout_rate=0.6, kr = None):
+def create_model_MLP(optimizer='adam', init='uniform', 
+    weight_constraint=0, dropout_rate=0.5, kr = None):
     # create model
     model = Sequential()
-    model.add(Dense(256, input_dim=12, activation='relu', 
-            kernel_initializer=init, 
-            kernel_regularizer=kr))
-    model.add(BatchNormalization())
-    model.add(Dropout(dropout_rate))
-    model.add(Dense(64,  activation='relu', kernel_initializer=init,
-            kernel_regularizer=kr))
-    model.add(BatchNormalization())
-    model.add(Dropout(dropout_rate))
+    # model.add(Dense(256, input_dim=12, activation='relu', 
+    #         kernel_initializer=init, 
+    #         kernel_regularizer=kr))
+    # model.add(BatchNormalization())
+    # model.add(Dropout(dropout_rate))
     model.add(Dense(32,  activation='relu', kernel_initializer=init,
+            kernel_regularizer=kr))
+    model.add(BatchNormalization())
+    model.add(Dropout(dropout_rate))
+    model.add(Dense(12,  activation='relu', kernel_initializer=init,
              kernel_regularizer=kr))
     model.add(BatchNormalization())
     model.add(Dropout(dropout_rate))
@@ -95,13 +97,13 @@ gb = GradientBoostingClassifier (n_estimators=400,
                                 learning_rate=0.08,
                                 max_depth=1)  
 
-mlp_early_stop = EarlyStopping(monitor='val_accuracy', patience=60)
-checkpoint=ModelCheckpoint('./FeatureStore/melhorModeloMLP', monitor='val_accuracy', save_best_only=True, mode='max')
-mlp_reducelr = ReduceLROnPlateau(monitor='val_accuracy', factor=0.5, patience=10, min_delta=0.01,verbose=0)
-mlp_keras_fit_params= {'mlp__callbacks': []}
-mlp = Pipeline([
+early_stop = EarlyStopping(monitor='val_accuracy', patience=50)
+#checkpoint=ModelCheckpoint('./FeatureStore/melhorModeloMLP', monitor='val_accuracy', save_best_only=True, mode='max')
+reducelr = ReduceLROnPlateau(monitor='val_accuracy', factor=0.5, patience=20, min_delta=0.01,verbose=0)
+mlp_keras_fit_params= {'mlp__callbacks': [early_stop, reducelr]}
+pipeline = Pipeline([
                 ('standardize', StandardScaler()), # passa média para 0 e desvio para 1
-                ('mlp', KerasClassifier(build_fn=create_model_MLP, epochs=600, batch_size=32, verbose=2))
+                ('mlp', KerasClassifier(build_fn=create_model_MLP, epochs=600, batch_size=32, verbose=0))
             ])                                                       
 
 # Cálculo de acurácia:
@@ -131,7 +133,6 @@ for i in range (5):
     gb.fit (X_trein, y_trein)
     y_predicao = gb.predict (X_teste)
     acuracia = accuracy_score (y_teste, y_predicao)
-    #acuracia = np.sum(y_predicao == y_teste)/len(y_teste)
     acuracias.append(acuracia)
 acuraciagb = mean(acuracias)
 print("acuracia GradientBoost {:.3f}".format(acuraciagb))
@@ -139,44 +140,40 @@ logging.info ("acuracia GradientBoost {:.3f}".format(acuraciagb))
 
 X_trein, X_valid, y_trein, y_valid = train_test_split(X_trein, y_trein, random_state=0, test_size=0.25)
 
-history = mlp.fit (X_trein, y_trein, mlp__callbacks=mlp_keras_fit_params, mlp__validation_data=(X_valid, y_valid))
-mlp = load_model ('./FeatureStore/melhorModeloMLP')
-y_predicao = mlp.predict (X_teste)
+history = pipeline.fit (X_trein, y_trein, mlp__callbacks=mlp_keras_fit_params, mlp__validation_data=(X_valid, y_valid))
+y_predicao = pipeline.predict (X_teste)
 # os valores de y_predicao são entre 0 e 1 (probabilidade). 
 # Então temos de arredondá-los
 y_predicao = [round(y[0]) for y in y_predicao]
 acuraciamlp = accuracy_score (y_teste, y_predicao)
 print("acuracia Rede Neural MLP {:.3f}".format(acuraciamlp))
 logging.info ("acuracia Rede Neural MLP {:.3f}".format(acuraciamlp))
+
+# Limpando antigo modeloMPL, se existir
+if os.path.exists('./FeatureStore/modeloClassif.h5'):
+    os.remove('./FeatureStore/modeloClassif.h5')
 #
 # Treino do classificador com todos os dados
 # e salvando o modelo treinado
-if (acuraciamlp > acuraciagb):
-    if (acuraciamlp > acuraciaab):
-        if (acuraciamlp > acuraciarf):
-            modeloEscolhido = mlp
-        else:
-            modeloEscolhido = rf
-    else:
-        if (acuraciaab > acuraciarf):
-            modeloEscolhido = ab
-        else:
-            modeloEscolhido = rf
+if ( (acuraciamlp > acuraciagb) and
+     (acuraciamlp > acuraciaab) and
+     (acuraciamlp > acuraciarf) ):
+        # nesse caso temos de salvar o modelo mlp
+        pipeline.fit (X, y)
+        pipeline.named_steps['mlp'].model.save('./FeatureStore/modeloClassif.h5')
+        pipeline.named_steps['mlp'].model = None
+        joblib.dump(pipeline, './FeatureStore/modeloClassif.pickle')
 else:
-    if (acuraciagb > acuraciaab):
-        if (acuraciagb > acuraciarf):
-            modeloEscolhido = gb
-        else:
-            modeloEscolhido = rf
-    else:
-        if (acuraciaab > acuraciarf):
+    if (acuraciaab > acuraciarf):
+        if (acuraciaab > acuraciagb):
             modeloEscolhido = ab
         else:
-            modeloEscolhido = rf
-
-# montando o modelo com todos os dados
-# modeloEscolhido.fit (X, y)
-# with open("./FeatureStore/modeloClassif.pickle", 'wb') as arq:
-#     pickle.dump (modeloEscolhido, arq)
+            if (acuraciagb > acuraciarf):
+                modeloEscolhido = gb
+            else:
+                modeloEscolhido = rf
+    modeloEscolhido.fit (X, y)
+    with open("./FeatureStore/modeloClassif.pickle", 'wb') as arq:
+        pickle.dump (modeloEscolhido, arq)
 
 logging.info('\n<< ClassifTreinamento')
