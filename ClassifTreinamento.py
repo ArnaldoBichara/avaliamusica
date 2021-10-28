@@ -58,7 +58,7 @@ X = np.append (X_trein, X_teste, axis=0)
 y = np.append (y_trein, y_teste, axis=0 )
 
 def create_model_MLP(optimizer='adam', init='normal', 
-    weight_constraint=0, dropout_rate=0.4, kr = None):
+    weight_constraint=0, dropout_rate=0.6, kr = None):
     # create model
     model = Sequential()
     model.add(Dense(256, input_dim=12, activation='relu', 
@@ -92,16 +92,16 @@ ab = AdaBoostClassifier (n_estimators=400,
                          learning_rate=0.06,
                          base_estimator=base_estimator)    
 gb = GradientBoostingClassifier (n_estimators=400,
-                                learning_rate=0.09,
-                                max_depth=2)  
+                                learning_rate=0.08,
+                                max_depth=1)  
 
 mlp_early_stop = EarlyStopping(monitor='val_accuracy', patience=60)
 checkpoint=ModelCheckpoint('./FeatureStore/melhorModeloMLP', monitor='val_accuracy', save_best_only=True, mode='max')
-mlp_reducelr = ReduceLROnPlateau(monitor='val_accuracy', factor=0.5, patience=8, min_delta=0.01,verbose=0)
-mlp_keras_fit_params= {'mlp__callbacks': [mlp_reducelr, mlp_early_stop, checkpoint]}
+mlp_reducelr = ReduceLROnPlateau(monitor='val_accuracy', factor=0.5, patience=10, min_delta=0.01,verbose=0)
+mlp_keras_fit_params= {'mlp__callbacks': []}
 mlp = Pipeline([
                 ('standardize', StandardScaler()), # passa média para 0 e desvio para 1
-                ('mlp', KerasClassifier(build_fn=create_model_MLP, epochs=600, batch_size=20, verbose=2))
+                ('mlp', KerasClassifier(build_fn=create_model_MLP, epochs=600, batch_size=32, verbose=2))
             ])                                                       
 
 # Cálculo de acurácia:

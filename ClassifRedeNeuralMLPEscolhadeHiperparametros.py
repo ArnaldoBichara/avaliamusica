@@ -60,9 +60,9 @@ X_train, X_valid, y_train, y_valid = train_test_split(X_train, y_train, random_s
                 'mlp__dropout_rate': [0.1, 0.2],
                 'mlp__weight_constraint': [1, 2]}  """
 grid = { 'mlp__optimizer': ['adam', 'rmsprop'],
-                'mlp__init': ['uniform', 'normal'],
-                'mlp__epochs': [600],
-                'mlp__batch_size': [20],
+                'mlp__init': ['uniform', 'normal', 'glorot_uniform'],
+                'mlp__epochs': [100],
+                'mlp__batch_size': [20,32],
                 'mlp__dropout_rate': [0.1, 0.4, 0.5, 0.6, 0.7]}                 
 
 def create_model(optimizer='rmsprop', init='glorot_uniform', 
@@ -92,10 +92,10 @@ def create_model(optimizer='rmsprop', init='glorot_uniform',
 early_stop = EarlyStopping(monitor='val_accuracy', patience=60)
 #checkpoint=ModelCheckpoint('./FeatureStore/melhorModeloMLP', monitor='val_accuracy', save_best_only=True, mode='max')
 reducelr = ReduceLROnPlateau(monitor='val_accuracy', factor=0.5, patience=8, min_delta=0.01,verbose=0)
-keras_fit_params= {'mlp__callbacks': [reducelr, early_stop]}
+keras_fit_params= {'mlp__callbacks': []}
 pipeline = Pipeline([
                 ('standardize', StandardScaler()), # passa média para 0 e desvio para 1
-                ('mlp', KerasClassifier(build_fn=create_model, verbose=2))
+                ('mlp', KerasClassifier(build_fn=create_model, verbose=0))
             ])
             
 # cross validation tipo stratifiedKFold

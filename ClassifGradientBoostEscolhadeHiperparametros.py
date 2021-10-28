@@ -33,7 +33,7 @@ y = npzfile['arr_1']
 # hiperparâmetros em teste
 grid = {'n_estimators': [300, 400,500,600],
             'learning_rate': [0.01, 0.04, 0.06, 0.08, 0.09, 0.1],
-            'max_depth': [1, 2, None] }
+            'max_depth': [1, 2, 3, 4, None] }
             
 
 #%%
