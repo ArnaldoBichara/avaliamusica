@@ -5,10 +5,25 @@ from ClassifPredicao import Predicao
 import os
 import pickle
 import json
+import joblib
+from keras.models import load_model
 
 app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
+
+class create_model_MLP():
+    pass
+if os.path.exists('modeloClassif.h5'):
+    #pipeline mlp
+    modelo = joblib.load('modeloClassif.pickle')
+    modelo.named_steps['mlp'].model = load_model('modeloClassif.h5')
+else:
+    modelo              = pd.read_pickle ("modeloClassif.pickle")
+    
+dominioAudioFeatures  = pd.read_pickle ("DominioAudioFeatures.pickle")
+musCandidatasCurte    = pd.read_pickle ("MusCandidatasCurte.pickle")
+musCandidatasNaoCurte = pd.read_pickle ("MusCandidatasNaoCurte.pickle")
 
 # iniciando estatísticas
 if (os.path.isfile("estatisticas.pickle") == False):
@@ -53,7 +68,10 @@ def getStats():
 def rotaPredicao() -> object:
     try:
         if (request.method) == 'GET':
-            return jsonify(Predicao())
+            return jsonify(Predicao( modelo, 
+                                     dominioAudioFeatures, 
+                                     musCandidatasCurte,
+                                     musCandidatasNaoCurte))
         if (request.method) == 'POST':
             updateStats(request.json)
             data = getStats()

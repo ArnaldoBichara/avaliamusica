@@ -13,25 +13,10 @@ import sys
 import os
 import random
 
-def Predicao() -> dict:
-  #logging.basicConfig(filename='Predicao.log', 
-                      # level=logging.INFO,
-                      # format='%(message)s',
-                      # datefmt='%d/%m/%Y %H:%M:%S'
-                      # )
-  #logging.info('\n>> ClassifPredicao') 
-  #lendo modelo e datasets
-
-  if os.path.exists('modeloClassif.h5'):
-    #pipeline mlp
-    modelo = joblib.load('modeloClassif.pickle')
-    modelo.named_steps['mlp'].model = load_model('modeloClassif.h5')
-  else:
-    modelo              = pd.read_pickle ("modeloClassif.pickle")
-    
-  dominioAudioFeatures  = pd.read_pickle ("DominioAudioFeatures.pickle")
-  musCandidatasCurte    = pd.read_pickle ("MusCandidatasCurte.pickle")
-  musCandidatasNaoCurte = pd.read_pickle ("MusCandidatasNaoCurte.pickle")
+def Predicao( modelo, 
+              dominioAudioFeatures, 
+              musCandidatasCurte,
+              musCandidatasNaoCurte ) -> dict:
 
   # obtendo estatísticas já acumuladas
   #estatisticas = pd.read_pickle ("estatisticas.pickle")
