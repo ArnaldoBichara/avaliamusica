@@ -1,0 +1,25 @@
+28/10/2021 08:02:33 
+<< Classif Analise Treinamento
+28/10/2021 08:12:29 
+<< Classif Analise Treinamento
+28/10/2021 09:12:49 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+28/10/2021 09:14:44 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+28/10/2021 09:17:00 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+28/10/2021 09:18:25 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+28/10/2021 09:22:34 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+28/10/2021 09:24:04 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+28/10/2021 09:39:00 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+28/10/2021 09:45:38 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+28/10/2021 09:46:23 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+28/10/2021 09:47:08 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+28/10/2021 09:47:34 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+28/10/2021 09:49:03 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+28/10/2021 09:50:55 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+28/10/2021 09:56:26 {'mlp__batch_size': 20, 'mlp__dropout_rate': 0.4, 'mlp__epochs': 100, 'mlp__init': 'uniform', 'mlp__optimizer': 'rmsprop'} Acurácia: 0.807379812002182
+28/10/2021 09:56:26 << ClassifRedeNeuralMLPEscolhadeHiperparametros
+28/10/2021 10:26:44 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+28/10/2021 10:28:22 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+28/10/2021 10:30:11 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+28/10/2021 10:31:24 >> ClassifRedeNeuralMLPEscolhadeHiperparametros
+28/10/2021 10:37:38 {'mlp__batch_size': 20, 'mlp__dropout_rate': 0.4, 'mlp__epochs': 600, 'mlp__init': 'normal', 'mlp__optimizer': 'adam'} Acurácia: 0.8119711577892303
+28/10/2021 10:37:38 << ClassifRedeNeuralMLPEscolhadeHiperparametros

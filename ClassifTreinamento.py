@@ -34,7 +34,8 @@ from tensorflow.python.keras.regularizers import l2
 from tensorflow.python.keras.optimizer_v2.adam import Adam
 from tensorflow.python.keras.optimizer_v2.rmsprop import RMSprop
 from tensorflow.python.keras.layers.normalization import BatchNormalization
-from tensorflow.python.keras.callbacks import EarlyStopping, ReduceLROnPlateau
+from tensorflow.python.keras.callbacks import EarlyStopping, ModelCheckpoint, ReduceLROnPlateau
+from tensorflow.python.keras.models import load_model
 tf.get_logger().setLevel('ERROR') 
 
 
@@ -56,8 +57,8 @@ y_teste = npzTeste['arr_1']
 X = np.append (X_trein, X_teste, axis=0)
 y = np.append (y_trein, y_teste, axis=0 )
 
-def create_model_MLP(optimizer='rmsprop', init='uniform', 
-    weight_constraint=0, dropout_rate=0.7, kr = None):
+def create_model_MLP(optimizer='adam', init='normal', 
+    weight_constraint=0, dropout_rate=0.4, kr = None):
     # create model
     model = Sequential()
     model.add(Dense(256, input_dim=12, activation='relu', 
@@ -82,25 +83,25 @@ def create_model_MLP(optimizer='rmsprop', init='uniform',
 #%% definindo o modelo, com os hiperparametros previamente escolhidos
 rf = RandomForestClassifier(n_estimators=400,
                             n_jobs=-1,
-                            max_depth=10,
+                            max_depth=14,
                             min_samples_split=4,
                             min_samples_leaf=1,
-                            max_leaf_nodes=94)
+                            max_leaf_nodes=98)
 base_estimator = DecisionTreeClassifier(max_depth=1)
 ab = AdaBoostClassifier (n_estimators=400,
                          learning_rate=0.06,
                          base_estimator=base_estimator)    
 gb = GradientBoostingClassifier (n_estimators=400,
-                                learning_rate=0.08,
-                                max_depth=1)  
+                                learning_rate=0.09,
+                                max_depth=2)  
 
-mlp_early_stop = EarlyStopping(monitor='accuracy', patience=12)
-#checkpoint=ModelCheckpoint('./FeatureStore/melhorModeloMLP', monitor='val_accuracy', save_best_only=True, mode='max', period=1)
-mlp_reducelr = ReduceLROnPlateau(monitor='accuracy', factor=0.5, patience=8, min_delta=0.01,verbose=0)
-mlp_keras_fit_params= {'mlp__callbacks': [mlp_reducelr, mlp_early_stop]}
+mlp_early_stop = EarlyStopping(monitor='val_accuracy', patience=60)
+checkpoint=ModelCheckpoint('./FeatureStore/melhorModeloMLP', monitor='val_accuracy', save_best_only=True, mode='max')
+mlp_reducelr = ReduceLROnPlateau(monitor='val_accuracy', factor=0.5, patience=8, min_delta=0.01,verbose=0)
+mlp_keras_fit_params= {'mlp__callbacks': [mlp_reducelr, mlp_early_stop, checkpoint]}
 mlp = Pipeline([
                 ('standardize', StandardScaler()), # passa média para 0 e desvio para 1
-                ('mlp', KerasClassifier(build_fn=create_model_MLP, epochs=600, batch_size=20, verbose=0))
+                ('mlp', KerasClassifier(build_fn=create_model_MLP, epochs=600, batch_size=20, verbose=2))
             ])                                                       
 
 # Cálculo de acurácia:
@@ -136,16 +137,15 @@ acuraciagb = mean(acuracias)
 print("acuracia GradientBoost {:.3f}".format(acuraciagb))
 logging.info ("acuracia GradientBoost {:.3f}".format(acuraciagb))
 
-acuracias=[]
-for i in range (5):
-    mlp.fit (X_trein, y_trein, mlp__callbacks=mlp_keras_fit_params)
-    y_predicao = mlp.predict (X_teste)
-    # os valores de y_predicao são entre 0 e 1 (probabilidade). 
-    # Então temos de arredondá-los
-    y_predicao = [round(y[0]) for y in y_predicao]
-    acuracia = accuracy_score (y_teste, y_predicao)
-    acuracias.append(acuracia)
-acuraciamlp = mean(acuracias)
+X_trein, X_valid, y_trein, y_valid = train_test_split(X_trein, y_trein, random_state=0, test_size=0.25)
+
+history = mlp.fit (X_trein, y_trein, mlp__callbacks=mlp_keras_fit_params, mlp__validation_data=(X_valid, y_valid))
+mlp = load_model ('./FeatureStore/melhorModeloMLP')
+y_predicao = mlp.predict (X_teste)
+# os valores de y_predicao são entre 0 e 1 (probabilidade). 
+# Então temos de arredondá-los
+y_predicao = [round(y[0]) for y in y_predicao]
+acuraciamlp = accuracy_score (y_teste, y_predicao)
 print("acuracia Rede Neural MLP {:.3f}".format(acuraciamlp))
 logging.info ("acuracia Rede Neural MLP {:.3f}".format(acuraciamlp))
 #
@@ -175,8 +175,8 @@ else:
             modeloEscolhido = rf
 
 # montando o modelo com todos os dados
-modeloEscolhido.fit (X, y)
-with open("./FeatureStore/modeloClassif.pickle", 'wb') as arq:
-    pickle.dump (modeloEscolhido, arq)
+# modeloEscolhido.fit (X, y)
+# with open("./FeatureStore/modeloClassif.pickle", 'wb') as arq:
+#     pickle.dump (modeloEscolhido, arq)
 
 logging.info('\n<< ClassifTreinamento')

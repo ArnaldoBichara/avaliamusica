@@ -36,7 +36,7 @@ svc = SVC( probability= True, kernel='linear')
 
 # hiperparâmetros em teste
 grid = {'n_estimators': [200, 300, 400],
-            'learning_rate': [0.01, 0.05, 0.06, 0.08, 0.1],
+            'learning_rate': [0.001, 0.01, 0.05, 0.06, 0.08],
             'base_estimator': [dt1, dt2, dt3] }
 grid2 = {'n_estimators': [50],
                 'learning_rate': [0.01, 0.05, 0.1, 0.5, 1.0],
@@ -53,7 +53,7 @@ cv = StratifiedKFold(n_splits=10)
 # print (search.best_params_, "acuracia:", search.best_score_)
 
 clf = AdaBoostClassifier()
-clf_random = GridSearchCV (estimator = clf, param_grid = grid, cv = cv, verbose=1, n_jobs=-1)
+clf_random = GridSearchCV (estimator = clf, param_grid = grid, cv = cv, verbose=2, n_jobs=-1)
 search = clf_random.fit (X,y)
 print (search.best_params_, "acuracia:", search.best_score_)
 #%% Para uma condição n_estimator e learning_rate dada, vamos verifica como se comporta o max_depth das árvores

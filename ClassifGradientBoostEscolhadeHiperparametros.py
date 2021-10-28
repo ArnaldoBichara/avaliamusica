@@ -41,7 +41,7 @@ grid = {'n_estimators': [300, 400,500,600],
 cv = RepeatedStratifiedKFold(n_splits=10, n_repeats=1)
 
 clf = GradientBoostingClassifier()
-clf_random = GridSearchCV (estimator = clf, param_grid=grid, cv = cv, verbose=1, n_jobs=-1)
+clf_random = GridSearchCV (estimator = clf, param_grid=grid, cv = cv, verbose=2, n_jobs=-1)
 search = clf_random.fit (X,y)
 print (search.best_params_, "acuracia:", search.best_score_)
 logging.info('\n<< Classif Analise Treinamento')

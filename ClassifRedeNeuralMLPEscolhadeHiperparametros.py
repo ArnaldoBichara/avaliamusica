@@ -14,7 +14,7 @@ from utils import calcula_cross_val_scores
 from sklearn.model_selection._search import RandomizedSearchCV, GridSearchCV
 from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import Pipeline
-from sklearn.model_selection import cross_val_score, StratifiedKFold
+from sklearn.model_selection import StratifiedKFold, cross_val_score, train_test_split
 
 from keras.models import Sequential
 from keras.layers import Dense, Dropout
@@ -40,8 +40,11 @@ logging.info(">> ClassifRedeNeuralMLPEscolhadeHiperparametros")
 
 #lendo dataset
 npzfile = np.load('./FeatureStore/AudioFeaturesUserATreino.npz')
-X = npzfile['arr_0']
-y = npzfile['arr_1']
+X_train = npzfile['arr_0']
+y_train = npzfile['arr_1']
+
+#%% inicialmente vamos dividir em treino e validação
+X_train, X_valid, y_train, y_valid = train_test_split(X_train, y_train, random_state=0, test_size=0.25)
 
 # hiperparâmetros em teste
 '''grid = { 'mlp__optimizer': ['rmsprop', 'adam', 'SGD', 'Adagrad'],
@@ -56,11 +59,11 @@ y = npzfile['arr_1']
                 'mlp__batch_size': [20, 32],
                 'mlp__dropout_rate': [0.1, 0.2],
                 'mlp__weight_constraint': [1, 2]}  """
-grid = { 'mlp__optimizer': ['adam'],
-                'mlp__init': ['uniform'],
+grid = { 'mlp__optimizer': ['adam', 'rmsprop'],
+                'mlp__init': ['uniform', 'normal'],
                 'mlp__epochs': [600],
                 'mlp__batch_size': [20],
-                'mlp__dropout_rate': [0.4, 0.5, 0.6, 0.7]}                 
+                'mlp__dropout_rate': [0.1, 0.4, 0.5, 0.6, 0.7]}                 
 
 def create_model(optimizer='rmsprop', init='glorot_uniform', 
         weight_constraint=0, dropout_rate=0.0, kr = None):
@@ -86,13 +89,13 @@ def create_model(optimizer='rmsprop', init='glorot_uniform',
             metrics=['accuracy'])
     return model
 
-early_stop = EarlyStopping(monitor='accuracy', patience=12)
-#checkpoint=ModelCheckpoint('./FeatureStore/melhorModeloMLP', monitor='val_accuracy', save_best_only=True, mode='max', period=1)
-reducelr = ReduceLROnPlateau(monitor='accuracy', factor=0.5, patience=8, min_delta=0.01,verbose=0)
+early_stop = EarlyStopping(monitor='val_accuracy', patience=60)
+#checkpoint=ModelCheckpoint('./FeatureStore/melhorModeloMLP', monitor='val_accuracy', save_best_only=True, mode='max')
+reducelr = ReduceLROnPlateau(monitor='val_accuracy', factor=0.5, patience=8, min_delta=0.01,verbose=0)
 keras_fit_params= {'mlp__callbacks': [reducelr, early_stop]}
 pipeline = Pipeline([
                 ('standardize', StandardScaler()), # passa média para 0 e desvio para 1
-                ('mlp', KerasClassifier(build_fn=create_model, verbose=0))
+                ('mlp', KerasClassifier(build_fn=create_model, verbose=2))
             ])
             
 # cross validation tipo stratifiedKFold
@@ -101,7 +104,7 @@ kfold = StratifiedKFold(n_splits=10, shuffle=True)
 #clf_random = RandomizedSearchCV (estimator = clf, param_distributions = grid,
 #             n_iter = 100, cv = kfold, verbose=2, n_jobs=-1, random_state=1)
 clf = GridSearchCV (estimator=pipeline, param_grid = grid, cv = kfold, verbose=2, n_jobs=-1)
-search = clf.fit (X, y, mlp__callbacks=keras_fit_params)
+search = clf.fit (X_train, y_train, mlp__callbacks=keras_fit_params, mlp__validation_data=(X_valid, y_valid))
 #%%
 print (search.best_params_, "acuracia:", search.best_score_)
 logging.info ("{} Acurácia: {}".format(search.best_params_, search.best_score_))
