@@ -14,14 +14,21 @@ import os
 import random
 
 def Predicao() -> dict:
-  #logging.basicConfig(filename='Previsao.log', 
+  #logging.basicConfig(filename='Predicao.log', 
                       # level=logging.INFO,
                       # format='%(message)s',
                       # datefmt='%d/%m/%Y %H:%M:%S'
                       # )
   #logging.info('\n>> ClassifPredicao') 
   #lendo modelo e datasets
-  modelo                = pd.read_pickle ("modeloClassif.pickle")
+
+  if os.path.exists('modeloClassif.h5'):
+    #pipeline mlp
+    modelo = joblib.load('modeloClassif.pickle')
+    modelo.named_steps['mlp'].model = load_model('modeloClassif.h5')
+  else:
+    modelo              = pd.read_pickle ("modeloClassif.pickle")
+    
   dominioAudioFeatures  = pd.read_pickle ("DominioAudioFeatures.pickle")
   musCandidatasCurte    = pd.read_pickle ("MusCandidatasCurte.pickle")
   musCandidatasNaoCurte = pd.read_pickle ("MusCandidatasNaoCurte.pickle")
