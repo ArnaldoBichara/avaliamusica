@@ -1,0 +1,16 @@
+29/10/2021 10:54:09 From C:\Users\abalm\anaconda3\lib\site-packages\tensorflow\python\training\tracking\tracking.py:111: Model.state_updates (from tensorflow.python.keras.engine.training) is deprecated and will be removed in a future version.
+Instructions for updating:
+This property should not be used in TensorFlow 2.0, as updates are applied automatically.
+29/10/2021 10:54:09 From C:\Users\abalm\anaconda3\lib\site-packages\tensorflow\python\training\tracking\tracking.py:111: Layer.updates (from tensorflow.python.keras.engine.base_layer) is deprecated and will be removed in a future version.
+Instructions for updating:
+This property should not be used in TensorFlow 2.0, as updates are applied automatically.
+29/10/2021 10:54:21 Assets written to: ./FeatureStore\melhorModeloCNNeRNN\assets
+29/10/2021 10:55:23 Assets written to: ./FeatureStore\melhorModeloCNNeRNN\assets
+29/10/2021 10:56:05 Assets written to: ./FeatureStore\melhorModeloCNNeRNN\assets
+29/10/2021 10:56:48 Assets written to: ./FeatureStore\melhorModeloCNNeRNN\assets
+29/10/2021 11:01:54 Assets written to: ./FeatureStore\melhorModeloCNNeRNN\assets
+29/10/2021 11:07:00 Assets written to: ./FeatureStore\melhorModeloCNNeRNN\assets
+29/10/2021 11:09:46 Assets written to: ./FeatureStore\melhorModeloCNNeRNN\assets
+29/10/2021 11:11:12 Assets written to: ./FeatureStore\melhorModeloCNNeRNN\assets
+29/10/2021 11:12:17 Assets written to: ./FeatureStore\melhorModeloCNNeRNN\assets
+29/10/2021 11:14:02 Assets written to: ./FeatureStore\melhorModeloCNNeRNN\assets

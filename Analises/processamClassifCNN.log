@@ -1,0 +1,27 @@
+29/10/2021 10:17:26 From C:\Users\abalm\anaconda3\lib\site-packages\tensorflow\python\training\tracking\tracking.py:111: Model.state_updates (from tensorflow.python.keras.engine.training) is deprecated and will be removed in a future version.
+Instructions for updating:
+This property should not be used in TensorFlow 2.0, as updates are applied automatically.
+29/10/2021 10:17:26 From C:\Users\abalm\anaconda3\lib\site-packages\tensorflow\python\training\tracking\tracking.py:111: Layer.updates (from tensorflow.python.keras.engine.base_layer) is deprecated and will be removed in a future version.
+Instructions for updating:
+This property should not be used in TensorFlow 2.0, as updates are applied automatically.
+29/10/2021 10:17:28 Assets written to: ./FeatureStore\melhorModeloCNN\assets
+29/10/2021 10:18:12 Assets written to: ./FeatureStore\melhorModeloCNN\assets
+29/10/2021 10:18:36 Assets written to: ./FeatureStore\melhorModeloCNN\assets
+29/10/2021 10:21:06 Assets written to: ./FeatureStore\melhorModeloCNN\assets
+29/10/2021 10:21:30 Assets written to: ./FeatureStore\melhorModeloCNN\assets
+29/10/2021 10:21:53 Assets written to: ./FeatureStore\melhorModeloCNN\assets
+29/10/2021 10:23:00 Assets written to: ./FeatureStore\melhorModeloCNN\assets
+29/10/2021 10:27:42 Assets written to: ./FeatureStore\melhorModeloCNN\assets
+29/10/2021 10:29:49 From C:\Users\abalm\anaconda3\lib\site-packages\tensorflow\python\training\tracking\tracking.py:111: Model.state_updates (from tensorflow.python.keras.engine.training) is deprecated and will be removed in a future version.
+Instructions for updating:
+This property should not be used in TensorFlow 2.0, as updates are applied automatically.
+29/10/2021 10:29:49 From C:\Users\abalm\anaconda3\lib\site-packages\tensorflow\python\training\tracking\tracking.py:111: Layer.updates (from tensorflow.python.keras.engine.base_layer) is deprecated and will be removed in a future version.
+Instructions for updating:
+This property should not be used in TensorFlow 2.0, as updates are applied automatically.
+29/10/2021 10:29:51 Assets written to: ./FeatureStore\melhorModeloCNN\assets
+29/10/2021 10:30:55 Assets written to: ./FeatureStore\melhorModeloCNN\assets
+29/10/2021 10:33:15 Assets written to: ./FeatureStore\melhorModeloCNN\assets
+29/10/2021 10:33:38 Assets written to: ./FeatureStore\melhorModeloCNN\assets
+29/10/2021 10:34:39 Assets written to: ./FeatureStore\melhorModeloCNN\assets
+29/10/2021 10:37:32 Assets written to: ./FeatureStore\melhorModeloCNN\assets
+29/10/2021 10:40:04 Assets written to: ./FeatureStore\melhorModeloCNN\assets

@@ -28,3 +28,34 @@
 29/10/2021 09:12:18 >> MontaEspectrogramas
 29/10/2021 09:19:12 >> MontaEspectrogramas
 29/10/2021 09:43:44 << MontaEspectrogramas
+29/10/2021 12:32:19 >> MontaEspectrogramas
+29/10/2021 12:40:59 >> MontaEspectrogramas
+29/10/2021 12:41:16 >> MontaEspectrogramas
+29/10/2021 12:41:36 From c:\Users\abalm\.vscode\extensions\ms-python.python-2021.10.1365161279\pythonFiles\lib\python\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_resolver.py:193: Layer.updates (from tensorflow.python.keras.engine.base_layer) is deprecated and will be removed in a future version.
+Instructions for updating:
+This property should not be used in TensorFlow 2.0, as updates are applied automatically.
+29/10/2021 12:48:07 >> MontaEspectrogramas
+29/10/2021 12:48:23 >> MontaEspectrogramas
+29/10/2021 12:51:38 >> MontaEspectrogramas
+29/10/2021 12:54:58 >> MontaEspectrogramas
+29/10/2021 12:55:08 Tensor._shape is private, use Tensor.shape instead. Tensor._shape will eventually be removed.
+29/10/2021 12:55:22 Tensor._shape is private, use Tensor.shape instead. Tensor._shape will eventually be removed.
+29/10/2021 12:59:25 Tensor._shape is private, use Tensor.shape instead. Tensor._shape will eventually be removed.
+29/10/2021 12:59:26 Tensor._shape is private, use Tensor.shape instead. Tensor._shape will eventually be removed.
+29/10/2021 13:01:33 >> MontaEspectrogramas
+29/10/2021 13:01:41 Tensor._shape is private, use Tensor.shape instead. Tensor._shape will eventually be removed.
+29/10/2021 13:01:54 Tensor._shape is private, use Tensor.shape instead. Tensor._shape will eventually be removed.
+29/10/2021 13:02:27 Tensor._shape is private, use Tensor.shape instead. Tensor._shape will eventually be removed.
+29/10/2021 13:09:33 >> MontaEspectrogramas
+29/10/2021 13:31:56 >> MontaEspectrogramas
+29/10/2021 13:33:02 >> MontaEspectrogramas
+29/10/2021 13:34:52 >> MontaEspectrogramas
+29/10/2021 13:38:29 >> MontaEspectrogramas
+29/10/2021 13:39:46 >> MontaEspectrogramas
+29/10/2021 13:39:59 >> MontaEspectrogramas
+29/10/2021 13:54:52 >> MontaEspectrogramas
+29/10/2021 14:07:50 >> MontaEspectrogramas
+29/10/2021 14:47:23 >> MontaEspectrogramas
+29/10/2021 14:47:44 >> MontaEspectrogramas
+29/10/2021 14:57:37 >> MontaEspectrogramas
+29/10/2021 15:04:26 >> MontaEspectrogramas

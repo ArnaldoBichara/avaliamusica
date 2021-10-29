@@ -19,7 +19,9 @@ if not sys.warnoptions:
     warnings.simplefilter("ignore")
 #import skimage.io
 from sklearn.model_selection._split import train_test_split
-
+import tensorflow as tf
+import random
+#%%
 logging.basicConfig(filename='./Analises/preprocessamento2.log', 
                     level=logging.INFO,
                     format='%(asctime)s %(message)s',
@@ -30,12 +32,9 @@ logging.info('>> MontaEspectrogramas')
 # Obtendo as audio_samples das listas de playlists
 #
 # monta e retorna espectrograma como numpy array
-def montaEspectrograma (id, classe):
+def montaEspectrograma (y, samplingRate, classe):
     # converte mp3 para espectrograma
-    arq_mp3 = f'./amostrasMusica/{classe}/{id}'
-    #y, sr = librosa.load(nome_mp3, mono=True, duration=5)
-    y, sr = librosa.load(arq_mp3)
-    spect = librosa.feature.melspectrogram(y=y, sr=sr, n_fft=2048, hop_length=1024)
+    spect = librosa.feature.melspectrogram(y=y, sr=samplingRate, n_fft=2048, hop_length=1024)
     spect = librosa.power_to_db(spect, ref=np.max)
     #skimage.io.imsave(nome_arq, mels)    # save as PNG
     spect = spect.T
@@ -50,11 +49,41 @@ X_spect = np.empty((0,640,128)) # primeiraa dimensão: elementos, seg dimensao: 
 #y_arr   = np.empty((0,2)) # primeira dimensão: elementos, seg dimensão: array de classes [não curto, curto]
 y_arr   = [] # dimensão única, onde classe é curto=1, não curto=0
 
+def resampleEAugmentation (arq_mp3):
+    # carrega arquivo, convertido para mono, com resampling de 44100hz e duração máxima de 30 seg
+    max_mseg = 30000
+    samplingRate = 44100
+    data = librosa.load (arq_mp3, sr=44100, mono=True, duration=max_mseg)[0]
+
+    input_length = samplingRate//1000 * max_mseg
+
+    if len(data) > input_length:
+        data = data[:input_length]
+    else:
+        data = np.pad(data, (0, max(0,input_length - len(data))), "constant")
+
+    # adicionando ruído, que é uma forma de augmentation
+    data = np.random.randn(len(data))
+    data = data + 0.005 * data
+    #%%
+    # dando um shift nos dados em 40%
+    shift_limit_pct = 0.4
+    tam_shift = int(random.random()*0.4*input_length)
+    data = np.roll(data, tam_shift)
+
+    # esticando os dados
+    rate = 0.8
+    data = librosa.effects.time_stretch(data, 0.8 )
+    return data, samplingRate
+
 def getSpectMusicas(X, y, classe):
     contador=0
     for idMusica in os.listdir (f'./amostrasMusica/{classe}'):
         contador +=1
-        espectrograma = montaEspectrograma (idMusica, classe)
+        arq_mp3 = f'./amostrasMusica/{classe}/{idMusica}'
+    #    y, samplingRate = librosa.load(arq_mp3)
+        sig, samplingRate = resampleEAugmentation(arq_mp3)
+        espectrograma = montaEspectrograma (sig, samplingRate, classe)
         X = np.append(X, [espectrograma], axis=0)
         """         if (classe==0):
             y = np.append(y, [[1,0]], axis=0) 
