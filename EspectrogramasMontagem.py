@@ -17,7 +17,7 @@ import sys
 if not sys.warnoptions:
     import warnings
     warnings.simplefilter("ignore")
-import skimage.io
+#import skimage.io
 from sklearn.model_selection._split import train_test_split
 
 logging.basicConfig(filename='./Analises/preprocessamento2.log', 
@@ -32,7 +32,7 @@ logging.info('>> MontaEspectrogramas')
 # monta e retorna espectrograma como numpy array
 def montaEspectrograma (id, classe):
     # converte mp3 para espectrograma
-    arq_mp3 = f'./amostras/{classe}/{id}'
+    arq_mp3 = f'./amostrasMusica/{classe}/{id}'
     #y, sr = librosa.load(nome_mp3, mono=True, duration=5)
     y, sr = librosa.load(arq_mp3)
     spect = librosa.feature.melspectrogram(y=y, sr=sr, n_fft=2048, hop_length=1024)
@@ -52,7 +52,7 @@ y_arr   = [] # dimensão única, onde classe é curto=1, não curto=0
 
 def getSpectMusicas(X, y, classe):
     contador=0
-    for idMusica in os.listdir (f'./amostras/{classe}'):
+    for idMusica in os.listdir (f'./amostrasMusica/{classe}'):
         contador +=1
         espectrograma = montaEspectrograma (idMusica, classe)
         X = np.append(X, [espectrograma], axis=0)

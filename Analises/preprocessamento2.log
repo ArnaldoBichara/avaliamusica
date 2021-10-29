@@ -23,3 +23,8 @@
 27/10/2021 18:22:34 AudioFeaturesUserAbarra sem loudness = (551, 13)
 27/10/2021 18:22:34 dfUserAFeatureSamples shape=(1146, 13)
 27/10/2021 18:22:35 << FiltraAudioFeatures
+29/10/2021 09:10:17 >> GetUserA_AudioSamples
+29/10/2021 09:11:59 << GetUserA_AudioSamples
+29/10/2021 09:12:18 >> MontaEspectrogramas
+29/10/2021 09:19:12 >> MontaEspectrogramas
+29/10/2021 09:43:44 << MontaEspectrogramas

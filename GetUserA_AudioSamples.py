@@ -53,8 +53,8 @@ while playlists:
 # Obtendo as audio_samples das listas de playlists
 #
 def download_amostra(id, url, classe):
-    pathlib.Path(f'./amostras/{classe}').mkdir(parents=True, exist_ok=True)
-    nome_arq = f'./amostras/{classe}/{id}'
+    pathlib.Path(f'./amostrasMusica/{classe}').mkdir(parents=True, exist_ok=True)
+    nome_arq = f'./amostrasMusica/{classe}/{id}'
     if not os.path.exists(nome_arq):
         with requests.get(url, stream=True) as r:
             r.raise_for_status()
