@@ -98,9 +98,9 @@ gb = GradientBoostingClassifier (n_estimators=400,
                                 max_depth=1)  
 
 early_stop = EarlyStopping(monitor='val_accuracy', patience=50)
-#checkpoint=ModelCheckpoint('./FeatureStore/melhorModeloMLP', monitor='val_accuracy', save_best_only=True, mode='max')
+checkpoint=ModelCheckpoint('./FeatureStore/modeloClassif.h5', monitor='val_accuracy', save_best_only=True, mode='max')
 reducelr = ReduceLROnPlateau(monitor='val_accuracy', factor=0.5, patience=20, min_delta=0.01,verbose=0)
-mlp_keras_fit_params= {'mlp__callbacks': [early_stop, reducelr]}
+mlp_keras_fit_params= {'mlp__callbacks': [early_stop, reducelr, checkpoint]}
 pipeline = Pipeline([
                 ('standardize', StandardScaler()), # passa média para 0 e desvio para 1
                 ('mlp', KerasClassifier(build_fn=create_model_MLP, epochs=600, batch_size=32, verbose=0))
@@ -141,17 +141,23 @@ logging.info ("acuracia GradientBoost {:.3f}".format(acuraciagb))
 X_trein, X_valid, y_trein, y_valid = train_test_split(X_trein, y_trein, random_state=0, test_size=0.25)
 
 history = pipeline.fit (X_trein, y_trein, mlp__callbacks=mlp_keras_fit_params, mlp__validation_data=(X_valid, y_valid))
-y_predicao = pipeline.predict (X_teste)
-# os valores de y_predicao são entre 0 e 1 (probabilidade). 
-# Então temos de arredondá-los
-y_predicao = [round(y[0]) for y in y_predicao]
-acuraciamlp = accuracy_score (y_teste, y_predicao)
+
+#y_predicao = pipeline.predict (X_teste)
+## os valores de y_predicao são entre 0 e 1 (probabilidade), então temos de arredondá-los
+#y_predicao = [round(y[0]) for y in y_predicao]
+#acuraciamlp = accuracy_score (y_teste, y_predicao)
+#print("acuracia Rede Neural imediata MLP {:.3f}".format(acuraciamlp))
+#logging.info ("acuracia Rede imediata Neural MLP {:.3f}".format(acuraciamlp))
+
+# carregando o melhor modelo mlp
+pipeline.named_steps['mlp'].model = load_model('./FeatureStore/modeloClassif.h5')
+ybest_predicao = pipeline.predict (X_teste)
+# os valores de y_predicao são entre 0 e 1 (probabilidade), então temos de arredondá-los
+ybest_predicao = [round(y[0]) for y in ybest_predicao]
+acuraciamlp = accuracy_score (y_teste, ybest_predicao)
 print("acuracia Rede Neural MLP {:.3f}".format(acuraciamlp))
 logging.info ("acuracia Rede Neural MLP {:.3f}".format(acuraciamlp))
 
-# Limpando antigo modeloMPL, se existir
-if os.path.exists('./FeatureStore/modeloClassif.h5'):
-    os.remove('./FeatureStore/modeloClassif.h5')
 #
 # Treino do classificador com todos os dados
 # e salvando o modelo treinado
@@ -164,6 +170,9 @@ if ( (acuraciamlp > acuraciagb) and
         pipeline.named_steps['mlp'].model = None
         joblib.dump(pipeline, './FeatureStore/modeloClassif.pickle')
 else:
+    # Limpando antigo modeloMPL, se existir
+    if os.path.exists('./FeatureStore/modeloClassif.h5'):
+        os.remove('./FeatureStore/modeloClassif.h5')
     if (acuraciaab > acuraciarf):
         if (acuraciaab > acuraciagb):
             modeloEscolhido = ab
@@ -172,6 +181,8 @@ else:
                 modeloEscolhido = gb
             else:
                 modeloEscolhido = rf
+    else:
+        modeloEscolhido = rf            
     modeloEscolhido.fit (X, y)
     with open("./FeatureStore/modeloClassif.pickle", 'wb') as arq:
         pickle.dump (modeloEscolhido, arq)

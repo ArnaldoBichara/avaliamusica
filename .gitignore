@@ -31,3 +31,6 @@ espectrogramas/
 
 FeatureStore/*.npz
 amostrasMusica/
+FeatureStore/augmentation tudo/*
+FeatureStore/melhorModelo/*
+FeatureStore/modeloClassif/*

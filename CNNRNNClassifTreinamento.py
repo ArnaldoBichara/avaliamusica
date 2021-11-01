@@ -57,24 +57,25 @@ logging.basicConfig(filename='./Analises/processamentoClassificacao.log',
                     format='%(asctime)s %(message)s',
                     datefmt='%d/%m/%Y %H:%M:%S'
                     )
-logging.info('\n>> ClassifTreinamentoEspectrograma')
+logging.info('\n>> ClassifTreinamentoCNNRNN')
 
 #lendo datasets
 npzTreino = np.load('./FeatureStore/AudioEspectrogramasTreinoBin.npz')
-X_trein= npzTreino['arr_0']
-y_trein = npzTreino['arr_1']
-
-# dividindo treinamento em treino e validação
-X_trein, X_val, y_trein, y_val = train_test_split(X_trein, y_trein, random_state=0, test_size=0.25)
+X_TreinVal= npzTreino['arr_0']
+y_TreinVal = npzTreino['arr_1']
 
 npzTeste = np.load('./FeatureStore/AudioEspectrogramasTesteBin.npz')
 X_teste= npzTeste['arr_0']
 y_teste = npzTeste['arr_1']
 
+# dividindo treinamento em treino e validação
+X_trein, X_val, y_trein, y_val = train_test_split(X_TreinVal, y_TreinVal, random_state=0, test_size=0.25)
+
 #expande dimensões para uso por conv2d
 X_trein = np.expand_dims(X_trein, axis = -1)
 X_val = np.expand_dims(X_val, axis = -1)
 X_teste = np.expand_dims(X_teste, axis = -1)
+X_TreinVal = np.expand_dims(X_TreinVal, axis = -1)
 
 def build_modelo():
     n_frequency = 640
@@ -140,8 +141,8 @@ def build_modelo():
 
 # definindo o modelo, com os hiperparametros previamente escolhidos
 model = build_modelo()
-checkpoint = ModelCheckpoint('./FeatureStore/EspectrogramaMelhorModelo', monitor='val_accuracy', verbose=1,
-                                          save_best_only=True, mode='max')
+checkpoint = ModelCheckpoint('./FeatureStore/modeloClassifCNNRNN', monitor='val_accuracy', verbose=1,
+                                save_best_only=True, mode='max')
 early_stop = EarlyStopping(monitor='val_accuracy', patience=20)
 reducelr = ReduceLROnPlateau(monitor='val_accuracy', factor=0.5, patience=8, min_delta=0.01,verbose=1)
 callbacks_list = [reducelr, early_stop, checkpoint]
@@ -151,23 +152,28 @@ history = model.fit(X_trein, y_trein, batch_size=20, epochs=100,validation_data=
 
 # Cálculo de acurácia:
 #
+# y_predicao = model.predict (X_teste)
+# y_predicao = [round(y[0]) for y in y_predicao]
+# acuracia = accuracy_score (y_teste, y_predicao)
+# print("acuracia CNNeRNN {:.3f}".format(acuracia))
+# report = classification_report (y_teste, y_predicao, target_names=["Nao Curte", "Curte"])
+# print(report)
+
+model = load_model ('./FeatureStore/modeloClassifCNNRNN')
 y_predicao = model.predict (X_teste)
 y_predicao = [round(y[0]) for y in y_predicao]
 acuracia = accuracy_score (y_teste, y_predicao)
-print("acuracia CNNeRNN {:.3f}".format(acuracia))
 report = classification_report (y_teste, y_predicao, target_names=["Nao Curte", "Curte"])
+print("acuracia CNNeRNN {:.3f}".format(acuracia))
+print("Resultados CNNeRNN:")
 print(report)
 
-model = load_model ('./FeatureStore/EspectrogramaMelhorModelo')
-y_predicao = model.predict (X_teste)
-y_predicao = [round(y[0]) for y in y_predicao]
-acuracia = accuracy_score (y_teste, y_predicao)
-report = classification_report (y_teste, y_predicao, target_names=["Nao Curte", "Curte"])
-print("acuracia CNNeRNN do arquivo {:.3f}".format(acuracia))
-print("Resultados CNNeRNN base de teste:")
-print(report)
+# Treino do classificador com todos os dados
+# e salvando o modelo treinado
+model.fit(X_TreinVal, y_TreinVal, batch_size=20, epochs=100,validation_data=(X_teste, y_teste), 
+                verbose=1, callbacks=callbacks_list)
 
 logging.info ("acuracia CNNeRNN {:.3f}".format(acuracia))
 logging.info ("report CNNeRNN:\n {}".format(report))
 
-logging.info('\n<< ClassifTreinamentoEspectrograma')
+logging.info('\n<< ClassifTreinamentoCNNRNN')

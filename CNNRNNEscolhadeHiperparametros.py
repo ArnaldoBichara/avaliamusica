@@ -122,7 +122,7 @@ def treina_modelo(x_train, y_train, x_val, y_val):
     model = build_modelo_CNNeRNN()
     
     early_stop = EarlyStopping(monitor='val_accuracy', patience=15)
-    checkpoint = ModelCheckpoint('./FeatureStore/melhorModeloCNNeRNN', monitor='val_accuracy', verbose=1,
+    checkpoint = ModelCheckpoint('./FeatureStore/modeloClassifCNNeRNN', monitor='val_accuracy', verbose=1,
                                           save_best_only=True, mode='max')
     reducelr = ReduceLROnPlateau(monitor='val_accuracy', factor=0.5, patience=8, min_delta=0.01,verbose=1)
     callbacks_list = [checkpoint, reducelr, early_stop]
