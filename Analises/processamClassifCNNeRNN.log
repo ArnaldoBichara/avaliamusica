@@ -14,3 +14,42 @@ This property should not be used in TensorFlow 2.0, as updates are applied autom
 29/10/2021 11:11:12 Assets written to: ./FeatureStore\melhorModeloCNNeRNN\assets
 29/10/2021 11:12:17 Assets written to: ./FeatureStore\melhorModeloCNNeRNN\assets
 29/10/2021 11:14:02 Assets written to: ./FeatureStore\melhorModeloCNNeRNN\assets
+29/10/2021 15:41:24 From C:\Users\abalm\anaconda3\lib\site-packages\tensorflow\python\training\tracking\tracking.py:111: Model.state_updates (from tensorflow.python.keras.engine.training) is deprecated and will be removed in a future version.
+Instructions for updating:
+This property should not be used in TensorFlow 2.0, as updates are applied automatically.
+29/10/2021 15:41:24 From C:\Users\abalm\anaconda3\lib\site-packages\tensorflow\python\training\tracking\tracking.py:111: Layer.updates (from tensorflow.python.keras.engine.base_layer) is deprecated and will be removed in a future version.
+Instructions for updating:
+This property should not be used in TensorFlow 2.0, as updates are applied automatically.
+29/10/2021 15:41:36 Assets written to: ./FeatureStore\melhorModeloCNNeRNN\assets
+29/10/2021 15:45:37 Assets written to: ./FeatureStore\melhorModeloCNNeRNN\assets
+29/10/2021 16:10:23 From C:\Users\abalm\anaconda3\lib\site-packages\tensorflow\python\training\tracking\tracking.py:111: Model.state_updates (from tensorflow.python.keras.engine.training) is deprecated and will be removed in a future version.
+Instructions for updating:
+This property should not be used in TensorFlow 2.0, as updates are applied automatically.
+29/10/2021 16:10:23 From C:\Users\abalm\anaconda3\lib\site-packages\tensorflow\python\training\tracking\tracking.py:111: Layer.updates (from tensorflow.python.keras.engine.base_layer) is deprecated and will be removed in a future version.
+Instructions for updating:
+This property should not be used in TensorFlow 2.0, as updates are applied automatically.
+29/10/2021 16:10:35 Assets written to: ./FeatureStore\melhorModeloCNNeRNN\assets
+29/10/2021 16:11:59 Assets written to: ./FeatureStore\melhorModeloCNNeRNN\assets
+29/10/2021 16:15:06 Assets written to: ./FeatureStore\melhorModeloCNNeRNN\assets
+29/10/2021 16:15:50 Assets written to: ./FeatureStore\melhorModeloCNNeRNN\assets
+29/10/2021 16:17:35 Assets written to: ./FeatureStore\melhorModeloCNNeRNN\assets
+29/10/2021 16:21:57 Assets written to: ./FeatureStore\melhorModeloCNNeRNN\assets
+29/10/2021 16:26:00 Assets written to: ./FeatureStore\melhorModeloCNNeRNN\assets
+29/10/2021 16:27:27 Assets written to: ./FeatureStore\melhorModeloCNNeRNN\assets
+29/10/2021 16:31:22 Assets written to: ./FeatureStore\melhorModeloCNNeRNN\assets
+29/10/2021 18:09:00 From C:\Users\abalm\anaconda3\lib\site-packages\tensorflow\python\training\tracking\tracking.py:111: Model.state_updates (from tensorflow.python.keras.engine.training) is deprecated and will be removed in a future version.
+Instructions for updating:
+This property should not be used in TensorFlow 2.0, as updates are applied automatically.
+29/10/2021 18:09:00 From C:\Users\abalm\anaconda3\lib\site-packages\tensorflow\python\training\tracking\tracking.py:111: Layer.updates (from tensorflow.python.keras.engine.base_layer) is deprecated and will be removed in a future version.
+Instructions for updating:
+This property should not be used in TensorFlow 2.0, as updates are applied automatically.
+29/10/2021 18:09:15 Assets written to: ./FeatureStore\melhorModeloCNNeRNN\assets
+29/10/2021 18:10:43 Assets written to: ./FeatureStore\melhorModeloCNNeRNN\assets
+29/10/2021 18:36:18 From C:\Users\abalm\anaconda3\lib\site-packages\tensorflow\python\training\tracking\tracking.py:111: Model.state_updates (from tensorflow.python.keras.engine.training) is deprecated and will be removed in a future version.
+Instructions for updating:
+This property should not be used in TensorFlow 2.0, as updates are applied automatically.
+29/10/2021 18:36:18 From C:\Users\abalm\anaconda3\lib\site-packages\tensorflow\python\training\tracking\tracking.py:111: Layer.updates (from tensorflow.python.keras.engine.base_layer) is deprecated and will be removed in a future version.
+Instructions for updating:
+This property should not be used in TensorFlow 2.0, as updates are applied automatically.
+29/10/2021 18:36:32 Assets written to: ./FeatureStore\melhorModeloCNNeRNN\assets
+29/10/2021 18:37:41 Assets written to: ./FeatureStore\melhorModeloCNNeRNN\assets

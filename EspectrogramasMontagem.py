@@ -53,27 +53,30 @@ def resampleEAugmentation (arq_mp3):
     # carrega arquivo, convertido para mono, com resampling de 44100hz e duração máxima de 30 seg
     max_mseg = 30000
     samplingRate = 44100
-    data = librosa.load (arq_mp3, sr=44100, mono=True, duration=max_mseg)[0]
+    data = librosa.load (arq_mp3, res_type='kaiser_fast')[0]
+    data = librosa.load (arq_mp3, sr=44100, mono=True, duration=max_mseg, res_type='kaiser_fast')[0]
 
+    # fixando o tamanho do espectrograma em tamanho baseado no samplingRate e tempo da amostra
     input_length = samplingRate//1000 * max_mseg
-
     if len(data) > input_length:
         data = data[:input_length]
     else:
         data = np.pad(data, (0, max(0,input_length - len(data))), "constant")
 
-    # adicionando ruído, que é uma forma de augmentation
-    data = np.random.randn(len(data))
-    data = data + 0.005 * data
+    # adicionando ruído
+    noise = 0.005 * np.random.randn(len(data))
+    data = data + noise
     #%%
-    # dando um shift nos dados em 40%
-    shift_limit_pct = 0.4
-    tam_shift = int(random.random()*0.4*input_length)
-    data = np.roll(data, tam_shift)
+    # shift nos dados em até 40%
+    # vou retirar isso. Não vejo sentido. Deve estragar o RNN
+    #shift_limit_pct = 0.4
+    #tam_shift = int(random.random()*0.4*input_length)
+    #data = np.roll(data, tam_shift)
 
     # esticando os dados
     rate = 0.8
-    data = librosa.effects.time_stretch(data, 0.8 )
+    data = librosa.effects.time_stretch(data, rate )
+    
     return data, samplingRate
 
 def getSpectMusicas(X, y, classe):
@@ -85,11 +88,6 @@ def getSpectMusicas(X, y, classe):
         sig, samplingRate = resampleEAugmentation(arq_mp3)
         espectrograma = montaEspectrograma (sig, samplingRate, classe)
         X = np.append(X, [espectrograma], axis=0)
-        """         if (classe==0):
-            y = np.append(y, [[1,0]], axis=0) 
-        else:
-            y = np.append(y, [[0,1]], axis=0) """
-            
         y = np.append(y, [classe], axis=0)    
         if contador % 10 == 0:
             print ("processando: ", contador)

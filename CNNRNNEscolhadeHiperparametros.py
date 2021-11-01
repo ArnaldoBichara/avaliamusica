@@ -126,6 +126,7 @@ def treina_modelo(x_train, y_train, x_val, y_val):
                                           save_best_only=True, mode='max')
     reducelr = ReduceLROnPlateau(monitor='val_accuracy', factor=0.5, patience=8, min_delta=0.01,verbose=1)
     callbacks_list = [checkpoint, reducelr, early_stop]
+    #callbacks_list = [reducelr, early_stop]
 
     # Fit the model and get training history.
     print('Executando Treinamento...')
@@ -135,3 +136,4 @@ def treina_modelo(x_train, y_train, x_val, y_val):
     return model, history
 
 model, history  = treina_modelo(X_train, y_train, X_valid, y_valid)
+

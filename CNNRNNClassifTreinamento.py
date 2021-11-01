@@ -13,8 +13,10 @@ import pickle
 import logging
 import statistics
 from utils import calcula_cross_val_scores
-
-
+import sys
+if not sys.warnoptions:
+    import warnings
+    warnings.simplefilter("ignore")
 from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import Pipeline
 
@@ -50,7 +52,6 @@ from sklearn.metrics._classification import accuracy_score, classification_repor
 from tensorflow.python.keras.models import load_model
 tf.get_logger().setLevel('ERROR') 
 
-
 logging.basicConfig(filename='./Analises/processamentoClassificacao.log', 
                     level=logging.INFO,
                     format='%(asctime)s %(message)s',
@@ -75,82 +76,98 @@ X_trein = np.expand_dims(X_trein, axis = -1)
 X_val = np.expand_dims(X_val, axis = -1)
 X_teste = np.expand_dims(X_teste, axis = -1)
 
-def build_modelo_CNN():
-    #blocos convolucionais
+def build_modelo():
     n_frequency = 640
     n_frames = 128    
     input_shape = (n_frequency, n_frames, 1)
-    model_input = Input(input_shape, name='input') 
+    model_input = Input(input_shape, name='input')    
 
-    model = Sequential()
-    model.add (Conv2D(16, kernel_size = (3,3), strides=1, padding= 'same', activation='relu', input_shape=input_shape))
-    model.add(MaxPooling2D((2,2)))
-    model.add (Dropout(0.05))
+    #blocos convolucionais
+    conv1 = Conv2D(16, kernel_size = (3,3), strides=1, padding= 'same', activation='relu')(model_input)
+    pool1 = MaxPooling2D((2,2))(conv1)
+    drop1 = Dropout(0.05)(pool1)
+    conv2 = Conv2D(32, kernel_size=(3,3), strides=1, padding='same', activation='relu')(drop1)
+    pool2 = MaxPooling2D((2,2))(conv2)
+    drop2 = Dropout(0.05)(pool2)
+    conv3 = Conv2D(48, kernel_size=(3,3), strides=1, padding='same', activation='relu')(drop2)
+    pool3 = MaxPooling2D((2,2))(conv3)
+    drop3 =Dropout(0.05)(pool3)
+    conv4 = Conv2D(64, kernel_size=(3,3), strides=1, padding='same', activation='relu')(drop3)
+    pool4 = MaxPooling2D((4,4))(conv4)
+    drop4 = Dropout(0.05)(pool4)
+    conv5 = Conv2D(64, kernel_size=(3,3), strides=1, padding='same', activation='relu')(drop4)
+    pool5 = MaxPooling2D((4,4))(conv5)
+    drop5 = Dropout(0.05)(pool5)
+    flatten = Flatten()(drop5)
 
-    model.add (Conv2D(32, kernel_size=(3,3), strides=1, padding='same', activation='relu'))
-    model.add(MaxPooling2D((2,2)))
-    model.add (Dropout(0.05))
+    #bloco RNN
+        # Pooling layer
+    pool_lstm1 = (MaxPooling2D((4,2)))(model_input)
+    #pool_lstm1 = (MaxPooling2D((2,1)))(model_input)
+        # Embedding layer
+    squeezed = Lambda(lambda x: K.squeeze(x, axis= -1))(pool_lstm1)
+        # Bidirectional GRU
+    lstm_count = 64
+    lstm = Bidirectional(GRU(lstm_count))(squeezed)  
 
-    model.add (Conv2D(48, kernel_size=(3,3), strides=1, padding='same', activation='relu'))
-    model.add(MaxPooling2D((2,2)))
-    model.add (Dropout(0.05))
-
-    model.add (Conv2D(64, kernel_size=(3,3), strides=1, padding='same', activation='relu'))
-    model.add (MaxPooling2D((4,4)))
-    model.add (Dropout(0.05))
-
-    model.add (Conv2D(64, kernel_size=(3,3), strides=1, padding='same', activation='relu'))
-    model.add (MaxPooling2D((4,4)))
-    model.add (Dropout(0.05))
-
-    model.add (Flatten())
+    # Concat Output
+    concat = concatenate([flatten, lstm], axis=-1, name ='concat') 
 
     ## MLP
-    model.add (Dense(256,  activation='relu',
-                kernel_initializer='uniform'))
-    model.add(BatchNormalization())
-    model.add (Dropout(0.1))
-    model.add (Dense(1, activation='sigmoid', 
-                kernel_initializer='uniform'))
+    densed1 = Dense(256,  activation='relu', kernel_initializer='uniform')(concat)
+    batchd1 = BatchNormalization()(densed1)
+    dropd1  = Dropout(0.1)(batchd1)
+
+    densed2 = Dense(128,  activation='relu', kernel_initializer='uniform')(dropd1)
+    batchd2 = BatchNormalization()(densed2)
+    dropd2  = Dropout(0.1)(batchd2)
+
+    densed3 = Dense(64,  activation='relu', kernel_initializer='uniform')(dropd2)
+    batchd3 = BatchNormalization()(densed3)
+    dropd3  = Dropout(0.1)(batchd3)
+
+    model_output = Dense(1, activation='sigmoid', kernel_initializer='uniform')(dropd3)
   
+    model = Model(model_input, model_output)
+
     opt = Adam(lr=0.001)
-    model.compile(
-            loss='binary_crossentropy',
-            optimizer=opt, 
-            metrics=['accuracy']
-        )
+#    opt= RMSprop(lr=0.0005)
+    model.compile(loss='binary_crossentropy',
+                    optimizer=opt, 
+                    metrics=['accuracy'])
     print(model.summary())    
     return model
 
 # definindo o modelo, com os hiperparametros previamente escolhidos
-cnn = build_modelo_CNN()
-checkpoint = ModelCheckpoint('./FeatureStore/melhorModeloCNN', monitor='val_accuracy', verbose=1,
+model = build_modelo()
+checkpoint = ModelCheckpoint('./FeatureStore/EspectrogramaMelhorModelo', monitor='val_accuracy', verbose=1,
                                           save_best_only=True, mode='max')
 early_stop = EarlyStopping(monitor='val_accuracy', patience=20)
 reducelr = ReduceLROnPlateau(monitor='val_accuracy', factor=0.5, patience=8, min_delta=0.01,verbose=1)
-callbacks_list = [reducelr, checkpoint, early_stop]
+callbacks_list = [reducelr, early_stop, checkpoint]
 
-history = cnn.fit(X_trein, y_trein, batch_size=20, epochs=100,validation_data=(X_val, y_val), 
+history = model.fit(X_trein, y_trein, batch_size=20, epochs=100,validation_data=(X_val, y_val), 
                     verbose=1, callbacks=callbacks_list)
 
 # Cálculo de acurácia:
 #
-# y_predicao = cnn.predict (X_teste)
-# y_predicao = [round(y[0]) for y in y_predicao]
-# acuracia = accuracy_score (y_teste, y_predicao)
-# print("acuracia CNN {:.3f}".format(acuracia))
+y_predicao = model.predict (X_teste)
+y_predicao = [round(y[0]) for y in y_predicao]
+acuracia = accuracy_score (y_teste, y_predicao)
+print("acuracia CNNeRNN {:.3f}".format(acuracia))
+report = classification_report (y_teste, y_predicao, target_names=["Nao Curte", "Curte"])
+print(report)
 
-cnn = load_model ('./FeatureStore/melhorModeloCNN')
-y_predicao = cnn.predict (X_teste)
-#%%
+model = load_model ('./FeatureStore/EspectrogramaMelhorModelo')
+y_predicao = model.predict (X_teste)
 y_predicao = [round(y[0]) for y in y_predicao]
 acuracia = accuracy_score (y_teste, y_predicao)
 report = classification_report (y_teste, y_predicao, target_names=["Nao Curte", "Curte"])
-print("acuracia CNN base de teste {:.3f}".format(acuracia))
-print("Resultados CNN base de teste:")
+print("acuracia CNNeRNN do arquivo {:.3f}".format(acuracia))
+print("Resultados CNNeRNN base de teste:")
 print(report)
 
-logging.info ("acuracia CNN {:.3f}".format(acuracia))
-logging.info ("report CNN:\n {}".format(report))
+logging.info ("acuracia CNNeRNN {:.3f}".format(acuracia))
+logging.info ("report CNNeRNN:\n {}".format(report))
 
 logging.info('\n<< ClassifTreinamentoEspectrograma')
