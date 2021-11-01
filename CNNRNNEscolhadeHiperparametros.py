@@ -1,7 +1,7 @@
 ###################
 # Análise de classificação por conteúdo,
 # usando Rede Neural CNN paralelo com rede LSTM (RNN)
-# As entradas são espectrogramas
+# As entradas são espectrogramas.
 ###################
 #%%
 # Importando packages

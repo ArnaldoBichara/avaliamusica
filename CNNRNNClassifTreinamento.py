@@ -3,7 +3,7 @@
 # com dados de entrada na forma de espectrogramas das músicas
 # A entrada consiste nos espectrogramas de amostras de audio do Usuário A com a classe (0-não curte, 1-curte)
 # Uso de validação cruzada (cross-validation) para cálculo das métricas.
-# O modelo com melhor acurácia é salvo como modeloClassifEspectro.pickle.
+# O modelo com melhor acurácia é salvo como modeloClassifEspectro.pickle
 ###################
 #%%
 # Importando packages
