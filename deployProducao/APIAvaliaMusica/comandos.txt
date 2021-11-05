@@ -16,7 +16,6 @@ Docker - container
     docker stop id
 
 curl --location --request GET "http://localhost:5001/predicao/" --header "Content-Type: application/json" 
-curl --location --request GET 'http://localhost:5001/predicao/' --header 'Content-Type: application/json' 
 
 curl --data '{\"gostoReal\":\"NaoCurte\", \"predicao\":\"Curte\"}' --location --request POST "http://localhost:5001/predicao/" --header 'Content-Type: application/json'  
 curl --location --request GET "http://localhost:5001/stats/" --header "Content-Type: application/json" 

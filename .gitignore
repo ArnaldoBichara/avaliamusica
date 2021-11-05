@@ -3,9 +3,9 @@ datasets/lastfm-1K-users-tracks.tsv
 datasets/spotify600k_artists.csv
 datasets/spotify600k_similar_artists.json
 datasets/spotify600k_tracks.csv
+datasets/spotify_playlists_dataset.csv
 old/pickle
 FeatureStore/MusUsers.pickle
-datasets/
 __pycache__/
 PreProcColaboracao.py
 FeatureStore backup/
@@ -34,3 +34,4 @@ amostrasMusica/
 FeatureStore/augmentation tudo/*
 FeatureStore/melhorModelo*
 FeatureStore/modeloClassif*
+deployProducao/APIAvaliaMusica/estatisticas.pickle
