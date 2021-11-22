@@ -6,3 +6,30 @@
 28/10/2021 20:18:30 acuracia Rede Neural MLP 0.794
 28/10/2021 20:21:08 
 << ClassifTreinamento
+22/11/2021 16:21:49 
+>> ClassifTreinamento
+22/11/2021 16:21:52 acuracia RandomForest 0.785
+22/11/2021 16:21:56 acuracia AdaBoost 0.767
+22/11/2021 16:21:57 acuracia GradientBoost 0.753
+22/11/2021 16:22:01 acuracia Rede Neural MLP 0.784
+22/11/2021 16:22:02 
+<< ClassifTreinamento
+22/11/2021 16:39:41 
+>> ClassifTreinamento
+22/11/2021 16:39:44 acuracia RandomForest 0.777
+22/11/2021 16:41:29 
+>> ClassifTreinamento
+22/11/2021 16:41:32 acuracia RandomForest 0.783
+22/11/2021 16:41:36 acuracia AdaBoost 0.766
+22/11/2021 16:41:37 acuracia GradientBoost 0.752
+22/11/2021 16:41:40 acuracia Rede Neural MLP 0.771
+22/11/2021 16:41:41 
+<< ClassifTreinamento
+22/11/2021 16:56:52 
+>> ClassifTreinamento
+22/11/2021 16:56:55 acuracia RandomForest 0.777
+22/11/2021 16:56:58 acuracia AdaBoost 0.767
+22/11/2021 16:57:01 acuracia GradientBoost 0.745
+22/11/2021 16:57:04 acuracia Rede Neural MLP 0.786
+22/11/2021 16:57:20 
+<< ClassifTreinamento

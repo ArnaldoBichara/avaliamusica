@@ -31,7 +31,7 @@ X = npzfile['arr_0']
 y = npzfile['arr_1']
 
 # hiperparâmetros em teste
-grid = {'n_estimators': [300, 400,500,600],
+grid = {'n_estimators': [400],
             'learning_rate': [0.01, 0.04, 0.06, 0.08, 0.09, 0.1],
             'max_depth': [1, 2, 3, 4, None] }
             
@@ -41,7 +41,12 @@ grid = {'n_estimators': [300, 400,500,600],
 cv = RepeatedStratifiedKFold(n_splits=10, n_repeats=1)
 
 clf = GradientBoostingClassifier()
-clf_random = GridSearchCV (estimator = clf, param_grid=grid, cv = cv, verbose=2, n_jobs=-1)
+clf_random = GridSearchCV ( estimator = clf,
+                            param_grid=grid,
+                            cv = cv,
+                            verbose=2,
+                            n_jobs=-1,
+                            scoring='balanced_accuracy')
 search = clf_random.fit (X,y)
 print (search.best_params_, "acuracia:", search.best_score_)
 logging.info('\n<< Classif Analise Treinamento')

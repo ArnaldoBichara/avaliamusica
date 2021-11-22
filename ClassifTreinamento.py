@@ -20,7 +20,7 @@ from sklearn.model_selection import train_test_split
 
 from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import Pipeline
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import balanced_accuracy_score
 
 from keras.models import Sequential
 from keras.layers import Dense, Dropout
@@ -85,17 +85,17 @@ def create_model_MLP(optimizer='adam', init='uniform',
 #%% definindo o modelo, com os hiperparametros previamente escolhidos
 rf = RandomForestClassifier(n_estimators=400,
                             n_jobs=-1,
-                            max_depth=14,
+                            max_depth=12,
                             min_samples_split=4,
                             min_samples_leaf=1,
                             max_leaf_nodes=98)
 base_estimator = DecisionTreeClassifier(max_depth=1)
 ab = AdaBoostClassifier (n_estimators=400,
-                         learning_rate=0.06,
+                         learning_rate=0.08,
                          base_estimator=base_estimator)    
 gb = GradientBoostingClassifier (n_estimators=400,
-                                learning_rate=0.08,
-                                max_depth=1)  
+                                learning_rate=0.04,
+                                max_depth=2)  
 
 early_stop = EarlyStopping(monitor='val_accuracy', patience=50)
 checkpoint=ModelCheckpoint('./FeatureStore/modeloClassif.h5', monitor='val_accuracy', save_best_only=True, mode='max')
@@ -112,7 +112,7 @@ acuracias=[]
 for i in range (5):
     rf.fit (X_trein, y_trein)
     y_predicao = rf.predict (X_teste)
-    acuracia = accuracy_score (y_teste, y_predicao)
+    acuracia = balanced_accuracy_score (y_teste, y_predicao)
     acuracias.append(acuracia)
 acuraciarf = mean(acuracias)
 print("acuracia RandomForest {:.3f}".format(acuraciarf))
@@ -122,7 +122,7 @@ acuracias=[]
 for i in range (5):
     ab.fit (X_trein, y_trein)
     y_predicao = ab.predict (X_teste)
-    acuracia = accuracy_score (y_teste, y_predicao)
+    acuracia = balanced_accuracy_score (y_teste, y_predicao)
     acuracias.append(acuracia)
 acuraciaab = mean(acuracias)
 print("acuracia AdaBoost {:.3f}".format(acuraciaab))
@@ -132,7 +132,7 @@ acuracias=[]
 for i in range (5):
     gb.fit (X_trein, y_trein)
     y_predicao = gb.predict (X_teste)
-    acuracia = accuracy_score (y_teste, y_predicao)
+    acuracia = balanced_accuracy_score (y_teste, y_predicao)
     acuracias.append(acuracia)
 acuraciagb = mean(acuracias)
 print("acuracia GradientBoost {:.3f}".format(acuraciagb))
@@ -145,7 +145,7 @@ history = pipeline.fit (X_trein, y_trein, mlp__callbacks=mlp_keras_fit_params, m
 #y_predicao = pipeline.predict (X_teste)
 ## os valores de y_predicao são entre 0 e 1 (probabilidade), então temos de arredondá-los
 #y_predicao = [round(y[0]) for y in y_predicao]
-#acuraciamlp = accuracy_score (y_teste, y_predicao)
+#acuraciamlp = balanced_accuracy_score (y_teste, y_predicao)
 #print("acuracia Rede Neural imediata MLP {:.3f}".format(acuraciamlp))
 #logging.info ("acuracia Rede imediata Neural MLP {:.3f}".format(acuraciamlp))
 
@@ -154,7 +154,7 @@ pipeline.named_steps['mlp'].model = load_model('./FeatureStore/modeloClassif.h5'
 ybest_predicao = pipeline.predict (X_teste)
 # os valores de y_predicao são entre 0 e 1 (probabilidade), então temos de arredondá-los
 ybest_predicao = [round(y[0]) for y in ybest_predicao]
-acuraciamlp = accuracy_score (y_teste, ybest_predicao)
+acuraciamlp = balanced_accuracy_score (y_teste, ybest_predicao)
 print("acuracia Rede Neural MLP {:.3f}".format(acuraciamlp))
 logging.info ("acuracia Rede Neural MLP {:.3f}".format(acuraciamlp))
 

@@ -9,7 +9,8 @@ import pandas as pd
 import numpy as np
 import pickle
 import logging
-from matplotlib import pyplot 
+from matplotlib import pyplot
+from sklearn import metrics 
 
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import GridSearchCV, RepeatedStratifiedKFold, StratifiedKFold
@@ -44,7 +45,12 @@ grid =         {'n_estimators': [200, 300, 400, 500],
 #cv = RepeatedStratifiedKFold(n_splits=10, n_repeats=10)
 cv = StratifiedKFold(n_splits=10)
 clf = RandomForestClassifier()
-clf_random = GridSearchCV (estimator = clf, param_grid = grid, cv = cv, verbose=2, n_jobs=-1)
+clf_random = GridSearchCV ( estimator = clf, 
+                            param_grid = grid,
+                            cv = cv,
+                            verbose=2,
+                            n_jobs=-1,
+                            scoring='balanced_accuracy')
 search = clf_random.fit (X,y)
 print (search.best_params_)
 #%%
