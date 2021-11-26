@@ -36,15 +36,15 @@ svc = SVC( probability= True, kernel='linear')
 
 # hiperparâmetros em teste
 grid = {'n_estimators': [400],
-            'learning_rate': [0.001, 0.01, 0.05, 0.06, 0.08],
-            'base_estimator': [dt1, dt2, dt3] }
-grid2 = {'n_estimators': [50],
-                'learning_rate': [0.01, 0.05, 0.1, 0.5, 1.0],
-                'base_estimator': [svc] }            
+        'learning_rate': [0.001, 0.01, 0.05, 0.06, 0.08],
+        'base_estimator': [dt1, dt2, dt3] }
+
+grid2 = {'learning_rate': [0.01, 0.05, 0.1, 0.5, 1.0],
+         'base_estimator': [svc] }            
 
 #%%
 # cross validation tipo stratifiedKFole
-cv = RepeatedStratifiedKFold(n_splits=10, n_repeats=3)
+#cv = RepeatedStratifiedKFold(n_splits=10, n_repeats=3)
 cv = StratifiedKFold(n_splits=10)
 
 # clf = AdaBoostClassifier()
@@ -54,7 +54,7 @@ cv = StratifiedKFold(n_splits=10)
 
 clf = AdaBoostClassifier()
 clf_random = GridSearchCV ( estimator = clf,
-                            param_grid = grid,
+                            param_grid = grid2,
                             cv = cv,
                             verbose=2,
                             n_jobs=-1,

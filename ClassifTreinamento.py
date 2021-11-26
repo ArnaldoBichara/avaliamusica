@@ -86,9 +86,10 @@ def create_model_MLP(optimizer='adam', init='uniform',
 rf = RandomForestClassifier(n_estimators=400,
                             n_jobs=-1,
                             max_depth=12,
-                            min_samples_split=4,
+                            min_samples_split=3,
                             min_samples_leaf=1,
-                            max_leaf_nodes=98)
+                            max_leaf_nodes=98,
+                            max_samples=None)
 base_estimator = DecisionTreeClassifier(max_depth=1)
 ab = AdaBoostClassifier (n_estimators=400,
                          learning_rate=0.08,

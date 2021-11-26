@@ -27,13 +27,13 @@ npzfile = np.load('./FeatureStore/AudioFeaturesUserATreino.npz')
 X = npzfile['arr_0']
 y = npzfile['arr_1']
 
-grid =         {'n_estimators': [200, 300, 400, 500],
-                'max_depth': [8,10,12,14],
-               'min_samples_split': [2,3,4],
-               'max_leaf_nodes': range(90,102, 4),
-               'min_samples_leaf': [1, 2],
-#               'max_samples': range(300,400,5)
-               }
+grid =  {'n_estimators': [400],
+         'max_depth': [10, 12, 14],
+         'min_samples_split': [3, 4],
+         'max_leaf_nodes':[90, 94, 98, 102],
+         'min_samples_leaf': [1, 2],
+         'max_samples': [300, 500, 600, None]
+        }
 
 
 # Análise modelo RandomForest
@@ -52,6 +52,6 @@ clf_random = GridSearchCV ( estimator = clf,
                             n_jobs=-1,
                             scoring='balanced_accuracy')
 search = clf_random.fit (X,y)
-print (search.best_params_)
+print (search.best_params_, "acuracia:", search.best_score_)
 #%%
 #logging.info('\n<< Classif Analise Treinamento')
