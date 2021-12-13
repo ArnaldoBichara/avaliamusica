@@ -73,8 +73,8 @@ def resampleEAugmentation (arq_mp3):
     #tam_shift = int(random.random()*0.4*input_length)
     #data = np.roll(data, tam_shift)
 
-    # esticando os dados
-    rate = 0.8
+    # esticando os dados em 20% no tempo
+    rate = 1.2
     data = librosa.effects.time_stretch(data, rate )
     
     return data, samplingRate

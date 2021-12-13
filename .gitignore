@@ -35,3 +35,4 @@ FeatureStore/augmentation tudo/*
 FeatureStore/melhorModelo*
 FeatureStore/modeloClassif*
 deployProducao/APIAvaliaMusica/estatisticas.pickle
+amostrasOld/
