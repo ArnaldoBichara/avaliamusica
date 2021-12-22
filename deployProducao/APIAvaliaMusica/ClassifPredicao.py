@@ -16,10 +16,10 @@ import random
 def Predicao( modelo, 
               dominioAudioFeatures, 
               musCandidatasCurte,
-              musCandidatasNaoCurte ) -> dict:
+              musCandidatasNaoCurte,
+              estatCurteAnaliseConteudoNaobateComAnaliseColab,
+              estatNaoCurteAnaliseConteudoNaobateComAnaliseColab ) -> dict:
 
-  # obtendo estatísticas já acumuladas
-  #estatisticas = pd.read_pickle ("estatisticas.pickle")
 
   # escolhendo aleatoriamente entre tipo 'Curte' ou 'NaoCurte'
   escolhas = ['Curte', 'NaoCurte']
@@ -36,6 +36,10 @@ def Predicao( modelo,
     estat = "NaoCurteAnaliseConteudoNaobateComAnaliseColab"
 
   encontrou = False
+  estatisticas = {}
+  estatisticas["CurteAnaliseConteudoNaobateComAnaliseColab"] = estatCurteAnaliseConteudoNaobateComAnaliseColab
+  estatisticas["NaoCurteAnaliseConteudoNaobateComAnaliseColab"] = estatNaoCurteAnaliseConteudoNaobateComAnaliseColab
+
   while not encontrou:
     # Escolha aleatória de uma música Candidata
     musCandidata = musCandidatas.sample()
@@ -43,15 +47,15 @@ def Predicao( modelo,
     id_musica = musCandidata['id_musica'].item()
     audioFeaturesMusCand = dominioAudioFeatures.loc[dominioAudioFeatures['id_musica'].str.contains(id_musica)]
     if (audioFeaturesMusCand.empty == True):
-#      estatisticas["MusNaoEncontradaEmAudioFeature"] = estatisticas.get("MusNaoEncontradaEmAudioFeature", 0) +1
+      # estatisticas["MusNaoEncontradaEmAudioFeature"] = estatisticas.get("MusNaoEncontradaEmAudioFeature", 0) +1
       continue
     dados_predicao = audioFeaturesMusCand.drop(columns=['id_musica']).to_numpy()
     # fazendo classificação por conteúdo
     label_predicao = (modelo.predict(dados_predicao) > 0.5).astype(int)
     if (label_predicao[0]==[predicao_esperada]):
       encontrou = True
-#    else:
-#      estatisticas[estat] = estatisticas.get(estat, 0) +1
+    else:
+      estatisticas[estat] +=1
       #logging.info ("%s - avaliacao nao bate para: %s", tipo, musCandidata['interpretacao'])
 
   # salvando estatísticas acumuladas
@@ -65,6 +69,9 @@ def Predicao( modelo,
 
   #logging.info('\n<< ClassifPredicao')
 
-  return {'tipo':tipo, 'interpretacao':musCandidata['interpretacao'].to_string(index=False)}
+  return {'tipo':tipo, 
+          'interpretacao':musCandidata['interpretacao'].to_string(index=False),
+          'CurteAnaliseConteudoNaobateComAnaliseColab': estatisticas['CurteAnaliseConteudoNaobateComAnaliseColab'],
+          'NaoCurteAnaliseConteudoNaobateComAnaliseColab': estatisticas['NaoCurteAnaliseConteudoNaobateComAnaliseColab']}
   
   
