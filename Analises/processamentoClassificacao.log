@@ -1,76 +1,8 @@
-28/10/2021 20:17:59 
+22/12/2021 13:31:34 
 >> ClassifTreinamento
-28/10/2021 20:18:13 acuracia RandomForest 0.782
-28/10/2021 20:18:17 acuracia AdaBoost 0.767
-28/10/2021 20:18:18 acuracia GradientBoost 0.753
-28/10/2021 20:18:30 acuracia Rede Neural MLP 0.794
-28/10/2021 20:21:08 
+22/12/2021 13:31:46 acuracia RandomForest 0.783
+22/12/2021 13:31:50 acuracia AdaBoost 0.767
+22/12/2021 13:31:53 acuracia GradientBoost 0.745
+22/12/2021 13:32:03 acuracia Rede Neural MLP 0.781
+22/12/2021 13:32:05 
 << ClassifTreinamento
-22/11/2021 16:21:49 
->> ClassifTreinamento
-22/11/2021 16:21:52 acuracia RandomForest 0.785
-22/11/2021 16:21:56 acuracia AdaBoost 0.767
-22/11/2021 16:21:57 acuracia GradientBoost 0.753
-22/11/2021 16:22:01 acuracia Rede Neural MLP 0.784
-22/11/2021 16:22:02 
-<< ClassifTreinamento
-22/11/2021 16:39:41 
->> ClassifTreinamento
-22/11/2021 16:39:44 acuracia RandomForest 0.777
-22/11/2021 16:41:29 
->> ClassifTreinamento
-22/11/2021 16:41:32 acuracia RandomForest 0.783
-22/11/2021 16:41:36 acuracia AdaBoost 0.766
-22/11/2021 16:41:37 acuracia GradientBoost 0.752
-22/11/2021 16:41:40 acuracia Rede Neural MLP 0.771
-22/11/2021 16:41:41 
-<< ClassifTreinamento
-22/11/2021 16:56:52 
->> ClassifTreinamento
-22/11/2021 16:56:55 acuracia RandomForest 0.777
-22/11/2021 16:56:58 acuracia AdaBoost 0.767
-22/11/2021 16:57:01 acuracia GradientBoost 0.745
-22/11/2021 16:57:04 acuracia Rede Neural MLP 0.786
-22/11/2021 16:57:20 
-<< ClassifTreinamento
-22/11/2021 17:04:13 
->> ClassifTreinamento
-22/11/2021 17:04:16 acuracia RandomForest 0.785
-22/11/2021 17:04:19 acuracia AdaBoost 0.767
-22/11/2021 17:04:22 acuracia GradientBoost 0.745
-22/11/2021 17:04:26 acuracia Rede Neural MLP 0.785
-22/11/2021 17:04:41 
-<< ClassifTreinamento
-22/11/2021 17:08:43 
->> ClassifTreinamento
-22/11/2021 17:08:46 acuracia RandomForest 0.776
-22/11/2021 17:08:49 acuracia AdaBoost 0.767
-22/11/2021 17:08:52 acuracia GradientBoost 0.745
-22/11/2021 17:08:55 acuracia Rede Neural MLP 0.763
-22/11/2021 17:08:55 
-<< ClassifTreinamento
-26/11/2021 09:39:27 
->> ClassifTreinamento
-26/11/2021 09:39:30 acuracia RandomForest 0.780
-26/11/2021 09:39:34 acuracia AdaBoost 0.767
-26/11/2021 09:39:36 acuracia GradientBoost 0.745
-26/11/2021 09:39:40 acuracia Rede Neural MLP 0.771
-26/11/2021 09:39:40 
-<< ClassifTreinamento
-13/12/2021 11:41:57 
->> ClassifTreinamentoCNNRNN
-13/12/2021 11:49:19 
->> ClassifTreinamentoCNNRNN
-13/12/2021 12:26:56 acuracia CNNeRNN 0.761
-13/12/2021 12:26:56 report CNNeRNN:
-               precision    recall  f1-score   support
-
-   Nao Curte       0.72      0.77      0.74       141
-       Curte       0.80      0.75      0.78       173
-
-    accuracy                           0.76       314
-   macro avg       0.76      0.76      0.76       314
-weighted avg       0.76      0.76      0.76       314
-
-13/12/2021 12:26:56 
-<< ClassifTreinamentoCNNRNN
