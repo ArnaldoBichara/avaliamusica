@@ -29,8 +29,8 @@ musCandidatasNaoCurte = pd.read_pickle ("MusCandidatasNaoCurte.pickle")
 if (os.path.isfile("estatisticas.pickle") == False):
     estatisticas = {}
     estatisticas["MusNaoEncontradaEmAudioFeature"] = 0
-    estatisticas["CurteAnaliseConteudoNaobateComAnaliseColab"] = 0
-    estatisticas["NaoCurteAnaliseConteudoNaobateComAnaliseColab"] = 0
+    estatisticas["CurteConteudoNaobateComColab"] = 0
+    estatisticas["NaoCurteConteudoNaobateComColab"] = 0
     estatisticas["predicoes"] = 0
     estatisticas["predicoescorretas"] = 0
     estatisticas["falsospositivos"] = 0
@@ -48,6 +48,7 @@ def updateStats(data):
             estats["falsosnegativos"] = estats.get("falsosnegativos",0) +1
         else:
             estats["falsospositivos"] = estats.get("falsospositivos",0)+1
+    estats        
     with open('estatisticas.pickle', 'wb') as arq:
         pickle.dump(estats, arq)
 
@@ -55,12 +56,16 @@ def getStats():
     estats = pd.read_pickle("estatisticas.pickle")
     totalDePredicoes = estats.get("predicoes");
     predicoesCorretas = estats.get("predicoescorretas");
-    data = "Total de Predicoes: {}    Predicoes Corretas: {} ({:.0f}%)\nFalsas Predicoes Curto: {}    Falsas Predicoes Nao Curto: {}".format(
+    data = "Total de Predicoes: {}    Predicoes Corretas: {} ({:.0f}%)\n\
+Falsas Predicoes Curto: {}    Falsas Predicoes Nao Curto: {}\
+Por Conteudo nao bate com Colab: Curto: {}  Nao Curto: {}".format(
         totalDePredicoes, 
         predicoesCorretas,
         (predicoesCorretas*100/totalDePredicoes),
         estats.get("falsospositivos"), 
-        estats.get("falsosnegativos"))
+        estats.get("falsosnegativos"),
+        estats.get("CurteConteudoNaobateComColab"),
+        estats.get("NaoCurteConteudoNaobateComColab"))
     return data
 
 @app.route('/predicao/', methods=['GET', 'POST'])
@@ -68,10 +73,15 @@ def getStats():
 def rotaPredicao() -> object:
     try:
         if (request.method) == 'GET':
-            return jsonify(Predicao( modelo, 
-                                     dominioAudioFeatures, 
-                                     musCandidatasCurte,
-                                     musCandidatasNaoCurte))
+            estats = pd.read_pickle("estatisticas.pickle")
+            tipo, interpretacao, estats["CurteConteudoNaobateComColab"], estats["NaoCurteConteudoNaobateComColab"] = Predicao( 
+                    modelo, 
+                    dominioAudioFeatures, 
+                    musCandidatasCurte,
+                    musCandidatasNaoCurte)
+            with open('estatisticas.pickle', 'wb') as arq:
+                pickle.dump(estats, arq)                    
+            return jsonify({'tipo':tipo, 'interpretacao': interpretacao})
         if (request.method) == 'POST':
             updateStats(request.json)
             data = getStats()

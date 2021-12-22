@@ -59,3 +59,18 @@
 << ClassifTreinamento
 13/12/2021 11:41:57 
 >> ClassifTreinamentoCNNRNN
+13/12/2021 11:49:19 
+>> ClassifTreinamentoCNNRNN
+13/12/2021 12:26:56 acuracia CNNeRNN 0.761
+13/12/2021 12:26:56 report CNNeRNN:
+               precision    recall  f1-score   support
+
+   Nao Curte       0.72      0.77      0.74       141
+       Curte       0.80      0.75      0.78       173
+
+    accuracy                           0.76       314
+   macro avg       0.76      0.76      0.76       314
+weighted avg       0.76      0.76      0.76       314
+
+13/12/2021 12:26:56 
+<< ClassifTreinamentoCNNRNN
