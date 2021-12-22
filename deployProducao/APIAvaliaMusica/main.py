@@ -19,7 +19,7 @@ if os.path.exists('modeloClassif.h5'):
     modelo = joblib.load('modeloClassif.pickle')
     modelo.named_steps['mlp'].model = load_model('modeloClassif.h5')
 else:
-    modelo              = pd.read_pickle ("modeloClassif.pickle")
+    modelo = pd.read_pickle ("modeloClassif.pickle")
     
 dominioAudioFeatures  = pd.read_pickle ("DominioAudioFeatures.pickle")
 musCandidatasCurte    = pd.read_pickle ("MusCandidatasCurte.pickle")
@@ -56,12 +56,11 @@ def getStats():
     estats = pd.read_pickle("estatisticas.pickle")
     totalDePredicoes = estats.get("predicoes");
     predicoesCorretas = estats.get("predicoescorretas");
-    data = "Total de Predicoes: {}    Predicoes Corretas: {} ({:.0f}%)\n\
-Falsas Predicoes Curto: {}    Falsas Predicoes Nao Curto: {}\
-Por Conteudo nao bate com Colab: Curto: {}  Nao Curto: {}".format(
+    data = "Total de Predicoes: {}    Predicoes Corretas: {} ({:.0f}%)\nFalsas Predicoes Curto: {}    Falsas Predicoes Nao Curto: {}\n\
+Analise por Conteudo nao bate com Colab em- Curto: {}  Nao Curto: {}".format(
         totalDePredicoes, 
         predicoesCorretas,
-        (predicoesCorretas*100/totalDePredicoes),
+        (predicoesCorretas*100/1) if (totalDePredicoes==0) else (predicoesCorretas*100/totalDePredicoes),
         estats.get("falsospositivos"), 
         estats.get("falsosnegativos"),
         estats.get("CurteConteudoNaobateComColab"),
@@ -75,13 +74,15 @@ def rotaPredicao() -> object:
         if (request.method) == 'GET':
             estats = pd.read_pickle("estatisticas.pickle")
             tipo, interpretacao, estats["CurteConteudoNaobateComColab"], estats["NaoCurteConteudoNaobateComColab"] = Predicao( 
-                    modelo, 
-                    dominioAudioFeatures, 
-                    musCandidatasCurte,
-                    musCandidatasNaoCurte)
+                modelo, 
+                dominioAudioFeatures, 
+                musCandidatasCurte,
+                musCandidatasNaoCurte,
+                estats["CurteConteudoNaobateComColab"],
+                estats["NaoCurteConteudoNaobateComColab"])
             with open('estatisticas.pickle', 'wb') as arq:
                 pickle.dump(estats, arq)                    
-            return jsonify({'tipo':tipo, 'interpretacao': interpretacao})
+            return jsonify(tipo=tipo, interpretacao=interpretacao)
         if (request.method) == 'POST':
             updateStats(request.json)
             data = getStats()

@@ -17,9 +17,8 @@ def Predicao( modelo,
               dominioAudioFeatures, 
               musCandidatasCurte,
               musCandidatasNaoCurte,
-              estatCurteAnaliseConteudoNaobateComAnaliseColab,
-              estatNaoCurteAnaliseConteudoNaobateComAnaliseColab ) -> dict:
-
+              estatCurteConteudoNaobateComColab,
+              estatNaoCurteConteudoNaobateComColab ) -> dict:
 
   # escolhendo aleatoriamente entre tipo 'Curte' ou 'NaoCurte'
   escolhas = ['Curte', 'NaoCurte']
@@ -29,16 +28,16 @@ def Predicao( modelo,
   if (tipo=='Curte'):
     musCandidatas = musCandidatasCurte
     predicao_esperada = 1
-    estat = "CurteAnaliseConteudoNaobateComAnaliseColab"
+    estat = "CurteConteudoNaobateComColab"
   else:
     musCandidatas = musCandidatasNaoCurte
     predicao_esperada = 0
-    estat = "NaoCurteAnaliseConteudoNaobateComAnaliseColab"
+    estat = "NaoCurteConteudoNaobateComColab"
 
   encontrou = False
   estatisticas = {}
-  estatisticas["CurteAnaliseConteudoNaobateComAnaliseColab"] = estatCurteAnaliseConteudoNaobateComAnaliseColab
-  estatisticas["NaoCurteAnaliseConteudoNaobateComAnaliseColab"] = estatNaoCurteAnaliseConteudoNaobateComAnaliseColab
+  estatisticas["CurteConteudoNaobateComColab"] = estatCurteConteudoNaobateComColab
+  estatisticas["NaoCurteConteudoNaobateComColab"] = estatNaoCurteConteudoNaobateComColab
 
   while not encontrou:
     # Escolha aleatória de uma música Candidata
@@ -69,9 +68,6 @@ def Predicao( modelo,
 
   #logging.info('\n<< ClassifPredicao')
 
-  return {'tipo':tipo, 
-          'interpretacao':musCandidata['interpretacao'].to_string(index=False),
-          'CurteAnaliseConteudoNaobateComAnaliseColab': estatisticas['CurteAnaliseConteudoNaobateComAnaliseColab'],
-          'NaoCurteAnaliseConteudoNaobateComAnaliseColab': estatisticas['NaoCurteAnaliseConteudoNaobateComAnaliseColab']}
+  return tipo, musCandidata['interpretacao'].to_string(index=False), estatisticas['CurteConteudoNaobateComColab'], estatisticas['NaoCurteConteudoNaobateComColab']
   
   
