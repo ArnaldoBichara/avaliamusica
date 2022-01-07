@@ -121,3 +121,17 @@ min         1.000000
 75%       792.000000
 max    247092.000000
 27/10/2021 18:21:15 << Analisa MusUsers
+07/01/2022 11:10:36 >> GetFeaturesEDominio
+07/01/2022 11:10:38 GetFeaturesEDominio: spotify600k_tracks shape = (586672, 16)
+07/01/2022 11:10:40 Dominio antes de remover duplicates =(521887, 2)
+07/01/2022 11:10:40 Dominio apos remover duplicates =(521282, 2)
+07/01/2022 11:10:41 GetFeaturesEDominio: dominio shape = (521282, 2)
+07/01/2022 11:10:41 GetFeaturesEDominio: AudioFeatures shape = (520736, 14)
+07/01/2022 11:10:41 << GetFeaturesEDominio
+07/01/2022 11:11:04 >> GetFeaturesEDominio
+07/01/2022 11:11:06 GetFeaturesEDominio: spotify600k_tracks shape = (586672, 16)
+07/01/2022 11:11:08 Dominio antes de remover duplicates =(521887, 2)
+07/01/2022 11:11:08 Dominio apos remover duplicates =(521282, 2)
+07/01/2022 11:11:09 GetFeaturesEDominio: dominio shape = (521282, 2)
+07/01/2022 11:11:09 GetFeaturesEDominio: AudioFeatures shape = (520736, 14)
+07/01/2022 11:11:09 << GetFeaturesEDominio

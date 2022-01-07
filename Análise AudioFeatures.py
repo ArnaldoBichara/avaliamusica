@@ -17,7 +17,7 @@ logging.basicConfig(filename='./Analises/preprocessamento2.log',
                     )
 logging.info('>>Análise AudioFeatures')
 
-dfAudioFeatures =  pd.read_pickle("./FeatureStore/DominioAudioFeatures.pickle").drop(columns=['id_musica'])  
+dfAudioFeatures =  pd.read_pickle("./FeatureStore/AudioFeatures.pickle").drop(columns=['id_musica'])  
 dfUserAAudioFeatures =  pd.read_pickle ("./FeatureStore/AudioFeaturesUserACurte.pickle")  
 dfUserAbarradoAudioFeatures =  pd.read_pickle ("./FeatureStore/AudioFeaturesUserANaoCurte.pickle")  
 #%%

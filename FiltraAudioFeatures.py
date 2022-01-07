@@ -22,7 +22,7 @@ logging.basicConfig(filename='./Analises/preprocessamento2.log',
                     )
 logging.info('>> FiltraAudioFeatures')
 
-dfAudioFeatures      =  pd.read_pickle ("./FeatureStore/DominioAudioFeatures.pickle")  
+dfAudioFeatures      =  pd.read_pickle ("./FeatureStore/AudioFeatures.pickle")  
 dfUserAAudioFeatures =  pd.read_pickle ("./FeatureStore/AudioFeaturesUserACurte.pickle")  
 dfUserAbarraAudioFeatures =  pd.read_pickle ("./FeatureStore/AudioFeaturesUserANaoCurte.pickle")  
 

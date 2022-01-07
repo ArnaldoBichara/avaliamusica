@@ -7,7 +7,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from IPython.display import Image
 
-dfAudioFeatures =  pd.read_pickle ("./FeatureStore/AudioFeatures.pickle")  
+dfAudioFeatures =  pd.read_pickle ("./FeatureStore/DominioAudioFeatures.pickle")  
 dfUserAAudioFeatures =  pd.read_pickle ("./FeatureStore/AudioFeaturesUserACurte.pickle")  
 dfUserAbarradoAudioFeatures =  pd.read_pickle ("./FeatureStore/AudioFeaturesUserANaoCurte.pickle")  
 

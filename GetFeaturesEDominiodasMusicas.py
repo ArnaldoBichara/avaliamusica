@@ -83,7 +83,7 @@ dominioMusicas.sort_values(by=['interpretacao'], kind='quicksort', inplace=True)
 logging.info ('GetFeaturesEDominio: dominio shape = %s', dominioMusicas.shape)
 logging.info ('GetFeaturesEDominio: AudioFeatures shape = %s', dfSpotMusicas.shape)
 
-dfSpotMusicas.to_pickle('./FeatureStore/DominioAudioFeatures.pickle')
+dfSpotMusicas.to_pickle('./FeatureStore/AudioFeatures.pickle')
 dominioMusicas.to_pickle('./FeatureStore/DominioDasMusicas.pickle')
 
 logging.info('<< GetFeaturesEDominio')
