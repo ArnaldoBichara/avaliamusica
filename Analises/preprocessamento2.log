@@ -1,81 +1,30 @@
-27/10/2021 18:21:58 >> GetUserA_AudioFeatures
-27/10/2021 18:22:07 UserAMusFeatures shape (596, 18)
-27/10/2021 18:22:07 UserAMusbarraFeatures shape (554, 18)
-27/10/2021 18:22:07 UserAMusFeatures shape (595, 14)
-27/10/2021 18:22:07 UserAbarraMusFeatures shape (551, 14)
-27/10/2021 18:22:07 << GetUserA_AudioFeatures
-27/10/2021 18:22:09 >> GetUserA_AudioSamples
-27/10/2021 18:22:14 << GetUserA_AudioSamples
-27/10/2021 18:22:17 >>Análise AudioFeatures
-27/10/2021 18:22:28 << Análise AudioFeatures
-27/10/2021 18:22:33 >> FiltraAudioFeatures
-27/10/2021 18:22:33 NumExpr defaulting to 6 threads.
-27/10/2021 18:22:33 AudioFeatures com duration_ms > 30 seg = (520536, 14)
-27/10/2021 18:22:33 UserAAudioFeatures com duration_ms > 30 seg = (595, 14)
-27/10/2021 18:22:33 UserAbarraAudioFeatures com duration_ms > 30 seg = (551, 14)
-27/10/2021 18:22:33 AudioFeatures (520536, 14)
-27/10/2021 18:22:33 AudioFeaturesUserA (595, 14)
-27/10/2021 18:22:33 AudioFeaturesUserAbarra (551, 14)
-27/10/2021 18:22:33 AudioFeatures antes de filtro = (520536, 14)
-27/10/2021 18:22:34 AudioFeatures com speechiness < 0,6 = (497279, 14)
-27/10/2021 18:22:34 AudioFeatures sem loudness = (497279, 13)
-27/10/2021 18:22:34 AudioFeaturesUserA sem loudness = (595, 13)
-27/10/2021 18:22:34 AudioFeaturesUserAbarra sem loudness = (551, 13)
-27/10/2021 18:22:34 dfUserAFeatureSamples shape=(1146, 13)
-27/10/2021 18:22:35 << FiltraAudioFeatures
-29/10/2021 09:10:17 >> GetUserA_AudioSamples
-29/10/2021 09:11:59 << GetUserA_AudioSamples
-29/10/2021 09:12:18 >> MontaEspectrogramas
-29/10/2021 09:19:12 >> MontaEspectrogramas
-29/10/2021 09:43:44 << MontaEspectrogramas
-29/10/2021 12:32:19 >> MontaEspectrogramas
-29/10/2021 12:40:59 >> MontaEspectrogramas
-29/10/2021 12:41:16 >> MontaEspectrogramas
-29/10/2021 12:41:36 From c:\Users\abalm\.vscode\extensions\ms-python.python-2021.10.1365161279\pythonFiles\lib\python\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_resolver.py:193: Layer.updates (from tensorflow.python.keras.engine.base_layer) is deprecated and will be removed in a future version.
-Instructions for updating:
-This property should not be used in TensorFlow 2.0, as updates are applied automatically.
-29/10/2021 12:48:07 >> MontaEspectrogramas
-29/10/2021 12:48:23 >> MontaEspectrogramas
-29/10/2021 12:51:38 >> MontaEspectrogramas
-29/10/2021 12:54:58 >> MontaEspectrogramas
-29/10/2021 12:55:08 Tensor._shape is private, use Tensor.shape instead. Tensor._shape will eventually be removed.
-29/10/2021 12:55:22 Tensor._shape is private, use Tensor.shape instead. Tensor._shape will eventually be removed.
-29/10/2021 12:59:25 Tensor._shape is private, use Tensor.shape instead. Tensor._shape will eventually be removed.
-29/10/2021 12:59:26 Tensor._shape is private, use Tensor.shape instead. Tensor._shape will eventually be removed.
-29/10/2021 13:01:33 >> MontaEspectrogramas
-29/10/2021 13:01:41 Tensor._shape is private, use Tensor.shape instead. Tensor._shape will eventually be removed.
-29/10/2021 13:01:54 Tensor._shape is private, use Tensor.shape instead. Tensor._shape will eventually be removed.
-29/10/2021 13:02:27 Tensor._shape is private, use Tensor.shape instead. Tensor._shape will eventually be removed.
-29/10/2021 13:09:33 >> MontaEspectrogramas
-29/10/2021 13:31:56 >> MontaEspectrogramas
-29/10/2021 13:33:02 >> MontaEspectrogramas
-29/10/2021 13:34:52 >> MontaEspectrogramas
-29/10/2021 13:38:29 >> MontaEspectrogramas
-29/10/2021 13:39:46 >> MontaEspectrogramas
-29/10/2021 13:39:59 >> MontaEspectrogramas
-29/10/2021 13:54:52 >> MontaEspectrogramas
-29/10/2021 14:07:50 >> MontaEspectrogramas
-29/10/2021 14:47:23 >> MontaEspectrogramas
-29/10/2021 14:47:44 >> MontaEspectrogramas
-29/10/2021 14:57:37 >> MontaEspectrogramas
-29/10/2021 15:04:26 >> MontaEspectrogramas
-29/10/2021 15:04:51 >> MontaEspectrogramas
-29/10/2021 15:27:21 << MontaEspectrogramas
-29/10/2021 15:59:06 >> MontaEspectrogramas
-29/10/2021 16:06:52 << MontaEspectrogramas
-29/10/2021 17:08:08 >> MontaEspectrogramas
-29/10/2021 17:19:41 << MontaEspectrogramas
-29/10/2021 17:38:27 >> MontaEspectrogramas
-29/10/2021 18:08:08 << MontaEspectrogramas
-29/10/2021 18:17:58 >> MontaEspectrogramas
-29/10/2021 18:18:31 >> MontaEspectrogramas
-29/10/2021 18:35:27 << MontaEspectrogramas
-13/12/2021 09:52:12 >> MontaEspectrogramas
-13/12/2021 09:54:17 >> MontaEspectrogramas
-13/12/2021 10:05:16 >> MontaEspectrogramas
-13/12/2021 10:47:07 >> GetUserA_AudioSamples
-13/12/2021 10:48:47 << GetUserA_AudioSamples
-13/12/2021 10:49:53 >> MontaEspectrogramas
-13/12/2021 11:14:25 << MontaEspectrogramas
-13/12/2021 11:15:47 >> MontaEspectrogramas
-13/12/2021 11:40:14 << MontaEspectrogramas
+07/01/2022 11:40:35 >> GetUserA_AudioSamples
+07/01/2022 11:40:39 << GetUserA_AudioSamples
+07/01/2022 11:40:41 >> GetUserA_AudioFeatures
+07/01/2022 11:40:49 UserAMusFeatures shape (596, 18)
+07/01/2022 11:40:49 UserAMusbarraFeatures shape (554, 18)
+07/01/2022 11:40:50 UserAMusFeatures shape (595, 14)
+07/01/2022 11:40:50 UserAbarraMusFeatures shape (551, 14)
+07/01/2022 11:40:50 << GetUserA_AudioFeatures
+07/01/2022 11:40:56 >> MontaEspectrogramas
+07/01/2022 11:52:05 >>Análise AudioFeatures
+07/01/2022 12:06:43 >>Análise AudioFeatures
+07/01/2022 12:06:54 << Análise AudioFeatures
+07/01/2022 12:08:58 << MontaEspectrogramas
+07/01/2022 12:09:08 >>Análise AudioFeatures
+07/01/2022 12:09:17 << Análise AudioFeatures
+07/01/2022 12:09:20 >> FiltraAudioFeatures
+07/01/2022 12:09:20 NumExpr defaulting to 6 threads.
+07/01/2022 12:09:21 AudioFeatures com duration_ms > 30 seg = (520536, 14)
+07/01/2022 12:09:21 UserAAudioFeatures com duration_ms > 30 seg = (595, 14)
+07/01/2022 12:09:21 UserAbarraAudioFeatures com duration_ms > 30 seg = (551, 14)
+07/01/2022 12:09:21 AudioFeatures (520536, 14)
+07/01/2022 12:09:21 AudioFeaturesUserA (595, 14)
+07/01/2022 12:09:21 AudioFeaturesUserAbarra (551, 14)
+07/01/2022 12:09:21 AudioFeatures antes de filtro = (520536, 14)
+07/01/2022 12:09:21 AudioFeatures com speechiness < 0,6 = (497279, 14)
+07/01/2022 12:09:21 AudioFeatures sem loudness = (497279, 13)
+07/01/2022 12:09:21 AudioFeaturesUserA sem loudness = (595, 13)
+07/01/2022 12:09:21 AudioFeaturesUserAbarra sem loudness = (551, 13)
+07/01/2022 12:09:21 dfUserAFeatureSamples shape=(1146, 13)
+07/01/2022 12:09:21 << FiltraAudioFeatures

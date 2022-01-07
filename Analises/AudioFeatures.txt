@@ -34,8 +34,8 @@ Name: duration_ms, dtype: float64
 Danceability:
 User A curte    : Media= 0.423  Desvio Padrao= 0.169
 count    595.000000
-mean       0.423343
-std        0.168688
+mean       0.423346
+std        0.168690
 min        0.074700
 25%        0.293000
 50%        0.425000
@@ -162,7 +162,7 @@ Name: mode, dtype: float64
 Speechiness:
 User A curte    : Media= 0.041  Desvio Padrao= 0.025
 count    595.000000
-mean       0.041056
+mean       0.041054
 std        0.025256
 min        0.023600
 25%        0.031200
@@ -226,8 +226,8 @@ Name: acousticness, dtype: float64
 Instrumentalness:
 User A curte    : Media= 0.339  Desvio Padrao= 0.417
 count    595.000000
-mean       0.338966
-std        0.416994
+mean       0.338972
+std        0.417000
 min        0.000000
 25%        0.000014
 50%        0.013000
@@ -290,7 +290,7 @@ Name: liveness, dtype: float64
 Valence:
 User A curte    : Media= 0.312  Desvio Padrao= 0.227
 count    595.000000
-mean       0.312095
+mean       0.312091
 std        0.226626
 min        0.026300
 25%        0.128000
@@ -320,10 +320,10 @@ max           1.000000
 Name: valence, dtype: float64
 
 tempo:
-User A curte    : Media= 111.190  Desvio Padrao= 29.890
+User A curte    : Media= 111.190  Desvio Padrao= 29.889
 count    595.000000
-mean     111.189578
-std       29.890010
+mean     111.190370
+std       29.889388
 min       57.956000
 25%       85.596500
 50%      108.584000

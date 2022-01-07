@@ -135,3 +135,11 @@ max    247092.000000
 07/01/2022 11:11:09 GetFeaturesEDominio: dominio shape = (521282, 2)
 07/01/2022 11:11:09 GetFeaturesEDominio: AudioFeatures shape = (520736, 14)
 07/01/2022 11:11:09 << GetFeaturesEDominio
+07/01/2022 12:05:39 >> GetFeaturesEDominio
+07/01/2022 12:05:44 GetFeaturesEDominio: spotify600k_tracks shape = (586672, 16)
+07/01/2022 12:05:47 NumExpr defaulting to 6 threads.
+07/01/2022 12:05:48 Dominio antes de remover duplicates =(521887, 2)
+07/01/2022 12:05:49 Dominio apos remover duplicates =(521282, 2)
+07/01/2022 12:05:50 GetFeaturesEDominio: dominio shape = (521282, 2)
+07/01/2022 12:05:50 GetFeaturesEDominio: AudioFeatures shape = (520736, 14)
+07/01/2022 12:05:52 << GetFeaturesEDominio
