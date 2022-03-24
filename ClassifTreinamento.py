@@ -36,6 +36,7 @@ from tensorflow.python.keras.optimizer_v2.rmsprop import RMSprop
 from tensorflow.python.keras.layers.normalization import BatchNormalization
 from tensorflow.python.keras.callbacks import EarlyStopping, ModelCheckpoint, ReduceLROnPlateau
 from tensorflow.python.keras.models import load_model
+from sklearn.svm import SVC
 import joblib
 import os
 tf.get_logger().setLevel('ERROR') 
@@ -91,9 +92,13 @@ rf = RandomForestClassifier(n_estimators=400,
                             max_leaf_nodes=98,
                             max_samples=None)
 base_estimator = DecisionTreeClassifier(max_depth=1)
+base_estimator2 = SVC( probability= True, kernel='linear')
 ab = AdaBoostClassifier (n_estimators=400,
                          learning_rate=0.08,
                          base_estimator=base_estimator)    
+ab2 = AdaBoostClassifier (n_estimators=400,
+                         learning_rate=0.08,
+                         base_estimator=base_estimator2)                                 
 gb = GradientBoostingClassifier (n_estimators=400,
                                 learning_rate=0.04,
                                 max_depth=2)  
@@ -128,6 +133,17 @@ for i in range (5):
 acuraciaab = mean(acuracias)
 print("acuracia AdaBoost {:.3f}".format(acuraciaab))
 logging.info ("acuracia AdaBoost {:.3f}".format(acuraciaab))
+
+acuracias=[]
+for i in range (1):
+    ab2.fit (X_trein, y_trein)
+    y_predicao = ab2.predict (X_teste)
+    acuracia = balanced_accuracy_score (y_teste, y_predicao)
+    acuracias.append(acuracia)
+acuraciaab = mean(acuracias)
+print("acuracia AdaBoost com SVC {:.3f}".format(acuraciaab))
+logging.info ("acuracia AdaBoost SVC {:.3f}".format(acuraciaab))
+
 
 acuracias=[]
 for i in range (5):

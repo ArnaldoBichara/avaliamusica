@@ -6,3 +6,98 @@
 22/12/2021 13:32:03 acuracia Rede Neural MLP 0.781
 22/12/2021 13:32:05 
 << ClassifTreinamento
+14/03/2022 13:55:35 
+>> ClassifTreinamento
+14/03/2022 13:55:38 acuracia RandomForest 0.781
+14/03/2022 13:55:41 acuracia AdaBoost 0.767
+14/03/2022 13:55:44 acuracia GradientBoost 0.745
+14/03/2022 13:55:47 acuracia Rede Neural MLP 0.789
+14/03/2022 13:56:02 
+<< ClassifTreinamento
+14/03/2022 13:57:20 
+>> ClassifTreinamento
+14/03/2022 13:57:23 acuracia RandomForest 0.777
+14/03/2022 13:57:27 acuracia AdaBoost 0.767
+14/03/2022 13:57:29 acuracia GradientBoost 0.745
+14/03/2022 13:57:32 acuracia Rede Neural MLP 0.786
+14/03/2022 13:57:47 
+<< ClassifTreinamento
+14/03/2022 13:58:44 
+>> ClassifTreinamento
+14/03/2022 13:58:47 acuracia RandomForest 0.780
+14/03/2022 13:58:51 acuracia AdaBoost 0.767
+14/03/2022 13:58:53 acuracia GradientBoost 0.745
+14/03/2022 13:58:56 acuracia Rede Neural MLP 0.781
+14/03/2022 13:59:11 
+<< ClassifTreinamento
+14/03/2022 13:59:25 
+>> ClassifTreinamento
+14/03/2022 13:59:28 acuracia RandomForest 0.779
+14/03/2022 13:59:31 acuracia AdaBoost 0.767
+14/03/2022 13:59:34 acuracia GradientBoost 0.745
+14/03/2022 13:59:37 acuracia Rede Neural MLP 0.733
+14/03/2022 13:59:37 
+<< ClassifTreinamento
+14/03/2022 14:05:06 
+>> ClassifTreinamento
+14/03/2022 14:05:09 acuracia RandomForest 0.779
+14/03/2022 14:05:12 acuracia AdaBoost 0.767
+14/03/2022 14:05:15 acuracia GradientBoost 0.745
+14/03/2022 14:05:19 acuracia Rede Neural MLP 0.798
+14/03/2022 14:05:34 
+<< ClassifTreinamento
+14/03/2022 14:06:35 
+>> ClassifTreinamento
+14/03/2022 14:06:38 acuracia RandomForest 0.775
+14/03/2022 14:06:41 acuracia AdaBoost 0.767
+14/03/2022 14:07:47 
+>> ClassifTreinamento
+14/03/2022 14:07:50 acuracia RandomForest 0.783
+14/03/2022 14:07:53 acuracia AdaBoost 0.767
+14/03/2022 14:08:40 acuracia AdaBoost SVC 0.778
+14/03/2022 14:08:43 acuracia GradientBoost 0.745
+14/03/2022 14:08:46 acuracia Rede Neural MLP 0.787
+14/03/2022 14:09:00 
+<< ClassifTreinamento
+14/03/2022 14:09:08 
+>> ClassifTreinamento
+14/03/2022 14:09:11 acuracia RandomForest 0.777
+14/03/2022 14:09:15 acuracia AdaBoost 0.767
+14/03/2022 14:10:03 acuracia AdaBoost SVC 0.784
+14/03/2022 14:10:06 acuracia GradientBoost 0.745
+14/03/2022 14:10:10 acuracia Rede Neural MLP 0.792
+14/03/2022 14:10:25 
+<< ClassifTreinamento
+14/03/2022 14:10:55 
+>> ClassifTreinamento
+14/03/2022 14:10:58 acuracia RandomForest 0.783
+14/03/2022 14:11:01 acuracia AdaBoost 0.767
+14/03/2022 14:11:47 acuracia AdaBoost SVC 0.770
+14/03/2022 14:11:49 acuracia GradientBoost 0.745
+14/03/2022 14:11:53 acuracia Rede Neural MLP 0.787
+14/03/2022 14:12:08 
+<< ClassifTreinamento
+14/03/2022 14:12:28 
+>> ClassifTreinamento
+14/03/2022 14:12:30 acuracia RandomForest 0.781
+14/03/2022 14:12:34 acuracia AdaBoost 0.767
+14/03/2022 14:13:20 acuracia AdaBoost SVC 0.779
+14/03/2022 14:13:23 acuracia GradientBoost 0.745
+14/03/2022 14:13:25 acuracia Rede Neural MLP 0.733
+14/03/2022 14:13:26 
+<< ClassifTreinamento
+14/03/2022 14:16:11 
+>> ClassifTreinamentoCNNRNN
+14/03/2022 14:44:42 acuracia CNNeRNN 0.758
+14/03/2022 14:44:42 report CNNeRNN:
+               precision    recall  f1-score   support
+
+   Nao Curte       0.73      0.73      0.73       141
+       Curte       0.78      0.78      0.78       173
+
+    accuracy                           0.76       314
+   macro avg       0.76      0.76      0.76       314
+weighted avg       0.76      0.76      0.76       314
+
+14/03/2022 14:44:42 
+<< ClassifTreinamentoCNNRNN
